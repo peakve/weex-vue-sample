@@ -1,0 +1,109 @@
+﻿<html>
+
+<head>
+    <title>K线图</title>
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/jquery.mousewheel.js"></script>
+    <style type="text/css">
+        body::before {
+            content: "1";
+            height: 1px;
+            overflow: hidden;
+            color: transparent;
+            display: block;
+        }
+        
+        .kline {
+            /* width: 250px; */
+            margin-left: auto;
+            margin-right: auto;
+            /* height: 462px; */
+            position: relative;
+        }
+        
+        #kline_container {
+            overflow-x: hidden
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kline">
+
+        <!-- <h1>K线图</h1> -->
+        <div id="kline_container"></div>
+
+
+    </div>
+
+    <script src="../dist/kline.js"></script>
+    <script>
+        function getViewportSize() {
+            return {
+                width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+            };
+        }
+    </script>
+
+    <script type="text/javascript">
+        var kline = new Kline({
+            element: "#kline_container",
+            width: getViewportSize().width - 10,
+            height: getViewportSize().height,
+            theme: 'light', // light/dark
+            language: 'zh-cn', // zh-cn/en-us/zh-tw
+            ranges: ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"],
+            symbol: "BTC",
+            symbolName: "BTC/USD",
+            type: "poll", // poll/socket
+            url: "./mock.json",
+            limit: 1000,
+            intervalTime: 5000,
+            debug: false,
+            showTrade: false,
+            onResize: function(width, height) {
+                console.log("chart resized: " + width + " " + height);
+            }
+        });
+
+        kline.draw();
+
+
+        $('#resize-btn').click(function() {
+            var height = $('#height').val();
+            var width = $('#width').val();
+            kline.resize(width, height);
+        });
+
+        $('#switch-trade-btn').click(function() {
+            kline.toggleTrade();
+        });
+
+        $('#set-symbol-btn').click(function() {
+            var symbol = $('#symbol').val();
+            var symbolName = $('#symbol-name').val();
+            kline.setSymbol(symbol, symbolName);
+        });
+
+        $('#toggle-theme-btn').click(function() {
+            if (kline.theme == "dark") {
+                kline.setTheme("light");
+            } else {
+                kline.setTheme("dark");
+            }
+        });
+
+        $('#set-lang-btn').click(function() {
+            var lang = $('#lang-select').val();
+            kline.setLanguage(lang);
+        });
+    </script>
+
+</body>
+
+</html>

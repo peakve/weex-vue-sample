@@ -1,0 +1,6 @@
+{
+    "AppName": "bb8",
+    "AppId": "com.fintechawaken.bb8.app",
+    "SplashText": "Hello\nWeex",
+    "WeexBundle": "index.js"
+}
