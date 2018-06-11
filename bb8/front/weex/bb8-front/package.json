@@ -7,9 +7,10 @@
         "file-loader": "^0.11.1",
         "build": "webpack",
         "build_plugin": "webpack --config ./tools/webpack.config.plugin.js --color",
-        "dev": "webpack --config webpack.config.js --watch",
+        "dev": "webpack --config webpack.dev.js --watch",
         "serve1": "node build/init.js && serve -p 8080",
-        "serve": "webpack-dev-server --config webpack.dev.js --progress --watch-poll   --watch --open --info --profile"
+        "serve2": "webpack-dev-server --config webpack.dev.js --progress --watch-poll   --watch --open --info --profile",
+        "serve": "webpack-dev-server --inline  --progress --config webpack.dev.js  --watch-poll   --watch --open"
     },
     "keywords": [
         "weex"
