@@ -65,12 +65,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 255);
+/******/ 	return __webpack_require__(__webpack_require__.s = 256);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 102:
+/***/ 100:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -131,7 +131,80 @@ module.exports = {
 
 /***/ }),
 
-/***/ 107:
+/***/ 102:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "iconfont": {
+    "fontFamily": "iconfont"
+  },
+  "wrapper": {
+    "position": "fixed",
+    "top": 114,
+    "left": 0,
+    "right": 0,
+    "height": 54,
+    "zIndex": 10,
+    "backgroundColor": "#fafafa",
+    "borderBottomWidth": 1,
+    "borderBottomColor": "#d9d9d9"
+  },
+  "w-ipx": {
+    "top": 154
+  },
+  "tab-i": {
+    "flexFlow": "column",
+    "alignItems": "center",
+    "justifyContent": "center"
+  },
+  "scroller": {
+    "height": 54,
+    "flexDirection": "row"
+  },
+  "i-c": {
+    "paddingTop": 10,
+    "paddingLeft": 45,
+    "paddingRight": 45,
+    "paddingBottom": 6,
+    "fontSize": 26,
+    "color": "#333333"
+  },
+  "c-act": {
+    "color": "#b4282d"
+  },
+  "j-uline": {
+    "width": 80,
+    "height": 4,
+    "backgroundColor": "#b4282d"
+  }
+}
+
+/***/ }),
+
+/***/ 109:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    class: ['wrapper', _vm.isIpx && _vm.isIpx() ? 'w-ipx' : '']
+  }, [_c('div', {
+    staticClass: ["scan"]
+  }), _c('text', {
+    staticClass: ["iconfont"],
+    on: {
+      "click": function($event) {
+        _vm.jumpWeb()
+      }
+    }
+  }, [_vm._v("早知道")]), _c('div', {
+    staticClass: ["notice"]
+  })])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 111:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -195,29 +268,6 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 111:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    class: ['wrapper', _vm.isIpx && _vm.isIpx() ? 'w-ipx' : '']
-  }, [_c('div', {
-    staticClass: ["scan"]
-  }), _c('text', {
-    staticClass: ["iconfont"],
-    on: {
-      "click": function($event) {
-        _vm.jumpWeb()
-      }
-    }
-  }, [_vm._v("早知道")]), _c('div', {
-    staticClass: ["notice"]
-  })])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
-/***/ }),
-
 /***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -228,11 +278,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _header = __webpack_require__(199);
+var _header = __webpack_require__(200);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _navtab = __webpack_require__(200);
+var _navtab = __webpack_require__(201);
 
 var _navtab2 = _interopRequireDefault(_navtab);
 
@@ -265,7 +315,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 178:
+/***/ 175:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -277,7 +327,52 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 199:
+/***/ 200:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(100)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(95)
+
+/* template */
+var __vue_template__ = __webpack_require__(109)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/news/header.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-096befb6"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+
+/***/ 201:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
@@ -288,7 +383,7 @@ __vue_styles__.push(__webpack_require__(102)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(95)
+__vue_exports__ = __webpack_require__(96)
 
 /* template */
 var __vue_template__ = __webpack_require__(111)
@@ -303,10 +398,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/news/header.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/news/navtab.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-5be508bc"
+__vue_options__._scopeId = "data-v-3e3a623b"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -322,52 +417,7 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 200:
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(98)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(96)
-
-/* template */
-var __vue_template__ = __webpack_require__(107)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/news/navtab.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-06dbee27"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
-
-/***/ 255:
+/***/ 256:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
@@ -377,7 +427,7 @@ var __vue_styles__ = []
 __vue_exports__ = __webpack_require__(160)
 
 /* template */
-var __vue_template__ = __webpack_require__(178)
+var __vue_template__ = __webpack_require__(175)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -389,7 +439,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/news/bnews.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/news/bnews.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}
@@ -610,56 +660,6 @@ exports.default = {
         }
     }
 };
-
-/***/ }),
-
-/***/ 98:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "iconfont": {
-    "fontFamily": "iconfont"
-  },
-  "wrapper": {
-    "position": "fixed",
-    "top": 114,
-    "left": 0,
-    "right": 0,
-    "height": 54,
-    "zIndex": 10,
-    "backgroundColor": "#fafafa",
-    "borderBottomWidth": 1,
-    "borderBottomColor": "#d9d9d9"
-  },
-  "w-ipx": {
-    "top": 154
-  },
-  "tab-i": {
-    "flexFlow": "column",
-    "alignItems": "center",
-    "justifyContent": "center"
-  },
-  "scroller": {
-    "height": 54,
-    "flexDirection": "row"
-  },
-  "i-c": {
-    "paddingTop": 10,
-    "paddingLeft": 45,
-    "paddingRight": 45,
-    "paddingBottom": 6,
-    "fontSize": 26,
-    "color": "#333333"
-  },
-  "c-act": {
-    "color": "#b4282d"
-  },
-  "j-uline": {
-    "width": 80,
-    "height": 4,
-    "backgroundColor": "#b4282d"
-  }
-}
 
 /***/ })
 

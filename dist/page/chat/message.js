@@ -65,12 +65,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 235);
+/******/ 	return __webpack_require__(__webpack_require__.s = 236);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 101:
+/***/ 106:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -107,7 +107,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 110:
+/***/ 115:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -121,21 +121,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 235:
+/***/ 236:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(101)
+__vue_styles__.push(__webpack_require__(106)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(89)
 
 /* template */
-var __vue_template__ = __webpack_require__(110)
+var __vue_template__ = __webpack_require__(115)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -147,10 +147,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/chat/message.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/chat/message.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-4d372a72"
+__vue_options__._scopeId = "data-v-e4570d9a"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {

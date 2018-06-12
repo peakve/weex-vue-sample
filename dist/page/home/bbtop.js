@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 246);
+/******/ 	return __webpack_require__(__webpack_require__.s = 247);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2708,10 +2708,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/components/refresh.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/components/refresh.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-96cdd9ce"
+__vue_options__._scopeId = "data-v-3d67a085"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -2874,7 +2874,9 @@ exports.default = {
 /* 96 */,
 /* 97 */,
 /* 98 */,
-/* 99 */
+/* 99 */,
+/* 100 */,
+/* 101 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2946,15 +2948,15 @@ module.exports = {
 }
 
 /***/ }),
-/* 100 */,
-/* 101 */,
 /* 102 */,
 /* 103 */,
 /* 104 */,
 /* 105 */,
 /* 106 */,
 /* 107 */,
-/* 108 */
+/* 108 */,
+/* 109 */,
+/* 110 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2984,8 +2986,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 109 */,
-/* 110 */,
 /* 111 */,
 /* 112 */,
 /* 113 */,
@@ -3209,10 +3209,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/node_modules/weex-ui/packages/wxc-button/index.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/node_modules/weex-ui/packages/wxc-button/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-4508d37c"
+__vue_options__._scopeId = "data-v-18d39690"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3253,10 +3253,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/node_modules/weex-ui/packages/wxc-overlay/index.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/node_modules/weex-ui/packages/wxc-overlay/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-aea83cc8"
+__vue_options__._scopeId = "data-v-4e398108"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3297,10 +3297,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/node_modules/weex-ui/packages/wxc-popup/index.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/node_modules/weex-ui/packages/wxc-popup/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-61622338"
+__vue_options__._scopeId = "data-v-2e68ada4"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3904,7 +3904,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _bbItem = __webpack_require__(195);
+var _bbItem = __webpack_require__(196);
 
 var _bbItem2 = _interopRequireDefault(_bbItem);
 
@@ -4042,9 +4042,7 @@ exports.default = {
 /* 161 */,
 /* 162 */,
 /* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */
+/* 164 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -4082,14 +4080,14 @@ module.exports = {
 }
 
 /***/ }),
+/* 165 */,
+/* 166 */,
 /* 167 */,
 /* 168 */,
 /* 169 */,
 /* 170 */,
 /* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */
+/* 172 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4146,6 +4144,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
+/* 173 */,
+/* 174 */,
 /* 175 */,
 /* 176 */,
 /* 177 */,
@@ -4166,21 +4166,22 @@ module.exports.render._withStripped = true
 /* 192 */,
 /* 193 */,
 /* 194 */,
-/* 195 */
+/* 195 */,
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(99)
+__vue_styles__.push(__webpack_require__(101)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(91)
 
 /* template */
-var __vue_template__ = __webpack_require__(108)
+var __vue_template__ = __webpack_require__(110)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -4192,10 +4193,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/bbItem.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/bbItem.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-318eb008"
+__vue_options__._scopeId = "data-v-1e971c10"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -4210,7 +4211,6 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 196 */,
 /* 197 */,
 /* 198 */,
 /* 199 */,
@@ -4260,21 +4260,22 @@ module.exports = __vue_exports__
 /* 243 */,
 /* 244 */,
 /* 245 */,
-/* 246 */
+/* 246 */,
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(166)
+__vue_styles__.push(__webpack_require__(164)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(157)
 
 /* template */
-var __vue_template__ = __webpack_require__(174)
+var __vue_template__ = __webpack_require__(172)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -4286,10 +4287,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/bbtop.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/bbtop.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-6e7baf9c"
+__vue_options__._scopeId = "data-v-2e346908"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {

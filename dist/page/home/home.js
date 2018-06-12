@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 252);
+/******/ 	return __webpack_require__(__webpack_require__.s = 253);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1613,12 +1613,7 @@ exports.default = {
 /* 95 */,
 /* 96 */,
 /* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */
+/* 98 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1678,8 +1673,12 @@ module.exports = {
 }
 
 /***/ }),
-/* 104 */,
-/* 105 */
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1741,13 +1740,9 @@ module.exports = {
 }
 
 /***/ }),
+/* 105 */,
 /* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */
+/* 107 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1777,8 +1772,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 113 */,
-/* 114 */
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1932,6 +1931,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
+/* 114 */,
 /* 115 */,
 /* 116 */,
 /* 117 */,
@@ -3334,11 +3334,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _header = __webpack_require__(196);
+var _header = __webpack_require__(197);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _topChannel = __webpack_require__(198);
+var _topChannel = __webpack_require__(199);
 
 var _topChannel2 = _interopRequireDefault(_topChannel);
 
@@ -3381,7 +3381,17 @@ exports.default = {
 /* 166 */,
 /* 167 */,
 /* 168 */,
-/* 169 */
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3392,16 +3402,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
 /* 180 */,
 /* 181 */,
 /* 182 */,
@@ -3418,21 +3418,22 @@ module.exports.render._withStripped = true
 /* 193 */,
 /* 194 */,
 /* 195 */,
-/* 196 */
+/* 196 */,
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(103)
+__vue_styles__.push(__webpack_require__(98)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(92)
 
 /* template */
-var __vue_template__ = __webpack_require__(112)
+var __vue_template__ = __webpack_require__(107)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3444,10 +3445,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/header.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/header.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-6684dbd4"
+__vue_options__._scopeId = "data-v-041c062a"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3462,22 +3463,22 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 197 */,
-/* 198 */
+/* 198 */,
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(105)
+__vue_styles__.push(__webpack_require__(104)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(94)
 
 /* template */
-var __vue_template__ = __webpack_require__(114)
+var __vue_template__ = __webpack_require__(113)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3489,10 +3490,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/topChannel.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/topChannel.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-d63bdf12"
+__vue_options__._scopeId = "data-v-51005a8b"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3507,7 +3508,6 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 199 */,
 /* 200 */,
 /* 201 */,
 /* 202 */,
@@ -3560,7 +3560,8 @@ module.exports = __vue_exports__
 /* 249 */,
 /* 250 */,
 /* 251 */,
-/* 252 */
+/* 252 */,
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
@@ -3570,7 +3571,7 @@ var __vue_styles__ = []
 __vue_exports__ = __webpack_require__(159)
 
 /* template */
-var __vue_template__ = __webpack_require__(169)
+var __vue_template__ = __webpack_require__(179)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3582,7 +3583,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/home.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/home.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}

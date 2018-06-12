@@ -11,8 +11,10 @@
             <div class="b-tlt">
                 <image class="i-tag tag-e" resize="contain" src="http://yanxuan.nosdn.127.net/3dc6e876620bb84a5dac3deb6ecd4916.png"></image>
                 <text class="i-tag tag-v8 iconfont">&#xe6cc;</text>
-                <text class="txt-tag">bb8智能投顾</text>
+                <text class="txt-tag">bb8智能投顾22</text>
+                 <image style="width:50px;height:50px"  resize="cover" src="/assets/images/b.png"/>
             </div>
+            
             <text class="b-qrcode iconfont" >&#xe60e;</text>
         </div>
         <div class="fbs">

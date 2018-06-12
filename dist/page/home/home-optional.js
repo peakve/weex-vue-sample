@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 250);
+/******/ 	return __webpack_require__(__webpack_require__.s = 251);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2680,10 +2680,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/components/refresh.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/components/refresh.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-96cdd9ce"
+__vue_options__._scopeId = "data-v-3d67a085"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -2818,12 +2818,7 @@ exports.default = {
 /* 96 */,
 /* 97 */,
 /* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */
+/* 99 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2856,8 +2851,10 @@ module.exports = {
 }
 
 /***/ }),
-/* 105 */,
-/* 106 */
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2933,13 +2930,11 @@ module.exports = {
 }
 
 /***/ }),
+/* 104 */,
+/* 105 */,
+/* 106 */,
 /* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */
+/* 108 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2970,8 +2965,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 114 */,
-/* 115 */
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3007,6 +3004,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
+/* 113 */,
+/* 114 */,
+/* 115 */,
 /* 116 */,
 /* 117 */,
 /* 118 */,
@@ -3067,11 +3067,11 @@ var _refresh = __webpack_require__(88);
 
 var _refresh2 = _interopRequireDefault(_refresh);
 
-var _YXSlider = __webpack_require__(194);
+var _YXSlider = __webpack_require__(195);
 
 var _YXSlider2 = _interopRequireDefault(_YXSlider);
 
-var _homeBlock = __webpack_require__(197);
+var _homeBlock = __webpack_require__(198);
 
 var _homeBlock2 = _interopRequireDefault(_homeBlock);
 
@@ -3313,21 +3313,22 @@ module.exports.render._withStripped = true
 /* 191 */,
 /* 192 */,
 /* 193 */,
-/* 194 */
+/* 194 */,
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(104)
+__vue_styles__.push(__webpack_require__(99)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(90)
 
 /* template */
-var __vue_template__ = __webpack_require__(113)
+var __vue_template__ = __webpack_require__(108)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3339,10 +3340,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/components/YXSlider.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/components/YXSlider.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-780b5112"
+__vue_options__._scopeId = "data-v-090e7126"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3357,23 +3358,23 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 195 */,
 /* 196 */,
-/* 197 */
+/* 197 */,
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(106)
+__vue_styles__.push(__webpack_require__(103)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(93)
 
 /* template */
-var __vue_template__ = __webpack_require__(115)
+var __vue_template__ = __webpack_require__(112)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3385,10 +3386,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/home-block1.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/home-block1.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-faca928e"
+__vue_options__._scopeId = "data-v-4a45af25"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3403,7 +3404,6 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 198 */,
 /* 199 */,
 /* 200 */,
 /* 201 */,
@@ -3455,7 +3455,8 @@ module.exports = __vue_exports__
 /* 247 */,
 /* 248 */,
 /* 249 */,
-/* 250 */
+/* 250 */,
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
@@ -3481,10 +3482,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/home-optional.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/home-optional.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-63b5f8d6"
+__vue_options__._scopeId = "data-v-56f39101"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {

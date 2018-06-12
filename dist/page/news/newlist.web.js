@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 280);
+/******/ 	return __webpack_require__(__webpack_require__.s = 282);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -109,11 +109,11 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_37bc92f9_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_newlist_vue__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_37bc92f9_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_newlist_vue__ = __webpack_require__(223);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(304)
+  __webpack_require__(232)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -269,7 +269,22 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 222:
+/***/ 213:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)();
+// imports
+
+
+// module
+exports.push([module.i, "\n.main-list{\n       position: fixed;\n       top: 168px;\n       bottom: 90px;\n       left: 0;\n       right: 0;\n       /*margin-top: 167px;*/\n       /*margin-bottom: 90px;*/\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 223:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -424,44 +439,17 @@ if (false) {
 
 /***/ }),
 
-/***/ 280:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var App = __webpack_require__(196);
-App.el = '#root';
-new Vue(App);
-
-/***/ }),
-
-/***/ 303:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)();
-// imports
-
-
-// module
-exports.push([module.i, "\n.main-list{\n       position: fixed;\n       top: 168px;\n       bottom: 90px;\n       left: 0;\n       right: 0;\n       /*margin-top: 167px;*/\n       /*margin-bottom: 90px;*/\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 304:
+/***/ 232:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(303);
+var content = __webpack_require__(213);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("8492b5dc", content, false, {});
+var update = __webpack_require__(4)("8492b5dc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -478,7 +466,19 @@ if(false) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 282:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var App = __webpack_require__(196);
+App.el = '#root';
+new Vue(App);
+
+/***/ }),
+
+/***/ 3:
 /***/ (function(module, exports) {
 
 /*
@@ -535,7 +535,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
