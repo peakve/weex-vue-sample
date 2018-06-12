@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 282);
+/******/ 	return __webpack_require__(__webpack_require__.s = 284);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -238,13 +238,15 @@ exports.default = {
 //
 //
 //
+//
+//
 
 /***/ }),
 
 /***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)();
+exports = module.exports = __webpack_require__(3)();
 // imports
 
 
@@ -348,7 +350,7 @@ var content = __webpack_require__(158);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("0d96d1ec", content, false, {});
+var update = __webpack_require__(4)("0d96d1ec", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -373,11 +375,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_UserView_vue__ = __webpack_require__(123);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_UserView_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_UserView_vue__);
 /* harmony namespace reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_UserView_vue__) if(["default","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_UserView_vue__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_294ca5e6_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_UserView_vue__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_294ca5e6_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_UserView_vue__ = __webpack_require__(222);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(230)
+  __webpack_require__(231)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -537,7 +539,7 @@ module.exports = function normalizeComponent (
 /***/ 212:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(4)();
+exports = module.exports = __webpack_require__(3)();
 // imports
 
 
@@ -549,7 +551,7 @@ exports.push([module.i, "\n.user-info[data-v-294ca5e6] {\n  padding-top: 60px;\n
 
 /***/ }),
 
-/***/ 221:
+/***/ 222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -625,7 +627,14 @@ var render = function() {
                   _vm._v("")
                 ]),
                 _vm._v(" "),
-                _c("text", { staticClass: "txt-tag" }, [_vm._v("bb8智能投顾")])
+                _c("text", { staticClass: "txt-tag" }, [
+                  _vm._v("bb8智能投顾22")
+                ]),
+                _vm._v(" "),
+                _c("image", {
+                  staticStyle: { width: "50px", height: "50px" },
+                  attrs: { resize: "cover", src: "/assets/images/b.png" }
+                })
               ]),
               _vm._v(" "),
               _c("text", { staticClass: "b-qrcode iconfont" }, [_vm._v("")])
@@ -901,7 +910,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 230:
+/***/ 231:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -911,7 +920,7 @@ var content = __webpack_require__(212);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("79d94666", content, false, {});
+var update = __webpack_require__(4)("79d94666", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -928,7 +937,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 282:
+/***/ 284:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -940,7 +949,7 @@ new Vue(App);
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports) {
 
 /*
@@ -997,7 +1006,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*

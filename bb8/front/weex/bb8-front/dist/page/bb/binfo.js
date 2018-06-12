@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 230);
+/******/ 	return __webpack_require__(__webpack_require__.s = 231);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2784,8 +2784,7 @@ exports.default = {
 /* 159 */,
 /* 160 */,
 /* 161 */,
-/* 162 */,
-/* 163 */
+/* 162 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2851,11 +2850,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */
+/* 163 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2925,9 +2920,13 @@ module.exports = {
 }
 
 /***/ }),
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
 /* 169 */,
-/* 170 */,
-/* 171 */
+/* 170 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2992,12 +2991,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */
+/* 171 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -3021,6 +3015,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
 /* 178 */,
 /* 179 */,
 /* 180 */,
@@ -3053,7 +3053,8 @@ module.exports.render._withStripped = true
 /* 207 */,
 /* 208 */,
 /* 209 */,
-/* 210 */
+/* 210 */,
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3067,11 +3068,11 @@ var _util = __webpack_require__(55);
 
 var _util2 = _interopRequireDefault(_util);
 
-var _btabBar = __webpack_require__(231);
+var _btabBar = __webpack_require__(232);
 
 var _btabBar2 = _interopRequireDefault(_btabBar);
 
-var _header = __webpack_require__(237);
+var _header = __webpack_require__(238);
 
 var _header2 = _interopRequireDefault(_header);
 
@@ -3135,11 +3136,11 @@ exports.default = {
 };
 
 /***/ }),
-/* 211 */,
 /* 212 */,
 /* 213 */,
 /* 214 */,
-/* 215 */
+/* 215 */,
+/* 216 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3200,7 +3201,6 @@ module.exports = {
 }
 
 /***/ }),
-/* 216 */,
 /* 217 */,
 /* 218 */,
 /* 219 */
@@ -3249,18 +3249,19 @@ module.exports.render._withStripped = true
 /* 227 */,
 /* 228 */,
 /* 229 */,
-/* 230 */
+/* 230 */,
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(215)
+__vue_styles__.push(__webpack_require__(216)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(210)
+__vue_exports__ = __webpack_require__(211)
 
 /* template */
 var __vue_template__ = __webpack_require__(219)
@@ -3275,10 +3276,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/bb/binfo.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/bb/binfo.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-64a93ef8"
+__vue_options__._scopeId = "data-v-2fd96364"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3295,21 +3296,21 @@ new Vue(module.exports)
 
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(163)
+__vue_styles__.push(__webpack_require__(162)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(153)
 
 /* template */
-var __vue_template__ = __webpack_require__(171)
+var __vue_template__ = __webpack_require__(170)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3321,10 +3322,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/bb/btabBar.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/bb/btabBar.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-41b54e08"
+__vue_options__._scopeId = "data-v-016e0774"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -3339,26 +3340,26 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 232 */,
 /* 233 */,
 /* 234 */,
 /* 235 */,
 /* 236 */,
-/* 237 */
+/* 237 */,
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(168)
+__vue_styles__.push(__webpack_require__(163)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(155)
 
 /* template */
-var __vue_template__ = __webpack_require__(177)
+var __vue_template__ = __webpack_require__(171)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -3370,10 +3371,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/components/header.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/components/header.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-7f465282"
+__vue_options__._scopeId = "data-v-23de285a"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {

@@ -65,12 +65,27 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 259);
+/******/ 	return __webpack_require__(__webpack_require__.s = 260);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 176:
+/***/ 168:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "main-list": {
+    "position": "fixed",
+    "top": 168,
+    "bottom": 90,
+    "left": 0,
+    "right": 0
+  }
+}
+
+/***/ }),
+
+/***/ 177:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -84,18 +99,18 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 259:
+/***/ 260:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(269)
+__vue_styles__.push(__webpack_require__(168)
 )
 
 /* template */
-var __vue_template__ = __webpack_require__(176)
+var __vue_template__ = __webpack_require__(177)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -107,10 +122,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/news/newlist.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/news/newlist.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-7a1ecf0e"
+__vue_options__._scopeId = "data-v-7760a6e5"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -125,21 +140,6 @@ module.exports = __vue_exports__
 module.exports.el = 'true'
 new Vue(module.exports)
 
-
-/***/ }),
-
-/***/ 269:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "main-list": {
-    "position": "fixed",
-    "top": 168,
-    "bottom": 90,
-    "left": 0,
-    "right": 0
-  }
-}
 
 /***/ })
 

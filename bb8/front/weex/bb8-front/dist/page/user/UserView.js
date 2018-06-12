@@ -65,12 +65,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 262);
+/******/ 	return __webpack_require__(__webpack_require__.s = 263);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 100:
+/***/ 105:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -131,7 +131,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 109:
+/***/ 114:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -172,7 +172,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _UserHeader = __webpack_require__(201);
+var _UserHeader = __webpack_require__(202);
 
 var _UserHeader2 = _interopRequireDefault(_UserHeader);
 
@@ -271,10 +271,11 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
 
-/***/ 167:
+/***/ 169:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -474,7 +475,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 175:
+/***/ 178:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -572,7 +573,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["i-tag", "tag-v8", "iconfont"]
   }, [_vm._v("")]), _c('text', {
     staticClass: ["txt-tag"]
-  }, [_vm._v("bb8智能投顾")])])
+  }, [_vm._v("bb8智能投顾")]), _c('image', {
+    attrs: {
+      "src": "/assets/images/b.png"
+    }
+  })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["s-box", "cell-button"]
@@ -731,21 +736,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 201:
+/***/ 202:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(100)
+__vue_styles__.push(__webpack_require__(105)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(97)
 
 /* template */
-var __vue_template__ = __webpack_require__(109)
+var __vue_template__ = __webpack_require__(114)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -757,10 +762,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/user/UserHeader.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/user/UserHeader.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-4b805116"
+__vue_options__._scopeId = "data-v-d343bcee"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -776,21 +781,21 @@ module.exports = __vue_exports__
 
 /***/ }),
 
-/***/ 262:
+/***/ 263:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(167)
+__vue_styles__.push(__webpack_require__(169)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(161)
 
 /* template */
-var __vue_template__ = __webpack_require__(175)
+var __vue_template__ = __webpack_require__(178)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -802,10 +807,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/user/UserView.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/user/UserView.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-72b350e6"
+__vue_options__._scopeId = "data-v-bf8fd2be"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {

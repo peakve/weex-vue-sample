@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 263);
+/******/ 	return __webpack_require__(__webpack_require__.s = 264);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2594,7 +2594,8 @@ module.exports = g;
 /* 210 */,
 /* 211 */,
 /* 212 */,
-/* 213 */
+/* 213 */,
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2680,9 +2681,9 @@ exports.default = {
 };
 
 /***/ }),
-/* 214 */,
 /* 215 */,
-/* 216 */
+/* 216 */,
+/* 217 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2771,7 +2772,6 @@ module.exports = {
 }
 
 /***/ }),
-/* 217 */,
 /* 218 */,
 /* 219 */,
 /* 220 */
@@ -2861,18 +2861,19 @@ module.exports.render._withStripped = true
 /* 260 */,
 /* 261 */,
 /* 262 */,
-/* 263 */
+/* 263 */,
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(216)
+__vue_styles__.push(__webpack_require__(217)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(213)
+__vue_exports__ = __webpack_require__(214)
 
 /* template */
 var __vue_template__ = __webpack_require__(220)
@@ -2887,10 +2888,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/webview.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/webview.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-c1e99a5c"
+__vue_options__._scopeId = "data-v-7c4ed0e6"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {

@@ -65,12 +65,62 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 257);
+/******/ 	return __webpack_require__(__webpack_require__.s = 258);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 107:
+/***/ 102:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "iconfont": {
+    "fontFamily": "iconfont"
+  },
+  "wrapper": {
+    "position": "fixed",
+    "top": 114,
+    "left": 0,
+    "right": 0,
+    "height": 54,
+    "zIndex": 10,
+    "backgroundColor": "#fafafa",
+    "borderBottomWidth": 1,
+    "borderBottomColor": "#d9d9d9"
+  },
+  "w-ipx": {
+    "top": 154
+  },
+  "tab-i": {
+    "flexFlow": "column",
+    "alignItems": "center",
+    "justifyContent": "center"
+  },
+  "scroller": {
+    "height": 54,
+    "flexDirection": "row"
+  },
+  "i-c": {
+    "paddingTop": 10,
+    "paddingLeft": 45,
+    "paddingRight": 45,
+    "paddingBottom": 6,
+    "fontSize": 26,
+    "color": "#333333"
+  },
+  "c-act": {
+    "color": "#b4282d"
+  },
+  "j-uline": {
+    "width": 80,
+    "height": 4,
+    "backgroundColor": "#b4282d"
+  }
+}
+
+/***/ }),
+
+/***/ 111:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -134,21 +184,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 257:
+/***/ 258:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(98)
+__vue_styles__.push(__webpack_require__(102)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(96)
 
 /* template */
-var __vue_template__ = __webpack_require__(107)
+var __vue_template__ = __webpack_require__(111)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -160,10 +210,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/news/navtab.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/news/navtab.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-06dbee27"
+__vue_options__._scopeId = "data-v-3e3a623b"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -302,56 +352,6 @@ exports.default = {
         }
     }
 };
-
-/***/ }),
-
-/***/ 98:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "iconfont": {
-    "fontFamily": "iconfont"
-  },
-  "wrapper": {
-    "position": "fixed",
-    "top": 114,
-    "left": 0,
-    "right": 0,
-    "height": 54,
-    "zIndex": 10,
-    "backgroundColor": "#fafafa",
-    "borderBottomWidth": 1,
-    "borderBottomColor": "#d9d9d9"
-  },
-  "w-ipx": {
-    "top": 154
-  },
-  "tab-i": {
-    "flexFlow": "column",
-    "alignItems": "center",
-    "justifyContent": "center"
-  },
-  "scroller": {
-    "height": 54,
-    "flexDirection": "row"
-  },
-  "i-c": {
-    "paddingTop": 10,
-    "paddingLeft": 45,
-    "paddingRight": 45,
-    "paddingBottom": 6,
-    "fontSize": 26,
-    "color": "#333333"
-  },
-  "c-act": {
-    "color": "#b4282d"
-  },
-  "j-uline": {
-    "width": 80,
-    "height": 4,
-    "backgroundColor": "#b4282d"
-  }
-}
 
 /***/ })
 

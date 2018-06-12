@@ -65,73 +65,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 247);
+/******/ 	return __webpack_require__(__webpack_require__.s = 248);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 103:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "iconfont": {
-    "fontFamily": "iconfont"
-  },
-  "wrapper": {
-    "position": "fixed",
-    "top": 0,
-    "left": 0,
-    "right": 0,
-    "height": 114,
-    "paddingTop": 44,
-    "display": "flex",
-    "flexWrap": "nowrap",
-    "flexDirection": "row",
-    "justifyContent": "space-around",
-    "zIndex": 101,
-    "backgroundColor": "#fafafa",
-    "opacity": 0.99
-  },
-  "w-ipx": {
-    "height": 154,
-    "paddingTop": 84
-  },
-  "scan": {
-    "height": 80,
-    "width": 96
-  },
-  "notice": {
-    "height": 80,
-    "width": 96
-  },
-  "ic": {
-    "textAlign": "center",
-    "color": "#666666",
-    "fontWeight": "300",
-    "fontSize": 32
-  },
-  "txt": {
-    "textAlign": "center",
-    "color": "#666666",
-    "fontWeight": "300",
-    "fontSize": 18
-  },
-  "search": {
-    "textAlign": "center",
-    "color": "#666666",
-    "fontWeight": "300",
-    "flex": 1,
-    "height": 60,
-    "fontSize": 26,
-    "paddingTop": 13,
-    "backgroundColor": "#ededed",
-    "borderRadius": 8
-  }
-}
-
-/***/ }),
-
-/***/ 112:
+/***/ 107:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -162,21 +101,21 @@ module.exports.render._withStripped = true
 
 /***/ }),
 
-/***/ 247:
+/***/ 248:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(103)
+__vue_styles__.push(__webpack_require__(98)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(92)
 
 /* template */
-var __vue_template__ = __webpack_require__(112)
+var __vue_template__ = __webpack_require__(107)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -188,10 +127,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/header.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/header.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-6684dbd4"
+__vue_options__._scopeId = "data-v-041c062a"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -286,6 +225,67 @@ exports.default = {
 
     methods: {}
 };
+
+/***/ }),
+
+/***/ 98:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "iconfont": {
+    "fontFamily": "iconfont"
+  },
+  "wrapper": {
+    "position": "fixed",
+    "top": 0,
+    "left": 0,
+    "right": 0,
+    "height": 114,
+    "paddingTop": 44,
+    "display": "flex",
+    "flexWrap": "nowrap",
+    "flexDirection": "row",
+    "justifyContent": "space-around",
+    "zIndex": 101,
+    "backgroundColor": "#fafafa",
+    "opacity": 0.99
+  },
+  "w-ipx": {
+    "height": 154,
+    "paddingTop": 84
+  },
+  "scan": {
+    "height": 80,
+    "width": 96
+  },
+  "notice": {
+    "height": 80,
+    "width": 96
+  },
+  "ic": {
+    "textAlign": "center",
+    "color": "#666666",
+    "fontWeight": "300",
+    "fontSize": 32
+  },
+  "txt": {
+    "textAlign": "center",
+    "color": "#666666",
+    "fontWeight": "300",
+    "fontSize": 18
+  },
+  "search": {
+    "textAlign": "center",
+    "color": "#666666",
+    "fontWeight": "300",
+    "flex": 1,
+    "height": 60,
+    "fontSize": 26,
+    "paddingTop": 13,
+    "backgroundColor": "#ededed",
+    "borderRadius": 8
+  }
+}
 
 /***/ })
 

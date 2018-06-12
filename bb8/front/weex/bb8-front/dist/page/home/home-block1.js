@@ -65,7 +65,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 248);
+/******/ 	return __webpack_require__(__webpack_require__.s = 249);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2537,10 +2537,7 @@ exports.default = {
 /* 100 */,
 /* 101 */,
 /* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */
+/* 103 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -2616,15 +2613,15 @@ module.exports = {
 }
 
 /***/ }),
+/* 104 */,
+/* 105 */,
+/* 106 */,
 /* 107 */,
 /* 108 */,
 /* 109 */,
 /* 110 */,
 /* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */
+/* 112 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2660,6 +2657,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports.render._withStripped = true
 
 /***/ }),
+/* 113 */,
+/* 114 */,
+/* 115 */,
 /* 116 */,
 /* 117 */,
 /* 118 */,
@@ -2792,21 +2792,22 @@ module.exports.render._withStripped = true
 /* 245 */,
 /* 246 */,
 /* 247 */,
-/* 248 */
+/* 248 */,
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(106)
+__vue_styles__.push(__webpack_require__(103)
 )
 
 /* script */
 __vue_exports__ = __webpack_require__(93)
 
 /* template */
-var __vue_template__ = __webpack_require__(115)
+var __vue_template__ = __webpack_require__(112)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -2818,10 +2819,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/fengfeng/Desktop/mobile/bb8-front/src/page/home/home-block1.vue"
+__vue_options__.__file = "/Users/fengfeng/Desktop/bb8/front/bb8-weex/src/page/home/home-block1.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-faca928e"
+__vue_options__._scopeId = "data-v-4a45af25"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
