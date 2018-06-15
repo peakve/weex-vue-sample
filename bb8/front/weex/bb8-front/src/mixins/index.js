@@ -23,7 +23,13 @@ export default {
         }
     },
     methods: {
+        jumpBack() {
+            if (this.$router) {
+                this.$router.back(-1);
+            }
+        },
         jump(to) {
+            console.log("jump>>" + to);
             if (this.$router) {
                 this.$router.push(to)
             }
