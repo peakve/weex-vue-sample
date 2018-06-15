@@ -1,7 +1,7 @@
 <template>
     <div class="app-wrapper">
         <router-view class="r-box"></router-view>
-        <tab-bar @tabTo="onTabTo"></tab-bar>
+        <!--<tab-bar @tabTo="onTabTo"></tab-bar>-->
     </div>
 </template>
 
@@ -9,7 +9,7 @@
     body{
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4;
+        background-color: white;
         color:#333;
     }
 </style>

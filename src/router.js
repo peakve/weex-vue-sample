@@ -14,6 +14,8 @@ import usercenter from './page/user/UserView.vue'
 import chat from './page/chat/chat.vue'
 import bnews from './page/news/bnews.vue'
 import newlist from './page/news/newlist.vue'
+import login from './page/login/login.vue'
+import register from './page/login/register.vue'
 
 // const ViewHome = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewHome')
 // const ViewMy = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewMy')
@@ -37,7 +39,7 @@ Vue.use(Router)
 export default new Router({
     // mode: 'abstract',
     routes: [
-        { path: '/', redirect: '/home' },
+        { path: '/', redirect: '/login' },
         {
             path: '/home',
             component: ViewHome,
@@ -56,6 +58,8 @@ export default new Router({
         },
         // {　 path: '/bbtop/:symbol', name: "bbtop", component: bbtop },
         // { path: '/bb', component: bbtop },
-        { path: '/my', component: usercenter }
+        { path: '/my', component: usercenter },
+        { path: '/login', component: login },
+        { path: '/register', component: register }
     ]
 })
