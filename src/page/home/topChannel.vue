@@ -6,7 +6,7 @@
                 <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>自选</text>
                 <div class="j-uline" v-if="navIndex==0"></div>
             </div>
-             <div class="tab-i">
+            <div class="tab-i">
                 <text  @click="chooseChannel(1)" :class="['i-c',navIndex==1?'c-act':'']" ref=t1>市值</text>
                 <div class="j-uline" v-if="navIndex==1"></div>
             </div>
@@ -103,7 +103,6 @@
     </div>
 </template>
 <style scoped>
-
     .iconfont {
         font-family:iconfont;
     }
@@ -123,7 +122,7 @@
     .tab-i{
        flex-flow: column;
        align-items:center;
-       justify-content:center
+       justify-content:center;
     }
     .scroller{
         height: 54px;
@@ -206,7 +205,7 @@
                 this.navIndex=idx;
                 modal.toast({ message: idx+'--',  duration: 1 })
                 if(idx==0){
-
+                    this.$router.push('/flashnews');
                 }else if(idx==1){
                     this.$router.push('/home')
                 }else{
@@ -306,6 +305,7 @@
         }
     }
 </script>
+
 // style lang="scss" scoped>
 //     @import '../../assets/style/mixin';
 // 	.food_container{
@@ -551,6 +551,6 @@
 // 		z-index: 10;
 // 		background-color: rgba(0,0,0,0.3);
 // 	}
-// </style>
+// <!--</style>-->
 
 

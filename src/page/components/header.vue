@@ -13,7 +13,7 @@
 </template>
 <style scoped>
 
-     .wrapper{
+    .wrapper{
         position: absolute;
         left: 0;
         right:0;
