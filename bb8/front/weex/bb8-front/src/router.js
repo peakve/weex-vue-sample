@@ -14,8 +14,10 @@ import usercenter from './page/user/UserView.vue'
 import chat from './page/chat/chat.vue'
 import bnews from './page/news/bnews.vue'
 import newlist from './page/news/newlist.vue'
+import flashnews from './page/flashnews/flash-news.vue'
 import login from './page/login/login.vue'
 import register from './page/login/register.vue'
+
 
 // const ViewHome = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewHome')
 // const ViewMy = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewMy')
@@ -44,12 +46,12 @@ export default new Router({
             path: '/home',
             component: ViewHome,
             children: [　　
-                { path: '/bbtop/:symbol', name: "bbtop", component: bbtop }　,
+                { path: '/bbtop/:symbol', name: "bbtop", component: bbtop },
                 { path: '/chat', component: chat },
                 { path: '', 　　　component: homeOptional }
             ]
         },
-        {　
+        {
             path: '/bnews',
             component: bnews,
             children: [
@@ -59,7 +61,9 @@ export default new Router({
         // {　 path: '/bbtop/:symbol', name: "bbtop", component: bbtop },
         // { path: '/bb', component: bbtop },
         { path: '/my', component: usercenter },
+        { path: '/flashnews', component: flashnews },
         { path: '/login', component: login },
         { path: '/register', component: register }
+
     ]
 })

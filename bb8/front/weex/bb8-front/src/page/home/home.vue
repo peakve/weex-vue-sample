@@ -7,9 +7,8 @@
 </template>
 
 <script>
-
     import header from './header.vue';
-   import topChannel from './topChannel.vue';
+    import topChannel from './topChannel.vue';
 
     export default {
         components: {
