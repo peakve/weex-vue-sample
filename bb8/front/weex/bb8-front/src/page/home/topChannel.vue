@@ -10,7 +10,7 @@
                 <text  @click="chooseChannel(1)" :class="['i-c',navIndex==1?'c-act':'']" ref=t1>市值</text>
                 <div class="j-uline" v-if="navIndex==1"></div>
             </div>
-             <div class="tab-i">
+            <div class="tab-i">
                 <text  @click="chooseChannel(2)" :class="['i-c',navIndex==2?'c-act':'']" ref=t2>涨幅</text>
                 <div class="j-uline" v-if="navIndex==2"></div>
             </div>
@@ -163,8 +163,6 @@
     }
 </style>
 
-
-
 <script>
     const dom = weex.requireModule('dom');
     // dom.scrollToElement(el, { offset: 0 })
@@ -174,7 +172,7 @@
     export default {
         data () {
             return {
-                jLPosition:"left:30px;width:82px;",
+                 jLPosition:"left:30px;width:82px;",
                  navIndex:1,
                  sortBy: '', // 筛选的条件
                  Activity:[],
@@ -203,19 +201,19 @@
 
             chooseChannel:function (idx,event) {
                 this.navIndex=idx;
-                modal.toast({ message: idx+'--',  duration: 1 })
+                modal.toast({ message: idx+'--',  duration: 1 });
                 if(idx==0){
                     this.$router.push('/flashnews');
                 }else if(idx==1){
-                    this.$router.push('/home')
+                    this.$router.push('/home');
                 }else{
-                    this.$router.push({ name: 'bbtop', params: { "symbol": idx }})
+                    this.$router.push({ name: 'bbtop', params: { "symbol": idx }});
                 }
 
                 const el=this.$refs['t'+idx]
                 const result = dom.getComponentRect(el, option => {
                         if(option.size.left>420){
-                            dom.scrollToElement(el, { offset: -option.size.left/2 })
+                            dom.scrollToElement(el, { offset: -option.size.left/2 });
                         }      
                 });
                
