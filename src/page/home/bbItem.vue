@@ -69,7 +69,7 @@
   .text-cell {
     flex-grow: 0;
   }
-   .confirm_out{
+  .confirm_out{
         text-align:center;
         margin-right:5px;
         border-color:#EEEEEF;
@@ -78,20 +78,20 @@
         padding-bottom:15px;
         padding-left:30px;
         padding-right:30px;
-    }
-    .compare_up{
+  }
+  .compare_up{
       background-color:green;
-    }
-    .compare_down{
+  }
+  .compare_down{
       background-color:rgb(156, 9, 9);
-    }
-     .confirm_out:active{
-         background-color:#e5640d;
-    }
-     .confirm{
-        color:white;
-        font-size:32px;
-    }
+  }
+  .confirm_out:active{
+      background-color:#e5640d;
+  }
+  .confirm{
+      color:white;
+      font-size:32px;
+  }
 
 </style>
 

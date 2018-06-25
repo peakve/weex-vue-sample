@@ -17,6 +17,7 @@ import newlist from './page/news/newlist.vue'
 import flashnews from './page/flashnews/flash-news.vue'
 import login from './page/login/login.vue'
 import register from './page/login/register.vue'
+import information from './page/flashnews/information.vue'
 
 
 // const ViewHome = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewHome')
@@ -41,7 +42,7 @@ Vue.use(Router)
 export default new Router({
     // mode: 'abstract',
     routes: [
-        { path: '/', redirect: '/login' },
+        { path: '/', redirect: '/flashnews' },
         {
             path: '/home',
             component: ViewHome,

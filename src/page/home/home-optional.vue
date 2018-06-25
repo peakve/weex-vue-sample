@@ -33,7 +33,6 @@
         top: 208px;
         bottom:140px;
     }
-
     .cell-button{
         padding-bottom: 18px;
     }
