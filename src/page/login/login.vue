@@ -1,29 +1,30 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper bg_white">
     <!--<scroller  show-scrollbar="false">-->
-      <loginHeader  :data="data"></loginHeader> 
-      <div class="login_out">
+      <loginHeader  :data="data" class="login_header" v-show="isshow"></loginHeader> 
+      <div class="login_out bg_white">
     
         <image class="bb8_logo" resize="cover" src="/assets/images/bb8_logo.png"></image>
           <div class="input_wrapper">  
-                <input onchange="onchangeUserNumber" class="input bg3" type="text" placeholder="请输入用户名" autofocus="true" value=""/>  
+                <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名" autofocus="true" value=""/>  
                 <image class="input_img" src="/assets/images/icon_head.png"></image>  
             </div>  
             <div class="input_wrapper">  
-                <input onchange="onchangeUserPassword" class="input bg3" type="password" placeholder="请输入密码" value=""/>  
+                <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请输入密码" value=""/>  
                 <image class="input_img" src="/assets/images/icon_password.png"></image>  
             </div>  
-            <div class="input_wrapper">  
-                <div class="input_login bg" onclick="login">  
-                    <text class="input_login_text color1">登录</text>  
-                </div>  
-            </div>  
-            <div class="input_wrapper">  
+             <div class="input_wrapper">  
                 <!--<text class="input-forget" >注册</text>  -->
                <div  @click="jump('/register')" class="input_register_out"><text class="input_register color1">注册 / 忘记密码?</text></div>
             </div>  
+            <div class="input_wrapper">  
+                <div class="input_login bg" @click="login()">  
+                    <text class="input_login_text color1">登录</text>  
+                </div>  
+            </div>  
+     
         <!--<wxc-button text="登录" class="btn_login" :text-style="textStyle"></wxc-button>-->
-        <text class="login_footer color1">登录及同意《51BB8财经用户协议》</text>
+        <text :class="['color1', isIPhoneX?'login_footer':'login_footer_default']">登录及同意《51BB8财经用户协议》</text>
       </div>
    <!--</scroller>-->
   </div>
@@ -32,6 +33,8 @@
 <script>
   import loginHeader from './loginHeader.vue'
   import { WxcButton } from 'weex-ui'
+  import util from '../../common/util'
+   const modal = weex.requireModule('modal');
   export default {
     components: { loginHeader,WxcButton},
     data: () => ({
@@ -39,7 +42,8 @@
       color: '#292b32',
       userNumber:'',  
       userPassword:'',
-      data:{title:"登录"}
+      data:{title:"登录"},
+      isshow:false,
     }),
     computed: {
       textStyle () {
@@ -55,15 +59,18 @@
           fontSize, color
         }
       },
-      userId () {
-        return 'fengfeng'
+      isIPhoneX () {
+        return util.env.isIPhoneX()
       },
       user () {
         return {userId:"fengfeng",created:"20180215",karma:"xfjdllgmmdd",about:"42523252"}
       }
     },
     created () {
-   
+        this.isshow=true;
+    },
+    mounted(){
+    
     },
     methods:{  
         onchangeUserNumber:function (event) {  
@@ -83,26 +90,42 @@
         },  
         /*处理登录*/  
         login: function () {  
-            if(this.userNumber.length < 1){  
-                this.$vm('toast').$emit('toast','请输入手机号');  
-                return;  
-            }else if(this.userPassword.length < 1){  
-                this.$vm('toast').$emit('toast','请输入密码');  
-                return;  
-            }  
-            this.$vm('toast').$emit('toast',"登录成功");  
+             modal.toast({ message:'请输入手机号'});
+            // if(this.userNumber.length < 1){  
+            //     modal.toast({ message:'请输入手机号'});
+            //     return;  
+            // }else if(this.userPassword.length < 1){  
+            //     modal.toast({ message:'请输入密码'});
+            //     return;  
+            // }  
+            // this.$vm('toast').$emit('toast',"登录成功");  
+            //   var swifter = weex.requireModule('event');
+            //     swifter.openURL("http://192.168.3.178:8080/dist/page/pcenter/personal.js");
         }  
     }  
   }
 </script>
 
 <style scoped>
+.login_header{
+    margin-top: 120px;
+}
+.login_footer_default{
+    width:750px;
+    position:fixed;
+    bottom:50px;
+    left: 0;right: 0;
+    z-index: 10;
+    text-align:center;
+    font-size: 28px;
+}
 .login_footer{
     width:750px;
-    /*position:fixed;
-    bottom:30px;*/
+    position:fixed;
+    bottom:150px;
+    left: 0;right: 0;
+    z-index: 10;
     text-align:center;
-    margin-top: 220px;
     font-size: 28px;
 }
 .btn_login{
@@ -112,12 +135,13 @@
 .login_out {
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
 }
 .bb8_logo{
     width:450px;
     height: 102px;
     margin-top:120px;
-    margin-bottom: 150px;
+    margin-bottom: 160px;
 }
 .login_title{
     padding-top: 30px
@@ -149,7 +173,7 @@
     height: 85px;  
     width: 650px;  
     border-radius: 10px;  
-    margin-top: 40px;  
+    margin-top: 80px;  
 }  
 .input_login_text{  
     height: 85px;  

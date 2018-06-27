@@ -17,6 +17,8 @@ import newlist from './page/news/newlist.vue'
 import flashnews from './page/flashnews/flash-news.vue'
 import login from './page/login/login.vue'
 import register from './page/login/register.vue'
+import pcenter from './page/pcenter/personal.vue'
+
 import information from './page/flashnews/information.vue'
 
 
@@ -64,7 +66,8 @@ export default new Router({
         { path: '/my', component: usercenter },
         { path: '/flashnews', component: flashnews },
         { path: '/login', component: login },
-        { path: '/register', component: register }
+        { path: '/register', component: register },
+        { path: '/pcenter', component: pcenter },
 
     ]
 })
