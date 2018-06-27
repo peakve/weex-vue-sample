@@ -1,27 +1,27 @@
 <template>
-  <div class="wrapper" >
-     <loginHeader :data="data"></loginHeader> 
-      <div class="register_out">
+  <div class="wrapper bg_white" >
+     <loginHeader :data="data" class="login_header"></loginHeader> 
+      <div class="register_out bg_white">
             <div class="input_wrapper">  
-                <input onchange="onchangeUserNumber" class="input bg3" type="text" placeholder="请输入用户名" autofocus="true" value=""/>  
+                <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名" autofocus="true" value=""/>  
                 <image class="input_img" src="/assets/images/icon_head.png"></image>  
             </div>  
             <div class="input_wrapper">  
-                <input onchange="onchangeUserPassword" class="input bg3" type="password" placeholder="请输入手机号" value=""/>  
+                <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请输入手机号" value=""/>  
                 <image class="input_img" src="/assets/images/icon_password.png"></image>  
             </div>
             <div class="input_wrapper">  
-                <input onchange="onchangeUserPassword" class="input bg3" type="password" placeholder="请输入密码" value=""/>  
+                <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请输入密码" value=""/>  
                 <image class="input_img" src="/assets/images/icon_password.png"></image>  
             </div>
             <div class="input_wrapper">  
-                <input onchange="onchangeUserPassword" class="input bg3" type="password" placeholder="请重新输入密码" value=""/>  
+                <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请重新输入密码" value=""/>  
                 <image class="input_img" src="/assets/images/icon_password.png"></image>  
             </div>  
             <div class="input_wrapper send_code_out">  
               
                 <div class="input_code_out">
-                    <input onchange="onchangeUserPassword" class="input_code bg3" type="password" placeholder="请输入验证码" value=""/>  
+                    <input onchange="onchangeUserPassword" class="input_code bg_gray" type="password" placeholder="请输入验证码" value=""/>  
                     <image class="input_img" src="/assets/images/icon_password.png"></image>  
                 </div>
                 <div class="input_code_btn">
@@ -107,6 +107,9 @@
 </script>
 
 <style scoped>
+.login_header{
+    margin-top: 120px;
+}
 .register_footer{
     width:100%;
     position:fixed;
@@ -120,7 +123,7 @@
 .register_out {
     align-items: center;
     justify-content: center;
-    margin-top: 50px
+    margin-top: 100px;
 }
 .bb8_logo{
     width:450px;
