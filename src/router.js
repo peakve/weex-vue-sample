@@ -44,7 +44,7 @@ Vue.use(Router)
 export default new Router({
     // mode: 'abstract',
     routes: [
-        { path: '/', redirect: '/flashnews' },
+        { path: '/', redirect: '/home' },
         {
             path: '/home',
             component: ViewHome,
@@ -58,16 +58,25 @@ export default new Router({
             path: '/bnews',
             component: bnews,
             children: [
-                {　 path: '', component: newlist },
+                { path: '', component: newlist },
             ]
         },
         // {　 path: '/bbtop/:symbol', name: "bbtop", component: bbtop },
         // { path: '/bb', component: bbtop },
         { path: '/my', component: usercenter },
-        { path: '/flashnews', component: flashnews },
+
+        {
+            path: '/flashnews',
+            component: flashnews,
+            children: [
+                { path: '/information', name: "information", component: information },
+            ]
+        },
+
         { path: '/login', component: login },
         { path: '/register', component: register },
         { path: '/pcenter', component: pcenter },
+
 
     ]
 })

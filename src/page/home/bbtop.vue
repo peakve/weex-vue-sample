@@ -8,7 +8,7 @@
           <cell class="story-cell" @click="showbbDetail(story.title)" v-for="story in stories" :key="story.id" append="tree">
             <bbItem :story="story"></bbItem>
           </cell>
-           <loading class="loading" @loading="onloading" :display="loading">
+          <loading class="loading" @loading="onloading" :display="loading">
                 <text class="indicator">loading...</text>
           </loading>
         </list>

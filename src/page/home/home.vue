@@ -13,7 +13,7 @@
     export default {
         components: {
             'home-header': header,
-             'top-channel': topChannel,
+            'top-channel': topChannel,
         },
         data () {
             return {
