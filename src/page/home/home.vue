@@ -17,8 +17,7 @@
         },
         data () {
             return {
-                YXBanners: [
-                ],
+                YXBanners: [],
                 goodsList:[],
                 showLoading: 'hide'
             }

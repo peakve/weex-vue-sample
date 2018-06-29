@@ -30,7 +30,7 @@
                 <div class="j-uline" v-if="navIndex==5"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(7)" :class="['i-c',navIndex==4?'c-act':'']" ref=t7>重大行情</text>
+                <text  @click="chooseChannel(7)" :class="['i-c',navIndex==4?'c-act':'']" ref=t7>返回主页</text>
                 <div class="j-uline" v-if="navIndex==5"></div>
             </div>
         </scroller>
@@ -56,8 +56,8 @@
 }
 .tab-i{
     flex-flow: column;
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
 }
 .scroller{
     height: 54px;
@@ -138,21 +138,21 @@
                 //modal.toast({ message: idx+'--',  duration: 1 });
                 if(idx==0){
                     //modal.toast({ message: '点击了标签页',  duration: 1 });
-                    this.$router.push('/information');
+                    this.$router.push('/newcoin');
                 }else if(idx==1){
-                    this.$router.push('/home');
+                    this.$router.push('/globalmedia');
                 }else if(idx == 2){
-                    this.$router.push('/home');
+                    this.$router.push('/exchangenotice');
                 }else if(idx == 3){
-                    this.$router.push({ name: 'bbtop', params: { "symbol": idx }});
+                    this.$router.push('/exchangetwitter');
                 }else if(idx == 4){
-                    this.$router.push({ name: 'bbtop', params: { "symbol": idx }});
+                    this.$router.push('/information');
                 }else if(idx == 5){
-                    this.$router.push({ name: 'bbtop', params: { "symbol": idx }});
+                    this.$router.push('/newcoin');
                 }else if(idx == 6){
-                    this.$router.push({ name: 'bbtop', params: { "symbol": idx }});
+                    this.$router.push('/policy');
                 }else if(idx == 7){
-                    this.$router.push({ name: 'bbtop', params: { "symbol": idx }});
+                    this.$router.push('/home');
                 }
 
                 const el=this.$refs['t'+idx];

@@ -20,6 +20,14 @@ import register from './page/login/register.vue'
 import pcenter from './page/pcenter/personal.vue'
 
 import information from './page/flashnews/information.vue'
+import globalMedia from './page/flashnews/global-media.vue'
+import exchangeNotice from './page/flashnews/exchange-notice.vue'
+import exchangeTwitter from './page/flashnews/exchange-twitter.vue'
+import policy from './page/flashnews/policy.vue'
+import newcoin from './page/flashnews/newcoin.vue'
+import voice from './page/flashnews/voice.vue'
+import alertFocus from './page/flashnews/alertfocus.vue'
+import alertContent from './page/flashnews/alertcontent.vue'
 
 
 // const ViewHome = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewHome')
@@ -70,8 +78,16 @@ export default new Router({
             component: flashnews,
             children: [
                 { path: '/information', name: "information", component: information },
+                { path: '/globalmedia', name: "globalmedia", component: globalMedia },
+                { path: '/exchangenotice', name: "exchangenotice", component: exchangeNotice },
+                { path: '/exchangetwitter', name: "exchangetwitter", component: exchangeTwitter },
+                { path: '/policy', name: "information", component: policy },
+                { path: '/newcoin', name: "information", component: newcoin },
+                { path: '/voice', name: "information", component: voice },
             ]
         },
+        { path: '/alertfocus', component: alertFocus },
+        { path: '/alertcontent', component: alertContent },
 
         { path: '/login', component: login },
         { path: '/register', component: register },

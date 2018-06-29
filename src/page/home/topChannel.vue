@@ -214,7 +214,7 @@
                 const result = dom.getComponentRect(el, option => {
                         if(option.size.left>420){
                             dom.scrollToElement(el, { offset: -option.size.left/2 });
-                        }      
+                        }
                 });
                
 
