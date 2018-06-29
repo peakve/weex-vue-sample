@@ -8,22 +8,22 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time">
-                        <text class="text_title">数字广告行业虚假流量严重，Lucidity想用区块链提高供应链透明度</text>
+                        <text class="text_title" @click="goAlertContent()">数字广告行业虚假流量严重，Lucidity想用区块链提高供应链透明度</text>
                         <div class="source_time">
-                            <text class="source">来源:36氪</text>
+                            <text class="source" @click="goAlertFocus('default')">来源:36氪</text>
                             <div class="time_hit">
                                 <div class="time_ago">
-                                    <image class="clock_image" src="/assets/image/b.png" resize="cover"></image>
+                                    <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
                                     <text class="text_time_ago">1天前</text>
                                 </div>
-                                <div class="click_number">
-                                    <image class="eye_image" src=""></image>
-                                    <text class="text_click_number">浏览量</text>
+                                <div class="time_ago">
+                                    <image class="clock_image" src="/assets/images/b.png"></image>
+                                    <text class="text_time_ago">150次点击</text>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <image class="content_image" src="" resize="cover"></image>
+                    <image class="content_image" src="/assets/images/b.png" resize="cover"></image>
                 </div>
            </cell>
            <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
@@ -43,7 +43,7 @@
 .refreshOut{
     width: 750;
     padding-top: 10;
-    padding-bottom: 10; 
+    padding-bottom: 10;
     align-items: center;
 }
 .indicator{
@@ -56,20 +56,16 @@
     flex-direction: row;
     border-bottom-width: 1px; 
     border-bottom-color: #ededed;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 .title_sourece_time{
     flex-direction: column;
-    justify-content: space-between;
     width: 480px;
-    height: 120px;
-    margin-top: 5px; 
-    margin-left: 10px; 
-    margin-right: 10px;
-    border-radius: 10px; 
-}
-.content_image{
-    width: 250px;
-    height: 200px;
+    margin-top: 5px;  
+    margin-right: 10px; 
 }
 .text_title{
     width: 480px;
@@ -81,6 +77,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-top:25px;
 }
 .source{
     align-items: center;
@@ -94,7 +91,21 @@
 }
 .time_ago{
     align-items: center;
+    flex-direction: row;
     margin-right: 10px;
+}
+.clock_image{
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
+.text_time_ago{
+    color: #787878;
+}
+.content_image{
+    width: 250px;
+    height: 120px;
+    padding-right: 30px; 
 }
 </style>
 
@@ -115,6 +126,11 @@ export default {
               {},
               {},
               {},
+              {},
+              {},
+              {},
+              {},
+              {},
               {}
           ],
       }
@@ -124,8 +140,14 @@ export default {
         //modal.toast({ message: '进入information页面！',  duration: 2 });
     },
 
-    computed: {
-      
+    methods: {
+        goAlertFocus:function(category){
+            this.$router.push('/alertfocus');
+        },
+
+        goAlertContent:function(){
+            this.$router.push('/alertcontent');
+        },
     }
 }
 </script>
