@@ -27,6 +27,8 @@ import policy from './page/flashnews/policy.vue'
 import newcoin from './page/flashnews/newcoin.vue'
 import voice from './page/flashnews/voice.vue'
 import alertFocus from './page/flashnews/alertfocus.vue'
+import synopsis from './page/flashnews/synopsis.vue'
+import focusDetail from './page/flashnews/focus-detail.vue'
 import alertContent from './page/flashnews/alertcontent.vue'
 
 
@@ -86,7 +88,14 @@ export default new Router({
                 { path: '/voice', name: "information", component: voice },
             ]
         },
-        { path: '/alertfocus', component: alertFocus },
+        {
+            path: '/alertfocus',
+            component: alertFocus,
+            children: [
+                { path: '/synopsis', name: "synopsis", component: synopsis },
+                { path: '/focusDetail', name: "focusDetail", component: focusDetail }
+            ]
+        },
         { path: '/alertcontent', component: alertContent },
 
         { path: '/login', component: login },

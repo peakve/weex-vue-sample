@@ -140,7 +140,7 @@
                     //modal.toast({ message: '点击了标签页',  duration: 1 });
                     this.$router.push('/newcoin');
                 }else if(idx==1){
-                    this.$router.push('/globalmedia');
+                    this.$router.push('/voice');
                 }else if(idx == 2){
                     this.$router.push('/exchangenotice');
                 }else if(idx == 3){
