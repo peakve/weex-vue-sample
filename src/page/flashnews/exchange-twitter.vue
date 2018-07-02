@@ -67,12 +67,12 @@
 }
 .title_sourece_time{
     flex-direction: column;
-    width: 500px;
+    width: 550px;
     margin-top: 5px;  
     margin-right: 10px; 
 }
 .text_title{
-    width: 500px;
+    width: 550px;
     font-size: 25px;
     font-weight: 700;
 }
@@ -89,7 +89,7 @@
     margin-top: 5px; 
 }
 .source_time{
-    width: 500px;
+    width: 550px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
