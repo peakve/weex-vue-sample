@@ -114,7 +114,7 @@ const dom = weex.requireModule('dom');
 const animation = weex.requireModule('animation');
 const modal = weex.requireModule('modal');
 
-var apis = require('./common/action.js');
+//var apis = require('./common/action.js');
 export default {
     data () {
       return {
