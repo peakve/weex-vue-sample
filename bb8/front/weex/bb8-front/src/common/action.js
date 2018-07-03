@@ -1,4 +1,4 @@
-var stream
+/*var stream
 __weex_define__('@weex-temp/api', function(__weex_require__) {
     stream = __weex_require__('@weex-module/stream')
 });
@@ -14,7 +14,7 @@ __weex_define__('@weex-temp/api', function(__weex_require__) {
 var iosevent
 __weex_define__('@weex-temp/api', function(__weex_require__) {
     iosevent = __weex_require__('@weex-module/event')
-});
+});*/
 
 var apiURL = {
 
