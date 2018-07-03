@@ -1,0 +1,239 @@
+<template>
+<div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
+
+    <div class="detail_type" v-if="false">
+        <list class="information_list">
+           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
+                <loading-indicator class="indicator"></loading-indicator>
+                <text class="text_refresh">{{refreshText}}</text>
+           </refresh>
+           <cell v-for="(item,index) in itemsList">
+                <div class="information_content">
+                    <image class="content_image" src="/assets/images/b.png" resize="cover"></image>
+                    <div class="title_sourece_time">
+                        <text class="text_title" @click="goAlertContent()">Bitfinex操纵了2017年比特币的价格</text>
+                        <text class="text_abstract" @click="goAlertContent()">2017年比特币价格大幅上涨的背后推手</text>
+                        <div class="source_time">
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                <text class="text_time_ago">1天前</text>
+                            </div>
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/b.png"></image>
+                                <text class="text_time_ago">150次点击</text>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </cell>
+           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+                <div class="loadingOut">
+                    <loading-indicator class="load_indicator"></loading-indicator>
+                    <text class="text">{{loadingText}}</text>
+                </div>
+           </loading>
+        </list>
+    </div>
+
+    <div class="detail_type" v-if="false">
+        <list class="information_list">
+           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
+                <loading-indicator class="indicator"></loading-indicator>
+                <text class="text_refresh">{{refreshText}}</text>
+           </refresh>
+           <cell v-for="(item,index) in itemsList">
+                <div class="information_content">
+                    <div class="title_sourece_time_match">
+                        <text class="text_title_match" @click="goAlertContent()">TTC Protocol（TTC）暂停上线公告TTC Protocol（TTC）暂停上线公告TTC Protocol（TTC）暂停上线公告</text>
+                        <text class="text_abstract_match" @click="goAlertContent()">因TTCProtocol（TTC）临时更改智能合约地址，为保护用户资产安全与交易体验，我们决定暂停充值和交易，已充值的用户请及时提币。给您带来的不便敬请谅解。感谢您对Bibox的支持。</text>
+                        <div class="source_time_match">
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                <text class="text_time_ago">1天前</text>
+                            </div>
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/b.png"></image>
+                                <text class="text_time_ago">150次点击</text>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </cell>
+           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+                <div class="loadingOut">
+                    <loading-indicator class="load_indicator"></loading-indicator>
+                    <text class="text">{{loadingText}}</text>
+                </div>
+           </loading>
+        </list>
+    </div>
+
+    <div class="detail_type" v-if="true">
+        <list class="information_list">
+           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
+                <loading-indicator class="indicator"></loading-indicator>
+                <text class="text_refresh">{{refreshText}}</text>
+           </refresh>
+           <cell v-for="(item,index) in itemsList">
+                <div class="information_content">
+                    <div class="title_sourece_time_match">
+                        <text class="text_abstract_match" @click="goAlertContent()">QRYPTOS is pleased to welcome our newesttoken member Sharpe (#SHP). @sharpecapitalis the world's best intelligence platform financialmarkets. $SHP is a staking token, which entitlesparticipants of their ecosystem to earn monthlypayments. Trade now! https://t.co/bnRfmj8Er4</text>
+                        <text class="translate_text">翻译</text>
+                        <div class="source_time_match">
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                <text class="text_time_ago">1天前</text>
+                            </div>
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/b.png"></image>
+                                <text class="text_time_ago">150次点击</text>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </cell>
+           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+                <div class="loadingOut">
+                    <loading-indicator class="load_indicator"></loading-indicator>
+                    <text class="text">{{loadingText}}</text>
+                </div>
+           </loading>
+        </list>
+    </div>
+
+</div>
+</template>
+
+<style>
+.wrapper{
+    position: fixed;
+    left: 0;right: 0;
+    margin-top: 501px;
+}
+.w-ipx{
+    top: 154px;
+}
+.refreshOut{
+    width: 750;
+    padding-top: 10;
+    padding-bottom: 10;
+    align-items: center;
+}
+.indicator{
+    color: grey;
+    margin-bottom: 30px;
+}
+.information_content{
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    border-bottom-width: 1px; 
+    border-bottom-color: #ededed;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.title_sourece_time{
+    flex-direction: column;
+    width: 480px;
+    margin-top: 5px;  
+    margin-right: 10px; 
+}
+.title_sourece_time_match{
+    flex-direction: column;
+    width: 700px;
+    margin-top: 5px;  
+    margin-right: 10px; 
+}
+.text_title{
+    width: 480px;
+    font-size: 25px;
+    font-weight: 700;
+}
+.text_title_match{
+    width: 700px;
+    font-size: 25px;
+    font-weight: 700;
+}
+.translate_text{
+    font-size: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 1px;
+    border-color: #000; 
+    border-radius: 5px;
+    width: 65px;
+    margin-top: 5px; 
+}
+.text_abstract{
+    margin-top: 10px;
+    width: 480px;
+    font-size: 23px;
+}
+.text_abstract_match{
+    margin-top: 10px;
+    width: 700px;
+    font-size: 23px;
+}
+.source_time{
+    width: 480px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:25px;
+}
+.source_time_match{
+    width: 700px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:25px;
+}
+.time_ago{
+    align-items: center;
+    flex-direction: row;
+    margin-right: 10px;
+}
+.clock_image{
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
+.text_time_ago{
+    color: #787878;
+}
+.content_image{
+    width: 250px;
+    height: 120px;
+    padding-right: 30px; 
+}
+</style>
+
+<script>
+export default{
+    data () {
+      return {
+          refreshDisplay:'hide',
+          refreshText:' ↓ 下拉刷新 ',
+          itemsList:[
+              {title:'数字广告行业虚假流量严重，Lucidity想用区块链提高供应链透明度'},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+          ],
+      }
+    },
+}
+</script>
