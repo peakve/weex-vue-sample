@@ -1,8 +1,28 @@
+var stream
+__weex_define__('@weex-temp/api', function(__weex_require__) {
+    stream = __weex_require__('@weex-module/stream')
+});
+
+var modal
+__weex_define__('@weex-temp/api', function(__weex_require__) {
+    modal = __weex_require__('@weex-module/modal')
+});
+var comm
+__weex_define__('@weex-temp/api', function(__weex_require__) {
+    comm = __weex_require__('@weex-module/commonModule')
+});
+var iosevent
+__weex_define__('@weex-temp/api', function(__weex_require__) {
+    iosevent = __weex_require__('@weex-module/event')
+});
+
 var apiURL = {
 
     //测试本机地址
+    //http://192.168.3.118:8888/web/api/push/appIndex
     //baseurl: 'http://192.168.3.178:8800/wechat',
-    baseurl: 'http://192.168.3.158:8800/wechat',
+    //baseurl: 'http://192.168.3.158:8800/wechat',
+    baseurl: 'http://192.168.3.118:8888/web/',
 
     //开发地址
     // baseurl: 'http://192.168.1.235:8800/wechat',
@@ -174,3 +194,43 @@ function getBaseUrl(bundleUrl, isnav, images) {
 exports.getBaseUrl = function(bundleUrl, isnav, images) {
     return getBaseUrl(bundleUrl, isnav, images);
 };
+
+
+function getData(url, callback) {
+    stream.sendHttp({
+        method: 'GET',
+        url: url
+    }, function(ret) {
+        var retdata = JSON.parse(ret);
+        callback(retdata);
+    });
+}
+
+function postData(url, data, callback) {
+    //comm.onLoadingStart();
+    stream.fetch({
+        method: 'POST',
+        url: url,
+        type: 'json',
+        body: data,
+        headers: { 'Content-Type': 'application/json' }
+    }, function(ret) {
+        //console.log(ret)
+        //comm.onLoadingStop();
+        if (!ret.ok) {
+            modal.toast({ message: '网络有问题，连不上', duration: 1 });
+            // modal.toast({ message: 'callback: ' + event })
+            console.log("request failed");
+            // callback("0");
+        } else {
+            if (ret.data.response.ok) {
+                callback(ret.data);
+            } else {
+                modal.toast({ message: ret.data.response.message, duration: 5 });
+                //console.log(ret.data)
+                // callback("0");
+            }
+
+        }
+    });
+}
