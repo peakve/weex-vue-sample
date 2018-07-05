@@ -1,6 +1,6 @@
 <template>
     <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
-        <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar=false>
+        <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar="false">
             <div class="tab-i">
                 <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>资讯</text>
                 <div class="j-uline" v-if="navIndex==0"></div>
@@ -22,16 +22,16 @@
                 <div class="j-uline" v-if="navIndex==4"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(5)" :class="['i-c',navIndex==4?'c-act':'']" ref=t5>新币时讯</text>
+                <text  @click="chooseChannel(5)" :class="['i-c',navIndex==5?'c-act':'']" ref=t5>新币时讯</text>
                 <div class="j-uline" v-if="navIndex==5"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(6)" :class="['i-c',navIndex==4?'c-act':'']" ref=t6>监管政策</text>
-                <div class="j-uline" v-if="navIndex==5"></div>
+                <text  @click="chooseChannel(6)" :class="['i-c',navIndex==6?'c-act':'']" ref=t6>监管政策</text>
+                <div class="j-uline" v-if="navIndex==6"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(7)" :class="['i-c',navIndex==4?'c-act':'']" ref=t7>返回主页</text>
-                <div class="j-uline" v-if="navIndex==5"></div>
+                <text  @click="chooseChannel(7)" :class="['i-c',navIndex==7?'c-act':'']" ref=t7>返回主页</text>
+                <div class="j-uline" v-if="navIndex==7"></div>
             </div>
         </scroller>
         <text class="more iconfont">&#xe661;</text>
@@ -60,39 +60,40 @@
     justify-content: center;
 }
 .scroller{
-    height: 54px;
+    height: 60px;
     padding-right: 50px;
     flex-direction: row;
 }
 .i-c{
     padding-top:10px;
-    padding-left: 45px;
     padding-bottom:6px;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 25px;
-    color:#333;
+    color:#999;
 }
 .c-act{
-    color:#b4282d;
+    color:black;
 }
 .j-uline{
     /* position: absolute; */
     /* left: 30px; */
     /* left:25%;
     /* bottom: 0; */
-    width: 80%;
-    height: 4px;
-    background-color: #b4282d;
+    width: 100%;
+    height: 2px;
+    background-color: black;
 }
 .more{
     position: absolute;
     top:0;
     right:0;
     height: 52px;
-    width: 80px;
+    width: 50px;
     background-color: #fafafa;
     text-align: center;
     padding-top: 10px;
-    opacity: 0.96;
+    opacity: 0.6;
     box-shadow:-6px -4px 4px #fafafa;
 }
 </style>
@@ -106,7 +107,7 @@
         data() {
             return {
                 jLPosition:"left:30px;width:82px;",
-                navIndex:1,
+                navIndex:0,
                 sortBy: '', // 筛选的条件
                 Activity:[],
                 Delivery:[],
@@ -114,6 +115,10 @@
                 support_ids: [], // 选中的商铺活动列表
                 filterNum: 0, // 所选中的所有样式的集合
             }
+        },
+
+        created() {
+            this.$router.push('/information');
         },
 
         mounted() {
@@ -138,15 +143,15 @@
                 //modal.toast({ message: idx+'--',  duration: 1 });
                 if(idx==0){
                     //modal.toast({ message: '点击了标签页',  duration: 1 });
-                    this.$router.push('/newcoin');
+                    this.$router.push('/information');
                 }else if(idx==1){
-                    this.$router.push('/voice');
+                    this.$router.push('/globalmedia');
                 }else if(idx == 2){
                     this.$router.push('/exchangenotice');
                 }else if(idx == 3){
                     this.$router.push('/exchangetwitter');
                 }else if(idx == 4){
-                    this.$router.push('/information');
+                    this.$router.push('/voice');
                 }else if(idx == 5){
                     this.$router.push('/newcoin');
                 }else if(idx == 6){
@@ -157,9 +162,9 @@
 
                 const el=this.$refs['t'+idx];
                 const result = dom.getComponentRect(el, option => {
-                        if(option.size.left>420){
-                            dom.scrollToElement(el, { offset: -option.size.left/2 });
-                        }
+                    if(option.size.left>420){
+                        dom.scrollToElement(el, { offset: -option.size.left/2 });
+                    }
                 });
             },
 

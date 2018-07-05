@@ -1,20 +1,5 @@
-/*var stream
-__weex_define__('@weex-temp/api', function(__weex_require__) {
-    stream = __weex_require__('@weex-module/stream')
-});
-
-var modal
-__weex_define__('@weex-temp/api', function(__weex_require__) {
-    modal = __weex_require__('@weex-module/modal')
-});
-var comm
-__weex_define__('@weex-temp/api', function(__weex_require__) {
-    comm = __weex_require__('@weex-module/commonModule')
-});
-var iosevent
-__weex_define__('@weex-temp/api', function(__weex_require__) {
-    iosevent = __weex_require__('@weex-module/event')
-});*/
+/*var stream = weex.requireModule('stream');
+var modal = weex.requireModole('modal');*/
 
 var apiURL = {
 
@@ -197,6 +182,8 @@ exports.getBaseUrl = function(bundleUrl, isnav, images) {
 
 
 function getData(url, callback) {
+    var stream = weex.requireModule('stream');
+    var modal = weex.requireModule('modal');
     stream.sendHttp({
         method: 'GET',
         url: url
@@ -208,6 +195,8 @@ function getData(url, callback) {
 
 function postData(url, data, callback) {
     //comm.onLoadingStart();
+    var stream = weex.requireModule('stream');
+    var modal = weex.requireModule('modal');
     stream.fetch({
         method: 'POST',
         url: url,
@@ -223,10 +212,10 @@ function postData(url, data, callback) {
             console.log("request failed");
             // callback("0");
         } else {
-            if (ret.data.response.ok) {
+            if (ret.data.respond.ok) {
                 callback(ret.data);
             } else {
-                modal.toast({ message: ret.data.response.message, duration: 5 });
+                modal.toast({ message: ret.data.respond.msg, duration: 5 });
                 //console.log(ret.data)
                 // callback("0");
             }
@@ -234,3 +223,9 @@ function postData(url, data, callback) {
         }
     });
 }
+
+
+
+exports.requireNewsList = function(data, callback) {
+    postData('http://192.168.3.118:8888/web/api/news/list', data, callback);
+};
