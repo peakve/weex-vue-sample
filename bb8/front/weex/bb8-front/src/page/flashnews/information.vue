@@ -8,22 +8,22 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent()">数字广告行业虚假流量严重，Lucidity想用区块链提高供应链透明度</text>
+                        <text class="text_title" @click="goAlertContent()">{{item.title}}</text>
                         <div class="source_time">
-                            <text class="source" @click="goAlertFocus('default')">来源:36氪</text>
+                            <text class="source" @click="goAlertFocus('default')">来源:{{item.source}}</text>
                             <div class="time_hit">
                                 <div class="time_ago">
-                                    <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
-                                    <text class="text_time_ago">1天前</text>
+                                    <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
+                                    <text class="text_time_ago">20分钟前</text>
                                 </div>
                                 <div class="time_ago">
-                                    <image class="clock_image" src="/assets/images/b.png"></image>
-                                    <text class="text_time_ago">150次点击</text>
+                                    <image class="clock_image" src="/assets/images/click.png"></image>
+                                    <text class="text_time_ago">{{item.hits}}次点击</text>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <image class="content_image" src="/assets/images/b.png" resize="cover"></image>
+                    <image class="content_image" :src="item.banner" resize="cover"></image>
                 </div>
            </cell>
            <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
@@ -113,34 +113,42 @@
 const dom = weex.requireModule('dom');
 const animation = weex.requireModule('animation');
 const modal = weex.requireModule('modal');
+const stream = weex.requireModule('stream');
+var apis = require('../../common/action.js');
 
-//var apis = require('./common/action.js');
 export default {
     data () {
       return {
           refreshDisplay:'hide',
           refreshText:' ↓ 下拉刷新 ',
-          itemsList:[
-              {title:'数字广告行业虚假流量严重，Lucidity想用区块链提高供应链透明度'},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-          ],
+          itemsList:[],
+         data :{
+	                "category" : "default", // 1：新闻 99：重大新闻
+	                "page" : 1, 
+	                "size" : 20
+                },
       }
     },
 
     created(){
-        //modal.toast({ message: '进入information页面！',  duration: 2 });
-        
+        var self = this;
+        apis.requireNewsList(self.data,function(res){
+            if(res.respond.ok){
+                //modal.toast({message:(res.list[0].title),duration:1});
+                self.itemsList = res.list;
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
+        /*在当前页面测试用的网络请求
+        self.postData(self.url,self.data,function(res){
+            //modal.toast({message:'postData()方法执行',duration:1});
+            if(res.respond.ok){
+                modal.toast({message:(res.list[0].title),duration:1});
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });*/
     },
 
     methods: {
@@ -151,6 +159,39 @@ export default {
         goAlertContent:function(){
             this.$router.push('/alertcontent');
         },
+
+        /*在当前页面测试用的网络请求
+        postData:function(url, data, callback) {
+            //comm.onLoadingStart();
+            stream.fetch({
+                method: 'POST',
+                url: url,
+                type: 'json',
+                body: data,
+                headers: { 'Content-Type': 'application/json' }
+            }, function(ret) {
+                
+                //comm.onLoadingStop();
+                if (!ret.ok) {
+                    modal.toast({ message: '网络有问题，连不上', duration: 1 });
+                    // modal.toast({ message: 'callback: ' + event })
+                    //modal.toast({ message: ret, duration: 1 });
+                    console.log("request failed");
+                    // callback("0");
+                } else {
+                    if (ret.data.respond.ok) {
+                        callback(ret.data);
+                        //modal.toast({ message: 'callback有返回数据', duration: 1 });
+                    } else {
+                        modal.toast({ message: ret.data.response.message, duration: 5 });
+                        //console.log(ret.data)
+                        // callback("0");
+                    }
+
+                }
+            });
+        },*/
+
     }
 }
 </script>

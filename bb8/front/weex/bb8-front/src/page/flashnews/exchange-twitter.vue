@@ -8,22 +8,22 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="typical_image_name">
-                        <image class="content_image" src="/assets/images/b.png" resize="cover"></image>
-                        <text class="typical_name">QUOINE</text>
+                        <image class="content_image" :src="gethref(item.member.logo)" resize="cover"></image>
+                        <text class="typical_name">{{item.member.name!=null?item.member.name:item.member.screeName}}</text>
                     </div>
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent()">QRYPTOS is pleased to welcome our newesttoken member Sharpe (#SHP). @sharpecapitalis the world's best intelligence platform financialmarkets. $SHP is a staking token, which entitlesparticipants of their ecosystem to earn monthlypayments. Trade now! https://t.co/bnRfmj8Er4</text>
+                        <text class="text_title" @click="goAlertContent()">{{item.content}}</text>
                         <text class="translate_text">翻译</text>
                         <div class="source_time">
-                            <text class="source" @click="goAlertFocus('default')">来源:gate_io</text>
+                            <text class="source" @click="goAlertFocus('default')">来源:{{item.member.screeName!=null?item.member.screeName:item.member.name}}@{{item.source}}</text>
                             <div class="time_hit">
                                 <div class="time_ago">
-                                    <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                    <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
                                     <text class="text_time_ago">1天前</text>
                                 </div>
                                 <div class="time_ago">
-                                    <image class="clock_image" src="/assets/images/b.png"></image>
-                                    <text class="text_time_ago">150次点击</text>
+                                    <image class="clock_image" src="/assets/images/click.png"></image>
+                                    <text class="text_time_ago">{{item.hits}}次点击</text>
                                 </div>
                             </div>
                         </div>
@@ -133,31 +133,32 @@
 const dom = weex.requireModule('dom');
 const animation = weex.requireModule('animation');
 const modal = weex.requireModule('modal');
+var apis = require('../../common/action.js');
+
 export default {
     data () {
       return {
           refreshDisplay:'hide',
           refreshText:' ↓ 下拉刷新 ',
-          itemsList:[
-              {title:'数字广告行业虚假流量严重，Lucidity想用区块链提高供应链透明度'},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-          ],
+          itemsList:[],
+          data :{
+	                "category" : "ex_twitter",
+	                "page" : 1, 
+	                "size" : 20
+                },
       }
     },
 
     created(){
-        //modal.toast({ message: '进入information页面！',  duration: 2 });
+        var self = this;
+        apis.requireNewsList(self.data,function(res){
+            if(res.respond.ok){
+                //modal.toast({message:(res.list[0].title),duration:1});
+                self.itemsList = res.list;
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
     },
 
     methods: {
@@ -167,6 +168,16 @@ export default {
 
         goAlertContent:function(){
             this.$router.push('/alertcontent');
+        },
+        gethref(url){
+            if(!url){
+                return url;
+            }
+            if(url.indexOf("http")==0){
+                return url;
+            }else{
+                return 'http://www.51bb8.com/bfile/dfile'+url;
+            }
         },
     }
 }
