@@ -3,26 +3,26 @@
      <loginHeader :data="data" class="login_header"></loginHeader> 
       <div class="register_out bg_white">
             <div class="input_wrapper">  
-                <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名" autofocus="true" value=""/>  
-                <image class="input_img" src="/assets/images/icon_head.png"></image>  
+                <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名" value=""/>  
+                <image class="input_img" :src="get_img_path('icon_head.png')"></image>  
             </div>  
             <div class="input_wrapper">  
                 <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请输入手机号" value=""/>  
-                <image class="input_img" src="/assets/images/icon_password.png"></image>  
+                <image class="input_img" :src="get_img_path('icon_password.png')"></image>  
             </div>
             <div class="input_wrapper">  
                 <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请输入密码" value=""/>  
-                <image class="input_img" src="/assets/images/icon_password.png"></image>  
+                <image class="input_img" :src="get_img_path('icon_password.png')"></image>  
             </div>
             <div class="input_wrapper">  
                 <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请重新输入密码" value=""/>  
-                <image class="input_img" src="/assets/images/icon_password.png"></image>  
+                <image class="input_img" :src="get_img_path('icon_password.png')"></image>  
             </div>  
             <div class="input_wrapper send_code_out">  
               
                 <div class="input_code_out">
                     <input onchange="onchangeUserPassword" class="input_code bg_gray" type="password" placeholder="请输入验证码" value=""/>  
-                    <image class="input_img" src="/assets/images/icon_password.png"></image>  
+                    <image class="input_img" :src="get_img_path('icon_password.png')"></image>  
                 </div>
                 <div class="input_code_btn">
                      <text class="color1 send_code bg">发送验证码</text>  
