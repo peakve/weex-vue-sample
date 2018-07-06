@@ -4,14 +4,14 @@
       <loginHeader  :data="data" class="login_header" v-show="isshow"></loginHeader> 
       <div class="login_out bg_white">
     
-        <image class="bb8_logo" resize="cover" src="/assets/images/bb8_logo.png"></image>
+        <image class="bb8_logo" resize="cover" :src="get_img_path('bb8_logo.png')"></image>
           <div class="input_wrapper">  
-                <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名" autofocus="true" value=""/>  
-                <image class="input_img" src="/assets/images/icon_head.png"></image>  
+                <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名" value=""/>  
+                <image class="input_img" :src="get_img_path('icon_head.png')"></image>  
             </div>  
             <div class="input_wrapper">  
                 <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请输入密码" value=""/>  
-                <image class="input_img" src="/assets/images/icon_password.png"></image>  
+                <image class="input_img" :src="get_img_path('icon_password.png')"></image>  
             </div>  
              <div class="input_wrapper">  
                 <!--<text class="input-forget" >注册</text>  -->

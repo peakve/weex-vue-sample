@@ -54,6 +54,22 @@ export default {
         isIpx() {
             return weex && (weex.config.env.deviceModel === 'iPhone10,3' || weex.config.env.deviceModel === 'iPhone10,6');
         },
+        get_img_path(img_name) {
+            let self = this;
+            let img_path = ''
+
+            if (self.web) {
+                img_path = `./${img_name}`
+            } else if (self.android) {
+                img_name = img_name.substr(0, img_name.lastIndexOf('.'));
+                img_path = `local:///${img_name}`
+            } else {
+                //img_path = `../images/${img_name}`
+                img_path = `assets://${img_name}`
+            }
+
+            return img_path
+        },
         GET(api, callback) {
             stream.sendHttp({
                 method: 'GET',
