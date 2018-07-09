@@ -3,11 +3,11 @@
       <div class="alertfocus_whole">
           <div class="picture_title">
               <image class="typical_image" src="/assets/images/icon_logo.png" resize="cover"></image>
-              <text class="typical_name">QUOINE_SG</text>
+              <text class="typical_name">{{data.screeName ? data.screeName : data.name}}</text>
           </div>
           <div class="collect_content">
               <div class="blank"></div>
-              <text class="article_hits">557 文章     |    1022 点击</text>
+              <text class="article_hits">{{data.newsCount}} 文章     |    {{data.readCount}} 点击</text>
               <div class="logo_image_div">
                   <image class="logo_image" src="/assets/images/icon_logo.png" resize="cover"></image>
               </div>
@@ -87,7 +87,7 @@ export default {
 
     created(){
         var self = this;
-        modal.toast({message:self.memberId,duration:1});
+        //modal.toast({message:self.memberId,duration:1});
         apis.requireAlertFocusDesc({memberId:self.memberId},function(res){
             if(res.respond.ok){
                 self.data = res.data;
