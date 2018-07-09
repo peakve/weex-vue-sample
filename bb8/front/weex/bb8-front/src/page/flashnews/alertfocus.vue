@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
       <alertfocus-header></alertfocus-header>
-      <alertfocus-tab></alertfocus-tab>
+      <alertfocus-tab :category="category" :memberId="memberId" :source="source"></alertfocus-tab>
       <router-view></router-view>
   </div>
 </template>
@@ -15,13 +15,31 @@ const animation = weex.requireModule('animation');
 const modal = weex.requireModule('modal');
 
 export default {
+    data () {
+        return{
+            page : 1,
+            size : 20,
+            category : '',
+            memberId : '',
+            source : '',
+            
+        }
+    },
+
     components: {
         'alertfocus-header' : header,
         'alertfocus-tab' : tab,
     },
 
     created(){
-        modal.toast({ message: '进入alertfocus页面！',  duration: 2 });
+        var self = this;
+        self.category = this.$route.params.Category;
+        self.memberId = this.$route.params.MemberId;
+        self.source = this.$route.params.Source;
     },
+
+    methods:{
+
+    }
 }
 </script>

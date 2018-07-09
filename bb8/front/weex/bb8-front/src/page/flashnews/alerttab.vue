@@ -2,7 +2,7 @@
     <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
         <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar=false>
             <div class="tab-i">
-                <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>资讯</text>
+                <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>{{title}}</text>
                 <div class="j-uline" v-if="navIndex==0"></div>
             </div>
             <div class="tab-i">
@@ -37,28 +37,28 @@
     justify-content: center;
 }
 .scroller{
-    height: 54px;
-    padding-right: 50px;
+    height: 60px;
     flex-direction: row;
 }
 .i-c{
     padding-top:10px;
-    padding-left: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom:6px;
     font-size: 25px;
-    color:#333;
+    color:#999;
 }
 .c-act{
-    color:#b4282d;
+    color:black;
 }
 .j-uline{
     /* position: absolute; */
     /* left: 30px; */
     /* left:25%;
     /* bottom: 0; */
-    width: 80%;
-    height: 4px;
-    background-color: #b4282d;
+    width: 100%;
+    height: 2px;
+    background-color: black;
 }
 .more{
     position: absolute;
@@ -80,26 +80,50 @@
     const modal = weex.requireModule('modal');
 
     export default{
+        props: ['category','memberId','source'],
+
         data() {
             return {
                 jLPosition:"left:30px;width:82px;",
-                navIndex:1,
+                navIndex:0,
                 sortBy: '', // 筛选的条件
                 Activity:[],
                 Delivery:[],
                 delivery_mode: null, // 选中的配送方式
                 support_ids: [], // 选中的商铺活动列表
                 filterNum: 0, // 所选中的所有样式的集合
+                title:'资讯',
             }
         },
 
+        created() {
+            var self = this;
+            this.$router.push({
+                path:'/focusDetail',
+                name:'focusDetail',
+                params:{
+                    Category:self.category,
+                    MemberId:self.memberId,
+                    Source:self.source
+                }
+            });
+            //modal.toast({message:self.source,duration:1});
+        },
+
         mounted() {
+            var self = this;
             this.initJLine();
             this.Activity=[{id:"111",name:'看门'},{id:"112",name:'看门'}];
             this.Activity.forEach((item, index) => {
 	    		this.support_ids[index] = {status: false, id: item.id};
             });
             this.Delivery=[{id:'2341',text:'看见1'},{id:'2342',text:'看见2'},{id:'2343',text:'看见3'}];
+            //modal.toast({message:self.msg,duration:1});
+            if(self.category=='defaule'){
+                self.title = "资讯";
+            }else if(self.category=='defaule_en'){
+                self.title = "全球媒体";
+            }
         },
 
         methods:{
@@ -111,13 +135,23 @@
             },
 
             chooseChannel:function (idx,event) {
+                var self = this;
                 this.navIndex=idx;
                 //modal.toast({ message: idx+'--',  duration: 1 });
                 if(idx==0){
                     //modal.toast({ message: '点击了标签页',  duration: 1 });
-                    this.$router.push('/focusDetail');
+                    var self = this;
+                    this.$router.push({
+                        path:'/focusDetail',
+                        name:'focusDetail',
+                        params:{
+                            Category:self.category,
+                            MemberId:self.memberId,
+                            Source:self.source
+                        }
+                    });
                 }else if(idx==1){
-                    this.$router.push('/synopsis');
+                    this.$router.push({path:'/synopsis'});
                 }
                 const el=this.$refs['t'+idx];
                 const result = dom.getComponentRect(el, option => {

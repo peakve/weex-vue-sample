@@ -58,7 +58,7 @@ export default new Router({
         {
             path: '/home',
             component: ViewHome,
-            children: [　　
+            children: [
                 { path: '/bbtop/:symbol', name: "bbtop", component: bbtop },
                 { path: '/chat', component: chat },
                 { path: '', 　　　component: homeOptional }
@@ -90,6 +90,7 @@ export default new Router({
         },
         {
             path: '/alertfocus',
+            name: 'alertfocus',
             component: alertFocus,
             children: [
                 { path: '/synopsis', name: "synopsis", component: synopsis },
