@@ -74,5 +74,32 @@
 </style>
 
 <script>
-    
+var modal = weex.requireModule('modal');
+var apis = require('../../common/action.js');
+
+export default {
+    props:['memberId'],
+    data(){
+        return{
+            data:{},
+        }
+    },
+
+    created(){
+        var self = this;
+        modal.toast({message:self.memberId,duration:1});
+        apis.requireAlertFocusDesc({memberId:self.memberId},function(res){
+            if(res.respond.ok){
+                self.data = res.data;
+                //modal.toast({message:(self.itemsList[0].title),duration:1});
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
+    },
+
+    methods:{
+
+    }
+}
 </script>

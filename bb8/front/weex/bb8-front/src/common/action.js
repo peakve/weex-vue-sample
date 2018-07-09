@@ -234,3 +234,8 @@ exports.requireNewsList = function(data, callback) {
 exports.requireAlertFocusList = function(data, callback) {
     postData('http://192.168.3.118:8888/web/api/member/list', data, callback);
 };
+
+//聚合页面简介
+exports.requireAlertFocusDesc = function(data, callback) {
+    postData('http://192.168.3.118:8888/web/api/member/info', data, callback);
+};
