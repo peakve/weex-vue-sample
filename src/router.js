@@ -3,6 +3,7 @@
  */
 
 import Router from 'vue-router'
+
 import ViewHome from './page/home/home.vue'
 import ViewMy from './page/home/home.vue'
 import bbtop from './page/home/bbtop.vue'
@@ -61,7 +62,7 @@ export default new Router({
             children: [
                 { path: '/bbtop/:symbol', name: "bbtop", component: bbtop },
                 { path: '/chat', component: chat },
-                { path: '', 　　　component: homeOptional }
+                { path: '/dd', 　　　component: homeOptional }
             ]
         },
         {
@@ -74,18 +75,18 @@ export default new Router({
         // {　 path: '/bbtop/:symbol', name: "bbtop", component: bbtop },
         // { path: '/bb', component: bbtop },
         { path: '/my', component: usercenter },
-
         {
             path: '/flashnews',
             component: flashnews,
             children: [
-                { path: '/information', name: "information", component: information },
+                { path: '', 　　　component: homeOptional },
+                { path: '/information', component: information },
                 { path: '/globalmedia', name: "globalmedia", component: globalMedia },
                 { path: '/exchangenotice', name: "exchangenotice", component: exchangeNotice },
                 { path: '/exchangetwitter', name: "exchangetwitter", component: exchangeTwitter },
-                { path: '/policy', name: "information", component: policy },
-                { path: '/newcoin', name: "information", component: newcoin },
-                { path: '/voice', name: "information", component: voice },
+                { path: '/policy', name: "policy", component: policy },
+                { path: '/newcoin', name: "newcoin", component: newcoin },
+                { path: '/voice', name: "voice", component: voice },
             ]
         },
         {
