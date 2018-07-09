@@ -227,15 +227,15 @@ function postData(url, data, callback) {
 
 //新闻资讯列表
 exports.requireNewsList = function(data, callback) {
-    postData('http://192.168.3.118:8888/web/api/news/list', data, callback);
+    postData(apiURL.baseurl + 'api/news/list', data, callback);
 };
 
 //聚合页面列表
 exports.requireAlertFocusList = function(data, callback) {
-    postData('http://192.168.3.118:8888/web/api/member/list', data, callback);
+    postData(apiURL.baseurl + 'api/member/list', data, callback);
 };
 
 //聚合页面简介
 exports.requireAlertFocusDesc = function(data, callback) {
-    postData('http://192.168.3.118:8888/web/api/member/info', data, callback);
+    postData(apiURL.baseurl + 'api/member/info', data, callback);
 };
