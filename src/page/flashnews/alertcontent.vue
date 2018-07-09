@@ -1,43 +1,29 @@
 <template>
     <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
+        <scroller>
         <div class="alertcontent">
-            <text class="alertcontent_title">gate.io已分发IHT交易竞赛奖励公告</text>
+            <text class="alertcontent_title">{{data.title}}</text>
             <text class="time_text">2018-06-14 17:00</text>
             <div class="image_name_hit">
                 <div class="image_name">
                     <image class="typical_iamge" src="/assets/images/b.png" resize="cover"></image>
-                    <text class="typical_name">gate_io</text>
+                    <text class="typical_name">{{data.source}}</text>
                 </div>
                 <div class="hits_count">
                     <text class="hits_count_text">点击数量</text>
-                    <text class="hits_count_number">1023</text>
+                    <text class="hits_count_number">{{data.hits}}</text>
                 </div>
             </div>
-            <div class="contents">        
-              <text class="contents_text">
-                    gate.io已经按照活动规则为用户发放所有的
-                    IHT奖励，获奖用户可以到以下账单明细中查
-                    看详情：
-                    https://gateio.io/myaccount/mypurselog
-                    详细规则请看： gate.io端午节送60万福利
-                    活动公告
-                    感谢云产币团队为为活动提供资金支持
-                    云产币官方网站：
-                    https://ihtcoin.com/?lang=ch
-                    Deposit IHT at （充值IHT）
-                    https://gateio.io/myaccount/deposit/IHT
-                    Trade IHT at （交易IHT）
-                    IHT对USDT交易:
-                    https://gateio.io/trade/IHT_USDT
-                    and
-                    IHT对ETH交易：</text>
+            <div class="vhtml" v-html="data.content">
+              <text class="contents_text">{{data.content}}</text>
             </div>
             <div class="see_number">
                 <image class="see_image" src="/assets/images/click.png"></image>
-                <text class="see_number_text">150次点击</text>
+                <text class="see_number_text">{{data.hits}}次点击</text>
             </div>
             <text class="declare_text">声明：转载内容仅供读者参考，不代表51BB8财经立场。 本文版权归原作者所有，我们尊重版权，如信息有误或其他疑问敬请联系，我们将尽快核实并处理。</text>
         </div>
+        </scroller>
     </div>
 </template>
 
@@ -51,6 +37,7 @@
 }
 .alertcontent{
     flex-direction: column;
+    margin-bottom: 20px;
 }
 .alertcontent_title{
     font-size: 45px;
@@ -104,6 +91,10 @@
     color: #4d4d4d;
     font-size: 25px;
 }
+.vhtml{
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .contents_text{
     font-size: 30px;
     color: #333;
@@ -129,9 +120,38 @@
     color: #808080;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 50px;
 }
 </style>
 
 <script>
-    
+var apis = require('../../common/action.js');
+var modal = weex.requireModule('modal');
+
+export default{
+    data () {
+        return{
+            articalId:'',
+            data:{},
+        }
+    },
+
+    created(){
+        var self = this;
+        self.articalId = this.$route.params.ArticalId;
+        modal.toast({message:"文章id"+self.articalId,duration:2});
+        apis.requireArticalContent({id:self.articalId},function(res){
+            if(res.respond.ok){
+                self.data = res.data;
+                //modal.toast({message:(self.data.newsCount),duration:1});
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
+    },
+
+    methods:{
+
+    }
+}
 </script>

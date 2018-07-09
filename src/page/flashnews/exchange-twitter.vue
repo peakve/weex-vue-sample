@@ -12,7 +12,7 @@
                         <text class="typical_name">{{item.member.name!=null?item.member.name:item.member.screeName}}</text>
                     </div>
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent()">{{item.content}}</text>
+                        <text class="text_title" @click="goAlertContent(item.id)">{{item.content}}</text>
                         <text class="translate_text">翻译</text>
                         <div class="source_time">
                             <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源:{{item.member.screeName!=null?item.member.screeName:item.member.name}}@{{item.source}}</text>
@@ -175,9 +175,16 @@ export default {
             });
         },
 
-        goAlertContent:function(){
-            this.$router.push('/alertcontent');
+        goAlertContent:function(articalId){
+            this.$router.push({
+                path:'/alertcontent',
+                name:'alertcontent',
+                params : {
+                    ArticalId : articalId,
+                }
+            });
         },
+        
         gethref(url){
             if(!url){
                 return url;

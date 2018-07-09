@@ -239,3 +239,8 @@ exports.requireAlertFocusList = function(data, callback) {
 exports.requireAlertFocusDesc = function(data, callback) {
     postData(apiURL.baseurl + 'api/member/info', data, callback);
 };
+
+//文章内容界面
+exports.requireArticalContent = function(data, callback) {
+    postData(apiURL.baseurl + 'api/news/viewNews', data, callback);
+};

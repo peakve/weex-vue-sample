@@ -98,7 +98,7 @@ export default new Router({
                 { path: '/focusDetail', name: "focusDetail", component: focusDetail }
             ]
         },
-        { path: '/alertcontent', component: alertContent },
+        { path: '/alertcontent', name: "alertcontent", component: alertContent },
 
         { path: '/login', component: login },
         { path: '/register', component: register },

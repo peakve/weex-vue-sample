@@ -11,8 +11,8 @@
                 <div class="information_content">
                     <image class="content_image" :src="item.banner" resize="cover"></image>
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent()">{{item.title}}</text>
-                        <text class="text_abstract" @click="goAlertContent()">{{item.abs}}</text>
+                        <text class="text_title" @click="goAlertContent(item.id)">{{item.title}}</text>
+                        <text class="text_abstract" @click="goAlertContent(item.id)">{{item.abs}}</text>
                         <div class="source_time">
                             <div class="time_ago">
                                 <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
@@ -44,8 +44,8 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_title_match" @click="goAlertContent()">{{item.title}}</text>
-                        <text class="text_abstract_match" @click="goAlertContent()">{{item.abs}}</text>
+                        <text class="text_title_match" @click="goAlertContent(item.id)">{{item.title}}</text>
+                        <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.abs}}</text>
                         <div class="source_time_match">
                             <div class="time_ago">
                                 <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
@@ -77,7 +77,7 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_abstract_match" @click="goAlertContent()">{{item.content}}</text>
+                        <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.content}}</text>
                         <text class="translate_text">翻译</text>
                         <div class="source_time_match">
                             <div class="time_ago">
@@ -110,7 +110,7 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_abstract_match" @click="goAlertContent()">{{item.content}}</text>
+                        <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.content}}</text>
                         <!--<text class="translate_text">翻译</text>-->
                         <div class="source_time_match">
                             <div class="time_ago">
@@ -281,5 +281,17 @@ export default{
             }
         });
     },
+
+    methods:{
+        goAlertContent:function(articalId){
+            this.$router.push({
+                path:'/alertcontent',
+                name:'alertcontent',
+                params : {
+                    ArticalId : articalId,
+                }
+            });
+        },
+    }
 }
 </script>

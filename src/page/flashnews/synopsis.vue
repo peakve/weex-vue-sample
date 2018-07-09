@@ -1,6 +1,6 @@
 <template>
   <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
-      <text class="synopsis_text">火币自主数字资产交易所，火币全球专业站推出了全新子品牌火币自主数字资产交易所（Huobi Autonomous DigitalAsset eXchange，简称HADAX），服务于专业数字资产投资者及早期的创新型数字资产。</text>
+      <text class="synopsis_text">{{data.desc}}</text>
   </div>
 </template>
 
@@ -20,10 +20,37 @@
     padding-right: 20px;
     font-size: 25px;
     color: black;
-    font-weight: 700;
 }
 </style>
 
 <script>
-    
+var modal = weex.requireModule('modal');
+var apis = require('../../common/action.js');
+
+export default{
+    data() {
+        return{
+            memberId:'',
+            data:{},
+        }
+    },
+
+    created() {
+        var self = this;
+        self.memberId = this.$route.params.MemberId;
+        //modal.toast({message:"简介"+self.memberId,duration:1});
+        apis.requireAlertFocusDesc({memberId:self.memberId},function(res){
+            if(res.respond.ok){
+                self.data = res.data;
+                //modal.toast({message:(self.data.newsCount),duration:1});
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
+    },
+
+    methods:{
+
+    }
+}
 </script>
