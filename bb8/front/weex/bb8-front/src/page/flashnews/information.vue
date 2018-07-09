@@ -166,8 +166,14 @@ export default {
             });
         },
 
-        goAlertContent:function(){
-            this.$router.push('/alertcontent');
+        goAlertContent:function(articalId){
+            this.$router.push({
+                path:'/alertcontent',
+                name:'alertcontent',
+                params : {
+                    ArticalId : articalId,
+                }
+            });
         },
 
         /*在当前页面测试用的网络请求

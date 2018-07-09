@@ -8,7 +8,7 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent()">{{item.title}}</text>
+                        <text class="text_title" @click="goAlertContent(item.id)">{{item.title}}</text>
                         <div class="source_time">
                             <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源: {{item.source}}</text>
                             <div class="time_hit">
@@ -155,8 +155,14 @@ export default {
             });
         },
 
-        goAlertContent:function(){
-            this.$router.push('/alertcontent');
+        goAlertContent:function(articalId){
+            this.$router.push({
+                path:'/alertcontent',
+                name:'alertcontent',
+                params : {
+                    ArticalId : articalId,
+                }
+            });
         },
     }
 }

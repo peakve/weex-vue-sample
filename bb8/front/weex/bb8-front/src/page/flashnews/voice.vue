@@ -12,7 +12,7 @@
                         <text class="typical_name">{{item.member.name!=null?item.member.name:item.member.screeName}}</text>
                     </div>
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent()">{{item.content}}</text>
+                        <text class="text_title" @click="goAlertContent(item.id)">{{item.content}}</text>
                         <div class="random_image_div">
                             <image class="random_image" v-for="image in images" :src="image.picture"></image>
                         </div>
@@ -177,9 +177,16 @@ export default {
             });
         },
 
-        goAlertContent:function(){
-            this.$router.push('/alertcontent');
+        goAlertContent:function(articalId){
+            this.$router.push({
+                path:'/alertcontent',
+                name:'alertcontent',
+                params : {
+                    ArticalId : articalId,
+                }
+            });
         },
+        
         gethref(url){
             if(!url){
                 return url;

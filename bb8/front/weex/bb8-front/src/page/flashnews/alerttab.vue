@@ -160,13 +160,19 @@
                         }
                     });
                 }else if(idx==1){
-                    this.$router.push({path:'/synopsis'});
+                    this.$router.push({
+                        path:'/synopsis',
+                        name: 'synopsis',
+                        params:{
+                            MemberId:self.memberId
+                        }
+                    });
                 }
                 const el=this.$refs['t'+idx];
                 const result = dom.getComponentRect(el, option => {
-                        if(option.size.left>420){
-                            dom.scrollToElement(el, { offset: -option.size.left/2 });
-                        }
+                    if(option.size.left>420){
+                        dom.scrollToElement(el, { offset: -option.size.left/2 });
+                    }
                 });
             },
 

@@ -2,7 +2,7 @@
   <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
       <div class="alertfocus_whole">
           <div class="picture_title">
-              <image class="typical_image" src="/assets/images/icon_logo.png" resize="cover"></image>
+              <image class="typical_image" :src="gethref(data.logo?data.logo:data.profileImageUrl)" resize="cover"></image>
               <text class="typical_name">{{data.screeName ? data.screeName : data.name}}</text>
           </div>
           <div class="collect_content">
@@ -91,7 +91,7 @@ export default {
         apis.requireAlertFocusDesc({memberId:self.memberId},function(res){
             if(res.respond.ok){
                 self.data = res.data;
-                //modal.toast({message:(self.itemsList[0].title),duration:1});
+                //modal.toast({message:(self.data.newsCount),duration:1});
             }else{
                 modal.toast({message:'网络请求失败',duration:1});
             }
@@ -99,6 +99,16 @@ export default {
     },
 
     methods:{
+        gethref(url){
+            if(!url){
+                return url;
+            }
+            else if(url.indexOf("http")==0){
+                return url;
+            }else{
+                return 'http://www.51bb8.com/bfile/dfile'+url;
+            }
+        },
 
     }
 }
