@@ -7,7 +7,7 @@
           </div>
           <div class="collect_content">
               <div class="blank"></div>
-              <text class="article_hits">557 文章    |    1022 点击</text>
+              <text class="article_hits">557 文章     |    1022 点击</text>
               <div class="logo_image_div">
                   <image class="logo_image" src="/assets/images/icon_logo.png" resize="cover"></image>
               </div>

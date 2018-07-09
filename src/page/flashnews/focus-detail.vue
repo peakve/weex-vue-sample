@@ -1,7 +1,7 @@
 <template>
 <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
 
-    <div class="detail_type" v-if="false">
+    <div class="detail_type" v-show="(category=='default' || category=='default_en' || category=='research_report')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -9,24 +9,24 @@
            </refresh>
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
-                    <image class="content_image" src="/assets/images/b.png" resize="cover"></image>
+                    <image class="content_image" :src="item.banner" resize="cover"></image>
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent()">Bitfinex操纵了2017年比特币的价格</text>
-                        <text class="text_abstract" @click="goAlertContent()">2017年比特币价格大幅上涨的背后推手</text>
+                        <text class="text_title" @click="goAlertContent()">{{item.title}}</text>
+                        <text class="text_abstract" @click="goAlertContent()">{{item.abs}}</text>
                         <div class="source_time">
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
                                 <text class="text_time_ago">1天前</text>
                             </div>
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png"></image>
-                                <text class="text_time_ago">150次点击</text>
+                                <image class="clock_image" src="/assets/images/click.png"></image>
+                                <text class="text_time_ago">{{item.hits}}次点击</text>
                             </div>
                         </div>
                     </div>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+           <loading @loading="loadingData" :display="loadingDisplay" v-show="showload">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text">{{loadingText}}</text>
@@ -35,7 +35,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-if="false">
+    <div class="detail_type" v-show="(category=='ex_notice' || category=='newcoin' )">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -44,22 +44,21 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_title_match" @click="goAlertContent()">TTC Protocol（TTC）暂停上线公告TTC Protocol（TTC）暂停上线公告TTC Protocol（TTC）暂停上线公告</text>
-                        <text class="text_abstract_match" @click="goAlertContent()">因TTCProtocol（TTC）临时更改智能合约地址，为保护用户资产安全与交易体验，我们决定暂停充值和交易，已充值的用户请及时提币。给您带来的不便敬请谅解。感谢您对Bibox的支持。</text>
-                        <div class="source_time_match">
+                        <text class="text_title_match" @click="goAlertContent()">{{item.title}}</text>
+                        <text class="text_abstract_match" @click="goAlertContent()">{{item.abs}}
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
                                 <text class="text_time_ago">1天前</text>
                             </div>
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png"></image>
-                                <text class="text_time_ago">150次点击</text>
+                                <image class="clock_image" src="/assets/images/click.png"></image>
+                                <text class="text_time_ago">{{150}}次点击</text>
                             </div>
                         </div>
                     </div>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+           <loading @loading="loadingData" :display="loadingDisplay" v-show="showload">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text">{{loadingText}}</text>
@@ -68,7 +67,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-if="true">
+    <div class="detail_type" v-show="(category=='ex_twitter')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -77,22 +76,55 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_abstract_match" @click="goAlertContent()">QRYPTOS is pleased to welcome our newesttoken member Sharpe (#SHP). @sharpecapitalis the world's best intelligence platform financialmarkets. $SHP is a staking token, which entitlesparticipants of their ecosystem to earn monthlypayments. Trade now! https://t.co/bnRfmj8Er4</text>
+                        <text class="text_abstract_match" @click="goAlertContent()">{{item.content}}</text>
                         <text class="translate_text">翻译</text>
                         <div class="source_time_match">
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
                                 <text class="text_time_ago">1天前</text>
                             </div>
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png"></image>
-                                <text class="text_time_ago">150次点击</text>
+                                <image class="clock_image" src="/assets/images/click.png"></image>
+                                <text class="text_time_ago">{{item.hits}}次点击</text>
                             </div>
                         </div>
                     </div>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+           <loading @loading="loadingData" :display="loadingDisplay" v-show="showload">
+                <div class="loadingOut">
+                    <loading-indicator class="load_indicator"></loading-indicator>
+                    <text class="text">{{loadingText}}</text>
+                </div>
+           </loading>
+        </list>
+    </div>
+
+    <div class="detail_type" v-show="(category=='bv')">
+        <list class="information_list">
+           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
+                <loading-indicator class="indicator"></loading-indicator>
+                <text class="text_refresh">{{refreshText}}</text>
+           </refresh>
+           <cell v-for="(item,index) in itemsList">
+                <div class="information_content">
+                    <div class="title_sourece_time_match">
+                        <text class="text_abstract_match" @click="goAlertContent()">{{item.content}}</text>
+                        <!--<text class="translate_text">翻译</text>-->
+                        <div class="source_time_match">
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
+                                <text class="text_time_ago">1天前</text>
+                            </div>
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/click.png"></image>
+                                <text class="text_time_ago">{{item.hits}}次点击</text>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </cell>
+           <loading @loading="loadingData" :display="loadingDisplay" v-show="showload">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text">{{loadingText}}</text>
@@ -213,27 +245,40 @@
 </style>
 
 <script>
+var modal = weex.requireModule('modal');
+var apis = require('../../common/action.js');
+
 export default{
     data () {
       return {
           refreshDisplay:'hide',
           refreshText:' ↓ 下拉刷新 ',
-          itemsList:[
-              {title:'数字广告行业虚假流量严重，Lucidity想用区块链提高供应链透明度'},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-          ],
+          itemsList:[],
+          category:'',
+          memberId:'',
+          source:'',
       }
+    },
+
+    created(){
+        var self = this;
+        self.category = this.$route.params.Category;
+        self.memberId = this.$route.params.MemberId;
+        self.source = this.$route.params.Source;
+        //modal.toast({message:"传值"+self.memberId,duration:1});
+        apis.requireNewsList({
+	        "memberId" : self.memberId,
+            "page" : self.page,
+            "size" : self.size,
+            "category" : self.category
+        },function(res){
+            if(res.respond.ok){
+                self.itemsList = res.list;
+                //modal.toast({message:(self.itemsList[0].title),duration:1});
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
     },
 }
 </script>

@@ -10,7 +10,7 @@
                     <div class="title_sourece_time">
                         <text class="text_title" @click="goAlertContent()">{{item.title}}</text>
                         <div class="source_time">
-                            <text class="source" @click="goAlertFocus('default')">来源: {{item.source}}</text>
+                            <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源: {{item.source}}</text>
                             <div class="time_hit">
                                 <div class="time_ago">
                                     <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
@@ -118,20 +118,21 @@ var apis = require('../../common/action.js');
 export default {
     data () {
       return {
+          page : 1,
+          size : 20,
           refreshDisplay:'hide',
           refreshText:' ↓ 下拉刷新 ',
           itemsList:[],
-          data :{
-	                "category" : "default_en",
-	                "page" : 1, 
-	                "size" : 20
-                },
       }
     },
 
     created(){
         var self = this;
-        apis.requireNewsList(self.data,function(res){
+        apis.requireNewsList({
+	        "category" : "default_en",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
+	        "page" : self.page,
+	        "size" : self.size
+        },function(res){
             if(res.respond.ok){
                 //modal.toast({message:(res.list[0].title),duration:1});
                 self.itemsList = res.list;
@@ -142,8 +143,16 @@ export default {
     },
 
     methods: {
-        goAlertFocus:function(category){
-            this.$router.push('/alertfocus');
+        goAlertFocus:function(category,memberId,source){
+            this.$router.push({
+                path : '/alertfocus',
+                name : 'alertfocus',
+                params : {
+                    Category : category,
+                    MemberId : memberId,
+                    Source : source
+                }
+            });
         },
 
         goAlertContent:function(){
