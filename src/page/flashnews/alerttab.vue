@@ -92,7 +92,7 @@
                 delivery_mode: null, // 选中的配送方式
                 support_ids: [], // 选中的商铺活动列表
                 filterNum: 0, // 所选中的所有样式的集合
-                title:'资讯',
+                title:"资讯",
             }
         },
 
@@ -108,10 +108,24 @@
                 }
             });
             //modal.toast({message:self.source,duration:1});
+            if(self.category=='default'){
+                self.title = "资讯";
+            }else if(self.category=='default_en'){
+                self.title = "全球媒体";
+            }else if(self.category=='ex_notice'){
+                self.title = "交易所公告";
+            }else if(self.category=='ex_twitter'){
+                self.title = "交易所推特";
+            }else if(self.category=='bv'){
+                self.title = "大V声音";
+            }else if(self.category=='newcoin'){
+                self.title = "新币时讯";
+            }else if(self.category=='research_report'){
+                self.title = "监管政策";
+            }
         },
 
         mounted() {
-            var self = this;
             this.initJLine();
             this.Activity=[{id:"111",name:'看门'},{id:"112",name:'看门'}];
             this.Activity.forEach((item, index) => {
@@ -119,11 +133,6 @@
             });
             this.Delivery=[{id:'2341',text:'看见1'},{id:'2342',text:'看见2'},{id:'2343',text:'看见3'}];
             //modal.toast({message:self.msg,duration:1});
-            if(self.category=='defaule'){
-                self.title = "资讯";
-            }else if(self.category=='defaule_en'){
-                self.title = "全球媒体";
-            }
         },
 
         methods:{

@@ -35,7 +35,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-if="false">
+    <div class="detail_type" v-if="(category=='ex_notice' || category=='newcoin')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -44,16 +44,16 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_title_match" @click="goAlertContent()">TTC Protocol（TTC）暂停上线公告TTC Protocol（TTC）暂停上线公告TTC Protocol（TTC）暂停上线公告</text>
-                        <text class="text_abstract_match" @click="goAlertContent()">因TTCProtocol（TTC）临时更改智能合约地址，为保护用户资产安全与交易体验，我们决定暂停充值和交易，已充值的用户请及时提币。给您带来的不便敬请谅解。感谢您对Bibox的支持。</text>
+                        <text class="text_title_match" @click="goAlertContent()">{{item.title}}</text>
+                        <text class="text_abstract_match" @click="goAlertContent()">{{item.abs}}</text>
                         <div class="source_time_match">
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
                                 <text class="text_time_ago">1天前</text>
                             </div>
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png"></image>
-                                <text class="text_time_ago">150次点击</text>
+                                <image class="clock_image" src="/assets/images/click.png"></image>
+                                <text class="text_time_ago">{{item.hits}}次点击</text>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-if="true">
+    <div class="detail_type" v-if="(category=='ex_twitter')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -77,16 +77,49 @@
            <cell v-for="(item,index) in itemsList">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_abstract_match" @click="goAlertContent()">QRYPTOS is pleased to welcome our newesttoken member Sharpe (#SHP). @sharpecapitalis the world's best intelligence platform financialmarkets. $SHP is a staking token, which entitlesparticipants of their ecosystem to earn monthlypayments. Trade now! https://t.co/bnRfmj8Er4</text>
+                        <text class="text_abstract_match" @click="goAlertContent()">{{item.content}}</text>
                         <text class="translate_text">翻译</text>
                         <div class="source_time_match">
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png" resize="cover"></image>
+                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
                                 <text class="text_time_ago">1天前</text>
                             </div>
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/b.png"></image>
-                                <text class="text_time_ago">150次点击</text>
+                                <image class="clock_image" src="/assets/images/click.png"></image>
+                                <text class="text_time_ago">{{item.hits}}次点击</text>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </cell>
+           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+                <div class="loadingOut">
+                    <loading-indicator class="load_indicator"></loading-indicator>
+                    <text class="text">{{loadingText}}</text>
+                </div>
+           </loading>
+        </list>
+    </div>
+
+    <div class="detail_type" v-if="(category=='bv')">
+        <list class="information_list">
+           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
+                <loading-indicator class="indicator"></loading-indicator>
+                <text class="text_refresh">{{refreshText}}</text>
+           </refresh>
+           <cell v-for="(item,index) in itemsList">
+                <div class="information_content">
+                    <div class="title_sourece_time_match">
+                        <text class="text_abstract_match" @click="goAlertContent()">{{item.content}}</text>
+                        <!--<text class="translate_text">翻译</text>-->
+                        <div class="source_time_match">
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
+                                <text class="text_time_ago">1天前</text>
+                            </div>
+                            <div class="time_ago">
+                                <image class="clock_image" src="/assets/images/click.png"></image>
+                                <text class="text_time_ago">{{item.hits}}次点击</text>
                             </div>
                         </div>
                     </div>
@@ -234,7 +267,7 @@ export default{
         self.memberId = this.$route.params.MemberId;
         self.source = this.$route.params.Source;
         //modal.toast({message:"传值"+self.memberId,duration:1});
-        apis.requireNewsList({
+        apis.requireAlertFocusList({
 	        "memberId" : self.memberId,
             "page" : self.page,
             "size" : self.size,
