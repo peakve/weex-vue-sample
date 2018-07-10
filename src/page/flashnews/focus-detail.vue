@@ -78,7 +78,8 @@
                 <div class="information_content">
                     <div class="title_sourece_time_match">
                         <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.content}}</text>
-                        <text class="translate_text">翻译</text>
+                        <text class="translate_text" @click="getTranslation(item.id,index)">翻译</text>
+                        <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
                         <div class="source_time_match">
                             <div class="time_ago">
                                 <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
@@ -111,7 +112,8 @@
                 <div class="information_content">
                     <div class="title_sourece_time_match">
                         <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.content}}</text>
-                        <!--<text class="translate_text">翻译</text>-->
+                        <text class="translate_text" @click="getTranslation(item.id,index)" v-if="item.source != 'weibo'">翻译</text>
+                        <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
                         <div class="source_time_match">
                             <div class="time_ago">
                                 <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
@@ -153,6 +155,8 @@
     align-items: center;
 }
 .indicator{
+    width: 35px;
+    height: 35px;
     color: grey;
     margin-bottom: 30px;
 }
@@ -200,6 +204,12 @@
     border-radius: 5px;
     width: 65px;
     margin-top: 5px; 
+}
+.translate_result{
+    width: 700px;
+    font-size: 25px;
+    margin-top: 10px;
+    background-color: #ededed;
 }
 .text_abstract{
     margin-top: 10px;
@@ -273,6 +283,13 @@ export default{
           category:'',
           memberId:'',
           source:'',
+          translates:[{
+                "key": "zh",
+                "label": ""
+          }],
+          translateShow:false,
+          translateClick:0,
+          translateList:[],
       }
     },
 
@@ -364,6 +381,46 @@ export default{
 				}
             });
         },
+
+        getTranslation(id,index){
+            var self=this;
+            apis.requireTranslate({"id" : id},function(res){
+                if(!res.respond.ok){
+                    //console.log(res);
+                    return false;
+                }
+
+                if(!res.data.translates){
+                    // return false;
+                    res.data.translates=self.translates;
+                }
+
+                self.itemsList[index].translates=res.data.translates;
+                self.translateShow=true;
+                //console.log("翻译"+res.data.translates[0].label+"index:"+index);
+                //console.log("translates:::"+JSON.stringify(self.list[index].translates));
+
+                self.translateList.push(id);
+                self.translateClick=self.translateClick+1;
+                //modal.toast({message:res.data.translates[0].label,duration:1});
+
+            });
+      },
+      
+      isExistsTranlate(id){
+        var self = this;
+        //console.log(JSON.stringify(self.translateList));
+
+        for(let i=0;i<this.translateList.length;i++){
+          let item =this.translateList[i];
+              if(item==id){
+                //console.log("显示标签"+item);
+                return true;
+              }
+        }
+       
+        return false;
+      },
 
     }
 }
