@@ -104,6 +104,5 @@ export default new Router({
         { path: '/register', component: register },
         { path: '/pcenter', component: pcenter },
 
-
     ]
 })
