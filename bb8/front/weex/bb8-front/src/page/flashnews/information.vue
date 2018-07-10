@@ -47,6 +47,8 @@
     align-items: center;
 }
 .indicator{
+    width: 35px;
+    height: 35px;
     color: grey;
     margin-bottom: 30px;
 }

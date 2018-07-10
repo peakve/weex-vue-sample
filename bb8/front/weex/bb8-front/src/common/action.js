@@ -244,3 +244,8 @@ exports.requireAlertFocusDesc = function(data, callback) {
 exports.requireArticalContent = function(data, callback) {
     postData(apiURL.baseurl + 'api/news/viewNews', data, callback);
 };
+
+//翻译
+exports.requireTranslate = function(data, callback) {
+    postData(apiURL.baseurl + 'api/news/translate', data, callback);
+};

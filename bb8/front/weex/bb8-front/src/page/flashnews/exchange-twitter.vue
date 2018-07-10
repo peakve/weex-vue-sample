@@ -13,7 +13,8 @@
                     </div>
                     <div class="title_sourece_time">
                         <text class="text_title" @click="goAlertContent(item.id)">{{item.content}}</text>
-                        <text class="translate_text">翻译</text>
+                        <text class="translate_text" @click="getTranslation(item.id,index)">翻译</text>
+                        <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
                         <div class="source_time">
                             <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源:{{item.member.screeName!=null?item.member.screeName:item.member.name}}@{{item.source}}</text>
                             <div class="time_hit">
@@ -51,6 +52,8 @@
     align-items: center;
 }
 .indicator{
+    width: 35px;
+    height: 35px;
     color: grey;
     margin-bottom: 30px;
 }
@@ -74,7 +77,6 @@
 .text_title{
     width: 550px;
     font-size: 25px;
-    font-weight: 700;
 }
 .translate_text{
     font-size: 25px;
@@ -87,6 +89,12 @@
     border-radius: 5px;
     width: 65px;
     margin-top: 5px; 
+}
+.translate_result{
+    width: 550px;
+    font-size: 25px;
+    margin-top: 10px;
+    background-color: #ededed;
 }
 .source_time{
     width: 550px;
@@ -158,7 +166,14 @@ export default {
           loadingDisplay:'hide',
           loadingText:'加载更多',
           itemsList:[],
-      }
+          translates:[{
+                "key": "zh",
+                "label": ""
+          }],
+          translateShow:false,
+          translateClick:0,
+          translateList:[],
+        }
     },
 
     created(){
@@ -265,6 +280,47 @@ export default {
                 return 'http://www.51bb8.com/bfile/dfile'+url;
             }
         },
+
+        getTranslation(id,index){
+            var self=this;
+            apis.requireTranslate({"id" : id},function(res){
+                if(!res.respond.ok){
+                    //console.log(res);
+                    return false;
+                }
+
+                if(!res.data.translates){
+                    // return false;
+                    res.data.translates=self.translates;
+                }
+
+                self.itemsList[index].translates=res.data.translates;
+                self.translateShow=true;
+                //console.log("翻译"+res.data.translates[0].label+"index:"+index);
+                //console.log("translates:::"+JSON.stringify(self.list[index].translates));
+
+                self.translateList.push(id);
+                self.translateClick=self.translateClick+1;
+                //modal.toast({message:res.data.translates[0].label,duration:1});
+
+            });
+      },
+      
+      isExistsTranlate(id){
+        var self = this;
+        //console.log(JSON.stringify(self.translateList));
+
+        for(let i=0;i<this.translateList.length;i++){
+          let item =this.translateList[i];
+              if(item==id){
+                //console.log("显示标签"+item);
+                return true;
+              }
+        }
+       
+        return false;
+      },
+
     }
 }
 </script>

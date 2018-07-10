@@ -25,7 +25,7 @@
     flex-direction: column;
     width: 750px;
     height: 447px;
-    /*background-image: url('/assets/image/integration_bg.png');
+    /*background-image: url('/assets/images/integration_bg.png');
     background-repeat: no-repeat;*/
     background-color: #133D5F;
 }

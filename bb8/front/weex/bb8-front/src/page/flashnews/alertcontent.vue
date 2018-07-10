@@ -139,7 +139,7 @@ export default{
     created(){
         var self = this;
         self.articalId = this.$route.params.ArticalId;
-        modal.toast({message:"文章id"+self.articalId,duration:2});
+        //modal.toast({message:"文章id"+self.articalId,duration:2});
         apis.requireArticalContent({id:self.articalId},function(res){
             if(res.respond.ok){
                 self.data = res.data;
