@@ -26,7 +26,7 @@
                     </div>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+           <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text">{{loadingText}}</text>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+           <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text">{{loadingText}}</text>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+           <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text">{{loadingText}}</text>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+           <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text">{{loadingText}}</text>
@@ -243,6 +243,19 @@
     height: 120px;
     padding-right: 30px; 
 }
+.loadingOut {
+    flex-direction: row;
+    width: 750;
+    padding: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.load_indicator {
+    width: 35;
+    height: 35;
+    color: #454545;
+    margin-right: 10px;
+}
 </style>
 
 <script>
@@ -254,6 +267,8 @@ export default{
       return {
           refreshDisplay:'hide',
           refreshText:' ↓ 下拉刷新 ',
+          loadingDisplay:'hide',
+          loadingText:'加载更多',
           itemsList:[],
           category:'',
           memberId:'',
@@ -292,6 +307,64 @@ export default{
                 }
             });
         },
+
+        refreshData:function(event){
+            //modal.toast({message:"下拉刷新",duration:1});
+            var self = this;
+            self.refreshDisplay = 'show';
+            self.refreshText='正在刷新';
+            self.page = 1;
+
+            apis.requireAlertFocusList({
+                "memberId" : self.memberId,
+                "page" : self.page, 
+                "size" : self.size,
+                "category" : self.category
+            },function(res){
+                if(res.respond.ok){
+                    //modal.toast({message:(res.list[0].title),duration:1});
+                    self.itemsList = res.list;
+                    self.refreshDisplay = 'hide';
+                    self.refreshText=' ↓ 下拉刷新 ';
+                    modal.toast({message:'刷新成功',duration:1});
+                }else{
+                    self.refreshDisplay = 'hide';
+                    self.refreshText=' ↓ 下拉刷新 ';
+                    modal.toast({message:'网络请求失败',duration:1});
+                }
+            });
+        },
+
+        loadingData:function(event){
+            var self = this;
+            self.page++;
+            self.loadingDisplay = 'show';
+            self.loadingText = '加载中...';
+
+            apis.requireAlertFocusList({
+                "memberId" : self.memberId,
+                "page" : self.page, 
+                "size" : self.size,
+                "category" : self.category
+            },function(res){
+                if(res.respond.ok){
+                    //modal.toast({message:(res.list[0].title),duration:1});
+                    self.itemsList=self.itemsList.concat(res.list);
+                    self.loadingDisplay = 'hide';
+                    self.loadingText='加载更多';
+                    modal.toast({message:'加载成功',duration:1});
+                }else{
+                    self.refreshDisplay = 'hide';
+                    self.refreshText='加载更多';
+                    modal.toast({message:'网络请求失败',duration:1});
+                }
+
+                if (self.page >=res.lastPage) {
+                    modal.toast({message:'没有更多',duration:1});
+				}
+            });
+        },
+
     }
 }
 </script>
