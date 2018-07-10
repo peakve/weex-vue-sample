@@ -2,6 +2,7 @@
  * Created by zwwill on 2017/8/28.
  */
 import App from './App.vue'
+
 import router from './router'
 import store from './store'
 import { sync } from 'vuex-router-sync'
@@ -36,6 +37,10 @@ import mixins from './mixins'
 
 // sync the router with the vuex store.
 // this registers `store.state.route`
+// import weexVueRouter from 'weex-vue-router'
+// Vue.use(weexVueRouter, { router, weex })
+
+
 sync(store, router)
 
 // register global utility filters.
@@ -53,4 +58,18 @@ Vue.config.productionTip = false
 // making them available everywhere as `this.$router` and `this.$store`.
 new Vue(Vue.util.extend({ el: '#root', router }, App));
 
-router.push('/');
+let path = '/'
+
+//TODO
+let bundleUrl = weex.config.bundleUrl
+if (bundleUrl) {
+    let idx = bundleUrl.indexOf("#")
+    if (idx > 0) {
+        path = bundleUrl.slice(idx + 1)
+    }
+}
+console.info(11111111)
+console.info(weex.config.bundleUrl)
+console.info(path)
+console.info(11111111)
+router.push(path)
