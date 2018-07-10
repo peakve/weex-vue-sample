@@ -23,10 +23,10 @@
                             </div>
                         </div>
                     </div>
-                    <image class="content_image" :src="item.banner" resize="cover"></image>
+                    <image class="content_image" :src="gethref(item.banner?item.banner:item.member.logo)" resize="cover"></image>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay" v-if="showload">
+           <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text">{{loadingText}}</text>
@@ -107,6 +107,19 @@
     height: 120px;
     padding-right: 30px; 
 }
+.loadingOut {
+    flex-direction: row;
+    width: 750;
+    padding: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.load_indicator {
+    width: 35;
+    height: 35;
+    color: #454545;
+    margin-right: 10px;
+}
 </style>
 
 <script>
@@ -123,6 +136,8 @@ export default {
           size : 20,
           refreshDisplay:'hide',
           refreshText:' ↓ 下拉刷新 ',
+          loadingDisplay:'hide',
+          loadingText:'加载更多',
           itemsList:[],
       }
 
@@ -130,6 +145,7 @@ export default {
 
     created(){
         var self = this;
+        self.page = 1;
         apis.requireNewsList({
 	        "category" : "default",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
 	        "page" : self.page, 
@@ -142,15 +158,7 @@ export default {
                 modal.toast({message:'网络请求失败',duration:1});
             }
         });
-        /*在当前页面测试用的网络请求
-        self.postData(self.url,self.data,function(res){
-            //modal.toast({message:'postData()方法执行',duration:1});
-            if(res.respond.ok){
-                modal.toast({message:(res.list[0].title),duration:1});
-            }else{
-                modal.toast({message:'网络请求失败',duration:1});
-            }
-        });*/
+       
     },
 
     methods: {
@@ -176,37 +184,71 @@ export default {
             });
         },
 
-        /*在当前页面测试用的网络请求
-        postData:function(url, data, callback) {
-            //comm.onLoadingStart();
-            stream.fetch({
-                method: 'POST',
-                url: url,
-                type: 'json',
-                body: data,
-                headers: { 'Content-Type': 'application/json' }
-            }, function(ret) {
-                
-                //comm.onLoadingStop();
-                if (!ret.ok) {
-                    modal.toast({ message: '网络有问题，连不上', duration: 1 });
-                    // modal.toast({ message: 'callback: ' + event })
-                    //modal.toast({ message: ret, duration: 1 });
-                    console.log("request failed");
-                    // callback("0");
-                } else {
-                    if (ret.data.respond.ok) {
-                        callback(ret.data);
-                        //modal.toast({ message: 'callback有返回数据', duration: 1 });
-                    } else {
-                        modal.toast({ message: ret.data.response.message, duration: 5 });
-                        //console.log(ret.data)
-                        // callback("0");
-                    }
+        refreshData:function(event){
+            //modal.toast({message:"下拉刷新",duration:1});
+            var self = this;
+            self.refreshDisplay = 'show';
+            self.refreshText='正在刷新';
+            self.page = 1;
 
+            apis.requireNewsList({
+                "category" : "default",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
+                "page" : self.page, 
+                "size" : self.size
+            },function(res){
+                if(res.respond.ok){
+                    //modal.toast({message:(res.list[0].title),duration:1});
+                    self.itemsList = res.list;
+                    self.refreshDisplay = 'hide';
+                    self.refreshText=' ↓ 下拉刷新 ';
+                    modal.toast({message:'刷新成功',duration:1});
+                }else{
+                    self.refreshDisplay = 'hide';
+                    self.refreshText=' ↓ 下拉刷新 ';
+                    modal.toast({message:'网络请求失败',duration:1});
                 }
             });
-        },*/
+        },
+
+        loadingData:function(event){
+            var self = this;
+            self.page++;
+            self.loadingDisplay = 'show';
+            self.loadingText = '加载中...';
+
+            apis.requireNewsList({
+                "category" : "default",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
+                "page" : self.page, 
+                "size" : self.size
+            },function(res){
+                if(res.respond.ok){
+                    //modal.toast({message:(res.list[0].title),duration:1});
+                    self.itemsList=self.itemsList.concat(res.list);
+                    self.loadingDisplay = 'hide';
+                    self.loadingText='加载更多';
+                    modal.toast({message:'加载成功',duration:1});
+                }else{
+                    self.refreshDisplay = 'hide';
+                    self.refreshText='加载更多';
+                    modal.toast({message:'网络请求失败',duration:1});
+                }
+
+                if (self.page >=res.lastPage) {
+                    modal.toast({message:'没有更多',duration:1});
+				}
+            });
+        },
+
+        gethref(url){
+            if(!url){
+                return url;
+            }
+            if(url.indexOf("http")==0){
+                return url;
+            }else{
+                return 'http://www.51bb8.com/bfile/dfile'+url;
+            }
+        },
 
     }
 }
