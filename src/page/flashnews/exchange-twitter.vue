@@ -5,7 +5,7 @@
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList">
+           <cell v-for="(item,index) in itemsList" :key="index">
                 <div class="information_content">
                     <div class="typical_image_name">
                         <image class="content_image" :src="gethref(item.member.logo)" resize="cover"></image>
