@@ -65,3 +65,13 @@
 .bg_white {
     background-color: white
 }
+
+.send_btn_on {
+    background-color: #ffe45f;
+    color: #292b32;
+}
+
+.send_btn_off {
+    background-color: #EBECEE;
+    color: #7f7f7f;
+}

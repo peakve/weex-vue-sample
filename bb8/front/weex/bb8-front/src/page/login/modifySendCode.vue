@@ -3,36 +3,23 @@
      <loginHeader :data="data" class="login_header"></loginHeader> 
       <div class="register_out bg_white">
             <div class="input_wrapper">  
-                <input class="input bg_gray" type="text" placeholder="请输入用户名" value="" v-model="userName"/>  
-                <image class="input_img" :src="get_img_path('icon_head.png')"></image>  
-            </div>  
-            <div class="input_wrapper">  
-                <input class="input bg_gray" type="nubmer" placeholder="请输入手机号" value="" v-model="mobileNo"/>  
+                <input class="input bg_gray" type="text" placeholder="请输入手机号/邮箱" value="" v-model="mobileNo"/>  
                 <image class="input_img" :src="get_img_path('mobile.png')"></image>  
             </div>
-            <div class="input_wrapper">  
-                <input class="input bg_gray" type="password" placeholder="请输入密码" value="" v-model="userPwd"/>  
-                <image class="input_img" :src="get_img_path('password.png')"></image>  
-            </div>
-            <div class="input_wrapper">  
-                <input class="input bg_gray" type="password" placeholder="请重新输入密码" value="" v-model="nextUserPwd"/>  
-                <image class="input_img" :src="get_img_path('password.png')"></image>  
-            </div>  
             <div class="input_wrapper send_code_out">  
-              
                 <div class="input_code_out">
-                    <input class="input_code bg_gray" type="nubmer" placeholder="请输入验证码" value="" v-model="vCode"/>  
+                    <input class="input_code bg_gray" type="nubmer" placeholder="请输入手机/邮箱验证码" value="" v-model="vCode"/>  
                     <image class="input_img" :src="get_img_path('correct.png')"></image>  
                 </div>
                 <div class="input_code_btn"  @click="sendCode()">
-                      <text class="send_code" :class="[datatime.judgetime?'send_btn_on':'send_btn_off']">{{datatime.timetext}}</text>  
+                     <text class="send_code" :class="[datatime.judgetime?'send_btn_on':'send_btn_off']">{{datatime.timetext}}</text>  
                 </div>
 
             </div>  
-
+            <div class="hint_out"><text class="hint_text">提示：输入验证码后，重新设置登录密码</text></div>
             <div class="input_wrapper">  
-                <div class="input_register bg"  @click="register()">  
-                    <text class="input_register_text color1">注册</text>  
+                <div class="input_register bg"  @click="goModifyPwd()">  
+                    <text class="input_register_text color1">下一步</text>  
                 </div>  
             </div>  
 
@@ -54,15 +41,11 @@
     components: {WxcLoading,WxcButton ,loginHeader },
     data: () => ({
         fontSize: '15px',
-        color: '#292b32',
-        userName:'',    
+        color: '#292b32',  
         mobileNo:'',  
-        userPwd:'' ,
-        nextUserPwd:'' ,
         vCode:'' ,
-        data:{title:"注册"},
+        data:{title:"忘记密码"},
         isShowLoad:false,
-        loginData:{},
         interval: 0,
         type: 'default',
         loadingText: '加载中',
@@ -85,31 +68,15 @@
         return {
           fontSize, color
         }
-      },
-      userId () {
-        return 'fengfeng'
-      },
-      user () {
-        return {userId:"fengfeng",created:"20180215",karma:"xfjdllgmmdd",about:"42523252"}
       }
     },
     created () {
       
     },
     methods:{  
-        onchangeUserNumber:function (event) {  
-           
-        },  
-        onchangeUserPassword:function (event) {  
-            this.userPassword = event.value;  
-        },  
         /*发送验证码*/  
         sendCode:function () {  
             var self = this;
-            if(this.userName.length < 1){  
-                modal.toast({ message:'请输入用户名'});
-                return;  
-            }
             if(this.mobileNo.length < 1){  
                 modal.toast({ message:'请输入手机号'});
                 return;  
@@ -122,8 +89,7 @@
            
             if(self.datatime.judgetime){
                 self.isShowLoad = true;
-                apis.requireSignUpValidate({
-                    "account" : self.userName,
+                apis.requireSendModifyPwdCode({
                     "emailOrPhone" : self.mobileNo,
                 },function(res){
                     self.isShowLoad = false;
@@ -152,13 +118,9 @@
                 });
              }
         },  
-        /*处理登录*/  
-        register: function () {  
-            var self = this;
-            if(this.userName.length < 1){  
-                modal.toast({ message:'请输入用户名'});
-                return;  
-            }if(this.mobileNo.length < 1){  
+        /*进入设置密码页面*/  
+        goModifyPwd: function () {  
+            if(this.mobileNo.length < 1){  
                 modal.toast({ message:'请输入手机号'});
                 return;  
             }
@@ -167,48 +129,27 @@
                 modal.toast({ message: '手机号格式有误'})
                 return false; 
             }
-            if(this.userPwd.length < 1){  
-                modal.toast({ message:'请输入密码'});
-                return;  
-            }
-            var validationPwd = /^(?!^\d+$)[\@A-Za-z\d\!\#\$\%\^\&\*\.\~]{6,16}$/;
-            if(!(validationPwd.test(this.userPwd))){ 
-                modal.toast({ message: '密码格式有误'})
-                return false; 
-             }
-            if(this.nextUserPwd != this.userPwd){  
-                modal.toast({ message:'输入的2次密码不同'});
-                return;  
-            }
             if(this.vCode.length < 1){  
                 modal.toast({ message:'请输入验证码'});
                 return;  
-            }   
-            self.isShowLoad = true;
-            apis.requireSignUp({
-                "account" : self.userName,
-                "emailOrPhone" : self.mobileNo,
-                "password" : self.userPwd,
-                "confirmPassword" : self.nextUserPwd,
-                "validateCode" : self.vCode
-            },function(res){
-                self.isShowLoad = false;
-                if(res.respond.ok){
-                    modal.toast({ message:'注册成功'});
-                    self.loginData = res.data;
-                    console.log(res.data)
-                }else{
-                    modal.toast({message:res.respond.msg,duration:1});
-                }
-                
-            });
+            }
+            if (this.$router) {
+                this.$router.push({path:"/modifyPwd",query:{"mobileNo":this.mobileNo,"vCode":this.vCode}})
+            }
         }  
     }  
   }
 </script>
 
 <style scoped>
-
+.hint_out{
+     width: 650px;  
+    justify-content: flex-start;
+}
+.hint_text{
+  font-size: 25px;
+  color:#BCC1C4;
+}
 .login_header{
     margin-top: 120px;
 }
