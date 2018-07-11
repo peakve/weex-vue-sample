@@ -5,7 +5,7 @@
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList">
+           <cell v-for="(item,index) in itemsList" :key="index">
                 <div class="information_content">
                     <div class="title_sourece_time">
                         <text class="text_title" @click="goAlertContent(item.id)">{{item.title}}</text>

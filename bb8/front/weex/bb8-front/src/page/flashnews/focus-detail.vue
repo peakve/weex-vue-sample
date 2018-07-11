@@ -7,7 +7,7 @@
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList">
+           <cell v-for="(item,index) in itemsList" :key="index">
                 <div class="information_content">
                     <image class="content_image" :src="item.banner" resize="cover"></image>
                     <div class="title_sourece_time">
@@ -41,7 +41,7 @@
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList">
+           <cell v-for="(item,index) in itemsList" :key="index">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
                         <text class="text_title_match" @click="goAlertContent(item.id)">{{item.title}}</text>
@@ -74,7 +74,7 @@
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList">
+           <cell v-for="(item,index) in itemsList" :key="index">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
                         <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.content}}</text>
@@ -108,7 +108,7 @@
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList">
+           <cell v-for="(item,index) in itemsList" :key="index">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
                         <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.content}}</text>
