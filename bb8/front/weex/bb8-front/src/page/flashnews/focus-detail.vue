@@ -77,7 +77,7 @@
            <cell v-for="(item,index) in itemsList" :key="index">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.content}}</text>
+                        <text class="text_abstract_match">{{item.content}}</text>
                         <text class="translate_text" @click="getTranslation(item.id,index)">翻译</text>
                         <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
                         <div class="source_time_match">
@@ -111,7 +111,7 @@
            <cell v-for="(item,index) in itemsList" :key="index">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.content}}</text>
+                        <text class="text_abstract_match">{{item.content}}</text>
                         <text class="translate_text" @click="getTranslation(item.id,index)" v-if="item.source != 'weibo'">翻译</text>
                         <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
                         <div class="source_time_match">
