@@ -1,6 +1,6 @@
 <template>
     <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
-        <web ref="webview" style="width: 750px; height: 1248px" src="http://192.168.3.118:8182/web/api/share/test?id=articalId">
+        <web ref="webview" style="width: 750px; height: 1248px" :src='url+articalId'>
 
         </web>
         <!--<scroller>
@@ -50,6 +50,7 @@ export default{
         return{
             articalId:'',
             data:{},
+            url:'http://192.168.3.118:8182/web/page/news/view?id=',
         }
     },
 

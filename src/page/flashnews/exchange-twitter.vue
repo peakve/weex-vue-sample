@@ -12,7 +12,7 @@
                         <text class="typical_name">{{item.member.name!=null?item.member.name:item.member.screeName}}</text>
                     </div>
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent(item.id)">{{item.content}}</text>
+                        <text class="text_title">{{item.content}}</text>
                         <text class="translate_text" @click="getTranslation(item.id,index)">翻译</text>
                         <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
                         <div class="source_time">
@@ -201,16 +201,6 @@ export default {
                     Category : category,
                     MemberId : memberId,
                     Source : source
-                }
-            });
-        },
-
-        goAlertContent:function(articalId){
-            this.$router.push({
-                path:'/alertcontent',
-                name:'alertcontent',
-                params : {
-                    ArticalId : articalId,
                 }
             });
         },
