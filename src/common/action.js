@@ -215,8 +215,8 @@ function postData(url, data, callback) {
             if (ret.data.respond.ok) {
                 callback(ret.data);
             } else {
-                modal.toast({ message: ret.data.respond.msg, duration: 5 });
-                //console.log(ret.data)
+                // modal.toast({ message: ret.data.respond.msg, duration: 5 });
+                callback(ret.data);
                 // callback("0");
             }
 
@@ -238,6 +238,30 @@ exports.requireAlertFocusList = function(data, callback) {
 //聚合页面简介
 exports.requireAlertFocusDesc = function(data, callback) {
     postData(apiURL.baseurl + 'api/member/info', data, callback);
+};
+//登录
+exports.requireLogin = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/login', data, callback);
+};
+//发送验证码
+exports.requireSignUpValidate = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/signUpValidate', data, callback);
+};
+//注册
+exports.requireSignUp = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/signUp', data, callback);
+};
+//个人中心
+exports.requireUserInfo = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/info', data, callback);
+};
+//发送修改密码验证码
+exports.requireSendModifyPwdCode = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/sendModifyPwdCode', data, callback);
+};
+//个人中心
+exports.requireModifyPwd = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/modifyPwd', data, callback);
 };
 
 //文章内容界面

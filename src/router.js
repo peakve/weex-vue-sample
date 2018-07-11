@@ -31,8 +31,11 @@ import alertFocus from './page/flashnews/alertfocus.vue'
 import synopsis from './page/flashnews/synopsis.vue'
 import focusDetail from './page/flashnews/focus-detail.vue'
 import alertContent from './page/flashnews/alertcontent.vue'
-
-
+import modifySendCode from './page/login/modifySendCode.vue'
+import modifyPwd from './page/login/modifyPwd.vue'
+import aboutUs from './page/pcenter/aboutUs.vue'
+import contactUs from './page/pcenter/contactUs.vue'
+import disclaimer from './page/pcenter/disclaimer.vue'
 // const ViewHome = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewHome')
 // const ViewMy = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewMy')
 // const bbtop = r => require.ensure([], () => r(require('./page/home/bbtop.vue')), 'bbtop')
@@ -55,7 +58,8 @@ Vue.use(Router)
 export default new Router({
     // mode: 'abstract',
     routes: [
-        { path: '/', redirect: '/home' },
+        { path: '/', redirect: '/login' },
+
         {
             path: '/home',
             component: ViewHome,
@@ -103,6 +107,10 @@ export default new Router({
         { path: '/login', component: login },
         { path: '/register', component: register },
         { path: '/pcenter', component: pcenter },
-
+        { path: '/modifySendCode', component: modifySendCode },
+        { path: '/modifyPwd', component: modifyPwd },
+        { path: '/aboutUs', component: aboutUs },
+        { path: '/contactUs', component: contactUs },
+        { path: '/disclaimer', component: disclaimer },
     ]
 })

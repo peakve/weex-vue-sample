@@ -59,7 +59,7 @@ export default {
             let img_path = ''
 
             if (self.web) {
-                img_path = `./${img_name}`
+                img_path = `../../assets/images/${img_name}`
             } else if (self.android) {
                 img_name = img_name.substr(0, img_name.lastIndexOf('.'));
                 img_path = `local:///${img_name}`

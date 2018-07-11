@@ -1,6 +1,6 @@
 <template>
  <div class="close_out">
-     <wxc-icon name="close" class="close_content" size="small" @wxcIconClicked="closeBack()"></wxc-icon>
+      <image class="close_content" resize="cover" :src="get_img_path('wx_close.png')"  @click="closeBack()"></image>
      <div class="login_title"><text class="login_text color1">{{data.title}}</text></div>
  </div>
 </template>
@@ -19,6 +19,8 @@
 .close_content{
     position: absolute;
     left: 40px;
+    width: 60px;
+    height: 60px;
 }
 </style>
 <script>
@@ -38,7 +40,10 @@ export default {
         closeBack(){
           //  modal.toast({ message:this.data.title});
             if(this.data.title=='登录'){
-                event.dismissViewController("");
+                if(event.dismissViewController("") != undefined){
+                        event.dismissViewController("");
+                }
+               
             }else{
                 this.jumpBack();
             }

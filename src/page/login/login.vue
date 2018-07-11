@@ -6,16 +6,21 @@
     
         <image class="bb8_logo" resize="cover" :src="get_img_path('bb8_logo.png')"></image>
           <div class="input_wrapper">  
-                <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名" value=""/>  
-                <image class="input_img" :src="get_img_path('icon_head.png')"></image>  
+                <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名/手机号/邮箱" value="" v-model="userNumber"/>  
+                <image class="input_img" :src="get_img_path('mobile.png')"></image>  
             </div>  
             <div class="input_wrapper">  
-                <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请输入密码" value=""/>  
-                <image class="input_img" :src="get_img_path('icon_password.png')"></image>  
+                <input onchange="onchangeUserPassword" class="input bg_gray" type="password" placeholder="请输入密码" value="" v-model="userPassword"/>  
+                <image class="input_img" :src="get_img_path('password.png')"></image>  
             </div>  
              <div class="input_wrapper">  
                 <!--<text class="input-forget" >注册</text>  -->
-               <div  @click="jump('/register')" class="input_register_out"><text class="input_register color1">注册 / 忘记密码?</text></div>
+               <div  class="input_register_out">
+                  <div class="register_out">
+                    <text class="input_register color1"  @click="jump('/register')">注册 /</text>
+                    <text class="input_register color1"  @click="jump('/modifySendCode')"> 忘记密码?</text>
+                  </div>
+               </div>
             </div>  
             <div class="input_wrapper">  
                 <div class="input_login bg" @click="login()">  
@@ -24,26 +29,42 @@
             </div>  
      
         <!--<wxc-button text="登录" class="btn_login" :text-style="textStyle"></wxc-button>-->
-        <text :class="['color1', isIPhoneX?'login_footer':'login_footer_default']">登录及同意《51BB8财经用户协议》</text>
+        <div :class="[isIPhoneX?'login_footer':'login_footer_default']">
+            <div class="footer_out">
+                <text class="color2">登录及同意</text>
+                <text class="color1">《51BB8财经用户协议》</text>
+            </div>
+         </div>
       </div>
+        <wxc-loading :show="isShowLoad"
+                 :type="type"
+                 :loading-text="loadingText"
+                 :interval="interval"></wxc-loading>
    <!--</scroller>-->
   </div>
 </template>
 <style src="../../assets/style/app.css"></style>
 <script>
   import loginHeader from './loginHeader.vue'
-  import { WxcButton } from 'weex-ui'
+  import { WxcLoading,WxcButton } from 'weex-ui'
   import util from '../../common/util'
-   const modal = weex.requireModule('modal');
+  var apis = require('../../common/action.js');
+  const modal = weex.requireModule('modal');
+  const event = weex.requireModule('event');
   export default {
-    components: { loginHeader,WxcButton},
+    components: {WxcLoading,loginHeader,WxcButton},
     data: () => ({
-      fontSize: '15px',
-      color: '#292b32',
-      userNumber:'',  
-      userPassword:'',
-      data:{title:"登录"},
-      isshow:false,
+        fontSize: '15px',
+        color: '#292b32',
+        userNumber:'',  
+        userPassword:'',
+        data:{title:"登录"},
+        isshow:false,
+        isShowLoad:false,
+        loginData:{},
+        interval: 0,
+        type: 'default',
+        loadingText: '加载中'
     }),
     computed: {
       textStyle () {
@@ -81,26 +102,61 @@
         },  
         /*找回密码*/  
         findPassword:function () {  
-            this.$vm('toast').$emit('toast','Hello,找回密码暂时未开发，后续我们会进行完善。');  
+           
         },  
         /*注册*/  
         register:function () {  
             this.$router.push({ path: '/home' })
             // this.$vm('toast').$emit('toast','Hello,注册暂时未开发，后续我们会进行完善。');  
         },  
+        //获取cookie
+        getCookie: function (cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+            }
+            return "";
+        },
         /*处理登录*/  
         login: function () {  
-             modal.toast({ message:'请输入手机号'});
-            // if(this.userNumber.length < 1){  
-            //     modal.toast({ message:'请输入手机号'});
-            //     return;  
-            // }else if(this.userPassword.length < 1){  
-            //     modal.toast({ message:'请输入密码'});
-            //     return;  
-            // }  
-            // this.$vm('toast').$emit('toast',"登录成功");  
-            //   var swifter = weex.requireModule('event');
-            //     swifter.openURL("http://192.168.3.178:8080/dist/page/pcenter/personal.js");
+            var self = this;
+         
+            if(this.userNumber.length < 1){  
+                modal.toast({ message:'请输入手机号'});
+                return;  
+            }else if(this.userPassword.length < 1){  
+                modal.toast({ message:'请输入密码'});
+                return;  
+            }  
+            self.isShowLoad = true;
+            apis.requireLogin({
+                "account" : self.userNumber,
+                "password" : self.userPassword, 
+               
+            },function(res){
+                self.isShowLoad = false;
+                if(res.respond.ok){
+                    modal.toast({ message:'登录成功'});
+                    self.loginData = res.data;
+                     event.isLoginGlobalEvent("login",true,);
+                     event.dismissViewController("");
+
+                    //  self.getCookie("bb8_login_token");
+                    //   modal.toast({ message: util.getCookie("bb8_login_token")+"11"});
+                    // if(event.dismissViewController("") != undefined){
+                    //     event.isLoginGlobalEvent("login",true);
+                    //     // event.dismissViewController("");
+                       
+                    // }
+                    console.log(res.data)
+                }else{
+                    modal.toast({message:res.respond.msg,duration:1});
+                }
+                
+            });
         }  
     }  
   }
@@ -133,6 +189,7 @@
     margin-top: 50px
 }
 .login_out {
+    width:750px;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
@@ -166,8 +223,8 @@
     position: absolute;  
     top:19px;  
     left: 18px;  
-    width:43px;  
-    height: 50px;  
+    width:45px;  
+    height: 45px;  
 }  
 .input_login{  
     height: 85px;  
@@ -196,7 +253,12 @@
     height:40px;
     font-size: 28px;
 }
-/*.input_register{  
-
-}  */
+.register_out{
+   flex-direction:row;
+   justify-content:center;
+}
+.footer_out{
+   flex-direction:row;
+   justify-content:center;
+}
 </style>
