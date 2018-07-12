@@ -139,7 +139,7 @@
             },function(res){
                 self.isShowLoad = false;
                 if(res.respond.ok){
-                    modal.toast({ message:'登录成功'});
+                    modal.toast({ message:'登录成功',duration:0.5});
                     self.loginData = res.data;
                      event.isLoginGlobalEvent("login",true);
                      event.dismissViewController("");

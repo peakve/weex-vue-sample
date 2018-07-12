@@ -79,7 +79,7 @@
             },function(res){
                 self.isShowLoad = false;
                 if(res.respond.ok){
-                    modal.toast({message:"修改成功",duration:1});
+                    modal.toast({message:"修改成功",duration:0.5});
                     event.dismissViewController("");
                 }else{
                     modal.toast({message:res.respond.msg,duration:1});

@@ -168,10 +168,18 @@
     
         modifyPassword:function () {  
             // this.$router.push({path:"/modifySendCode",query:{"title":"修改密码"}})
-            event.openURL(apis.apiURL.basepath+"index.js?#/modifySendCode");
+            if(this.isLogin){
+                event.openURL(apis.apiURL.basepath+"index.js?#/modifySendCode");
+            }else{
+                 modal.toast({message:"未登录",duration:0.5});
+            }
         },
         modifyInfo () {
-            event.openURL(apis.apiURL.basepath+"index.js?#/modifyInfo");
+            if(this.isLogin){
+                event.openURL(apis.apiURL.basepath+"index.js?#/modifyInfo");
+            }else{
+                 modal.toast({message:"未登录",duration:0.5});
+            }
         },
         wxcCellClicked (e) {
             console.log(e)

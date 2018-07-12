@@ -92,7 +92,7 @@
             },function(res){
                 self.isShowLoad = false;
                 if(res.respond.ok){
-                    modal.toast({ message:'设置成功'});
+                    modal.toast({ message:'设置成功',duration:0.5});
                     self.$router.push("/login")
                     // self.loginData = res.data;
                     console.log(res.data)
