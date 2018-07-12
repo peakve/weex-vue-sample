@@ -224,7 +224,6 @@ function postData(url, data, callback) {
     });
 }
 
-
 //新闻资讯列表
 exports.requireNewsList = function(data, callback) {
     postData(apiURL.baseurl + 'api/news/list', data, callback);
