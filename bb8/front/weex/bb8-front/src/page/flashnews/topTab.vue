@@ -47,6 +47,7 @@
     left: 0;right: 0;
     height: 54px;
     z-index: 10;
+    margin-top:114px;
     background-color: #fafafa;
     border-bottom-width: 1px;
     border-bottom-color: #d9d9d9;

@@ -5,7 +5,7 @@
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
            
-           <cell v-for="(item,index) in itemsList" 
+           <cell v-for="(item,index) in itemsList"
                       append="tree"
                       :key="item.id" 
                       :index="index">
@@ -41,13 +41,11 @@
 
 <style scoped>
 .wrapper{
-      top:168px
-    }
-    .w-ipx{
-        top: 208px;
-    }
-
-
+    top:168px
+}
+.w-ipx{
+    top: 208px;
+}
 .refreshOut{
     width: 750;
     padding-top: 10;
