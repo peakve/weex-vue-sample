@@ -65,7 +65,14 @@ let bundleUrl = weex.config.bundleUrl
 if (bundleUrl) {
     let idx = bundleUrl.indexOf("#")
     if (idx > 0) {
-        path = bundleUrl.slice(idx + 1)
+        let burl = bundleUrl.slice(idx + 1)
+
+        if (burl.indexOf("#") > 0) {
+
+            burl = burl.slice(0, burl.indexOf("#"))
+        }
+
+        path = burl
     }
 }
 console.info(11111111)
