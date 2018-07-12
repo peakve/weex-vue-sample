@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper bg_white" >
-     <loginHeader :data="data" class="login_header"></loginHeader> 
+     <loginHeader :data="data"></loginHeader> 
       <div class="register_out bg_white">
             <div class="input_wrapper">  
                 <input class="input bg_gray" type="text" placeholder="请输入用户名" value="" v-model="userName"/>  
@@ -50,6 +50,7 @@
   import util from '../../common/util'
   var apis = require('../../common/action.js');
   const modal = weex.requireModule('modal');
+  const event = weex.requireModule('event');
   export default {
     components: {WxcLoading,WxcButton ,loginHeader },
     data: () => ({
@@ -195,7 +196,9 @@
                 self.isShowLoad = false;
                 if(res.respond.ok){
                     modal.toast({ message:'注册成功'});
-                    self.loginData = res.data;
+                    event.isLoginGlobalEvent("login",true);
+                    event.dismissViewController("");
+                    // self.loginData = res.data;
                     console.log(res.data)
                 }else{
                     modal.toast({message:res.respond.msg,duration:1});

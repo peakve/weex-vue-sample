@@ -127,10 +127,10 @@
            
         },
         goDisclaimer(){
-            event.openURL("http://192.168.3.178:8080/dist/index.js?#/disclaimer","免责申明","push");
+            event.openURL(apis.apiURL.basepath+"index.js?#/disclaimer","免责申明","push");
         },
         goAboutUs () {
-            event.openURL("http://192.168.3.178:8080/dist/index.js?#/aboutUs","关于我们","push");
+            event.openURL(apis.apiURL.basepath+"index.js?#/aboutUs","关于我们","push");
         },
     }  
   }

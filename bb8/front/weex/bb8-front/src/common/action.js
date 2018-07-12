@@ -4,17 +4,12 @@ var modal = weex.requireModole('modal');*/
 var apiURL = {
 
     //测试本机地址
-    //http://192.168.3.118:8888/web/api/push/appIndex
-    //baseurl: 'http://192.168.3.178:8800/wechat',
-    //baseurl: 'http://192.168.3.158:8800/wechat',
     // baseurl: 'http://192.168.3.118:8888/web/',
+    //开发地址
     baseurl: 'https://www.51bb8.com/web/',
 
-    //开发地址
-    // baseurl: 'http://192.168.1.235:8800/wechat',
-
-    //生产地址
-    // baseurl: 'http://www.awakenpay.com/wechat',
+    //路径地址
+    basepath: 'http://192.168.3.178:8080/dist/',
 
     //开发地区获取地址(包括测试)
     basishost: 'http://192.168.1.235:8085',
@@ -28,7 +23,6 @@ var apiURL = {
     //生产图片上传下载地址
     //basisimg: 'http://www.awakenpay.com/',
     webSocketUrl: ''
-
 };
 
 export {
@@ -195,12 +189,17 @@ function toParams(obj) {
 function getData(url, callback) {
     var stream = weex.requireModule('stream');
     var modal = weex.requireModule('modal');
-    stream.sendHttp({
+    stream.fetch({
         method: 'GET',
-        url: url
+        url: url,
+        type: 'json'
     }, function(ret) {
-        var retdata = JSON.parse(ret);
-        callback(retdata);
+        if (!ret.ok) {
+            modal.toast({ message: '网络有问题，连不上', duration: 1 });
+            console.log("request failed");
+        } else {
+            callback(ret.data);
+        }
     });
 }
 
@@ -215,22 +214,11 @@ function postData(url, data, callback) {
         body: data,
         headers: { 'Content-Type': 'application/json' }
     }, function(ret) {
-        // console.log("网络" + JSON.stringify(ret))
-        //comm.onLoadingStop();
         if (!ret.ok) {
             modal.toast({ message: '网络有问题，连不上', duration: 1 });
-            // modal.toast({ message: 'callback: ' + event })
             console.log("request failed");
-            // callback("0");
         } else {
-            if (ret.data.respond.ok) {
-                callback(ret.data);
-            } else {
-                // modal.toast({ message: ret.data.respond.msg, duration: 5 });
-                callback(ret.data);
-                // callback("0");
-            }
-
+            callback(ret.data);
         }
     });
 }
@@ -252,6 +240,10 @@ exports.requireAlertFocusDesc = function(data, callback) {
 //登录
 exports.requireLogin = function(data, callback) {
     postData(apiURL.baseurl + 'api/user/login', data, callback);
+};
+//退出
+exports.requireLogout = function(callback) {
+    getData(apiURL.baseurl + 'api/user/logout', callback);
 };
 //发送验证码
 exports.requireSignUpValidate = function(data, callback) {
@@ -278,8 +270,11 @@ exports.requireModifyPwd = function(data, callback) {
 exports.requireArticalContent = function(data, callback) {
     postData(apiURL.baseurl + 'api/news/viewNews', data, callback);
 };
-
 //翻译
 exports.requireTranslate = function(data, callback) {
     postData(apiURL.baseurl + 'api/news/translate', data, callback);
+};
+//修改用户名
+exports.requireModifyInfo = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/modifyInfo', data, callback);
 };

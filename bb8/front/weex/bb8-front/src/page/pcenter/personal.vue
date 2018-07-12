@@ -5,8 +5,8 @@
       <div class="personal_out">
         <div class="personal_header bg_white" v-if="isLogin">
              <image class="user_logo" resize="cover" :src="get_img_path('icon_user_img.png')"></image>
-             <text class="color1 user_name">{{resData.email}}</text>
-               <div class="exit_btn_out"  @click="exitLogin()">  
+              <text class="color1 user_name">{{resData.phone}}</text>
+               <div class="exit_btn_out"  @click="valedateExit()">  
                     <text class="exit_btn color1">退出登录</text>  
                 </div>  
         </div>
@@ -37,7 +37,6 @@
             <div class="personal_info">
                <wxc-cell 
                     title="个人信息"
-                    @wxcCellClicked="wxcCellClicked"
                     :has-top-border="false">
                     <image class="phone_image"
                     slot="label"
@@ -46,32 +45,29 @@
                 <wxc-cell 
                     label="邮箱"
                     :title="resData.email"
-                    @wxcCellClicked="wxcCellClicked"
                     :has-top-border="false">
                 </wxc-cell>
                 <wxc-cell 
                     label="用户名"
                     :title="resData.account"
-                    @wxcCellClicked="wxcCellClicked"
+                    @wxcCellClicked="modifyInfo()"
                     :has-arrow="true"
                     :has-top-border="false">
                 </wxc-cell>
                 <wxc-cell 
                     label="注册时间"
                     :title="resData.registTime"
-                    @wxcCellClicked="wxcCellClicked"
                     :has-top-border="false">
                 </wxc-cell>
                 <wxc-cell 
                     label="最后登录时间"
                     :title="resData.lastLoginTime"
-                    @wxcCellClicked="wxcCellClicked"
                     :has-top-border="false">
                 </wxc-cell>
                 <wxc-cell 
                     label="密码"
-                    title="*******"
-                    @wxcCellClicked="wxcCellClicked"
+                    :title="resData.pwd"
+                    @wxcCellClicked="modifyPassword()"
                     :has-arrow="true"
                     :has-top-border="false">
                 </wxc-cell>
@@ -92,6 +88,7 @@
   import { WxcLoading,WxcCell } from 'weex-ui';
   import util from '../../common/util'
   var apis = require('../../common/action.js');
+  var common = require('../../common/common.js');
   const modal = weex.requireModule('modal');
   const event = weex.requireModule('event');
   const globalEvent = weex.requireModule('globalEvent');
@@ -104,7 +101,7 @@
         userPassword:'',
         data:{title:""},
         isShowLoad:false,
-        resData:{account:"---",phone:"---",lastLoginTime:"******",email:"---",registTime:"******"},
+        resData:{account:"---",phone:"---",lastLoginTime:"---",email:"---",registTime:"---",pwd:"---"},
         interval: 0,
         type: 'default',
         loadingText: '加载中',
@@ -118,7 +115,7 @@
     },
     created () {
         var self= this;
-       
+         
         if ( this.$getConfig().isLogin != undefined){
             this.isLogin = this.$getConfig().isLogin
         }
@@ -134,7 +131,7 @@
             if(self.isLogin){
                  self.userInfo();
             }else{
-                 self.resData = {account:"---",phone:"---",lastLoginTime:"******",email:"---",registTime:"******"};
+                 self.resData = {account:"---",phone:"---",lastLoginTime:"---",email:"---",registTime:"---",pwd:"---"};
             }
         });
     },
@@ -146,22 +143,67 @@
             self.isShowLoad = false;
             if(res.respond.ok){
                 self.resData = res.data;
+                self.resData.pwd = "******"
+                if(res.data.email == null){
+                    self.resData.email = "---"
+                }
+                if(res.data.phone == null){
+                    self.resData.phone = res.data.email
+                }
+                if(res.data.lastLoginTime != null){
+
+                    self.resData.lastLoginTime=util.formatDate(res.data.lastLoginTime)
+                   
+                }
+                if(res.data.registTime != null){
+
+                    self.resData.registTime=util.formatDate(res.data.registTime)
+                }
                 console.log(res.data)
             }else{
                 modal.toast({message:res.respond.msg,duration:1});
             }
          });
         },
+    
+        modifyPassword:function () {  
+            // this.$router.push({path:"/modifySendCode",query:{"title":"修改密码"}})
+            event.openURL(apis.apiURL.basepath+"index.js?#/modifySendCode");
+        },
+        modifyInfo () {
+            event.openURL(apis.apiURL.basepath+"index.js?#/modifyInfo");
+        },
         wxcCellClicked (e) {
             console.log(e)
-            event.openURL("http://192.168.3.178:8080/dist/index.js?#/contactUs","联系我们","push");
+            event.openURL(apis.apiURL.basepath+"index.js?#/contactUs","联系我们","push");
         },
         goLogin(){
-            event.openURL("http://192.168.3.178:8080/dist/index.js");
+            event.openURL(apis.apiURL.basepath+"index.js");
+        },
+        valedateExit(){
+            var self=this;
+            modal.confirm({
+                message: "确定退出当前账号？",
+                okTitle:  "确定",
+                cancelTitle:"取消"
+                }, function(e) {                    
+                    if(e=="确定"){
+                       self.exitLogin()
+                    }
+            })
         },
         exitLogin(){
-            event.isLoginGlobalEvent("login",false);
-            event.openURL("http://192.168.3.178:8080/dist/index.js");
+            var self=this;
+            self.isShowLoad = true;
+            apis.requireLogout(function(res){
+                self.isShowLoad = false;
+                if(res.respond.ok){
+                    event.isLoginGlobalEvent("login",false);
+                    event.openURL(apis.apiURL.basepath+"index.js");
+                }else{
+                    modal.toast({message:res.respond.msg,duration:1});
+                }
+            });
         }
     }  
   }

@@ -3,15 +3,12 @@
      <loginHeader :data="data"></loginHeader> 
       <div class="register_out bg_white">
             <div class="input_wrapper">  
-                <input class="input bg_gray" type="password" placeholder="设置登录密码，6-16个字符，字母和数字组合" value="" v-model="userPwd"/>  
-                <image class="input_img" :src="get_img_path('password.png')"></image>  
+                <input class="input bg_gray" type="text" placeholder="请输入用户名" value="" v-model="username"/>  
+                <image class="input_img" :src="get_img_path('icon_head.png')"></image>  
             </div>
+            <div class="hint_out"><text class="hint_text">提示：用户名（3-12个字符 ，可使用字母、数字、汉字、下划线，不能为纯数字，且首末字符不能为下划线）</text></div>
             <div class="input_wrapper">  
-                <input class="input bg_gray" type="password" placeholder="确认登录密码" value="" v-model="nextUserPwd"/>  
-                <image class="input_img" :src="get_img_path('password.png')"></image>  
-            </div>  
-            <div class="input_wrapper">  
-                <div class="input_register bg"  @click="getModifyPwd()">  
+                <div class="input_register bg"  @click="modifyInfo()">  
                     <text class="input_register_text color1">确定</text>  
                 </div>  
             </div>  
@@ -30,19 +27,16 @@
   import util from '../../common/util'
   var apis = require('../../common/action.js');
   const modal = weex.requireModule('modal');
+  const event = weex.requireModule('event');
   export default {
     components: {WxcLoading,WxcButton ,loginHeader },
     data: () => ({
         fontSize: '15px',
-        color: '#292b32',
-        userName:'',    
-        mobileNo:'',  
-        userPwd:'' ,
-        nextUserPwd:'' ,
+        color: '#292b32',  
+        username:'',  
         vCode:'' ,
-        data:{title:"登录密码设置"},
+        data:{title:"修改用户名"},
         isShowLoad:false,
-        loginData:{},
         interval: 0,
         type: 'default',
         loadingText: '加载中',
@@ -63,50 +57,51 @@
       }
     },
     created () {
-      this.mobileNo = this.$route.query.mobileNo;
-      this.vCode = this.$route.query.vCode;
+      
     },
-    methods:{   
-        /*修改密码*/  
-        getModifyPwd: function () {  
+    methods:{  
+        /*修改信息*/  
+        modifyInfo:function () {  
             var self = this;
-            if(this.userPwd.length < 1){  
-                modal.toast({ message:'请输入密码'});
+            if(this.username.length < 1){  
+                modal.toast({ message:'请输入用户名'});
                 return;  
             }
-            var validationPwd = /^(?!^\d+$)[\@A-Za-z\d\!\#\$\%\^\&\*\.\~]{6,16}$/;
-            if(!(validationPwd.test(this.userPwd))){ 
-                modal.toast({ message: '密码格式有误'})
+            var validationPhone =  /^(?!_)(?!.*?_$)^(?!(\d+)$)[\u4e00-\u9fff\w]{3,12}$/;
+            if(!(validationPhone.test(this.username))){ 
+                modal.toast({ message: '用户名格式有误'})
                 return false; 
-             }
-            if(this.nextUserPwd != this.userPwd){  
-                modal.toast({ message:'输入的2次密码不同'});
-                return;  
-            }  
+            }
+
             self.isShowLoad = true;
-            apis.requireModifyPwd({
-                "emailOrPhone" : self.mobileNo,
-                "password" : self.userPwd,
-                "confirmPassword" : self.nextUserPwd,
-                "validateCode" : self.vCode
+            apis.requireModifyInfo({
+                "account" : self.username,
             },function(res){
                 self.isShowLoad = false;
                 if(res.respond.ok){
-                    modal.toast({ message:'设置成功'});
-                    self.$router.push("/login")
-                    // self.loginData = res.data;
-                    console.log(res.data)
+                    modal.toast({message:"修改成功",duration:1});
+                    event.dismissViewController("");
                 }else{
                     modal.toast({message:res.respond.msg,duration:1});
                 }
                 
             });
-        }  
+            
+        },  
+
     }  
   }
 </script>
 
 <style scoped>
+.hint_out{
+     width: 650px;  
+    justify-content: flex-start;
+}
+.hint_text{
+  font-size: 25px;
+  color:#BCC1C4;
+}
 .login_header{
     margin-top: 120px;
 }
