@@ -175,38 +175,38 @@ export default {
 
     methods: {
         goAlertFocus:function(category,memberId,source){
-            // this.$router.push({
-            //     path : '/alertfocus',
-            //     name : 'alertfocus',
-            //     params : {
-            //         Category : category,
-            //         MemberId : memberId,
-            //         Source : source
-            //     }
-            // });
-
-             let params = this.getParamsByJson({
+            this.$router.push({
+                path : '/alertfocus',
+                name : 'alertfocus',
+                params : {
                     Category : category,
                     MemberId : memberId,
-                    // Source : source
-                } )
+                    Source : source
+                }
+            });
+
+            //  let params = this.getParamsByJson({
+            //         Category : category,
+            //         MemberId : memberId,
+            //         // Source : source
+            //     } )
             
-            this.jumpUrl("/alertfocus",params)
+            // this.jumpUrl("/alertfocus",params)
 
             
 
         },
 
         goAlertContent:function(articalId){
-            // this.$router.push({
-            //     path:'/alertcontent',
-            //     name:'alertcontent',
-            //     params : {
-            //         ArticalId : articalId,
-            //     }
-            // });
-            let params = this.getParamsByJson({articalId : articalId} )
-            this.jumpUrl("/alertcontent" ,params)
+            this.$router.push({
+                path:'/alertcontent',
+                name:'alertcontent',
+                params : {
+                    ArticalId : articalId,
+                }
+            });
+            // let params = this.getParamsByJson({articalId : articalId} )
+            // this.jumpUrl("/alertcontent" ,params)
      
         },
 
