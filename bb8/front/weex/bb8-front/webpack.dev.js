@@ -11,12 +11,13 @@ config.devServer = {
     host: '0.0.0.0',
     public: ip + ':8080/web',
     publicPath: '/assets/',
-    // proxy: {
-    //   '/api': {
-    //     target: 'http://localhost:3000',
-    //     pathRewrite: {'^/api' : ''}
-    //   }
-    // }
+    proxy: {
+        '/web/api': {
+            target: 'https://www.51bb8.com',
+            changeOrigin: true, //是否跨域
+            // pathRewrite: {'^/api' : ''}
+        }
+    }
 };
 // configs.plugins.push(new webpack.HotModuleReplacementPlugin());
 console.log('server is running! Please open ' + chalk.green('http://' + ip + ':8080/web/index.html'));
