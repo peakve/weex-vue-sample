@@ -6,10 +6,10 @@ const Utils = {
 
     initIconFont() {
         let domModule = weex.requireModule('dom');
-        domModule.addRule('fontFace', {
-            'fontFamily': "iconfont",
-            'src': "url('http://at.alicdn.com/t/font_404010_f29c7wlkludz33di.ttf')"
-        });
+        // domModule.addRule('fontFace', {
+        //     'fontFamily': "iconfont",
+        //     'src': "url('http://at.alicdn.com/t/font_404010_f29c7wlkludz33di.ttf')"
+        // });
     },
     getNameSpance(url) {
         const modal = weex.requireModule('modal')
@@ -51,14 +51,13 @@ const Utils = {
         let host = '';
         let path = '';
         let nativeBase;
-        const isAndroidAssets = bundleUrl.indexOf('your_current_IP') >= 0 || bundleUrl.indexOf('file://assets/') >= 0;
-        const isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+        const isAndroidAssets = bundleUrl.indexOf('file://assets/') >= 0;
+        const isiOSAssets = bundleUrl.indexOf('.app') > 0;
         if (isAndroidAssets) {
             nativeBase = 'file://assets/dist';
         } else if (isiOSAssets) {
-            // file:///var/mobile/Containers/Bundle/Application/{id}/WeexDemo.app/
-            // file:///Users/{user}/Library/Developer/CoreSimulator/Devices/{id}/data/Containers/Bundle/Application/{id}/WeexDemo.app/
-            nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+            //路由
+            nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/index') + 1);
         } else {
             const matches = /\/\/([^\/]+?)\//.exec(bundleUrl);
             const matchFirstPath = /\/\/[^\/]+\/([^\s]+)\//.exec(bundleUrl);

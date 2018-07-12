@@ -7,7 +7,8 @@ var apiURL = {
     //http://192.168.3.118:8888/web/api/push/appIndex
     //baseurl: 'http://192.168.3.178:8800/wechat',
     //baseurl: 'http://192.168.3.158:8800/wechat',
-    baseurl: 'http://192.168.3.118:8888/web/',
+    // baseurl: 'http://192.168.3.118:8888/web/',
+    baseurl: 'https://www.51bb8.com/web/',
 
     //开发地址
     // baseurl: 'http://192.168.1.235:8800/wechat',
@@ -180,6 +181,16 @@ exports.getBaseUrl = function(bundleUrl, isnav, images) {
     return getBaseUrl(bundleUrl, isnav, images);
 };
 
+function toParams(obj) {
+    var param = ""
+    for (const name in obj) {
+        if (typeof obj[name] != 'function') {
+            param += "&" + name + "=" + encodeURI(obj[name])
+        }
+    }
+    return param.substring(1)
+}
+
 
 function getData(url, callback) {
     var stream = weex.requireModule('stream');
@@ -198,30 +209,37 @@ function postData(url, data, callback) {
     var stream = weex.requireModule('stream');
     var modal = weex.requireModule('modal');
     stream.fetch({
-        method: 'POST',
-        url: url,
-        type: 'json',
-        body: data,
-        headers: { 'Content-Type': 'application/json' }
-    }, function(ret) {
-        //console.log(ret)
-        //comm.onLoadingStop();
-        if (!ret.ok) {
-            modal.toast({ message: '网络有问题，连不上', duration: 1 });
-            // modal.toast({ message: 'callback: ' + event })
-            console.log("request failed");
-            // callback("0");
-        } else {
-            if (ret.data.respond.ok) {
-                callback(ret.data);
+            method: 'POST',
+            url: url,
+            type: 'json',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        },
+        function(ret) {
+            //console.log(ret)
+            //comm.onLoadingStop();
+            if (!ret.ok) {
+                modal.toast({ message: '网络有问题，连不上', duration: 1 });
+                // modal.toast({ message: 'callback: ' + event })
+                console.log("request failed");
+                // callback("0");
             } else {
+
+                // if (ret.data.respond.ok) {
+                //     callback(ret.data);
+                // } else {
+                //     modal.toast({ message: ret.data.respond.msg, duration: 5 });
+                //     //console.log(ret.data)
+                //     // callback("0");
+                // }
+
+
                 // modal.toast({ message: ret.data.respond.msg, duration: 5 });
                 callback(ret.data);
                 // callback("0");
-            }
 
-        }
-    });
+            }
+        });
 }
 
 //新闻资讯列表

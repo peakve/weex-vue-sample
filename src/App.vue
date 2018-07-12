@@ -1,7 +1,7 @@
 <template>
     <div class="app-wrapper">
         <router-view class="r-box"></router-view>
-        <!--<tab-bar @tabTo="onTabTo"></tab-bar>-->
+        <!-- <tab-bar @tabTo="onTabTo"></tab-bar> -->
     </div>
 </template>
 
