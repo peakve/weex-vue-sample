@@ -42,6 +42,9 @@ import disclaimer from './page/pcenter/disclaimer.vue'
 // const homeOptional = r => require.ensure([], () => r(require('./page/home/home-optional.vue')), 'homeOptional')
 // const kline = r => require.ensure([], () => r(require('./page/home/bbkline.vue')), 'kline')
 
+
+import tmp from './page/home/tmp.vue'
+
 Vue.use(Router)
 
 // Story view factory
@@ -59,7 +62,7 @@ export default new Router({
     // mode: 'abstract',
     routes: [
         { path: '/', redirect: '/login' },
-
+        { path: '/tmp', name: "tmp", component: tmp },
         {
             path: '/home',
             component: ViewHome,
@@ -83,7 +86,6 @@ export default new Router({
             path: '/flashnews',
             component: flashnews,
             children: [
-                { path: '', 　　　component: homeOptional },
                 { path: '/information', component: information },
                 { path: '/globalmedia', name: "globalmedia", component: globalMedia },
                 { path: '/exchangenotice', name: "exchangenotice", component: exchangeNotice },
@@ -91,7 +93,8 @@ export default new Router({
                 { path: '/policy', name: "policy", component: policy },
                 { path: '/newcoin', name: "newcoin", component: newcoin },
                 { path: '/voice', name: "voice", component: voice },
-            ]
+            ],
+            redirect: '/information'
         },
         {
             path: '/alertfocus',

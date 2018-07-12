@@ -1,5 +1,6 @@
 <template>
-    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
+
+    <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <web ref="webview" style="width: 750px; height: 1248px" :src='url+articalId'>
 
         </web>
@@ -56,7 +57,8 @@ export default{
 
     created(){
         var self = this;
-        self.articalId = this.$route.params.ArticalId;
+        // self.articalId = this.$route.params.ArticalId;
+        self.articalId = this.getParams().articalId
         //modal.toast({message:deviceHeight,duration:1});
         //modal.toast({message:"文章id"+self.articalId,duration:2});
         /*apis.requireArticalContent({id:self.articalId},function(res){

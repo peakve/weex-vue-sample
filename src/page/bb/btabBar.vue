@@ -111,9 +111,9 @@
             },
              showTrend (t) { 
                
-                let url=util.getNameSpance(this.$getConfig().bundleUrl)+"kline/examples/polling.html&title="+t;
+                let url=util.getNameSpance(weex.config.bundleUrl)+"kline/examples/polling.html&title="+t;
                 modal.toast({ message: 111,  duration: 1 })
-                util.jumpWeb(this.$getConfig().bundleUrl,url);  
+                util.jumpWeb(weex.config.bundleUrl,url);  
                 modal.toast({ message: url,  duration: 1 })
             },
         }

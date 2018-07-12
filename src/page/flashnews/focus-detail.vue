@@ -1,7 +1,5 @@
 <template>
-<div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
-
-    <div class="detail_type" v-if="(category=='default' || category=='default_en' || category=='research_report')">
+ <div class="detail_type" v-if="(category=='default' || category=='default_en' || category=='research_report')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -35,7 +33,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-if="(category=='ex_notice' || category=='newcoin')">
+    <div class="detail_type" v-else-if="(category=='ex_notice' || category=='newcoin')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -68,7 +66,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-if="(category=='ex_twitter')">
+    <div class="detail_type" v-else-if="(category=='ex_twitter')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -102,7 +100,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-if="(category=='bv')">
+    <div class="detail_type" v-else-if="(category=='bv')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -135,8 +133,6 @@
            </loading>
         </list>
     </div>
-
-</div>
 </template>
 
 <style>

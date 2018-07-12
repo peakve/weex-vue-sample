@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper bg_white">
-    <!--<scroller  show-scrollbar="false">-->
+    <scroller  show-scrollbar="false">
       <loginHeader  :data="data" class="login_header" v-show="isshow"></loginHeader> 
       <div class="login_out bg_white">
     
@@ -40,7 +40,7 @@
                  :type="type"
                  :loading-text="loadingText"
                  :interval="interval"></wxc-loading>
-   <!--</scroller>-->
+   </scroller>
   </div>
 </template>
 <style src="../../assets/style/app.css"></style>

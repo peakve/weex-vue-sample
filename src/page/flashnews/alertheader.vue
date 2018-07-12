@@ -1,5 +1,5 @@
 <template>
-  <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
+  <div :class="['wrapper', isIpx()?'w-ipx':'']">
       <div class="alertfocus_whole">
           <div class="picture_title">
               <image class="typical_image" :src="gethref(data.logo?data.logo:data.profileImageUrl)" resize="cover"></image>

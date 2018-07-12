@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper bg_gray">
-     <scroller>
+     <scroller show-scrollbar="false">
       <pcenterHeader></pcenterHeader> 
       <div class="personal_out">
         <div class="personal_header bg_white" v-if="isLogin">
@@ -214,6 +214,7 @@
 
 }
 .personal_out{
+     width: 750px;
     justify-content: center;
     align-items: center;
 }
