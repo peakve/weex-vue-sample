@@ -209,37 +209,30 @@ function postData(url, data, callback) {
     var stream = weex.requireModule('stream');
     var modal = weex.requireModule('modal');
     stream.fetch({
-            method: 'POST',
-            url: url,
-            type: 'json',
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json' }
-        },
-        function(ret) {
-            //console.log(ret)
-            //comm.onLoadingStop();
-            if (!ret.ok) {
-                modal.toast({ message: '网络有问题，连不上', duration: 1 });
-                // modal.toast({ message: 'callback: ' + event })
-                console.log("request failed");
-                // callback("0");
+        method: 'POST',
+        url: url,
+        type: 'json',
+        body: data,
+        headers: { 'Content-Type': 'application/json' }
+    }, function(ret) {
+        // console.log("网络" + JSON.stringify(ret))
+        //comm.onLoadingStop();
+        if (!ret.ok) {
+            modal.toast({ message: '网络有问题，连不上', duration: 1 });
+            // modal.toast({ message: 'callback: ' + event })
+            console.log("request failed");
+            // callback("0");
+        } else {
+            if (ret.data.respond.ok) {
+                callback(ret.data);
             } else {
-
-                // if (ret.data.respond.ok) {
-                //     callback(ret.data);
-                // } else {
-                //     modal.toast({ message: ret.data.respond.msg, duration: 5 });
-                //     //console.log(ret.data)
-                //     // callback("0");
-                // }
-
-
                 // modal.toast({ message: ret.data.respond.msg, duration: 5 });
                 callback(ret.data);
                 // callback("0");
-
             }
-        });
+
+        }
+    });
 }
 
 //新闻资讯列表

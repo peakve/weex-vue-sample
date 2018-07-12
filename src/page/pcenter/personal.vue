@@ -5,7 +5,7 @@
       <div class="personal_out">
         <div class="personal_header bg_white" v-if="isLogin">
              <image class="user_logo" resize="cover" :src="get_img_path('icon_user_img.png')"></image>
-             <text class="color1 user_name">51bb8@163.com</text>
+             <text class="color1 user_name">{{resData.email}}</text>
                <div class="exit_btn_out"  @click="exitLogin()">  
                     <text class="exit_btn color1">退出登录</text>  
                 </div>  
@@ -13,11 +13,10 @@
         <div class="personal_center">
             <wxc-cell 
                 v-if="!isLogin"
-            
                 :has-arrow="true"
                 @wxcCellClicked="goLogin()"
                 :has-top-border="false"
-                style="height: 160px;">
+                :cell-style="cellStyle">
                 <text  slot="title" style="font-size: 35px">登录</text>
                 <image class="default_image"
                  slot="label"
@@ -46,26 +45,26 @@
                 </wxc-cell>
                 <wxc-cell 
                     label="邮箱"
-                    title="51bb8@163.com"
+                    :title="resData.email"
                     @wxcCellClicked="wxcCellClicked"
                     :has-top-border="false">
                 </wxc-cell>
                 <wxc-cell 
                     label="用户名"
-                    title="fby"
+                    :title="resData.account"
                     @wxcCellClicked="wxcCellClicked"
                     :has-arrow="true"
                     :has-top-border="false">
                 </wxc-cell>
                 <wxc-cell 
                     label="注册时间"
-                    title="2018-05-22 08:56"
+                    :title="resData.registTime"
                     @wxcCellClicked="wxcCellClicked"
                     :has-top-border="false">
                 </wxc-cell>
                 <wxc-cell 
                     label="最后登录时间"
-                    title="*******"
+                    :title="resData.lastLoginTime"
                     @wxcCellClicked="wxcCellClicked"
                     :has-top-border="false">
                 </wxc-cell>
@@ -105,11 +104,14 @@
         userPassword:'',
         data:{title:""},
         isShowLoad:false,
-        resData:{},
+        resData:{account:"---",phone:"---",lastLoginTime:"******",email:"---",registTime:"******"},
         interval: 0,
         type: 'default',
         loadingText: '加载中',
-        isLogin:false
+        isLogin:false,
+        cellStyle: {
+            height: "160px"
+        }
     }),
     computed: {
      
@@ -131,6 +133,8 @@
             self.isLogin = e.ok;
             if(self.isLogin){
                  self.userInfo();
+            }else{
+                 self.resData = {account:"---",phone:"---",lastLoginTime:"******",email:"---",registTime:"******"};
             }
         });
     },

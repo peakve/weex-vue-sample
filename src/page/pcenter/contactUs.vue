@@ -6,70 +6,70 @@
 
         <div class="personal_center">
           <wxc-cell 
-                title="交易所/新币对接"
                 desc="3046951607"
-                :has-arrow="true"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
+                 <div class="label_out"  slot="label">
                 <image class="phone_image"
-                 slot="label"
                  :src="get_img_path('qq.png')">
                  </image>
+                 <text class="label_out_text">交易所/新币对接</text>
+                </div>
             </wxc-cell>
              <wxc-cell 
-                title="广告合作"
                 desc="3046951607"
-                :has-arrow="true"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
+                <div class="label_out"  slot="label">
                 <image class="phone_image"
-                 slot="label"
                  :src="get_img_path('qq.png')">
                  </image>
+                  <text class="label_out_text">广告合作</text>
+                </div>
             </wxc-cell>
             <wxc-cell 
-                title="商务合作"
                 desc="3046951607"
-                :has-arrow="true"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
+                 <div class="label_out"  slot="label">
                 <image class="phone_image"
-                 slot="label"
                  :src="get_img_path('qq.png')">
                  </image>
+                  <text class="label_out_text">商务合作</text>
+                </div>
             </wxc-cell>
                  <wxc-cell 
-                title="51BB8客服"
                 desc="3046951607"
-                :has-arrow="true"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
-                <image class="phone_image"
-                 slot="label"
-                 :src="get_img_path('qq.png')">
-                 </image>
+                <div class="label_out"  slot="label">
+                    <image class="phone_image"
+                    :src="get_img_path('qq.png')">
+                    </image>
+                   <text class="label_out_text">51BB8客服</text>
+                </div>
             </wxc-cell>
                  <wxc-cell 
-                title="联系邮箱"
                 desc="service@51bb8.com"
-                :has-arrow="true"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
-                <image class="phone_image"
-                 slot="label"
-                 :src="get_img_path('mailbox.png')">
-                 </image>
+                <div class="label_out"  slot="label">
+                    <image class="phone_image"
+                    :src="get_img_path('mailbox.png')">
+                    </image>
+                    <text class="label_out_text">联系邮箱</text>
+                </div>
             </wxc-cell>
                  <wxc-cell 
-                title="官方网址"
                 desc="http://www.51bb8.com"
-                :has-arrow="true"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
-                <image class="phone_image"
-                 slot="label"
-                 :src="get_img_path('network.png')">
-                 </image>
+                <div class="label_out"  slot="label">
+                    <image class="phone_image"
+                      :src="get_img_path('network.png')">
+                    </image>
+                    <text class="label_out_text">官方网址</text>
+                </div>
             </wxc-cell>
             <div class="personal_info">
                <wxc-cell 
@@ -112,7 +112,8 @@
     components: {WxcLoading,pcenterHeader,WxcCell},
     data: () => ({
         fontSize: '15px',
-        color: '#292b32'
+        color: '#292b32',
+        infoInData:"http://www.51bb8.com"
     }),
     computed: {
      
@@ -136,6 +137,15 @@
 </script>
 
 <style scoped>
+.label_out{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center
+}
+.label_out_text{
+    width: 220px;
+    font-size: 28px
+}
 .personal_out{
     justify-content: center;
     align-items: center;
@@ -152,8 +162,8 @@
     margin-bottom: 200px
 }
 .phone_image{
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     margin-right: 20px;
 }
 </style>
