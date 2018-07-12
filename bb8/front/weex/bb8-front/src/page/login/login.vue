@@ -141,11 +141,12 @@
                 if(res.respond.ok){
                     modal.toast({ message:'登录成功'});
                     self.loginData = res.data;
-                     event.isLoginGlobalEvent("login",true,);
+                     event.isLoginGlobalEvent("login",true);
                      event.dismissViewController("");
 
                     //  self.getCookie("bb8_login_token");
-                    //   modal.toast({ message: util.getCookie("bb8_login_token")+"11"});
+                    //  console.log("getCookie"+ self.getCookie("bb8_login_token"));
+                    //  modal.toast({ message: self.getCookie("bb8_login_token")});
                     // if(event.dismissViewController("") != undefined){
                     //     event.isLoginGlobalEvent("login",true);
                     //     // event.dismissViewController("");
