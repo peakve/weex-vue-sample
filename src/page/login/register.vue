@@ -195,7 +195,7 @@
             },function(res){
                 self.isShowLoad = false;
                 if(res.respond.ok){
-                    modal.toast({ message:'注册成功'});
+                    modal.toast({ message:'注册成功',duration:0.5});
                     event.isLoginGlobalEvent("login",true);
                     event.dismissViewController("");
                     // self.loginData = res.data;
