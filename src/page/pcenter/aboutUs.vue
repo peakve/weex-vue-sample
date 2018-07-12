@@ -39,14 +39,7 @@
     },
     methods:{  
 
-        wxcCellClicked (e) {
-            console.log(e)
-            event.openURL("http://192.168.3.178:8080/dist/index.js");
-        },
-        goLogin(){
-            event.isLoginGlobalEvent("login",false);
-            event.openURL("http://192.168.3.178:8080/dist/index.js");
-        }
+
     }  
   }
 </script>

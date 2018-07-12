@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper bg_white">
     <scroller  show-scrollbar="false">
-      <loginHeader  :data="data" class="login_header" v-show="isshow"></loginHeader> 
+      <loginHeader  :data="data" v-show="isshow"></loginHeader> 
       <div class="login_out bg_white">
     
         <image class="bb8_logo" resize="cover" :src="get_img_path('bb8_logo.png')"></image>
@@ -18,7 +18,7 @@
                <div  class="input_register_out">
                   <div class="register_out">
                     <text class="input_register color1"  @click="jump('/register')">注册 /</text>
-                    <text class="input_register color1"  @click="jump('/modifySendCode')"> 忘记密码?</text>
+                    <text class="input_register color1"  @click="findPassword()"> 忘记密码?</text>
                   </div>
                </div>
             </div>  
@@ -102,7 +102,7 @@
         },  
         /*找回密码*/  
         findPassword:function () {  
-           
+            this.$router.push({path:"/modifySendCode",query:{"title":"忘记密码"}})
         },  
         /*注册*/  
         register:function () {  
@@ -112,7 +112,7 @@
         //获取cookie
         getCookie: function (cname) {
             var name = cname + "=";
-            var ca = document.cookie.split(';');
+            var ca = weex.document.cookie.split(';');
             for (var i = 0; i < ca.length; i++) {
                 var c = ca[i];
                 while (c.charAt(0) == ' ') c = c.substring(1);
@@ -143,9 +143,11 @@
                     self.loginData = res.data;
                      event.isLoginGlobalEvent("login",true);
                      event.dismissViewController("");
-
-                    //  self.getCookie("bb8_login_token");
-                    //  console.log("getCookie"+ self.getCookie("bb8_login_token"));
+                    //    modal.toast({message:weex.document.cookie,duration:1});
+                    // console.log("ooo")
+                    // console.log("ooo"+weex.document.cookie)
+                    // //  self.getCookie("bb8_login_token");
+                    // console.log("getCookie"+ self.getCookie("bb8_login_token"));
                     //  modal.toast({ message: self.getCookie("bb8_login_token")});
                     // if(event.dismissViewController("") != undefined){
                     //     event.isLoginGlobalEvent("login",true);
@@ -164,9 +166,7 @@
 </script>
 
 <style scoped>
-.login_header{
-    margin-top: 120px;
-}
+
 .login_footer_default{
     width:750px;
     position:fixed;

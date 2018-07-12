@@ -36,6 +36,7 @@ import modifyPwd from './page/login/modifyPwd.vue'
 import aboutUs from './page/pcenter/aboutUs.vue'
 import contactUs from './page/pcenter/contactUs.vue'
 import disclaimer from './page/pcenter/disclaimer.vue'
+import modifyInfo from './page/login/modifyInfo.vue'
 // const ViewHome = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewHome')
 // const ViewMy = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewMy')
 // const bbtop = r => require.ensure([], () => r(require('./page/home/bbtop.vue')), 'bbtop')
@@ -115,5 +116,6 @@ export default new Router({
         { path: '/aboutUs', component: aboutUs },
         { path: '/contactUs', component: contactUs },
         { path: '/disclaimer', component: disclaimer },
+        { path: '/modifyInfo', component: modifyInfo },
     ]
 })

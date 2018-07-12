@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper bg_white" >
-     <loginHeader :data="data" class="login_header"></loginHeader> 
+     <loginHeader :data="data"></loginHeader> 
       <div class="register_out bg_white">
             <div class="input_wrapper">  
                 <input class="input bg_gray" type="text" placeholder="请输入手机号/邮箱" value="" v-model="mobileNo"/>  
@@ -44,7 +44,7 @@
         color: '#292b32',  
         mobileNo:'',  
         vCode:'' ,
-        data:{title:"忘记密码"},
+        data:{title:"修改密码"},
         isShowLoad:false,
         interval: 0,
         type: 'default',
@@ -71,7 +71,9 @@
       }
     },
     created () {
-      
+        if(this.$route.query.title != undefined){
+           this.data.title = this.$route.query.title;
+        }
     },
     methods:{  
         /*发送验证码*/  
