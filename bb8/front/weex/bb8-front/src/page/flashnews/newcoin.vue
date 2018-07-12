@@ -14,7 +14,7 @@
                             <div class="time_hit">
                                 <div class="time_ago">
                                     <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
-                                    <text class="text_time_ago">1天前</text>
+                                    <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
                                 </div>
                                 <div class="time_ago">
                                     <image class="clock_image" src="/assets/images/click.png"></image>
@@ -70,7 +70,7 @@
 }
 .text_title{
     width: 700px;
-    font-size: 25px;
+    font-size: 12wx;
     font-weight: 700;
 }
 .source_time{
@@ -84,6 +84,7 @@
     align-items: center;
     justify-content: flex-start;
     color: #36a0ff;
+    font-size: 12wx;
 }
 .time_hit{
     align-items: center;
@@ -102,6 +103,7 @@
 }
 .text_time_ago{
     color: #787878;
+    font-size: 12wx;
 }
 .loadingOut {
     flex-direction: row;
@@ -231,6 +233,58 @@ export default {
 				}
             });
         },
+
+        formatDatePattern:function (date, fmt) {
+            if (!date) {
+                return;
+            }
+
+            if (/(y+)/.test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+            }
+            let o = {
+                'M+': date.getMonth() + 1,
+                'd+': date.getDate(),
+                'h+': date.getHours(),
+                'm+': date.getMinutes(),
+                's+': date.getSeconds()
+            };
+            for (let k in o) {
+                if (new RegExp(`(${k})`).test(fmt)) {
+                    let str = o[k] + '';
+                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
+                }
+            }
+            return fmt;
+        },
+
+        formatDate:function(time) {
+            var date = new Date(time);
+            return this.formatDatePattern(date, "yyyy-MM-dd hh:mm");
+        },
+
+        timeAgo:function(time) {
+            const between = (Date.now() - Number(time)) / 1000;
+            if (between < 2 * 60) {
+                return '刚刚';
+            } else if (between < 3600) {
+                return this.pluralize(~~(between / 60), ' 分钟');
+            } else if (between < 86400) {
+                return this.pluralize(~~(between / 3600), ' 小时');
+            } else if (between < 30 * 86400) {
+                return this.pluralize(~~(between / 86400), ' 天');
+            } else {
+                return this.formatDate(time);
+            }
+        },
+
+        pluralize:function (time, label) {
+            if (time === 1) {
+                return time + label
+            }
+            return time + label + '前'
+        },
+
     }
 }
 </script>
