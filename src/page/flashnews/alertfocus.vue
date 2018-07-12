@@ -2,7 +2,7 @@
   <div class="wrapper">
       <alertfocus-header :memberId="memberId"></alertfocus-header>
       <alertfocus-tab :category="category" :memberId="memberId" :source="source"></alertfocus-tab>
-     <!-- <router-view></router-view> -->
+      <!-- <router-view></router-view> -->
   </div>
 </template>
 
