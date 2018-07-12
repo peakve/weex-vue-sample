@@ -1,11 +1,15 @@
 <template>
-    <div class="wrapper">
-        <list class="information_list">
+        <list :class="['wrapper', isIpx()?'w-ipx':'']">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList" :key="index">
+           
+           <cell v-for="(item,index) in itemsList" 
+                      append="tree"
+                      :key="item.id" 
+                      :index="index">
+
                 <div class="information_content">
                     <div class="title_sourece_time">
                         <text class="text_title" @click="goAlertContent(item.id)">{{item.title}}</text>
@@ -13,17 +17,17 @@
                             <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源:{{item.source}}</text>
                             <div class="time_hit">
                                 <div class="time_ago">
-                                    <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
+                                    <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>
                                     <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
                                 </div>
                                 <div class="time_ago">
-                                    <image class="clock_image" src="/assets/images/click.png"></image>
+                                    <image class="clock_image" :src="get_img_path('click.png')"></image>
                                     <text class="text_time_ago">{{item.hits}}次点击</text>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <image class="content_image" :src="gethref(item.banner?item.banner:item.member.logo)" resize="cover"></image>
+                    <image class="content_image" :src="gethref(item.banner?item.banner:item.member?item.member.logo:'')" resize="cover"></image>
                 </div>
            </cell>
            <loading @loading="loadingData" :display="loadingDisplay">
@@ -33,13 +37,17 @@
                 </div>
            </loading>
         </list>
-    </div>
 </template>
 
 <style scoped>
 .wrapper{
-    margin-top:54px;
-}
+      top:168px
+    }
+    .w-ipx{
+        top: 208px;
+    }
+
+
 .refreshOut{
     width: 750;
     padding-top: 10;
@@ -167,25 +175,39 @@ export default {
 
     methods: {
         goAlertFocus:function(category,memberId,source){
-            this.$router.push({
-                path : '/alertfocus',
-                name : 'alertfocus',
-                params : {
+            // this.$router.push({
+            //     path : '/alertfocus',
+            //     name : 'alertfocus',
+            //     params : {
+            //         Category : category,
+            //         MemberId : memberId,
+            //         Source : source
+            //     }
+            // });
+
+             let params = this.getParamsByJson({
                     Category : category,
                     MemberId : memberId,
-                    Source : source
-                }
-            });
+                    // Source : source
+                } )
+            
+            this.jumpUrl("/alertfocus",params)
+
+            
+
         },
 
         goAlertContent:function(articalId){
-            this.$router.push({
-                path:'/alertcontent',
-                name:'alertcontent',
-                params : {
-                    ArticalId : articalId,
-                }
-            });
+            // this.$router.push({
+            //     path:'/alertcontent',
+            //     name:'alertcontent',
+            //     params : {
+            //         ArticalId : articalId,
+            //     }
+            // });
+            let params = this.getParamsByJson({articalId : articalId} )
+            this.jumpUrl("/alertcontent" ,params)
+     
         },
 
         refreshData:function(event){
