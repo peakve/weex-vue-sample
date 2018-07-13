@@ -12,8 +12,8 @@
                             <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源:{{item.source}}</text>
                             <div class="time_hit">
                                 <div class="time_ago">
-                                    <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>
-                                    <text class="text_time_ago">刚刚</text>
+                                    <image class="" :src="get_img_path('Time.png')" resize="cover"></image>
+                                    <text class="text_time_ago"></text>
                                 </div>
                                 <div class="time_ago">
                                     <image class="clock_image" :src="get_img_path('click.png')"></image>
