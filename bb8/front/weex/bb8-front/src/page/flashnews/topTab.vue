@@ -29,10 +29,6 @@
                 <text  @click="chooseChannel(6)" :class="['i-c',navIndex==6?'c-act':'']" ref=t6>监管政策</text>
                 <div class="j-uline" v-if="navIndex==6"></div>
             </div>
-            <div class="tab-i">
-                <text  @click="chooseChannel(7)" :class="['i-c',navIndex==7?'c-act':'']" ref=t7>返回主页</text>
-                <div class="j-uline" v-if="navIndex==7"></div>
-            </div>
         </scroller>
  
     </div>
@@ -151,8 +147,6 @@
                     this.$router.push('/newcoin');
                 }else if(idx == 6){
                     this.$router.push('/policy');
-                }else if(idx == 7){
-                    this.$router.push('/home');
                 }
 
                 const el=this.$refs['t'+idx];

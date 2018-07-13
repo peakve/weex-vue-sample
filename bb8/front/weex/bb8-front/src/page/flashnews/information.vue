@@ -32,7 +32,7 @@
            <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
-                    <text class="text">{{loadingText}}</text>
+                    <text class="text_laoding">{{loadingText}}</text>
                 </div>
            </loading>
         </list>
@@ -54,6 +54,12 @@
     padding-bottom: 10;
     align-items: center;
 }
+.text_refresh{
+    font-size: 12wx;
+}
+.text_laoding{
+    font-size: 12wx;
+}
 .indicator{
     width: 35px;
     height: 35px;
@@ -62,28 +68,26 @@
 }
 .information_content{
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     border-bottom-width: 1px; 
     border-bottom-color: #ededed;
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 10px;
 }
 .title_sourece_time{
     flex-direction: column;
-    width: 480px;
+    width:470px;
     margin-top: 5px;  
     margin-right: 10px; 
+    margin-left: 10px; 
 }
 .text_title{
-    width: 480px;
     font-size: 12wx;
     font-weight: 700;
 }
 .source_time{
-    width: 480px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -106,18 +110,17 @@
     margin-right: 10px;
 }
 .clock_image{
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
     margin-right: 5px;
 }
 .text_time_ago{
     color: #787878;
-    font-size: 12wx;
+    font-size: 10wx;
 }
 .content_image{
     width: 250px;
     height: 140px;
-    padding-right: 30px; 
 }
 .loadingOut {
     flex-direction: row;

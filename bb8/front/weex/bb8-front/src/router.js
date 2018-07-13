@@ -30,6 +30,9 @@ import voice from './page/flashnews/voice.vue'
 import alertFocus from './page/flashnews/alertfocus.vue'
 import synopsis from './page/flashnews/synopsis.vue'
 import focusDetail from './page/flashnews/focus-detail.vue'
+import focusDetail1 from './page/flashnews/focus-detail1.vue'
+import focusDetail2 from './page/flashnews/focus-detail2.vue'
+import focusDetail3 from './page/flashnews/focus-detail3.vue'
 import alertContent from './page/flashnews/alertcontent.vue'
 import modifySendCode from './page/login/modifySendCode.vue'
 import modifyPwd from './page/login/modifyPwd.vue'
@@ -103,7 +106,10 @@ export default new Router({
             component: alertFocus,
             children: [
                 { path: '/synopsis', name: "synopsis", component: synopsis },
-                { path: '/focusDetail', name: "focusDetail", component: focusDetail }
+                { path: '/focusDetail', name: "focusDetail", component: focusDetail },
+                { path: '/focusDetail1', name: "focusDetail1", component: focusDetail1 },
+                { path: '/focusDetail2', name: "focusDetail2", component: focusDetail2 },
+                { path: '/focusDetail3', name: "focusDetail3", component: focusDetail3 },
             ]
         },
         { path: '/alertcontent', name: "alertcontent", component: alertContent },
