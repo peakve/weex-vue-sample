@@ -7,8 +7,8 @@
 <style>
 .wrapper{
     position: fixed;
+    top:501px;
     left: 0;right: 0;
-    margin-top: 501px;
 }
 .w-ipx{
     top: 154px;

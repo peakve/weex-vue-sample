@@ -1,5 +1,5 @@
 <template>
-    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
+    <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar=false>
             <div class="tab-i">
                 <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>{{title}}</text>
@@ -10,7 +10,6 @@
                 <div class="j-uline" v-if="navIndex==1"></div>
             </div>
         </scroller>
-
     </div>
 </template>
 
@@ -20,8 +19,8 @@
 }
 .wrapper{
     position: fixed;
+    top: 447px;
     left: 0;right: 0;
-    margin-top: 447px;
     height: 54px;
     z-index: 10;
     background-color: #fafafa;
@@ -52,10 +51,6 @@
     color:black;
 }
 .j-uline{
-    /* position: absolute; */
-    /* left: 30px; */
-    /* left:25%;
-    /* bottom: 0; */
     width: 100%;
     height: 2px;
     background-color: black;

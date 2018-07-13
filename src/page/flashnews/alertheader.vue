@@ -1,6 +1,10 @@
 <template>
   <div :class="['wrapper', isIpx()?'w-ipx':'']">
-      <div class="alertfocus_whole">
+      <div class="alertfocus_whole" style="background-image : url('/assets/images/integration_bg.png')">
+          <div class="back_forward">
+              <image class="back_img" src="/assets/images/Return_W.png" @click="imageClick"></image>
+              <div></div>
+          </div>
           <div class="picture_title">
               <image class="typical_image" :src="gethref(data.logo?data.logo:data.profileImageUrl)" resize="cover"></image>
               <text class="typical_name">{{data.screeName ? data.screeName : data.name}}</text>
@@ -23,18 +27,31 @@
 }
 .alertfocus_whole{
     flex-direction: column;
+    justify-content: space-between;
     width: 750px;
     height: 447px;
     /*background-image: url('/assets/images/integration_bg.png');
     background-repeat: no-repeat;*/
     background-color: #133D5F;
 }
+.back_forward{
+    flex-direction: row;
+    align-items: center;
+    width: 750px;
+    height: 60px;
+}
+.back_img{
+    width:40px;
+    height: 40px;
+    margin-left:20px;
+    margin-top:20px;
+}
 .picture_title{
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 750px;
-    height: 347px;
+    height: 327px;
 }
 .typical_image{
     width:120px;
@@ -48,7 +65,7 @@
 .collect_content{
     flex-direction: row;
     widows: 750px;
-    height: 100px;
+    height: 60px;
 }
 .blank{
     width: 187px;
@@ -60,6 +77,7 @@
     color: white;
     width: 375px;
     height: 100px;
+    margin-bottom: 50px;
 }
 .logo_image_div{
     align-items: center;
@@ -109,6 +127,11 @@ export default {
                 return 'http://www.51bb8.com/bfile/dfile'+url;
             }
         },
+
+        imageClick:function (params) {
+            //modal.toast({message:"返回",duration:1});
+            this.$router.back(-1);
+        }
 
     }
 }

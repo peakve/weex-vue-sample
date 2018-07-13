@@ -11,10 +11,6 @@
 </template>
 
 <style scoped>
-
-    .iconfont {
-        font-family:iconfont;
-    }
     .wrapper{
         position: fixed;
         top: 0;
