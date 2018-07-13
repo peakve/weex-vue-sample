@@ -194,7 +194,7 @@ export default{
         self.category = this.$route.query.Category;
         self.memberId = this.$route.query.MemberId;
         self.source = this.$route.query.Source;
-        modal.toast({message:"传值"+self.category,duration:1});
+        //modal.toast({message:"传值"+self.category,duration:1});
         apis.requireAlertFocusList({
 	        "memberId" : self.memberId,
             "page" : self.page,
