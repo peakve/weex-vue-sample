@@ -9,7 +9,6 @@
                       append="tree"
                       :key="item.id" 
                       :index="index">
-
                 <div class="information_content">
                     <div class="title_sourece_time">
                         <text class="text_title" @click="goAlertContent(item.id)">{{item.title}}</text>
@@ -41,7 +40,8 @@
 
 <style scoped>
 .wrapper{
-    top:168px
+    top:168px;
+    bottom:-168px;
 }
 .w-ipx{
     top: 208px;
@@ -114,7 +114,7 @@
 }
 .content_image{
     width: 250px;
-    height: 120px;
+    height: 140px;
     padding-right: 30px; 
 }
 .loadingOut {
@@ -173,6 +173,7 @@ export default {
 
     methods: {
         goAlertFocus:function(category,memberId,source){
+            //modal.toast({message:(category+memberId),duration:1});
             this.$router.push({
                 path : '/alertfocus',
                 name : 'alertfocus',

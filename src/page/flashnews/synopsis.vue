@@ -37,7 +37,7 @@ export default{
 
     created() {
         var self = this;
-        self.memberId = this.$route.params.MemberId;
+        self.memberId = this.$route.query.MemberId;
         //modal.toast({message:"简介"+self.memberId,duration:1});
         apis.requireAlertFocusDesc({memberId:self.memberId},function(res){
             if(res.respond.ok){

@@ -1,5 +1,5 @@
 <template>
-    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']">
+    <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar="false">
             <div class="tab-i">
                 <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>资讯</text>
@@ -34,14 +34,12 @@
                 <div class="j-uline" v-if="navIndex==7"></div>
             </div>
         </scroller>
-        <text class="more iconfont">&#xe661;</text>
+ 
     </div>
 </template>
 
 <style scoped>
-.iconfont {
-    font-family:iconfont;
-}
+
 .wrapper{
     position: fixed;
     left: 0;right: 0;
@@ -77,10 +75,7 @@
     color:black;
 }
 .j-uline{
-    /* position: absolute; */
-    /* left: 30px; */
-    /* left:25%;
-    /* bottom: 0; */
+
     width: 100%;
     height: 2px;
     background-color: black;
@@ -104,7 +99,7 @@
     const animation = weex.requireModule('animation');
     const modal = weex.requireModule('modal');
 
-    export default{
+    export default {
         data() {
             return {
                 jLPosition:"left:30px;width:82px;",
@@ -119,24 +114,24 @@
         },
 
         created() {
-            this.$router.push('/information');
+            //this.$router.push('/information');
         },
 
         mounted() {
             this.initJLine();
-            this.Activity=[{id:"111",name:'看门'},{id:"112",name:'看门'}];
-            this.Activity.forEach((item, index) => {
-	    		this.support_ids[index] = {status: false, id: item.id};
-            });
-            this.Delivery=[{id:'2341',text:'看见1'},{id:'2342',text:'看见2'},{id:'2343',text:'看见3'}];
+            //this.Activity=[{id:"111",name:'看门'},{id:"112",name:'看门'}];
+            //this.Activity.forEach((item, index) => {
+	    		//this.support_ids[index] = {status: false, id: item.id};
+           // });
+            //this.Delivery=[{id:'2341',text:'看见1'},{id:'2342',text:'看见2'},{id:'2343',text:'看见3'}];
         },
 
         methods:{
             initJLine:function () {
-                if(!this.$refs.actJC) return;
-                let l = this.$refs.actJC.$el.offsetLeft;
-                let w = this.$refs.actJC.$el.offsetWidth;
-                this.jLPosition = ["left:",l+30,"px;","width:",w-60,"px;"].join("");
+                //if(!this.$refs.actJC) return;
+                //let l = this.$refs.actJC.$el.offsetLeft;
+                //let w = this.$refs.actJC.$el.offsetWidth;
+                //this.jLPosition = ["left:",l+30,"px;","width:",w-60,"px;"].join("");
             },
 
             chooseChannel:function (idx,event) {
