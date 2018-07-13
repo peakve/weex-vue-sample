@@ -2,7 +2,7 @@
   <div :class="['wrapper', isIpx()?'w-ipx':'']">
       <div class="alertfocus_whole">
           <div class="back_forward">
-              <image class="back_img" :src="get_img_path(Return_W.png)" @click="imageClick"></image>
+              <image class="back_img" :src="get_img_path('Return_W.png')"  @click="imageClick"></image>
               <div></div>
           </div>
           <div class="picture_title">
@@ -13,7 +13,7 @@
               <div class="blank"></div>
               <text class="article_hits">{{data.newsCount}} 文章     |    {{data.readCount}} 点击</text>
               <div class="logo_image_div">
-                  <image class="logo_image" :src="get_img_path(icon_logo.png)" resize="cover"></image>
+                  <!--<image class="logo_image"  resize="cover"></image>-->
               </div>
           </div>
       </div>
