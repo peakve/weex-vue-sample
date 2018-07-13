@@ -67,6 +67,7 @@
 }
 .title_sourece_time{
     flex-direction: column;
+    width: 450px;
     margin-right: 20px;
     margin-top: 5px; 
     margin-left: 20px;
