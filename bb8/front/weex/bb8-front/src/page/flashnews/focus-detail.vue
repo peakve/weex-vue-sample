@@ -1,16 +1,16 @@
 <template>
-    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']" v-if="(category=='default' || category=='default_en' || category=='research_report')">
-        <list class="information_list">
+        <list :class="['wrapper', isIpx()?'w-ipx':'']" v-if="(category=='default' || category=='default_en' || category=='research_report')">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList" :key="index">
+
+           <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
                 <div class="information_content">
                     <image class="content_image" :src="item.banner" resize="cover"></image>
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent(item.id)">{{item.title}}</text>
-                        <text class="text_abstract" @click="goAlertContent(item.id)">{{item.abs}}</text>
+                        <text class="text_title" @click="goAlertContent(item.id,item.category)">{{item.title}}</text>
+                        <text class="text_abstract" @click="goAlertContent(item.id,item.category)">{{item.abs}}</text>
                         <div class="source_time">
                             <div class="time_ago">
                                 <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
@@ -31,19 +31,17 @@
                 </div>
            </loading>
         </list>
-    </div>
 
-    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']" v-else-if="(category=='ex_notice' || category=='newcoin')">
-        <list class="information_list">
+        <list :class="['wrapper', isIpx()?'w-ipx':'']" v-else-if="(category=='ex_notice' || category=='newcoin')">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList" :key="index">
+           <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
-                        <text class="text_title_match" @click="goAlertContent(item.id)">{{item.title}}</text>
-                        <text class="text_abstract_match" @click="goAlertContent(item.id)">{{item.abs}}</text>
+                        <text class="text_title_match" @click="goAlertContent(item.id,item.category)">{{item.title}}</text>
+                        <text class="text_abstract_match" @click="goAlertContent(item.id,item.category)">{{item.abs}}</text>
                         <div class="source_time_match">
                             <div class="time_ago">
                                 <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
@@ -64,15 +62,13 @@
                 </div>
            </loading>
         </list>
-    </div>
 
-    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']" v-else-if="(category=='ex_twitter')">
-        <list class="information_list">
+        <list :class="['wrapper', isIpx()?'w-ipx':'']" v-else-if="(category=='ex_twitter')">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList" :key="index">
+           <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
                         <text class="text_abstract_match">{{item.content}}</text>
@@ -98,15 +94,13 @@
                 </div>
            </loading>
         </list>
-    </div>
 
-    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']" v-else-if="(category=='bv')">
-        <list class="information_list">
+        <list :class="['wrapper', isIpx()?'w-ipx':'']" v-else-if="(category=='bv')">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-           <cell v-for="(item,index) in itemsList" :key="index">
+           <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
                 <div class="information_content">
                     <div class="title_sourece_time_match">
                         <text class="text_abstract_match">{{item.content}}</text>
@@ -132,14 +126,15 @@
                 </div>
            </loading>
         </list>
-    </div>
+
 </template>
 
 <style>
 .wrapper{
     position: fixed;
+    top:501px;
     left: 0;right: 0;
-    margin-top: 501px;
+    bottom:0;
 }
 .w-ipx{
     top: 154px;
@@ -290,12 +285,11 @@ export default{
     },
 
     created(){
-        modal.toast({message:"传值",duration:1});
         var self = this;
         self.category = this.$route.query.Category;
         self.memberId = this.$route.query.MemberId;
         self.source = this.$route.query.Source;
-        //modal.toast({message:"传值",duration:1});
+        //modal.toast({message:"传值"+self.memberId,duration:1});
         apis.requireAlertFocusList({
 	        "memberId" : self.memberId,
             "page" : self.page,
@@ -312,12 +306,13 @@ export default{
     },
 
     methods:{
-        goAlertContent:function(articalId){
+        goAlertContent:function(articalId,category){
             this.$router.push({
                 path:'/alertcontent',
                 name:'alertcontent',
-                params : {
+                query : {
                     ArticalId : articalId,
+                    Category : category
                 }
             });
         },

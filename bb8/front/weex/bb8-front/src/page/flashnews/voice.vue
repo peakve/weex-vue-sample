@@ -44,7 +44,10 @@
 
 <style scoped>
 .wrapper{
-    top:168px
+    position: fixed;  
+    top:168px;
+    left: 0;right: 0;
+    bottom: 0;
 }
 .w-ipx{
     top: 208px;
@@ -215,7 +218,7 @@ export default {
             this.$router.push({
                 path : '/alertfocus',
                 name : 'alertfocus',
-                params : {
+                query : {
                     Category : category,
                     MemberId : memberId,
                     Source : source

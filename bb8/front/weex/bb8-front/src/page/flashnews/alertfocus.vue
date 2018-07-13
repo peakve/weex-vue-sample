@@ -33,9 +33,9 @@ export default {
 
     created(){
         var self = this;
-        self.category = this.$route.params.Category;
-        self.memberId = this.$route.params.MemberId;
-        self.source = this.$route.params.Source;
+        self.category = this.$route.query.Category;
+        self.memberId = this.$route.query.MemberId;
+        self.source = this.$route.query.Source;
         //modal.toast({ message: (self.memberId), duration: 1 })
         //let params = this.getParams()
         //self.category = params.Category;

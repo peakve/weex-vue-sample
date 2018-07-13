@@ -11,7 +11,7 @@
                       :index="index">
                 <div class="information_content">
                     <div class="title_sourece_time">
-                        <text class="text_title" @click="goAlertContent(item.id)">{{item.title}}</text>
+                        <text class="text_title" @click="goAlertContent(item.id,item.category)">{{item.title}}</text>
                         <div class="source_time">
                             <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源:{{item.source}}</text>
                             <div class="time_hit">
@@ -40,8 +40,10 @@
 
 <style scoped>
 .wrapper{
+    position: fixed;  
     top:168px;
-    bottom:-168px;
+    left: 0;right: 0;
+    bottom: 0;
 }
 .w-ipx{
     top: 208px;
@@ -177,7 +179,7 @@ export default {
             this.$router.push({
                 path : '/alertfocus',
                 name : 'alertfocus',
-                params : {
+                query : {
                     Category : category,
                     MemberId : memberId,
                     Source : source
@@ -196,12 +198,13 @@ export default {
 
         },
 
-        goAlertContent:function(articalId){
+        goAlertContent:function(articalId,category){
             this.$router.push({
                 path:'/alertcontent',
                 name:'alertcontent',
-                params : {
+                query : {
                     ArticalId : articalId,
+                    Category : category
                 }
             });
             // let params = this.getParamsByJson({articalId : articalId} )
