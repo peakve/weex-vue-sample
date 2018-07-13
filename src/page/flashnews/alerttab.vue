@@ -93,16 +93,8 @@
 
         created() {
             var self = this;
-
-            this.$router.push({
-                path:'/focusDetail',
-                query:{
-                    Category:self.category,
-                    MemberId:self.memberId,
-                    Source:self.source
-                }
-            });
             //modal.toast({message:"tab"+(self.category+self.memberId),duration:1});
+            this.selectFocusDetail();
             if(self.category=='default'){
                 self.title = "资讯";
             }else if(self.category=='default_en'){
@@ -122,36 +114,41 @@
 
         mounted() {
             this.initJLine();
-            this.Activity=[{id:"111",name:'看门'},{id:"112",name:'看门'}];
-            this.Activity.forEach((item, index) => {
-	    		this.support_ids[index] = {status: false, id: item.id};
-            });
-            this.Delivery=[{id:'2341',text:'看见1'},{id:'2342',text:'看见2'},{id:'2343',text:'看见3'}];
+            // this.Activity=[{id:"111",name:'看门'},{id:"112",name:'看门'}];
+            // this.Activity.forEach((item, index) => {
+	    	// 	this.support_ids[index] = {status: false, id: item.id};
+            // });
+            // this.Delivery=[{id:'2341',text:'看见1'},{id:'2342',text:'看见2'},{id:'2343',text:'看见3'}];
             //modal.toast({message:self.msg,duration:1});
         },
 
         methods:{
             initJLine:function () {
-                if(!this.$refs.actJC) return;
-                let l = this.$refs.actJC.$el.offsetLeft;
-                let w = this.$refs.actJC.$el.offsetWidth;
-                this.jLPosition = ["left:",l+30,"px;","width:",w-60,"px;"].join("");
+                // if(!this.$refs.actJC) return;
+                // let l = this.$refs.actJC.$el.offsetLeft;
+                // let w = this.$refs.actJC.$el.offsetWidth;
+                // this.jLPosition = ["left:",l+30,"px;","width:",w-60,"px;"].join("");
             },
 
             chooseChannel:function (idx,event) {
                 var self = this;
                 this.navIndex=idx;
                 //modal.toast({ message: idx+'--',  duration: 1 });
+
                 if(idx==0){
+                    // this.$router.push({
+                    //         path:'/focusDetail',
+                    //         query:{
+                    //             Category:self.category,
+                    //             MemberId:self.memberId,
+                    //             Source:self.source
+                    //         }
+                    // });
+
                     //modal.toast({ message: '点击了标签页',  duration: 1 });
-                    this.$router.push({
-                        path:'/focusDetail',
-                        query:{
-                            Category:self.category,
-                            MemberId:self.memberId,
-                            Source:self.source
-                        }
-                    });
+                    this.selectFocusDetail();
+                    
+
                 }else if(idx==1){
                     this.$router.push({
                         path:'/synopsis',
@@ -166,6 +163,47 @@
                         dom.scrollToElement(el, { offset: -option.size.left/2 });
                     }
                 });
+            },
+
+            selectFocusDetail:function(){
+                var self = this;
+                if((self.category=='default' || self.category=='default_en' || self.category=='research_report')){
+                        this.$router.push({
+                            path:'/focusDetail',
+                            query:{
+                                Category:self.category,
+                                MemberId:self.memberId,
+                                Source:self.source
+                            }
+                        });
+                    }else if((self.category=='ex_notice' || self.category=='newcoin')){
+                        this.$router.push({
+                            path:'/focusDetail1',
+                            query:{
+                                Category:self.category,
+                                MemberId:self.memberId,
+                                Source:self.source
+                            }
+                        });
+                    }else if(self.category=='ex_twitter'){
+                        this.$router.push({
+                            path:'/focusDetail2',
+                            query:{
+                                Category:self.category,
+                                MemberId:self.memberId,
+                                Source:self.source
+                            }
+                        });
+                    }else if(self.category=='bv'){
+                        this.$router.push({
+                            path:'/focusDetail3',
+                            query:{
+                                Category:self.category,
+                                MemberId:self.memberId,
+                                Source:self.source
+                            }
+                        });
+                    }
             },
 
         },

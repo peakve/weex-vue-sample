@@ -36,7 +36,7 @@
            <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
-                    <text class="text">{{loadingText}}</text>
+                    <text class="text_laoding">{{loadingText}}</text>
                 </div>
            </loading>
         </list>
@@ -57,6 +57,12 @@
     padding-top: 10;
     padding-bottom: 10;
     align-items: center;
+}
+.text_refresh{
+    font-size: 12wx;
+}
+.text_laoding{
+    font-size: 12wx;
 }
 .indicator{
     width: 35px;
@@ -138,13 +144,13 @@
     margin-right: 10px;
 }
 .clock_image{
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
     margin-right: 5px;
 }
 .text_time_ago{
     color: #787878;
-    font-size: 12wx;
+    font-size: 10wx;
 }
 .content_image{
     width: 120px;

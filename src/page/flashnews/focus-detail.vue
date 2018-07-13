@@ -1,10 +1,10 @@
 <template>
-        <list :class="['wrapper', isIpx()?'w-ipx':'']" v-if="(category=='default' || category=='default_en' || category=='research_report')">
+        <list :class="['wrapper', isIpx()?'w-ipx':'']">
+             <!--v-if="(category=='default' || category=='default_en' || category=='research_report')"-->
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
-
            <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
                 <div class="information_content">
                     <image class="content_image" :src="item.banner" resize="cover"></image>
@@ -31,102 +31,6 @@
                 </div>
            </loading>
         </list>
-
-        <list :class="['wrapper', isIpx()?'w-ipx':'']" v-else-if="(category=='ex_notice' || category=='newcoin')">
-           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
-                <loading-indicator class="indicator"></loading-indicator>
-                <text class="text_refresh">{{refreshText}}</text>
-           </refresh>
-           <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
-                <div class="information_content">
-                    <div class="title_sourece_time_match">
-                        <text class="text_title_match" @click="goAlertContent(item.id,item.category)">{{item.title}}</text>
-                        <text class="text_abstract_match" @click="goAlertContent(item.id,item.category)">{{item.abs}}</text>
-                        <div class="source_time_match">
-                            <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
-                                <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
-                            </div>
-                            <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/click.png"></image>
-                                <text class="text_time_ago">{{item.hits}}次点击</text>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-           </cell>
-           <loading @loading="loadingData" :display="loadingDisplay">
-                <div class="loadingOut">
-                    <loading-indicator class="load_indicator"></loading-indicator>
-                    <text class="text">{{loadingText}}</text>
-                </div>
-           </loading>
-        </list>
-
-        <list :class="['wrapper', isIpx()?'w-ipx':'']" v-else-if="(category=='ex_twitter')">
-           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
-                <loading-indicator class="indicator"></loading-indicator>
-                <text class="text_refresh">{{refreshText}}</text>
-           </refresh>
-           <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
-                <div class="information_content">
-                    <div class="title_sourece_time_match">
-                        <text class="text_abstract_match">{{item.content}}</text>
-                        <text class="translate_text" @click="getTranslation(item.id,index)">翻译</text>
-                        <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
-                        <div class="source_time_match">
-                            <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
-                                <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
-                            </div>
-                            <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/click.png"></image>
-                                <text class="text_time_ago">{{item.hits}}次点击</text>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-           </cell>
-           <loading @loading="loadingData" :display="loadingDisplay">
-                <div class="loadingOut">
-                    <loading-indicator class="load_indicator"></loading-indicator>
-                    <text class="text">{{loadingText}}</text>
-                </div>
-           </loading>
-        </list>
-
-        <list :class="['wrapper', isIpx()?'w-ipx':'']" v-else-if="(category=='bv')">
-           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
-                <loading-indicator class="indicator"></loading-indicator>
-                <text class="text_refresh">{{refreshText}}</text>
-           </refresh>
-           <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
-                <div class="information_content">
-                    <div class="title_sourece_time_match">
-                        <text class="text_abstract_match">{{item.content}}</text>
-                        <text class="translate_text" @click="getTranslation(item.id,index)" v-if="item.source != 'weibo'">翻译</text>
-                        <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
-                        <div class="source_time_match">
-                            <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
-                                <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
-                            </div>
-                            <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/click.png"></image>
-                                <text class="text_time_ago">{{item.hits}}次点击</text>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-           </cell>
-           <loading @loading="loadingData" :display="loadingDisplay">
-                <div class="loadingOut">
-                    <loading-indicator class="load_indicator"></loading-indicator>
-                    <text class="text">{{loadingText}}</text>
-                </div>
-           </loading>
-        </list>
-
 </template>
 
 <style>
@@ -134,10 +38,10 @@
     position: fixed;
     top:501px;
     left: 0;right: 0;
-    bottom:0;
+    bottom: 0;
 }
 .w-ipx{
-    top: 154px;
+    top: 541px;
 }
 .refreshOut{
     width: 750;
@@ -153,20 +57,19 @@
 }
 .information_content{
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     border-bottom-width: 1px; 
     border-bottom-color: #ededed;
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-right: 20px;
     padding-left: 20px;
 }
 .title_sourece_time{
     flex-direction: column;
-    width: 480px;
-    margin-top: 5px;  
-    margin-right: 10px; 
+    margin-right: 20px;
+    margin-top: 5px; 
+    margin-left: 20px;
 }
 .title_sourece_time_match{
     flex-direction: column;
@@ -175,7 +78,6 @@
     margin-right: 10px; 
 }
 .text_title{
-    width: 480px;
     font-size: 25px;
     font-weight: 700;
 }
@@ -204,7 +106,6 @@
 }
 .text_abstract{
     margin-top: 10px;
-    width: 480px;
     font-size: 23px;
 }
 .text_abstract_match{
@@ -213,7 +114,6 @@
     font-size: 23px;
 }
 .source_time{
-    width: 480px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -238,11 +138,11 @@
 }
 .text_time_ago{
     color: #787878;
+    font-size: 12wx;
 }
 .content_image{
     width: 250px;
-    height: 120px;
-    padding-right: 30px; 
+    height: 140px;
 }
 .loadingOut {
     flex-direction: row;
