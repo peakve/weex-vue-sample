@@ -2,7 +2,7 @@
   <div class="wrapper">
       <alertfocus-header :memberId="memberId"></alertfocus-header>
       <alertfocus-tab :category="category" :memberId="memberId" :source="source"></alertfocus-tab>
-      <!-- <router-view></router-view> -->
+      <router-view></router-view>
   </div>
 </template>
 
@@ -33,23 +33,21 @@ export default {
 
     created(){
         var self = this;
-        // self.category = this.$route.params.Category;
-        // self.memberId = this.$route.params.MemberId;
-        // self.source = this.$route.params.Source;
-        let params = this.getParams()
-        self.category = params.Category;
-        self.memberId = params.MemberId;
+        self.category = this.$route.params.Category;
+        self.memberId = this.$route.params.MemberId;
+        self.source = this.$route.params.Source;
+        //modal.toast({ message: (self.memberId), duration: 1 })
+        //let params = this.getParams()
+        //self.category = params.Category;
+        //self.memberId = params.MemberId;
         // self.source = params.Source;
-        
-
-        
     },
-      mounted() {
+    mounted() {
         // const modal = weex.requireModule('modal');
         //  modal.toast({ message: JSON.stringify(this.getParams()), duration: 10 })
         //     // modal.toast({ message: "11111112222", duration: 10 })
         // 
-        },
+    },
      
     methods:{
 

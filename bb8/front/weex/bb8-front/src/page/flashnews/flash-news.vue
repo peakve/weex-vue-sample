@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import header from '../home/header.vue';
+    import header from './news-header.vue';
     import topTab from './topTab.vue';
 // import topTab from '../home/topChannel.vue';
     export default {

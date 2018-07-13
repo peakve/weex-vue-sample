@@ -1,6 +1,5 @@
 <template>
-    <div class="wrapper">
-        <list class="information_list">
+        <list :class="['wrapper', isIpx()?'w-ipx':'']">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
@@ -32,12 +31,14 @@
                 </div>
            </loading>
         </list>
-    </div>
 </template>
 
 <style scoped>
 .wrapper{
-    margin-top:54px;
+    top:168px
+}
+.w-ipx{
+    top: 208px;
 }
 .refreshOut{
     width: 750;

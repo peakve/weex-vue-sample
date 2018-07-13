@@ -1,5 +1,5 @@
 <template>
- <div class="detail_type" v-if="(category=='default' || category=='default_en' || category=='research_report')">
+    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']" v-if="(category=='default' || category=='default_en' || category=='research_report')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -33,7 +33,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-else-if="(category=='ex_notice' || category=='newcoin')">
+    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']" v-else-if="(category=='ex_notice' || category=='newcoin')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -66,7 +66,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-else-if="(category=='ex_twitter')">
+    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']" v-else-if="(category=='ex_twitter')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -100,7 +100,7 @@
         </list>
     </div>
 
-    <div class="detail_type" v-else-if="(category=='bv')">
+    <div :class="['wrapper', isIpx&&isIpx()?'w-ipx':'']" v-else-if="(category=='bv')">
         <list class="information_list">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -290,11 +290,12 @@ export default{
     },
 
     created(){
+        modal.toast({message:"传值",duration:1});
         var self = this;
-        self.category = this.$route.params.Category;
-        self.memberId = this.$route.params.MemberId;
-        self.source = this.$route.params.Source;
-        //modal.toast({message:"传值"+self.memberId,duration:1});
+        self.category = this.$route.query.Category;
+        self.memberId = this.$route.query.MemberId;
+        self.source = this.$route.query.Source;
+        //modal.toast({message:"传值",duration:1});
         apis.requireAlertFocusList({
 	        "memberId" : self.memberId,
             "page" : self.page,

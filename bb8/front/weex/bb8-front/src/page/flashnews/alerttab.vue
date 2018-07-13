@@ -98,16 +98,16 @@
 
         created() {
             var self = this;
+
             this.$router.push({
                 path:'/focusDetail',
-                name:'focusDetail',
-                params:{
+                query:{
                     Category:self.category,
                     MemberId:self.memberId,
                     Source:self.source
                 }
             });
-            //modal.toast({message:self.source,duration:1});
+            //modal.toast({message:"tab"+(self.category+self.memberId),duration:1});
             if(self.category=='default'){
                 self.title = "资讯";
             }else if(self.category=='default_en'){
@@ -149,11 +149,9 @@
                 //modal.toast({ message: idx+'--',  duration: 1 });
                 if(idx==0){
                     //modal.toast({ message: '点击了标签页',  duration: 1 });
-                    var self = this;
                     this.$router.push({
                         path:'/focusDetail',
-                        name:'focusDetail',
-                        params:{
+                        query:{
                             Category:self.category,
                             MemberId:self.memberId,
                             Source:self.source
@@ -162,8 +160,7 @@
                 }else if(idx==1){
                     this.$router.push({
                         path:'/synopsis',
-                        name: 'synopsis',
-                        params:{
+                        query:{
                             MemberId:self.memberId
                         }
                     });
