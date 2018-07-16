@@ -29,8 +29,7 @@
 
 <style>
 .w-ipx{
-    height: 154px;
-    padding-top: 84px;
+    top:40;
 }
 .alertfocus_whole{
     width: 750px;

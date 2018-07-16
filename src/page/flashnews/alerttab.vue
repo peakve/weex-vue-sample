@@ -28,7 +28,7 @@
     border-bottom-color: #d9d9d9;
 }
 .w-ipx{
-    top: 154px;
+    top: 487px;
 }
 .tab-i{
     flex-flow: column;
