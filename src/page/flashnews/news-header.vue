@@ -21,9 +21,9 @@
     padding-top: 84px;
 }
 .container{
-    align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    padding-top:50px;
     background-color: #ffe45f;
     width: 750px;
     height: 114px;

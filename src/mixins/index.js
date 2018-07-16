@@ -63,7 +63,6 @@ export default {
             });
         },
         getParamsByJson(json) {
-
             var str = ""
             for (var val in json) {
                 str += "&" + val + "=" + json[val]

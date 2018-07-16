@@ -61,7 +61,7 @@
     justify-content: space-between;
     flex-direction: row;
     border-bottom-width: 1px; 
-    border-bottom-color: #ededed;
+    border-bottom-color: #e8eaef;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-right: 20px;
@@ -212,17 +212,6 @@ export default{
     },
 
     methods:{
-        goAlertContent:function(articalId,category){
-            this.$router.push({
-                path:'/alertcontent',
-                name:'alertcontent',
-                query : {
-                    ArticalId : articalId,
-                    Category : category
-                }
-            });
-        },
-
         refreshData:function(event){
             //modal.toast({message:"下拉刷新",duration:1});
             var self = this;

@@ -1,7 +1,7 @@
 <template>
     <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <div class="container">
-            <image class="back_img" src="/assets/images/Return.png" @click="imageClick"></image>
+            <image class="back_img" :src="get_img_path('Return.png')" @click="backImageClick"></image><!--/assets/images/Return.png--><!--get_img_path('Return.png')-->
             <text class="flash_text">{{title}}</text>
             <div></div>
         </div>
@@ -28,9 +28,9 @@
     padding-top: 84px;
 }
 .container{
-    align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    padding-top:50px;
     background-color: #ffe45f;
     width: 750px;
     height: 114px;
@@ -48,6 +48,7 @@
 <script>
 var apis = require('../../common/action.js');
 var modal = weex.requireModule('modal');
+var navigator = weex.requireModule('navigator');
 var deviceHeight = weex.config.env.deviceHeight;
 
 export default{
@@ -63,8 +64,11 @@ export default{
 
     created(){
         var self = this;
-        self.articalId = this.$route.query.ArticalId;
-        self.category = this.$route.query.Category;
+        let params = this.getParams();
+        self.category = params.Category;
+        self.articalId = params.ArticalId;
+        // self.articalId = this.$route.query.ArticalId;
+        // self.category = this.$route.query.Category;
         //modal.toast({message:deviceHeight,duration:1});
         //modal.toast({message:"文章id"+self.articalId,duration:2});
         if(self.category=='default'){
@@ -85,9 +89,11 @@ export default{
     },
 
     methods:{
-        imageClick:function (params) {
+        backImageClick:function (params) {
             //modal.toast({message:"返回",duration:1});
-            this.$router.go(-1);
+            navigator.pop({
+                animated: "true"
+            }); 
         }
     }
 }

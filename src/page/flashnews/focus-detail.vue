@@ -60,7 +60,7 @@
     justify-content: flex-start;
     flex-direction: row;
     border-bottom-width: 1px; 
-    border-bottom-color: #ededed;
+    border-bottom-color: #e8eaef;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 20px;
@@ -208,14 +208,21 @@ export default{
 
     methods:{
         goAlertContent:function(articalId,category){
-            this.$router.push({
-                path:'/alertcontent',
-                name:'alertcontent',
-                query : {
-                    ArticalId : articalId,
-                    Category : category
-                }
+            // this.$router.push({
+            //     path:'/alertcontent',
+            //     name:'alertcontent',
+            //     query : {
+            //         ArticalId : articalId,
+            //         Category : category
+            //     }
+            // });
+            let params = this.getParamsByJson({
+                ArticalId : articalId,
+                Category : category
             });
+
+            this.jumpUrl("/alertcontent" ,params);
+            
         },
 
         refreshData:function(event){
