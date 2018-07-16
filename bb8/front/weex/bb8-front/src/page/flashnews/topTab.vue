@@ -37,7 +37,7 @@
 <style scoped>
 .wrapper{
     position: fixed;
-    top: 108px;  
+    top: 114px; 
     left: 0;right: 0;
     height: 54px;
     z-index: 10;

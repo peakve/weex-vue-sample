@@ -18,6 +18,9 @@
     left: 0;right: 0;
     z-index: 101;
 }
+.w-ipx{
+    top:40;
+}
 .back_img{
     width:30px;
     height: 30px;

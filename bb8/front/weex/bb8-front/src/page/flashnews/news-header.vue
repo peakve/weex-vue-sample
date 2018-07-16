@@ -17,8 +17,7 @@
     z-index: 101;
 }
 .w-ipx{
-    height: 154px;
-    padding-top: 84px;
+    top:40;
 }
 .container{
     justify-content: space-between;
