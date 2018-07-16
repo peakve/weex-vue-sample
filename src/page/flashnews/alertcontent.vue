@@ -6,7 +6,7 @@
             <div></div>
         </div>
         <div class='content'>
-            <web ref="webview" style="width: 750px; height: 1134px" :src='url+articalId'></web><!--1248px-->
+            <web :style="webview_style" ref="webview" :src='url+articalId'></web><!--1248px-->
         </div>
     </div>
 </template>
@@ -42,13 +42,13 @@
 .content{
     background-color: white;
 }
-
 </style>
 
 <script>
 var apis = require('../../common/action.js');
 var modal = weex.requireModule('modal');
 var navigator = weex.requireModule('navigator');
+var deviceWidth = weex.config.env.deviceWidth;
 var deviceHeight = weex.config.env.deviceHeight;
 
 export default{
@@ -59,6 +59,8 @@ export default{
             title:'',
             data:{},
             url:'http://192.168.3.118:8182/web/page/news/view?id=',
+            getHeight: 1248,
+            webview_style:{width:'750px',height:'1248px'}
         }
     },
 
@@ -69,8 +71,11 @@ export default{
         self.articalId = params.ArticalId;
         // self.articalId = this.$route.query.ArticalId;
         // self.category = this.$route.query.Category;
-        //modal.toast({message:deviceHeight,duration:1});
+        //modal.toast({message:"屏幕宽度"+deviceWidth+"屏幕高度"+deviceHeight,duration:1});
         //modal.toast({message:"文章id"+self.articalId,duration:2});
+        self.getHeight = parseInt((750*deviceHeight)/deviceWidth - 114);
+        self.webview_style = {width:'750px',height:self.getHeight+'px'};
+        modal.toast({message:self.webview_style,duration:2});
         if(self.category=='default'){
                 self.title = "资讯";
             }else if(self.category=='default_en'){
