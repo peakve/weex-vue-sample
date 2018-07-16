@@ -1,22 +1,5 @@
 <template>
   <div :class="['wrapper', isIpx()?'w-ipx':'']">
-      <!--<div class="alertfocus_whole">
-          <div class="back_forward" @click="backImageClick">
-              <image class="back_img" src="/assets/images/Return_W.png"></image> (/assets/images/Return_W.png  get_img_path('Return_W.png'))
-              <div></div>
-          </div>
-          <div class="picture_title">
-              <image class="typical_image" :src="gethref(data.logo?data.logo:data.profileImageUrl)" resize="cover"></image>
-              <text class="typical_name">{{data.screeName ? data.screeName : data.name}}</text>
-          </div>
-          <div class="collect_content">
-              <div class="blank"></div>
-              <text class="article_hits">{{data.newsCount}} 文章     |    {{data.readCount}} 点击</text>
-              <div class="logo_image_div">
-                <image class="logo_image"  resize="cover"></image>
-              </div>
-          </div>
-      </div>-->
       <div class="alertfocus_whole">
         <image class="alertfocus_whole" :src="get_img_path('integration_bg.png')"></image><!--/assets/images/integration_bg.png--><!--get_img_path('integration_bg.png')-->
         <image class="back_img" :src="get_img_path('Return_W.png')" @click="backImageClick"></image><!--/assets/images/Return_W.png--><!--get_img_path('Return_W.png')-->
@@ -34,13 +17,6 @@
 .alertfocus_whole{
     width: 750px;
     height: 447px;
-}
-.back_forward{
-    flex-direction: row;
-    align-items: center;
-    padding-top:30px;
-    width: 750px;
-    height: 60px;
 }
 .back_img{
     position: absolute;
@@ -64,11 +40,6 @@
     width: 750px;
     text-align: center;
 }
-.collect_content{
-    flex-direction: row;
-    widows: 750px;
-    height: 60px;
-}
 .article_hits{
     position: absolute;
     font-size: 25px;
@@ -76,16 +47,6 @@
     top: 380px;
     width: 750px;
     text-align: center;
-}
-.logo_image_div{
-    align-items: center;
-    justify-content: flex-end;
-    widows: 187px;
-    height: 100px;
-}
-.logo_image{
-    widows: 95px;
-    height: 95px;
 }
 </style>
 
