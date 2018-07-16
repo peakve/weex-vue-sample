@@ -1,9 +1,9 @@
 <template>
     <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <div class="container">
-            <image class="back_img" :src="get_img_path('Return.png')" @click="backImageClick"></image><!--/assets/images/Return.png--><!--get_img_path('Return.png')-->
+            <image class="back_img" src="/assets/images/Return.png" @click="backImageClick"></image><!--/assets/images/Return.png--><!--get_img_path('Return.png')-->
             <text class="flash_text">{{title}}</text>
-            <div></div>
+            <image class="share_img" src="/assets/images/share.png" @click="shareImageClick"></image><!--/assets/images/share.png--><!--get_img_path('share.png')-->
         </div>
         <div class='content'>
             <web :style="webview_style" ref="webview" :src='url+articalId'></web><!--1248px-->
@@ -25,6 +25,11 @@
     width:30px;
     height: 30px;
     margin-left:20px;
+}
+.share_img{
+    width:30px;
+    height: 30px;
+    margin-right: 20px;
 }
 .w-ipx{
     height: 154px;
@@ -53,6 +58,7 @@ var modal = weex.requireModule('modal');
 var navigator = weex.requireModule('navigator');
 var deviceWidth = weex.config.env.deviceWidth;
 var deviceHeight = weex.config.env.deviceHeight;
+var event = weex.requireModule('event');
 
 export default{
     data () {
@@ -102,7 +108,13 @@ export default{
             navigator.pop({
                 animated: "true"
             }); 
-        }
+        },
+
+        shareImageClick:function(){
+            var self = this;
+            event.shareNativeActivity(self.url+self.articalId);
+        },
+
     }
 }
 </script>
