@@ -75,7 +75,7 @@ export default{
         //modal.toast({message:"文章id"+self.articalId,duration:2});
         self.getHeight = parseInt((750*deviceHeight)/deviceWidth - 114);
         self.webview_style = {width:'750px',height:self.getHeight+'px'};
-        modal.toast({message:self.webview_style,duration:2});
+        //modal.toast({message:self.webview_style,duration:2});
         if(self.category=='default'){
                 self.title = "资讯";
             }else if(self.category=='default_en'){
