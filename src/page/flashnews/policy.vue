@@ -13,7 +13,7 @@
                             <div class="time_hit">
                                 <div class="time_ago">
                                     <image class="" :src="get_img_path('Time.png')" resize="cover"></image>
-                                    <text class="text_time_ago"></text>
+                                    <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
                                 </div>
                                 <div class="time_ago">
                                     <image class="clock_image" :src="get_img_path('click.png')"></image>
@@ -283,9 +283,8 @@ export default {
             return this.formatDatePattern(date, "yyyy-MM-dd hh:mm");
         },
 
-        timeAgo(time) {
+        timeAgo:function(time) {
             const between = (Date.now() - Number(time)) / 1000;
-            //modal.toast({message:"timeAgo",duration:1});
             if (between < 2 * 60) {
                 return '刚刚';
             } else if (between < 3600) {
@@ -293,19 +292,17 @@ export default {
             } else if (between < 86400) {
                 return this.pluralize(~~(between / 3600), ' 小时');
             } else if (between < 30 * 86400) {
-                modal.toast({message:this.pluralize(~~(between / 86400), ' 天'),duration:1});
                 return this.pluralize(~~(between / 86400), ' 天');
-            } else {
-                return this.formatDate(time);
+            } else{
+                return this.pluralize(~~(between / 86400), ' 天');
             }
         },
 
         pluralize:function (time, label) {
-            //modal.toast({message:"pluralize"+time+label+'前',duration:1});
             if (time === 1) {
-                return time + label
+                return time + label;
             }
-            return time + label + '前'
+            return time + label + '前';
         },
 
     }
