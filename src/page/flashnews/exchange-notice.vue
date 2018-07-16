@@ -37,12 +37,12 @@
 <style scoped>
 .wrapper{
     position: fixed;  
-    top:168px;
+    top:188px;
     left: 0;right: 0;
     bottom: 0;
 }
 .w-ipx{
-    top: 208px;
+    top: 228px;
 }
 .refreshOut{
     width: 750;
@@ -189,7 +189,7 @@ export default {
             });
 
             this.jumpUrl("/alertcontent" ,params);
-            
+
         },
 
         refreshData:function(event){
@@ -298,7 +298,7 @@ export default {
             } else if (between < 30 * 86400) {
                 return this.pluralize(~~(between / 86400), ' 天');
             } else {
-                return this.formatDate(time);
+                return this.pluralize(~~(between / 86400), ' 天');
             }
         },
 
