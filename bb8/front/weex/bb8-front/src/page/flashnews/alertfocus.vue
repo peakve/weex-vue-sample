@@ -33,14 +33,14 @@ export default {
 
     created(){
         var self = this;
-        self.category = this.$route.query.Category;
-        self.memberId = this.$route.query.MemberId;
-        self.source = this.$route.query.Source;
+        // self.category = this.$route.query.Category;
+        // self.memberId = this.$route.query.MemberId;
+        // self.source = this.$route.query.Source;
         //modal.toast({ message: (self.memberId), duration: 1 })
-        //let params = this.getParams()
-        //self.category = params.Category;
-        //self.memberId = params.MemberId;
-        // self.source = params.Source;
+        let params = this.getParams();
+        self.category = params.Category;
+        self.memberId = params.MemberId;
+        //self.source = params.Source;
     },
     mounted() {
         // const modal = weex.requireModule('modal');

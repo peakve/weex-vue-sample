@@ -72,7 +72,7 @@
     justify-content: space-between;
     flex-direction: row;
     border-bottom-width: 1px; 
-    border-bottom-color: #ededed;
+    border-bottom-color: #e8eaef;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-right: 20px;
@@ -206,15 +206,13 @@ export default {
 
     methods: {
         goAlertFocus:function(category,memberId,source){
-            this.$router.push({
-                path : '/alertfocus',
-                name : 'alertfocus',
-                query : {
-                    Category : category,
-                    MemberId : memberId,
-                    Source : source
-                }
+            let params = this.getParamsByJson({
+                Category : category,
+                MemberId : memberId,
+              //Source : source
             });
+                
+            this.jumpUrl("/alertfocus",params);
         },
 
         refreshData:function(event){
