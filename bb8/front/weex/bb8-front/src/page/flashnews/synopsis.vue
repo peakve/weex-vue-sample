@@ -7,11 +7,11 @@
 <style>
 .wrapper{
     position: fixed;
-    top:501px;
+    top:521px;
     left: 0;right: 0;
 }
 .w-ipx{
-    top: 154px;
+    top: 561px;
 }
 .synopsis_text{
     padding-top: 20px;

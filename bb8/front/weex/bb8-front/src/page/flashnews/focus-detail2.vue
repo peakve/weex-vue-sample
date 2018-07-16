@@ -36,12 +36,12 @@
 <style>
 .wrapper{
     position: fixed;
-    top:501px;
+    top:521px;
     left: 0;right: 0;
     bottom: 0;
 }
 .w-ipx{
-    top: 541px;
+    top: 561px;
 }
 .refreshOut{
     width: 750;

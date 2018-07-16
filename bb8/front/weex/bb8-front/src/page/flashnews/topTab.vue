@@ -39,7 +39,7 @@
     position: fixed;
     top: 114px; 
     left: 0;right: 0;
-    height: 54px;
+    height: 74px;
     z-index: 10;
     background-color: #fafafa;
     border-bottom-width: 1px;
@@ -48,19 +48,19 @@
 .w-ipx{
     top: 154px;    
 }
-.tab-i{
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-}
 .scroller{
-    height: 60px;
+    height: 74px;
     padding-right: 50px;
     flex-direction: row;
 }
+.tab-i{
+    flex-flow: column;
+    align-items: center;
+    width: 165px;
+}
 .i-c{
-    padding-top:10px;
-    padding-bottom:6px;
+    padding-top:20px;
+    padding-bottom:21px;
     padding-left: 20px;
     padding-right: 20px;
     font-size: 25px;
@@ -70,8 +70,8 @@
     color:black;
 }
 .j-uline{
-
-    width: 100%;
+    align-items: center;
+    width: 125px;
     height: 2px;
     background-color: black;
 }

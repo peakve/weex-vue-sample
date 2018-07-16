@@ -18,7 +18,7 @@
     position: fixed;
     top: 447px;
     left: 0;right: 0;
-    height: 54px;
+    height: 74px;
     z-index: 10;
     background-color: #fafafa;
     border-bottom-width: 1px;
@@ -28,19 +28,19 @@
     top: 487px;
 }
 .tab-i{
+    width: 140px;
     flex-flow: column;
     align-items: center;
-    justify-content: center;
 }
 .scroller{
-    height: 60px;
+    height: 74px;
     flex-direction: row;
 }
 .i-c{
-    padding-top:10px;
+    padding-top:20px;
+    padding-bottom:21px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom:6px;
     font-size: 25px;
     color:#999;
 }
@@ -48,7 +48,8 @@
     color:black;
 }
 .j-uline{
-    width: 100%;
+    align-items: center;
+    width: 100px;
     height: 2px;
     background-color: black;
 }
