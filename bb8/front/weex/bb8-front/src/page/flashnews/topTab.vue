@@ -1,9 +1,9 @@
 <template>
     <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar="false">
-            <div class="tab-i">
+            <div class="tab-ia">
                 <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>资讯</text>
-                <div class="j-uline" v-if="navIndex==0"></div>
+                <div class="j-ulinea" v-if="navIndex==0"></div>
             </div>
             <div class="tab-i">
                 <text  @click="chooseChannel(1)" :class="['i-c',navIndex==1?'c-act':'']" ref=t1>全球媒体</text>
@@ -58,6 +58,11 @@
     align-items: center;
     width: 165px;
 }
+.tab-ia{
+    flex-flow: column;
+    align-items: center;
+    width: 90px;
+}
 .i-c{
     padding-top:20px;
     padding-bottom:21px;
@@ -72,6 +77,12 @@
 .j-uline{
     align-items: center;
     width: 125px;
+    height: 2px;
+    background-color: black;
+}
+.j-ulinea{
+    align-items: center;
+    width: 50px;
     height: 2px;
     background-color: black;
 }
