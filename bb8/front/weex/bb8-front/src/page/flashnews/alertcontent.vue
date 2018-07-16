@@ -1,9 +1,9 @@
 <template>
     <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <div class="container">
-            <image class="back_img" src="/assets/images/Return.png" @click="backImageClick"></image><!--/assets/images/Return.png--><!--get_img_path('Return.png')-->
+            <image class="back_img" :src="get_img_path('Return.png')" @click="backImageClick"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
             <text class="flash_text">{{title}}</text>
-            <image class="share_img" src="/assets/images/share.png" @click="shareImageClick"></image><!--/assets/images/share.png--><!--get_img_path('share.png')-->
+            <image class="share_img" :src="get_img_path('share.png')" @click="shareImageClick"></image><!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
         </div>
         <div class='content'>
             <web :style="webview_style" ref="webview" :src='url+articalId'></web><!--1248px-->
