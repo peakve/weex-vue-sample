@@ -1,8 +1,8 @@
 <template>
   <div :class="['wrapper', isIpx()?'w-ipx':'']">
       <div class="alertfocus_whole">
-        <image class="alertfocus_whole" :src="get_img_path('integration_bg.png')"></image><!--/assets/images/integration_bg.png--><!--get_img_path('integration_bg.png')-->
-        <image class="back_img" :src="get_img_path('Return_W.png')" @click="backImageClick"></image><!--/assets/images/Return_W.png--><!--get_img_path('Return_W.png')-->
+        <image class="alertfocus_whole" :src="get_img_path('integration_bg.png')"></image><!--src="/assets/images/integration_bg.png"--><!--:src="get_img_path('integration_bg.png')"-->
+        <image class="back_img" :src="get_img_path('Return_W.png')" @click="backImageClick"></image><!--src="/assets/images/Return_W.png"--><!--:src="get_img_path('Return_W.png')"-->
         <image class="typical_image" :src="gethref(data.logo?data.logo:data.profileImageUrl)" resize="cover"></image>
         <text class="typical_name">{{data.screeName ? data.screeName : data.name}}</text>
         <text class="article_hits">{{data.newsCount}} 文章     |    {{data.readCount}} 点击</text>

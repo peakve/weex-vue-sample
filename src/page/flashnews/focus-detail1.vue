@@ -11,11 +11,11 @@
                         <text class="text_abstract_match" @click="goAlertContent(item.id,item.category)">{{item.abs}}</text>
                         <div class="source_time_match">
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/Time.png" resize="cover"></image>
+                                <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>
                                 <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
                             </div>
                             <div class="time_ago">
-                                <image class="clock_image" src="/assets/images/click.png"></image>
+                                <image class="clock_image" :src="get_img_path('click.png')"></image>
                                 <text class="text_time_ago">{{item.hits}}次点击</text>
                             </div>
                         </div>
@@ -78,16 +78,16 @@
 }
 .text_title{
     width: 480px;
-    font-size: 25px;
+    font-size: 14wx;
     font-weight: 700;
 }
 .text_title_match{
     width: 700px;
-    font-size: 25px;
+    font-size: 14wx;
     font-weight: 700;
 }
 .translate_text{
-    font-size: 25px;
+    font-size: 14wx;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
@@ -100,19 +100,19 @@
 }
 .translate_result{
     width: 700px;
-    font-size: 25px;
+    font-size: 14wx;
     margin-top: 10px;
     background-color: #ededed;
 }
 .text_abstract{
     margin-top: 10px;
     width: 480px;
-    font-size: 23px;
+    font-size: 12wx;
 }
 .text_abstract_match{
     margin-top: 10px;
     width: 700px;
-    font-size: 23px;
+    font-size: 12wx;
 }
 .source_time{
     width: 480px;

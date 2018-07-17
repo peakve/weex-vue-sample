@@ -16,11 +16,11 @@
                             <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源:{{item.source}}</text>
                             <div class="time_hit">
                                 <div class="time_ago">
-                                    <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>
+                                    <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image><!--src="/assets/images/Time.png"--><!--:src="get_img_path('Time.png')"-->
                                     <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
                                 </div>
                                 <div class="time_ago">
-                                    <image class="clock_image" :src="get_img_path('click.png')"></image>
+                                    <image class="clock_image" :src="get_img_path('click.png')"></image><!--src="/assets/images/click.png"--><!--:src="get_img_path('click.png')"-->
                                     <text class="text_time_ago">{{item.hits}}次点击</text>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
     margin-left: 10px; 
 }
 .text_title{
-    font-size: 12wx;
+    font-size: 14wx;
     font-weight: 700;
 }
 .source_time{
@@ -97,7 +97,7 @@
     align-items: center;
     justify-content: flex-start;
     color: #36a0ff;
-    font-size: 12wx;
+    font-size: 14wx;
 }
 .time_hit{
     align-items: center;
@@ -116,7 +116,7 @@
 }
 .text_time_ago{
     color: #787878;
-    font-size: 10wx;
+    font-size: 12wx;
 }
 .content_image{
     width: 250px;
