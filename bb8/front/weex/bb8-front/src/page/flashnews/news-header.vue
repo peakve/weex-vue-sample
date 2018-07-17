@@ -22,7 +22,7 @@
 .container{
     justify-content: space-between;
     flex-direction: row;
-    padding-top:50px;
+    padding-top:55px;
     background-color: #ffe45f;
     width: 750px;
     height: 114px;
