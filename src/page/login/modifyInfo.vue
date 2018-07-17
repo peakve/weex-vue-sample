@@ -204,8 +204,4 @@
     position: absolute;  
     left: 30px;  
 }  
-.input_register{  
-    position: absolute;  
-    right: 10px;  
-}  
 </style>

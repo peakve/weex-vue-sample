@@ -34,7 +34,7 @@
                  ></image>
             </wxc-cell>
                
-            <div class="personal_info">
+            <div class="personal_info" v-if="isLogin">
                <wxc-cell 
                     title="个人信息"
                     :has-top-border="false">
@@ -131,7 +131,7 @@
             if(self.isLogin){
                  self.userInfo();
             }else{
-                 self.resData = {account:"---",phone:"---",lastLoginTime:"---",email:"---",registTime:"---",pwd:"---"};
+                //  self.resData = {account:"---",phone:"---",lastLoginTime:"---",email:"---",registTime:"---",pwd:"---"};
             }
         });
     },
