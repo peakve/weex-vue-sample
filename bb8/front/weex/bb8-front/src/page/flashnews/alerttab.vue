@@ -88,14 +88,14 @@
 
         data() {
             return {
-                jLPosition:"left:30px;width:82px;",
-                navIndex:0,
-                sortBy: '', // 筛选的条件
-                Activity:[],
-                Delivery:[],
-                delivery_mode: null, // 选中的配送方式
-                support_ids: [], // 选中的商铺活动列表
-                filterNum: 0, // 所选中的所有样式的集合
+                // jLPosition:"left:30px;width:82px;",
+                // navIndex:0,
+                // sortBy: '', // 筛选的条件
+                // Activity:[],
+                // Delivery:[],
+                // delivery_mode: null, // 选中的配送方式
+                // support_ids: [], // 选中的商铺活动列表
+                // filterNum: 0, // 所选中的所有样式的集合
                 title:"资讯",
             }
         },
@@ -165,62 +165,62 @@
             selectFocusDetail:function(){
                 var self = this;
                 if((self.category=='default' || self.category=='default_en' || self.category=='research_report')){
-                        this.$router.push({
-                            path:'/focusDetail',
-                            query:{
-                                Category:self.category,
-                                MemberId:self.memberId
-                            }
-                        });
+                    this.$router.push({
+                        path:'/focusDetail',
+                        query:{
+                            Category:self.category,
+                            MemberId:self.memberId
+                        }
+                    });
                         // let params = this.getParamsByJson({
                         //     Category:self.category,
                         //     MemberId:self.memberId,
                         //     //Source : source
                         // });
                         // this.jumpUrl("/focusDetail",params);
-                    }else if((self.category=='ex_notice' || self.category=='newcoin')){
-                        this.$router.push({
-                            path:'/focusDetail1',
-                            query:{
-                                Category:self.category,
-                                MemberId:self.memberId
-                            }
-                        });
+                }else if((self.category=='ex_notice' || self.category=='newcoin')){
+                    this.$router.push({
+                        path:'/focusDetail1',
+                        query:{
+                            Category:self.category,
+                            MemberId:self.memberId
+                        }
+                    });
                         // let params = this.getParamsByJson({
                         //     Category:self.category,
                         //     MemberId:self.memberId,
                         //     //Source : source
                         // });
                         // this.jumpUrl("/focusDetail1",params);
-                    }else if(self.category=='ex_twitter'){
-                        this.$router.push({
-                            path:'/focusDetail2',
-                            query:{
-                                Category:self.category,
-                                MemberId:self.memberId
-                            }
-                        });
+                }else if(self.category=='ex_twitter'){
+                    this.$router.push({
+                        path:'/focusDetail2',
+                        query:{
+                            Category:self.category,
+                            MemberId:self.memberId
+                        }
+                    });
                         // let params = this.getParamsByJson({
                         //     Category:self.category,
                         //     MemberId:self.memberId,
                         //     //Source : source
                         // });
                         // this.jumpUrl("/focusDetail2",params);
-                    }else if(self.category=='bv'){
-                        this.$router.push({
-                            path:'/focusDetail3',
-                            query:{
-                                Category:self.category,
-                                MemberId:self.memberId
-                            }
-                        });
+                }else if(self.category=='bv'){
+                    this.$router.push({
+                        path:'/focusDetail3',
+                        query:{
+                            Category:self.category,
+                            MemberId:self.memberId
+                        }
+                    });
                         // let params = this.getParamsByJson({
                         //     Category:self.category,
                         //     MemberId:self.memberId,
                         //     //Source : source
                         // });
                         // this.jumpUrl("/focusDetail3",params);
-                    }
+                }
             },
 
         },
