@@ -4,7 +4,7 @@
       <loginHeader  :data="data" v-show="isshow"></loginHeader> 
       <div class="login_out bg_white">
     
-        <image class="bb8_logo" resize="cover" :src="get_img_path('bb8_logo.png')"></image>
+        <image :class="[isIPhoneX?'bb8_logo':'default_bb8_logo']" resize="cover" :src="get_img_path('bb8_logo.png')"></image>
           <div class="input_wrapper">  
                 <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名/手机号/邮箱" value="" v-model="userNumber"/>  
                 <image class="input_img" :src="get_img_path('mobile.png')"></image>  
@@ -31,8 +31,8 @@
         <!--<wxc-button text="登录" class="btn_login" :text-style="textStyle"></wxc-button>-->
         <div :class="[isIPhoneX?'login_footer':'login_footer_default']">
             <div class="footer_out">
-                <text class="color2">登录及同意</text>
-                <text class="color1">《51BB8财经用户协议》</text>
+                <text class="color2 small_text">登录及同意</text>
+                <text class="color1 small_text">《51BB8财经用户协议》</text>
             </div>
          </div>
       </div>
@@ -166,7 +166,9 @@
 </script>
 
 <style scoped>
-
+.small_text{
+    font-size: 24px
+}
 .login_footer_default{
     width:750px;
     position:fixed;
@@ -174,7 +176,7 @@
     left: 0;right: 0;
     z-index: 10;
     text-align:center;
-    font-size: 28px;
+    font-size: 18px;
 }
 .login_footer{
     width:750px;
@@ -183,7 +185,7 @@
     left: 0;right: 0;
     z-index: 10;
     text-align:center;
-    font-size: 28px;
+    font-size: 18px;
 }
 .btn_login{
     background-color:#ffe45f;
@@ -200,6 +202,12 @@
     height: 102px;
     margin-top:120px;
     margin-bottom: 160px;
+}
+.default_bb8_logo{
+    width:450px;
+    height: 102px;
+    margin-top:100px;
+    margin-bottom: 130px;
 }
 .login_title{
     padding-top: 30px
@@ -252,7 +260,11 @@
     position: absolute;  
     right: 10px;  
     height:40px;
-    font-size: 28px;
+    font-size: 24px;
+}
+.input_register{
+
+    font-size: 30px;
 }
 .register_out{
    flex-direction:row;
