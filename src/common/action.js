@@ -215,8 +215,8 @@ function postData(url, data, callback) {
         headers: { 'Content-Type': 'application/json' },
     }, function(ret) {
         if (!ret.ok) {
-            //modal.toast({ message: '网络有问题，连不上', duration: 1 });
-            modal.toast({ message: ret.status + ret.statusText, duration: 1 });
+            modal.toast({ message: '网络有问题，连不上', duration: 1 });
+            //modal.toast({ message: ret.status + ret.statusText, duration: 1 });
             console.log("request failed");
         } else {
             callback(ret.data);

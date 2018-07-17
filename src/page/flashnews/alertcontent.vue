@@ -38,7 +38,7 @@
 .container{
     justify-content: space-between;
     flex-direction: row;
-    padding-top:50px;
+    padding-top:55px;
     background-color: #ffe45f;
     width: 750px;
     height: 114px;
@@ -86,20 +86,20 @@ export default{
         self.webview_style = {width:'750px',height:self.getHeight+'px'};
         //modal.toast({message:self.webview_style,duration:2});
         if(self.category=='default'){
-                self.title = "资讯";
-            }else if(self.category=='default_en'){
-                self.title = "全球媒体";
-            }else if(self.category=='ex_notice'){
-                self.title = "交易所公告";
-            }else if(self.category=='ex_twitter'){
-                self.title = "交易所推特";
-            }else if(self.category=='bv'){
-                self.title = "大V声音";
-            }else if(self.category=='newcoin'){
-                self.title = "新币时讯";
-            }else if(self.category=='research_report'){
-                self.title = "监管政策";
-            }
+            self.title = "快讯";
+        }else if(self.category=='default_en'){
+            self.title = "全球媒体";
+        }else if(self.category=='ex_notice'){
+            self.title = "交易所公告";
+        }else if(self.category=='ex_twitter'){
+            self.title = "交易所推特";
+        }else if(self.category=='bv'){
+            self.title = "大V声音";
+        }else if(self.category=='newcoin'){
+            self.title = "新币时讯";
+        }else if(self.category=='research_report'){
+            self.title = "监管政策";
+        }
     },
 
     methods:{

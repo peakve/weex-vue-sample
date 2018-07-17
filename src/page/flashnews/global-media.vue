@@ -145,7 +145,7 @@ export default {
     data () {
       return {
           page : 1,
-          size : 20,
+          size : 6,
           refreshDisplay:'hide',
           refreshText:' ↓ 下拉刷新 ',
           loadingDisplay:'hide',

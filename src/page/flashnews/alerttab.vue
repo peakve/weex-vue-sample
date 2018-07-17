@@ -5,9 +5,9 @@
                 <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>{{title}}</text>
                 <div class="j-uline" v-if="navIndex==0"></div>
             </div>
-            <div class="tab-i">
+            <div class="tab-ia">
                 <text  @click="chooseChannel(1)" :class="['i-c',navIndex==1?'c-act':'']" ref=t1>简介</text>
-                <div class="j-uline" v-if="navIndex==1"></div>
+                <div class="j-ulinea" v-if="navIndex==1"></div>
             </div>
         </scroller>
     </div>
@@ -28,9 +28,14 @@
     top: 487px;
 }
 .tab-i{
-    width: 140px;
+    width: 165px;
     flex-flow: column;
     align-items: center;
+}
+.tab-ia{
+    flex-flow: column;
+    align-items: center;
+    width: 90px;
 }
 .scroller{
     height: 74px;
@@ -49,7 +54,13 @@
 }
 .j-uline{
     align-items: center;
-    width: 100px;
+    width: 125px;
+    height: 2px;
+    background-color: black;
+}
+.j-ulinea{
+    align-items: center;
+    width: 50px;
     height: 2px;
     background-color: black;
 }
@@ -134,19 +145,7 @@
                 //modal.toast({ message: idx+'--',  duration: 1 });
 
                 if(idx==0){
-                    // this.$router.push({
-                    //         path:'/focusDetail',
-                    //         query:{
-                    //             Category:self.category,
-                    //             MemberId:self.memberId,
-                    //             Source:self.source
-                    //         }
-                    // });
-
-                    //modal.toast({ message: '点击了标签页',  duration: 1 });
                     this.selectFocusDetail();
-                    
-
                 }else if(idx==1){
                     this.$router.push({
                         path:'/synopsis',
@@ -166,42 +165,61 @@
             selectFocusDetail:function(){
                 var self = this;
                 if((self.category=='default' || self.category=='default_en' || self.category=='research_report')){
-                        // this.$router.push({
-                        //     path:'/focusDetail',
-                        //     query:{
-                        //         Category:self.category,
-                        //         MemberId:self.memberId,
-                        //         Source:self.source
-                        //     }
+                        this.$router.push({
+                            path:'/focusDetail',
+                            query:{
+                                Category:self.category,
+                                MemberId:self.memberId
+                            }
+                        });
+                        // let params = this.getParamsByJson({
+                        //     Category:self.category,
+                        //     MemberId:self.memberId,
+                        //     //Source : source
                         // });
-                        let params = this.getParamsByJson({
-                            Category:self.category,
-                            MemberId:self.memberId,
-                            //Source : source
-                        });
-                        this.jumpUrl("/focusDetail",params);
-
+                        // this.jumpUrl("/focusDetail",params);
                     }else if((self.category=='ex_notice' || self.category=='newcoin')){
-                        let params = this.getParamsByJson({
-                            Category:self.category,
-                            MemberId:self.memberId,
-                            //Source : source
+                        this.$router.push({
+                            path:'/focusDetail1',
+                            query:{
+                                Category:self.category,
+                                MemberId:self.memberId
+                            }
                         });
-                        this.jumpUrl("/focusDetail1",params);
+                        // let params = this.getParamsByJson({
+                        //     Category:self.category,
+                        //     MemberId:self.memberId,
+                        //     //Source : source
+                        // });
+                        // this.jumpUrl("/focusDetail1",params);
                     }else if(self.category=='ex_twitter'){
-                        let params = this.getParamsByJson({
-                            Category:self.category,
-                            MemberId:self.memberId,
-                            //Source : source
+                        this.$router.push({
+                            path:'/focusDetail2',
+                            query:{
+                                Category:self.category,
+                                MemberId:self.memberId
+                            }
                         });
-                        this.jumpUrl("/focusDetail2",params);
+                        // let params = this.getParamsByJson({
+                        //     Category:self.category,
+                        //     MemberId:self.memberId,
+                        //     //Source : source
+                        // });
+                        // this.jumpUrl("/focusDetail2",params);
                     }else if(self.category=='bv'){
-                        let params = this.getParamsByJson({
-                            Category:self.category,
-                            MemberId:self.memberId,
-                            //Source : source
+                        this.$router.push({
+                            path:'/focusDetail3',
+                            query:{
+                                Category:self.category,
+                                MemberId:self.memberId
+                            }
                         });
-                        this.jumpUrl("/focusDetail3",params);
+                        // let params = this.getParamsByJson({
+                        //     Category:self.category,
+                        //     MemberId:self.memberId,
+                        //     //Source : source
+                        // });
+                        // this.jumpUrl("/focusDetail3",params);
                     }
             },
 

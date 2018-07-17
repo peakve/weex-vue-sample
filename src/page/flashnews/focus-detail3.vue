@@ -172,6 +172,8 @@ var apis = require('../../common/action.js');
 export default{
     data () {
       return {
+          page: 1,
+          size: 5,
           refreshDisplay:'hide',
           refreshText:' ↓ 下拉刷新 ',
           loadingDisplay:'hide',
@@ -194,7 +196,6 @@ export default{
         var self = this;
         self.category = this.$route.query.Category;
         self.memberId = this.$route.query.MemberId;
-        self.source = this.$route.query.Source;
         //modal.toast({message:"传值"+self.memberId,duration:1});
         apis.requireAlertFocusList({
 	        "memberId" : self.memberId,
@@ -349,7 +350,8 @@ export default{
             } else if (between < 30 * 86400) {
                 return this.pluralize(~~(between / 86400), ' 天');
             } else {
-                return this.formatDate(time);
+                return this.pluralize(~~(between / 86400), ' 天');
+                //return this.formatDate(time);
             }
         },
 
