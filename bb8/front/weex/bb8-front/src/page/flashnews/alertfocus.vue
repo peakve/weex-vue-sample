@@ -17,12 +17,9 @@ const modal = weex.requireModule('modal');
 export default {
     data () {
         return{
-            page : 1,
-            size : 20,
             category : '',
             memberId : '',
             source : '',
-            
         }
     },
 
@@ -48,7 +45,7 @@ export default {
         //     // modal.toast({ message: "11111112222", duration: 10 })
         // 
     },
-     
+
     methods:{
 
     }

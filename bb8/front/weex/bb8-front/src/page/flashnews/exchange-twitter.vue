@@ -86,10 +86,10 @@
 }
 .text_title{
     width: 550px;
-    font-size: 12wx;
+    font-size: 14wx;
 }
 .translate_text{
-    font-size: 12wx;
+    font-size: 14wx;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
@@ -97,12 +97,12 @@
     border-width: 1px;
     border-color: #000; 
     border-radius: 5px;
-    width: 65px;
+    width: 73px;
     margin-top: 5px; 
 }
 .translate_result{
     width: 550px;
-    font-size: 12wx;
+    font-size: 14wx;
     margin-top: 10px;
     background-color: #ededed;
 }
@@ -117,7 +117,7 @@
     align-items: center;
     justify-content: flex-start;
     color: #36a0ff;
-    font-size: 12wx;
+    font-size: 14wx;
 }
 .time_hit{
     align-items: center;
@@ -136,14 +136,14 @@
 }
 .text_time_ago{
     color: #787878;
-    font-size: 10wx;
+    font-size: 12wx;
 }
 .content_image{
     width: 120px;
     height: 120px;
 }
 .typical_name{
-    font-size: 14wx;
+    font-size: 16wx;
     margin-top: 10px;
     width: 120px;
 }

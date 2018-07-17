@@ -80,7 +80,7 @@
     margin-left: 10px; 
 }
 .text_title{
-    font-size: 12wx;
+    font-size: 14wx;
     font-weight: 700;
 }
 .source_time{
@@ -93,7 +93,7 @@
     align-items: center;
     justify-content: flex-start;
     color: #36a0ff;
-    font-size: 12wx;
+    font-size: 14wx;
 }
 .time_hit{
     align-items: center;
@@ -112,7 +112,7 @@
 }
 .text_time_ago{
     color: #787878;
-    font-size: 10wx;
+    font-size: 12wx;
 }
 .content_image{
     width: 250px;
