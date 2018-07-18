@@ -8,8 +8,12 @@
             </div>
         </div>
         <div class='content'>
-            <web :style="webview_style" ref="webview" :src='url+articalId'></web><!--1248px-->
+            <web :style="webview_style" ref="webview" :src='url+articalId' @pagestart="onPageStart" @pagefinish="onPageFinish"></web><!--1248px-->
         </div>
+        <wxc-loading
+            :show="isShow"
+            loading-text="加载中...">
+        </wxc-loading>
     </div>
 </template>
 
@@ -65,8 +69,11 @@ var navigator = weex.requireModule('navigator');
 var deviceWidth = weex.config.env.deviceWidth;
 var deviceHeight = weex.config.env.deviceHeight;
 var event = weex.requireModule('event');
+import { WxcLoading } from 'weex-ui';
 
 export default{
+    components: { WxcLoading },
+
     data () {
         return{
             articalId:'',
@@ -76,6 +83,7 @@ export default{
             url: apis.apiURL.baseurl+'page/news/view?id=',
             getHeight: 1248,
             webview_style:{width:'750px',height:'1248px'},
+            isShow:true,
         }
     },
 
@@ -135,6 +143,15 @@ export default{
             event.shareNativeActivity(self.url+self.articalId,self.data.title,banner);
         },
 
+        onPageStart:function(){
+            var self = this;
+            self.isShow = true;
+        },
+
+        onPageFinish:function(){
+            var self = this;
+            self.isShow = false;
+        },
     }
 }
 </script>
