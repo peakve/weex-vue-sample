@@ -3,7 +3,9 @@
         <div class="container">
             <image class="back_img" :src="get_img_path('Return.png')" @click="backImageClick"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
             <text class="flash_text">{{title}}</text>
-            <image class="share_img" :src="get_img_path('share.png')" @click="shareImageClick"></image><!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
+            <div class="div_share_image" @click="shareImageClick">
+                <image class="share_img" :src="get_img_path('share.png')"></image><!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
+            </div>
         </div>
         <div class='content'>
             <web :style="webview_style" ref="webview" :src='url+articalId'></web><!--1248px-->
@@ -25,6 +27,10 @@
     width:30px;
     height: 30px;
     margin-left:20px;
+}
+.div_share_image{
+    width:50px;
+    height: 40px;
 }
 .share_img{
     width:30px;
@@ -67,9 +73,9 @@ export default{
             category:'',
             title:'',
             data:{},
-            url:'http://192.168.3.118:8182/web/page/news/view?id=',
+            url: apis.apiURL.baseurl+'page/news/view?id=',
             getHeight: 1248,
-            webview_style:{width:'750px',height:'1248px'}
+            webview_style:{width:'750px',height:'1248px'},
         }
     },
 
@@ -100,6 +106,19 @@ export default{
         }else if(self.category=='research_report'){
             self.title = "监管政策";
         }
+
+        apis.requireArticalContent({
+            "id":self.articalId
+        },function(res){
+            if(res.respond.ok){
+                if((res.data != null) || (res.data != "")){
+                    self.data = res.data;
+                    //modal.toast({message:(res.data.title),duration:1});
+                }
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
     },
 
     methods:{
@@ -112,7 +131,8 @@ export default{
 
         shareImageClick:function(){
             var self = this;
-            event.shareNativeActivity(self.url+self.articalId);
+            var banner = self.data.banner ? self.data.banner : self.data.member.logo;
+            event.shareNativeActivity(self.url+self.articalId,self.data.title,banner);
         },
 
     }

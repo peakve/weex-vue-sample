@@ -3,7 +3,9 @@
       <div class="container">
         <div></div>
         <text class="flash_text">快讯</text>
-        <div></div>
+        <div class="div_search_image" @click="searchImageClick">
+            <image class="search_img" :src="get_img_path('search.png')"></image><!--src="/assets/images/search.png"--><!--:src="get_img_path('search.png')"-->
+        </div>
       </div>
   </div>
 </template>
@@ -31,6 +33,15 @@
     font-size: 18wx;
     color:#655b22;
 }
+.div_search_image{
+    width:50px;
+    height: 40px;
+}
+.search_img{
+    width:30px;
+    height: 30px;
+    margin-right: 20px;
+}
 </style>
 
 <script>
@@ -41,6 +52,12 @@ export default{
         return{
 
         }
+    },
+
+    methods:{
+        searchImageClick:function(){
+
+        },
     },
 
 }
