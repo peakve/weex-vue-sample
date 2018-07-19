@@ -285,17 +285,6 @@ export default {
             });
         },
         
-        gethref(url){
-            if(!url){
-                return url;
-            }
-            if(url.indexOf("http")==0){
-                return url;
-            }else{
-                return 'http://www.51bb8.com/bfile/dfile'+url;
-            }
-        },
-
         getTranslation(id,index){
             var self=this;
             apis.requireTranslate({"id" : id},function(res){
@@ -335,57 +324,6 @@ export default {
        
         return false;
       },
-
-      formatDatePattern:function (date, fmt) {
-            if (!date) {
-                return;
-            }
-
-            if (/(y+)/.test(fmt)) {
-                fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
-            }
-            let o = {
-                'M+': date.getMonth() + 1,
-                'd+': date.getDate(),
-                'h+': date.getHours(),
-                'm+': date.getMinutes(),
-                's+': date.getSeconds()
-            };
-            for (let k in o) {
-                if (new RegExp(`(${k})`).test(fmt)) {
-                    let str = o[k] + '';
-                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
-                }
-            }
-            return fmt;
-        },
-
-        formatDate:function(time) {
-            var date = new Date(time);
-            return this.formatDatePattern(date, "yyyy-MM-dd hh:mm");
-        },
-
-        timeAgo:function(time) {
-            const between = (Date.now() - Number(time)) / 1000;
-            if (between < 2 * 60) {
-                return '刚刚';
-            } else if (between < 3600) {
-                return this.pluralize(~~(between / 60), ' 分钟');
-            } else if (between < 86400) {
-                return this.pluralize(~~(between / 3600), ' 小时');
-            } else if (between < 30 * 86400) {
-                return this.pluralize(~~(between / 86400), ' 天');
-            } else {
-                return this.pluralize(~~(between / 86400), ' 天');
-            }
-        },
-
-        pluralize:function (time, label) {
-            if (time === 1) {
-                return time + label
-            }
-            return time + label + '前'
-        },
 
     }
 }

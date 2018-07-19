@@ -145,18 +145,25 @@
                 //modal.toast({ message: idx+'--',  duration: 1 });
                 if(idx==0){
                     //modal.toast({ message: '点击了标签页',  duration: 1 });
+                    this.$emit("listenToChildEvent","default");
                     this.$router.push('/information');
                 }else if(idx==1){
+                    this.$emit("listenToChildEvent","default_en");
                     this.$router.push('/globalmedia');
                 }else if(idx == 2){
+                    this.$emit("listenToChildEvent","ex_notice");
                     this.$router.push('/exchangenotice');
                 }else if(idx == 3){
+                    this.$emit("listenToChildEvent","ex_twitter");
                     this.$router.push('/exchangetwitter');
                 }else if(idx == 4){
+                    this.$emit("listenToChildEvent","bv");
                     this.$router.push('/voice');
                 }else if(idx == 5){
+                    this.$emit("listenToChildEvent","newcoin");
                     this.$router.push('/newcoin');
                 }else if(idx == 6){
+                    this.$emit("listenToChildEvent","research_report");
                     this.$router.push('/policy');
                 }
 

@@ -1,7 +1,9 @@
 <template>
     <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <div class="container">
-            <image class="back_img" :src="get_img_path('Return.png')" @click="backImageClick"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
+            <div class="back_click" @click="backImageClick">
+                <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
+            </div>
             <text class="flash_text">{{title}}</text>
             <div class="div_share_image" @click="shareImageClick">
                 <image class="share_img" :src="get_img_path('share.png')"></image><!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
@@ -28,18 +30,22 @@
     top:40;
 }
 .back_img{
-    width:30px;
-    height: 30px;
-    margin-left:20px;
+    width:35px;
+    height: 35px;
+    margin-left:30px;
+}
+.back_click{
+    width: 80px;
+    height: 114px;
 }
 .div_share_image{
-    width:50px;
-    height: 40px;
+    width:80px;
+    height: 114px;
 }
 .share_img{
-    width:30px;
-    height: 30px;
-    margin-right: 20px;
+    width:35px;
+    height: 35px;
+    margin-right: 30px;
 }
 .w-ipx{
     height: 154px;
