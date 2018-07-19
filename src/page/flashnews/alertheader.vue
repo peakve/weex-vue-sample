@@ -3,7 +3,7 @@
       <div class="alertfocus_whole">
         <image class="alertfocus_whole" :src="get_img_path('integration_bg.png')"></image><!--src="/assets/images/integration_bg.png"--><!--:src="get_img_path('integration_bg.png')"-->
         <div class="back_click" @click="backImageClick">
-            <image class="back_img" src="/assets/images/Return_W.png"></image><!--src="/assets/images/Return_W.png"--><!--:src="get_img_path('Return_W.png')"-->
+            <image class="back_img" :src="get_img_path('Return_W.png')"></image><!--src="/assets/images/Return_W.png"--><!--:src="get_img_path('Return_W.png')"-->
         </div>
         <image class="typical_image" :src="gethref(data.logo?data.logo:data.profileImageUrl)" resize="cover"></image>
         <text class="typical_name">{{data.screeName ? data.screeName : data.name}}</text>

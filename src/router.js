@@ -30,6 +30,9 @@ import voice from './page/flashnews/voice.vue'
 
 import serInformation from './page/flashnews/search-information.vue'
 import serExchangeNotice from './page/flashnews/search-exchange-notice.vue'
+import serExchangeTwitter from './page/flashnews/search-exchange-twitter.vue'
+import serVoice from './page/flashnews/search-voice.vue'
+import serNewcoin from './page/flashnews/search-newcoin.vue'
 
 import alertFocus from './page/flashnews/alertfocus.vue'
 import synopsis from './page/flashnews/synopsis.vue'
@@ -130,5 +133,9 @@ export default new Router({
 
         { path: '/serinformation', component: serInformation },
         { path: '/serexchangeNotice', component: serExchangeNotice },
+        { path: '/serexchangeTwitter', component: serExchangeTwitter },
+        { path: '/serexchangeTwitter', component: serExchangeTwitter },
+        { path: '/servoice', component: serVoice },
+        { path: '/sernewcoin', component: serNewcoin },
     ]
 })

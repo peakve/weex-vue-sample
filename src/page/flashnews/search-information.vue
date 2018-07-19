@@ -2,7 +2,7 @@
     <div :class="['wrapper', isIpx()?'w-ipx':'']">
         <div class="search_header">
             <div class="back_click" @click="backImageClick">
-                <image class="back_img" src="/assets/images/Return.png"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
+                <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
             </div>
             <input
                 :value="searchHolder"
@@ -11,7 +11,7 @@
                 placeholder="请输入关键字">
             </input>
             <div class="div_search_image" @click="searchImageClick">
-                <image class="search_img" src="/assets/images/search.png"></image><!--src="/assets/images/search.png"--><!--:src="get_img_path('search.png')"-->
+                <image class="search_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/search.png"--><!--:src="get_img_path('Return.png')"-->
             </div>
         </div>
         <list>
