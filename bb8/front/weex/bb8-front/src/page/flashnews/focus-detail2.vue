@@ -97,7 +97,7 @@
     border-width: 1px;
     border-color: #000; 
     border-radius: 5px;
-    width: 65px;
+    width: 73px;
     margin-top: 5px;
 }
 .translate_result{
