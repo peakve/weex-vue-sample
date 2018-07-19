@@ -8,7 +8,7 @@ import ViewHome from './page/home/home.vue'
 import ViewMy from './page/home/home.vue'
 import bbtop from './page/home/bbtop.vue'
 import homeOptional from './page/home/home-optional.vue'
-// import kline from './page/home/bbkline.vue'
+//import kline from './page/home/bbkline.vue'
 //import kline from './page/home/bbkline.1.vue'
 
 import usercenter from './page/user/UserView.vue'
@@ -27,6 +27,9 @@ import exchangeTwitter from './page/flashnews/exchange-twitter.vue'
 import policy from './page/flashnews/policy.vue'
 import newcoin from './page/flashnews/newcoin.vue'
 import voice from './page/flashnews/voice.vue'
+
+import serinformation from './page/flashnews/search-information.vue'
+
 import alertFocus from './page/flashnews/alertfocus.vue'
 import synopsis from './page/flashnews/synopsis.vue'
 import focusDetail from './page/flashnews/focus-detail.vue'
@@ -123,5 +126,7 @@ export default new Router({
         { path: '/contactUs', component: contactUs },
         { path: '/disclaimer', component: disclaimer },
         { path: '/modifyInfo', component: modifyInfo },
+
+        { path: '/serinformation', component: serinformation },
     ]
 })

@@ -4,9 +4,9 @@ var modal = weex.requireModole('modal');*/
 var apiURL = {
 
     //测试本机地址
-    // baseurl: 'http://192.168.3.118:8888/web/',
+    baseurl: 'http://192.168.3.118:8888/web/',
     //开发地址
-    baseurl: 'https://www.51bb8.com/web/',
+    //baseurl: 'https://www.51bb8.com/web/',
 
     //路径地址
     basepath: 'http://192.168.3.178:8080/dist/',
@@ -238,6 +238,12 @@ exports.requireAlertFocusList = function(data, callback) {
 exports.requireAlertFocusDesc = function(data, callback) {
     postData(apiURL.baseurl + 'api/member/info', data, callback);
 };
+
+//新闻搜索
+exports.requireSearchNews = function(data, callback) {
+    postData(apiURL.baseurl + 'api/news/q', data, callback);
+};
+
 //登录
 exports.requireLogin = function(data, callback) {
     postData(apiURL.baseurl + 'api/user/login', data, callback);

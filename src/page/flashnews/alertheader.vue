@@ -2,7 +2,9 @@
   <div :class="['wrapper', isIpx()?'w-ipx':'']">
       <div class="alertfocus_whole">
         <image class="alertfocus_whole" :src="get_img_path('integration_bg.png')"></image><!--src="/assets/images/integration_bg.png"--><!--:src="get_img_path('integration_bg.png')"-->
-        <image class="back_img" :src="get_img_path('Return_W.png')" @click="backImageClick"></image><!--src="/assets/images/Return_W.png"--><!--:src="get_img_path('Return_W.png')"-->
+        <div class="back_click" @click="backImageClick">
+            <image class="back_img" src="/assets/images/Return_W.png"></image><!--src="/assets/images/Return_W.png"--><!--:src="get_img_path('Return_W.png')"-->
+        </div>
         <image class="typical_image" :src="gethref(data.logo?data.logo:data.profileImageUrl)" resize="cover"></image>
         <text class="typical_name">{{data.screeName ? data.screeName : data.name}}</text>
         <text class="article_hits">{{data.newsCount}} 文章     |    {{data.readCount}} 点击</text>
@@ -18,12 +20,19 @@
     width: 750px;
     height: 447px;
 }
+.back_click{
+    position: absolute;
+    width:100px;
+    height: 100px;
+    left:25px;
+    top:55px;
+}
 .back_img{
     position: absolute;
     width:40px;
     height: 40px;
-    left:25px;
-    top:50px;
+    left:0px;
+    top:0px;
 }
 .typical_image{
     position: absolute;
