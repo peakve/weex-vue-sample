@@ -28,7 +28,8 @@ import policy from './page/flashnews/policy.vue'
 import newcoin from './page/flashnews/newcoin.vue'
 import voice from './page/flashnews/voice.vue'
 
-import serinformation from './page/flashnews/search-information.vue'
+import serInformation from './page/flashnews/search-information.vue'
+import serExchangeNotice from './page/flashnews/search-exchange-notice.vue'
 
 import alertFocus from './page/flashnews/alertfocus.vue'
 import synopsis from './page/flashnews/synopsis.vue'
@@ -127,6 +128,7 @@ export default new Router({
         { path: '/disclaimer', component: disclaimer },
         { path: '/modifyInfo', component: modifyInfo },
 
-        { path: '/serinformation', component: serinformation },
+        { path: '/serinformation', component: serInformation },
+        { path: '/serexchangeNotice', component: serExchangeNotice },
     ]
 })
