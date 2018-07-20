@@ -68,8 +68,6 @@
     justify-content: space-between;
     flex-direction: row;
     padding-top: 55px;
-    padding-left: 30px;
-    padding-right: 30px;
     widows: 750;
     height: 114;
     background-color: #ffe45f;
@@ -81,10 +79,11 @@
 .back_img{
     width:35px;
     height: 35px;
+    margin-left: 30px;
 }
 .input{
     width:500px;
-    height:50px;
+    height:55px;
     border-width:2px;
     border-color:#655B22;
     border-radius:5px;
@@ -99,7 +98,7 @@
 .search_img{
     width:35px;
     height: 35px;
-    margin-left:30px;
+    margin-right:30px;
 }
 .refreshOut{
     width: 750;
