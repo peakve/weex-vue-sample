@@ -64,18 +64,6 @@
     height: 2px;
     background-color: black;
 }
-.more{
-    position: absolute;
-    top:0;
-    right:0;
-    height: 52px;
-    width: 80px;
-    background-color: #fafafa;
-    text-align: center;
-    padding-top: 10px;
-    opacity: 0.96;
-    box-shadow:-6px -4px 4px #fafafa;
-}
 </style>
 
 <script>
