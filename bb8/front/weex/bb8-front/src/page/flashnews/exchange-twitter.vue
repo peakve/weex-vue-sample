@@ -15,7 +15,10 @@
                         <text class="translate_text" @click="getTranslation(item.id,index)">翻译</text>
                         <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
                         <div class="source_time">
-                            <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源:{{item.member.screeName!=null?item.member.screeName:item.member.name}}@{{item.source}}</text>
+                            <div class="source_set_color">
+                                <text class="grey_color">来源: </text>
+                                <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">{{item.member.screeName!=null?item.member.screeName:item.member.name}}@{{item.source}}</text>
+                            </div>
                             <div class="time_hit">
                                 <div class="time_ago">
                                     <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>

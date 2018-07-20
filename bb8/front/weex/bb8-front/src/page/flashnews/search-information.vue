@@ -11,7 +11,7 @@
                 placeholder="请输入关键字">
             </input>
             <div class="div_search_image" @click="searchImageClick">
-                <image class="search_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/search.png"--><!--:src="get_img_path('Return.png')"-->
+                <image class="search_img" :src="get_img_path('search.png')"></image><!--src="/assets/images/search.png"--><!--:src="get_img_path('Return.png')"-->
             </div>
         </div>
         <list>
