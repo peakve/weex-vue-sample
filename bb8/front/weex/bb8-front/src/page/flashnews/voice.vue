@@ -18,7 +18,10 @@
                             <image class="random_image" v-for="image in images" :src="image.picture"></image>
                         </div>
                         <div class="source_time">
-                            <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源:{{item.member.screeName!=null?item.member.screeName:item.member.name}}@{{item.source}}</text>
+                            <div class="source_set_color">
+                                <text class="grey_color">来源:</text>
+                                <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">{{item.member.screeName!=null?item.member.screeName:item.member.name}}@{{item.source}}</text>
+                            </div>
                             <div class="time_hit">
                                 <div class="time_ago">
                                     <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>
@@ -126,6 +129,17 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 25px;
+}
+.source_set_color{
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.grey_color{
+    align-items: center;
+    justify-content: flex-start;
+    color: #787878;
+    font-size: 14wx;
 }
 .source{
     align-items: center;
