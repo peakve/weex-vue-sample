@@ -15,7 +15,7 @@
             </div>
         </div>
         <list>
-           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
+           <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay" v-if="isSearch">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
            </refresh>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
            </cell>
-           <loading @loading="loadingData" :display="loadingDisplay">
+           <loading @loading="loadingData" :display="loadingDisplay" v-if="isSearch">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
                     <text class="text_laoding">{{loadingText}}</text>
@@ -68,9 +68,7 @@
 .search_header{
     justify-content: space-between;
     flex-direction: row;
-    padding-top: 55px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-top: 50px;
     widows: 750;
     height: 114;
     background-color: #ffe45f;
@@ -82,6 +80,8 @@
 .back_img{
     width:35px;
     height: 35px;
+    margin-left: 30px;
+    margin-top: 8px;
 }
 .input{
     width:500px;
@@ -100,7 +100,8 @@
 .search_img{
     width:35px;
     height: 35px;
-    margin-left:30px;
+    margin-right:30px;
+    margin-top: 8px; 
 }
 .refreshOut{
     width: 750;
@@ -233,6 +234,7 @@ export default{
           message:'ex_notice',
           searchHolder:'',
           keywords:'',
+          isSearch:false,
         }
     },
 
@@ -264,6 +266,7 @@ export default{
         searchImageClick:function(){
             var self = this;
             self.page = 1;
+            self.isSearch = true;
             if(self.keywords=='' || self.keywords == null){
                 modal.toast({message:"请输入关键字",duration:2});
             }else{
@@ -277,6 +280,7 @@ export default{
                         //modal.toast({message:(res.list[0].title),duration:1});
                         self.itemsList = res.list;
                         if(self.itemsList=='' || self.itemsList==null){
+                            self.isSearch = false;
                             modal.toast({message:"暂无数据",duration:1});
                         }
                     }else{
