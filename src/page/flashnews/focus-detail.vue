@@ -13,12 +13,12 @@
                         <text class="text_abstract" @click="goAlertContent(item.id,item.category)">{{item.abs}}</text>
                         <div class="source_time">
                             <div class="time_ago">
-                                <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>
+                                <!--<image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>-->
                                 <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
                             </div>
                             <div class="time_ago">
-                                <image class="clock_image" :src="get_img_path('click.png')"></image>
-                                <text class="text_time_ago">{{item.hits}}次点击</text>
+                                <!--<image class="clock_image" :src="get_img_path('click.png')"></image>-->
+                                <text class="text_time_ago">{{item.hits}}阅读</text>
                             </div>
                         </div>
                     </div>
