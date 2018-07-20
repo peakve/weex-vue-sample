@@ -46,6 +46,10 @@
                 </div>
            </loading>
         </list>
+        <wxc-loading
+            :show="isShow"
+            loading-text="加载中...">
+        </wxc-loading>
     </div>
 </template>
 
@@ -187,8 +191,11 @@
 var apis = require('../../common/action.js');
 var modal = weex.requireModule('modal');
 var navigator = weex.requireModule('navigator');
+import { WxcLoading } from 'weex-ui';
 
 export default{
+    components: { WxcLoading },
+
     data(){
         return{
           page : 1,
@@ -202,6 +209,7 @@ export default{
           searchHolder:'',
           keywords:'',
           isSearch:false,
+          isShow:false,
         }
     },
 
@@ -234,6 +242,7 @@ export default{
             var self = this;
             self.page = 1;
             self.isSearch = true;
+            self.isShow = true;
             if(self.keywords=='' || self.keywords == null){
                 modal.toast({message:"请输入关键字",duration:2});
             }else{
@@ -243,6 +252,7 @@ export default{
                     "highlight" : false,
 	                "page" : self.page
                 },function(res){
+                    self.isShow = false;
                     if(res.respond.ok){
                         //modal.toast({message:(res.list[0].title),duration:1});
                         self.itemsList = res.list;
