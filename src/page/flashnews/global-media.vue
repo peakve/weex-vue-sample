@@ -9,7 +9,10 @@
                     <div class="title_sourece_time">
                         <text class="text_title" @click="goAlertContent(item.id,item.category)">{{item.title}}</text>
                         <div class="source_time">
-                            <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">来源: {{item.source}}</text>
+                            <div class="source_set_color">
+                                <text class="grey_color">来源:</text>
+                                <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">{{item.source}}</text>
+                            </div>
                             <div class="time_hit">
                                 <div class="time_ago">
                                     <image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>

@@ -32,10 +32,12 @@
 .null_div{
     width:80px;
     height: 114px;
+    margin-left: 30px;
 }
 .flash_text{
     font-size: 18wx;
     color:#655b22;
+    text-align: center;
 }
 .div_search_image{
     width:80px;
