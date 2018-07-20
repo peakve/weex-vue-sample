@@ -93,6 +93,17 @@
     justify-content: space-between;
     margin-top: 25px;
 }
+.source_set_color{
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.grey_color{
+    align-items: center;
+    justify-content: flex-start;
+    color: #787878;
+    font-size: 14wx;
+}
 .source{
     align-items: center;
     justify-content: flex-start;

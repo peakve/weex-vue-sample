@@ -62,6 +62,7 @@
 .flash_text{
     font-size: 18wx;
     color:#655b22;
+    text-align: center;
 }
 .content{
     background-color: white;

@@ -16,7 +16,7 @@
                         <text class="translate_result" v-if="translateClick&&item.translates&&isExistsTranlate(item.id)">{{item.translates[0].label}}</text>
                         <div class="source_time">
                             <div class="source_set_color">
-                                <text class="grey_color">来源: </text>
+                                <text class="grey_color">来源:</text>
                                 <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">{{item.member.screeName!=null?item.member.screeName:item.member.name}}@{{item.source}}</text>
                             </div>
                             <div class="time_hit">
@@ -115,6 +115,17 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 25px;
+}
+.source_set_color{
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.grey_color{
+    align-items: center;
+    justify-content: flex-start;
+    color: #787878;
+    font-size: 14wx;
 }
 .source{
     align-items: center;

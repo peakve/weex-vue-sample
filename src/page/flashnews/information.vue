@@ -14,7 +14,7 @@
                         <text class="text_title" @click="goAlertContent(item.id,item.category)">{{item.title}}</text>
                         <div class="source_time">
                             <div class="source_set_color">
-                                <text class="grey_color">来源: </text>
+                                <text class="grey_color">来源:</text>
                                 <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">{{item.source}}</text>
                             </div>
                             <div class="time_hit">
