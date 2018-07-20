@@ -145,7 +145,7 @@
 .content_image{
     width: 250px;
     height: 120px;
-    padding-right: 30px; 
+    padding-right: 30px;
 }
 .loadingOut {
     flex-direction: row;
