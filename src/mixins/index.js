@@ -1,5 +1,6 @@
 let stream = weex.requireModule('stream');
-var navigator = weex.requireModule('navigator')
+var navigator = weex.requireModule('navigator');
+
 import util from '../common/util';
 export default {
     data() {
@@ -148,6 +149,10 @@ export default {
                     }
                 }
             });
+        },
+
+        getiPhonexFringeHeight: function(deviceHeight) {
+            return (88 * deviceHeight) / 1624;
         },
 
         formatDatePattern: function(date, fmt) {

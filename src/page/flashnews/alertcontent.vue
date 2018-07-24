@@ -1,5 +1,5 @@
 <template>
-    <div :class="['wrapper', isIpx()?'w-ipx':'']">
+    <div class="wrapper" :style=" isIpx() ? 'wipx' : '' ">
         <div class="container">
             <div class="back_click" @click="backImageClick">
                 <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
@@ -25,9 +25,6 @@
     top: 0;
     left: 0;right: 0;
     z-index: 101;
-}
-.w-ipx{
-    top:40;
 }
 .back_img{
     width:35px;
@@ -91,6 +88,7 @@ export default{
             getHeight: 1248,
             webview_style:{width:'750px',height:'1248px'},
             isShow:true,
+            wipx:{},
         }
     },
 
@@ -105,6 +103,8 @@ export default{
         //modal.toast({message:"文章id"+self.articalId,duration:2});
         self.getHeight = parseInt((750*deviceHeight)/deviceWidth - 114);
         self.webview_style = {width:'750px',height:self.getHeight+'px'};
+        var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
+        self.wipx = {top : fringeHeight+'px'};
         //modal.toast({message:self.webview_style,duration:2});
         if(self.category=='default'){
             self.title = "快讯";

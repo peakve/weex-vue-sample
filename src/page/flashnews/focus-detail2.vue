@@ -1,5 +1,5 @@
 <template>
-        <list :class="['wrapper', isIpx()?'w-ipx':'']">
+        <list class="wrapper" :style=" isIpx()?'wipx':'' ">
             <!--v-else-if="(category=='ex_twitter')"-->
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -39,9 +39,6 @@
     top:521px;
     left: 0;right: 0;
     bottom: 0;
-}
-.w-ipx{
-    top: 561px;
 }
 .refreshOut{
     width: 750;
@@ -167,6 +164,7 @@
 <script>
 var modal = weex.requireModule('modal');
 var apis = require('../../common/action.js');
+var deviceHeight = weex.config.env.deviceHeight;
 
 export default{
     data () {
@@ -188,6 +186,7 @@ export default{
           translateShow:false,
           translateClick:0,
           translateList:[],
+          wipx:{},
       }
     },
 
@@ -196,6 +195,9 @@ export default{
         self.category = this.$route.query.Category;
         self.memberId = this.$route.query.MemberId;
         //modal.toast({message:"传值"+self.category,duration:1});
+        var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
+        self.wipx = {top : (521+fringeHeight)+'px'};
+        
         apis.requireAlertFocusList({
 	        "memberId" : self.memberId,
             "page" : self.page,

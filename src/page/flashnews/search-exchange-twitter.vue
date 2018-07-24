@@ -1,5 +1,5 @@
 <template>
-    <div :class="['wrapper', isIpx()?'w-ipx':'']">
+    <div class="wrapper" :style=" isIpx()?'wipx':'' ">
         <div class="search_header">
             <div class="back_click" @click="backImageClick">
                 <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
@@ -65,9 +65,6 @@
     top:0px;
     left: 0;right: 0;
     bottom: 0;
-}
-.w-ipx{
-    top: 40px;
 }
 .search_header{
     justify-content: space-between;
@@ -224,6 +221,7 @@
 var apis = require('../../common/action.js');
 var modal = weex.requireModule('modal');
 var navigator = weex.requireModule('navigator');
+var deviceHeight = weex.config.env.deviceHeight;
 import { WxcLoading } from 'weex-ui';
 
 export default{
@@ -243,6 +241,7 @@ export default{
           keywords:'',
           isSearch:false,
           isShow:false,
+          wipx:{},
         }
     },
 
@@ -253,6 +252,8 @@ export default{
         if(self.message=='' || self.message==null){
             self.message = 'ex_notice';
         }
+        var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
+        self.wipx = {top : fringeHeight+'px'};
     },
 
     methods:{

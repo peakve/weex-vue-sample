@@ -1,8 +1,8 @@
 <template>
-    <div :class="['wrapper', isIpx()?'w-ipx':'']">
+    <div class="wrapper" :style="isIpx()?'wipx':''">
         <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar="false">
             <div class="tab-ia">
-                <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>资讯</text>
+                <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>快讯</text>
                 <div class="j-ulinea" v-if="navIndex==0"></div>
             </div>
             <div class="tab-i">
@@ -44,9 +44,6 @@
     background-color: #fafafa;
     border-bottom-width: 1px;
     border-bottom-color: #d9d9d9;
-}
-.w-ipx{
-    top: 154px;    
 }
 .scroller{
     height: 74px;
@@ -104,6 +101,7 @@
     const dom = weex.requireModule('dom');
     const animation = weex.requireModule('animation');
     const modal = weex.requireModule('modal');
+    var deviceHeight = weex.config.env.deviceHeight;
 
     export default {
         data() {
@@ -116,11 +114,14 @@
                 delivery_mode: null, // 选中的配送方式
                 support_ids: [], // 选中的商铺活动列表
                 filterNum: 0, // 所选中的所有样式的集合
+                wipx:{},
             }
         },
 
         created() {
-            //this.$router.push('/information');
+            var self = this;
+            var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
+            self.wipx = {top : (114+fringeHeight)+'px'};
         },
 
         mounted() {

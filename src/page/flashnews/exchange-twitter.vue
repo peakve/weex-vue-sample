@@ -1,5 +1,5 @@
 <template>
-        <list :class="['wrapper', isIpx()?'w-ipx':'']">
+        <list class="wrapper" :style="isIpx()?'wipx':''">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
@@ -48,9 +48,6 @@
     top:188px;
     left: 0;right: 0;
     bottom: 0;
-}
-.w-ipx{
-    top: 228px;
 }
 .refreshOut{
     width: 750;
@@ -181,6 +178,7 @@ const dom = weex.requireModule('dom');
 const animation = weex.requireModule('animation');
 const modal = weex.requireModule('modal');
 var apis = require('../../common/action.js');
+var deviceHeight = weex.config.env.deviceHeight;
 
 export default {
     data () {
@@ -199,11 +197,16 @@ export default {
           translateShow:false,
           translateClick:0,
           translateList:[],
+          wipx:{top: 276},
         }
     },
 
     created(){
         var self = this;
+        var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
+        self.wipx = {top : (188+fringeHeight)+'px'};
+        
+        self.page = 1;
         apis.requireNewsList({
 	        "category" : "ex_twitter",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
 	        "page" : self.page, 
@@ -263,7 +266,7 @@ export default {
 
             apis.requireNewsList({
                 "category" : "ex_twitter",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
-                "page" : self.page, 
+                "page" : self.page,
                 "size" : self.size
             },function(res){
                 if(res.respond.ok){
