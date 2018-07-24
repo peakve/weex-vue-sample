@@ -1,5 +1,5 @@
 <template>
-  <div :class="['wrapper', isIpx()?'w-ipx':'']">
+  <div class="wrapper" :style=" isIpx()?'wipx':'' ">
       <div class="container">
         <div class="null_div"></div>
         <text class="flash_text">快讯</text>
@@ -17,9 +17,6 @@
     left: 0;right: 0;
     height: 114px;
     z-index: 10;
-}
-.w-ipx{
-    top:40;
 }
 .container{
     justify-content: space-between;
@@ -53,12 +50,13 @@
 
 <script>
 const modal = weex.requireModule('modal');
+var deviceHeight = weex.config.env.deviceHeight;
 
 export default{
     props:['message'],
     data(){
         return{
-
+            wipx:{},
         }
     },
 
@@ -70,7 +68,9 @@ export default{
 
     created(){
         var self = this;
-        
+        var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
+        self.wipx = {top : fringeHeight+'px'};
+        //modal.toast({message:'刘海高度'+fringeHeight,duration:2});
     },
 
     methods:{

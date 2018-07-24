@@ -1,5 +1,5 @@
 <template>
-    <div :class="['wrapper', isIpx()?'w-ipx':'']">
+    <div class="wrapper" :style=" isIpx()?'wipx':'' ">
         <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar=false>
             <div class="tab-i">
                 <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>{{title}}</text>
@@ -24,18 +24,15 @@
     border-bottom-width: 1px;
     border-bottom-color: #d9d9d9;
 }
-.w-ipx{
-    top: 487px;
-}
 .tab-i{
     width: 165px;
     flex-flow: column;
     align-items: center;
 }
 .tab-ia{
+    width: 90px;
     flex-flow: column;
     align-items: center;
-    width: 90px;
 }
 .scroller{
     height: 74px;
@@ -70,6 +67,7 @@
     const dom = weex.requireModule('dom');
     const animation = weex.requireModule('animation');
     const modal = weex.requireModule('modal');
+    var deviceHeight = weex.config.env.deviceHeight;
 
     export default{
         props: ['category','memberId','source'],
@@ -85,15 +83,17 @@
                 // support_ids: [], // 选中的商铺活动列表
                 // filterNum: 0, // 所选中的所有样式的集合
                 title:"资讯",
+                wipx:{top: '495px'},
             }
         },
 
         created() {
             var self = this;
-            //modal.toast({message:"tab"+(self.category+self.memberId),duration:1});
+            var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
+            self.wipx = {top : (447+fringeHeight)+'px'};
             this.selectFocusDetail();
             if(self.category=='default'){
-                self.title = "资讯";
+                self.title = "快讯";
             }else if(self.category=='default_en'){
                 self.title = "全球媒体";
             }else if(self.category=='ex_notice'){

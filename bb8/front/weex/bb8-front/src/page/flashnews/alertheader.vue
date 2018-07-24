@@ -1,5 +1,5 @@
 <template>
-  <div :class="['wrapper', isIpx()?'w-ipx':'']">
+  <div class="wrapper" :style=" isIpx() ? 'wipx' : '' ">
       <div class="alertfocus_whole">
         <image class="alertfocus_whole" :src="get_img_path('integration_bg.png')"></image><!--src="/assets/images/integration_bg.png"--><!--:src="get_img_path('integration_bg.png')"-->
         <div class="back_click" @click="backImageClick">
@@ -7,15 +7,12 @@
         </div>
         <image class="typical_image" :src="gethref(data.logo?data.logo:data.profileImageUrl)" resize="cover"></image>
         <text class="typical_name">{{data.screeName ? data.screeName : data.name}}</text>
-        <text class="article_hits">{{data.newsCount}} 文章     |    {{data.readCount}} 点击</text>
+        <text class="article_hits">{{data.newsCount}} 文章     |     {{data.readCount}} 阅读</text>
       </div>
   </div>
 </template>
 
 <style>
-.w-ipx{
-    top:40;
-}
 .alertfocus_whole{
     width: 750px;
     height: 447px;
@@ -63,17 +60,21 @@
 var modal = weex.requireModule('modal');
 var apis = require('../../common/action.js');
 var navigator = weex.requireModule('navigator');
+var deviceHeight = weex.config.env.deviceHeight;
 
 export default {
     props:['memberId'],
     data(){
         return{
             data:{},
+            wipx:{},
         }
     },
 
     created(){
         var self = this;
+        var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
+        self.wipx = {top : fringeHeight+'px'};
         //modal.toast({message:self.memberId,duration:1});
         apis.requireAlertFocusDesc({memberId:self.memberId},function(res){
             if(res.respond.ok){
