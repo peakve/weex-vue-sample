@@ -76,50 +76,50 @@ export default{
     methods:{
         searchImageClick:function(){
             var self = this;
-            // if(self.message=='' || self.message==null || self.message == 'default' || self.message == 'default_en' || self.message == 'research_report'){
-            //     //modal.toast({message:'搜索按钮被点击了',duration:2});
-            //     let params = this.getParamsByJson({
-            //         Message : self.message
-            //     });
+            if(self.message=='' || self.message==null || self.message == 'default' || self.message == 'default_en' || self.message == 'research_report'){
+                //modal.toast({message:'搜索按钮被点击了',duration:2});
+                let params = this.getParamsByJson({
+                    Message : self.message
+                });
 
-            //     this.jumpUrl("/serinformation" ,params);
-            // }else if(self.message=='ex_notice'){
-            //     //modal.toast({message:'搜索按钮被点击了',duration:2});
-            //     let params = this.getParamsByJson({
-            //         Message : self.message
-            //     });
+                this.jumpUrl("/serinformation" ,params);
+            }else if(self.message=='ex_notice'){
+                //modal.toast({message:'搜索按钮被点击了',duration:2});
+                let params = this.getParamsByJson({
+                    Message : self.message
+                });
 
-            //     this.jumpUrl("/serexchangeNotice" ,params);
-            // }else if(self.message=='ex_twitter'){
-            //     //modal.toast({message:'搜索按钮被点击了',duration:2});
-            //     let params = this.getParamsByJson({
-            //         Message : self.message
-            //     });
+                this.jumpUrl("/serexchangeNotice" ,params);
+            }else if(self.message=='ex_twitter'){
+                //modal.toast({message:'搜索按钮被点击了',duration:2});
+                let params = this.getParamsByJson({
+                    Message : self.message
+                });
 
-            //     this.jumpUrl("/serexchangeTwitter" ,params);
-            // }else if(self.message=='bv'){
-            //     //modal.toast({message:'搜索按钮被点击了',duration:2});sernewcoin
-            //     let params = this.getParamsByJson({
-            //         Message : self.message
-            //     });
+                this.jumpUrl("/serexchangeTwitter" ,params);
+            }else if(self.message=='bv'){
+                //modal.toast({message:'搜索按钮被点击了',duration:2});sernewcoin
+                let params = this.getParamsByJson({
+                    Message : self.message
+                });
 
-            //     this.jumpUrl("/servoice" ,params);
-            // }else if(self.message=='newcoin'){
-            //     //modal.toast({message:'搜索按钮被点击了',duration:2});sernewcoin
-            //     let params = this.getParamsByJson({
-            //         Message : self.message
-            //     });
+                this.jumpUrl("/servoice" ,params);
+            }else if(self.message=='newcoin'){
+                //modal.toast({message:'搜索按钮被点击了',duration:2});sernewcoin
+                let params = this.getParamsByJson({
+                    Message : self.message
+                });
 
-            //     this.jumpUrl("/sernewcoin" ,params);
-            // }else{
-            //     modal.toast({message:'不支持搜索',duration:2});
-            //}
+                this.jumpUrl("/sernewcoin" ,params);
+            }else{
+                modal.toast({message:'不支持搜索',duration:2});
+            }
             
-            let params = this.getParamsByJson({
-                Message : self.message
-            });
+            // let params = this.getParamsByJson({
+            //     Message : self.message
+            // });
 
-            this.jumpUrl("/candy" ,params);
+            // this.jumpUrl("/candy" ,params);
             
         },
     },
