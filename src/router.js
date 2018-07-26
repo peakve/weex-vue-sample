@@ -20,6 +20,7 @@ import login from './page/login/login.vue'
 import register from './page/login/register.vue'
 import pcenter from './page/pcenter/personal.vue'
 
+import hotArticle from './page/flashnews/hot-article.vue'
 import information from './page/flashnews/information.vue'
 import globalMedia from './page/flashnews/global-media.vue'
 import exchangeNotice from './page/flashnews/exchange-notice.vue'
@@ -27,6 +28,9 @@ import exchangeTwitter from './page/flashnews/exchange-twitter.vue'
 import policy from './page/flashnews/policy.vue'
 import newcoin from './page/flashnews/newcoin.vue'
 import voice from './page/flashnews/voice.vue'
+
+import candy from './page/flashnews/candy.vue'
+import candyDetail from './page/flashnews/candy-detail.vue'
 
 import serInformation from './page/flashnews/search-information.vue'
 import serExchangeNotice from './page/flashnews/search-exchange-notice.vue'
@@ -97,6 +101,7 @@ export default new Router({
             path: '/flashnews',
             component: flashnews,
             children: [
+                { path: '/hotArticle', component: hotArticle },
                 { path: '/information', component: information },
                 { path: '/globalmedia', name: "globalmedia", component: globalMedia },
                 { path: '/exchangenotice', name: "exchangenotice", component: exchangeNotice },
@@ -105,7 +110,7 @@ export default new Router({
                 { path: '/newcoin', name: "newcoin", component: newcoin },
                 { path: '/voice', name: "voice", component: voice },
             ],
-            redirect: '/information'
+            redirect: '/hotArticle'
         },
         {
             path: '/alertfocus',
@@ -120,6 +125,9 @@ export default new Router({
             ]
         },
         { path: '/alertcontent', name: "alertcontent", component: alertContent },
+
+        { path: '/candy', name: "candy", component: candy },
+        { path: '/candyDetail', name: "candyDetail", component: candyDetail },
 
         { path: '/login', component: login },
         { path: '/register', component: register },
