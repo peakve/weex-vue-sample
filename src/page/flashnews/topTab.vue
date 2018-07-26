@@ -2,32 +2,36 @@
     <div class="wrapper" :style="isIpx()?'wipx':''">
         <scroller class="scroller"  scroll-direction="horizontal" loadmoreoffset="750px" show-scrollbar="false">
             <div class="tab-ia">
-                <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>快讯</text>
+                <text  @click="chooseChannel(0)" :class="['i-c',navIndex==0?'c-act':'']" ref=t0>热点</text>
                 <div class="j-ulinea" v-if="navIndex==0"></div>
             </div>
-            <div class="tab-i">
-                <text  @click="chooseChannel(1)" :class="['i-c',navIndex==1?'c-act':'']" ref=t1>全球媒体</text>
-                <div class="j-uline" v-if="navIndex==1"></div>
+            <div class="tab-ia">
+                <text  @click="chooseChannel(1)" :class="['i-c',navIndex==1?'c-act':'']" ref=t1>快讯</text>
+                <div class="j-ulinea" v-if="navIndex==1"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(2)" :class="['i-c',navIndex==2?'c-act':'']" ref=t2>交易所公告</text>
+                <text  @click="chooseChannel(2)" :class="['i-c',navIndex==2?'c-act':'']" ref=t2>全球媒体</text>
                 <div class="j-uline" v-if="navIndex==2"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(3)" :class="['i-c',navIndex==3?'c-act':'']" ref=t3>交易所推特</text>
+                <text  @click="chooseChannel(3)" :class="['i-c',navIndex==3?'c-act':'']" ref=t3>交易所公告</text>
                 <div class="j-uline" v-if="navIndex==3"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(4)" :class="['i-c',navIndex==4?'c-act':'']" ref=t4>大V声音</text>
+                <text  @click="chooseChannel(4)" :class="['i-c',navIndex==4?'c-act':'']" ref=t4>交易所推特</text>
                 <div class="j-uline" v-if="navIndex==4"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(5)" :class="['i-c',navIndex==5?'c-act':'']" ref=t5>新币时讯</text>
+                <text  @click="chooseChannel(5)" :class="['i-c',navIndex==5?'c-act':'']" ref=t5>大V声音</text>
                 <div class="j-uline" v-if="navIndex==5"></div>
             </div>
             <div class="tab-i">
-                <text  @click="chooseChannel(6)" :class="['i-c',navIndex==6?'c-act':'']" ref=t6>监管政策</text>
+                <text  @click="chooseChannel(6)" :class="['i-c',navIndex==6?'c-act':'']" ref=t6>新币时讯</text>
                 <div class="j-uline" v-if="navIndex==6"></div>
+            </div>
+            <div class="tab-i">
+                <text  @click="chooseChannel(7)" :class="['i-c',navIndex==7?'c-act':'']" ref=t7>监管政策</text>
+                <div class="j-uline" v-if="navIndex==7"></div>
             </div>
         </scroller>
  
@@ -146,21 +150,24 @@
                 //modal.toast({ message: idx+'--',  duration: 1 });
                 if(idx==0){
                     //modal.toast({ message: '点击了标签页',  duration: 1 });
+                    this.$emit("listenToChildEvent","article");
+                    this.$router.push('/hotArticle');
+                }else if(idx==1){
                     this.$emit("listenToChildEvent","default");
                     this.$router.push('/information');
-                }else if(idx==1){
+                }else if(idx == 2){
                     this.$emit("listenToChildEvent","default_en");
                     this.$router.push('/globalmedia');
-                }else if(idx == 2){
+                }else if(idx == 3){
                     this.$emit("listenToChildEvent","ex_notice");
                     this.$router.push('/exchangenotice');
-                }else if(idx == 3){
+                }else if(idx == 4){
                     this.$emit("listenToChildEvent","ex_twitter");
                     this.$router.push('/exchangetwitter');
-                }else if(idx == 4){
+                }else if(idx == 5){
                     this.$emit("listenToChildEvent","bv");
                     this.$router.push('/voice');
-                }else if(idx == 5){
+                }else if(idx == 6){
                     this.$emit("listenToChildEvent","newcoin");
                     this.$router.push('/newcoin');
                 }else if(idx == 6){
