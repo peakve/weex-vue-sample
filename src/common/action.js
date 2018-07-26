@@ -229,6 +229,11 @@ exports.requireNewsList = function(data, callback) {
     postData(apiURL.baseurl + 'api/news/list', data, callback);
 };
 
+//热门新闻
+exports.requireHotNewsList = function(data, callback) {
+    postData(apiURL.baseurl + 'api/news/hotnews', data, callback);
+};
+
 //聚合页面列表
 exports.requireAlertFocusList = function(data, callback) {
     postData(apiURL.baseurl + 'api/member/list', data, callback);
