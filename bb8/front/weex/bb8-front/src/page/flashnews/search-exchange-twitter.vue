@@ -392,7 +392,7 @@ export default{
                     modal.toast({message:'网络请求失败',duration:1});
                 }
 
-                if (self.page >=res.lastPage) {
+                if (self.page > res.lastPage) {
                     modal.toast({message:'没有更多',duration:1});
 				}
             });

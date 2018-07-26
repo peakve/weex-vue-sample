@@ -15,7 +15,7 @@
                         <div class="source_time">
                             <div class="source_set_color">
                                 <text class="grey_color">来源:</text>
-                                <text class="source" @click="goAlertFocus(item.category,item.member.memberId,item.source)">{{item.source}}</text>
+                                <text class="source" @click="goAlertFocus(item.category,item.member.memberId)">{{item.source}}</text>
                             </div>
                             <div class="time_hit">
                                 <div class="time_ago">
@@ -32,6 +32,10 @@
                     <image class="content_image" :src="gethref(item.banner?item.banner:item.member?item.member.logo:'')" resize="cover"></image>
                 </div>
            </cell>
+           <wxc-loading
+                :show="isShow"
+                loading-text="加载中...">
+           </wxc-loading>
            <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
@@ -154,8 +158,11 @@ const modal = weex.requireModule('modal');
 const stream = weex.requireModule('stream');
 var apis = require('../../common/action.js');
 var deviceHeight = weex.config.env.deviceHeight;
+import { WxcLoading } from 'weex-ui';
 
 export default {
+    components: { WxcLoading },
+
     data () {
       return {
           page : 1,
@@ -166,6 +173,7 @@ export default {
           loadingText:'加载更多',
           itemsList:[],
           wipx:{top: 276},
+          isShow:true,
       }
 
     },
@@ -175,11 +183,13 @@ export default {
         var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
         self.wipx = {top : (188+fringeHeight)+'px'};
         self.page = 1;
+        self.isShow=true;
         apis.requireNewsList({
 	        "category" : "default",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
 	        "page" : self.page, 
 	        "size" : self.size
         },function(res){
+            self.isShow=false;
             if(res.respond.ok){
                 //modal.toast({message:(res.list[0].title),duration:1});
                 self.itemsList = res.list;
@@ -191,7 +201,7 @@ export default {
     },
 
     methods: {
-        goAlertFocus:function(category,memberId,source){
+        goAlertFocus:function(category,memberId){
             //modal.toast({message:(category+memberId),duration:1});
             // this.$router.push({
             //     path : '/alertfocus',
@@ -279,7 +289,7 @@ export default {
                     modal.toast({message:'网络请求失败',duration:1});
                 }
 
-                if (self.page >=res.lastPage) {
+                if (self.page > res.lastPage) {
                     modal.toast({message:'没有更多',duration:1});
 				}
             });

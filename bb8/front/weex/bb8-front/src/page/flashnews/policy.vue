@@ -28,6 +28,10 @@
                     <image class="content_image" :src="gethref(item.banner?item.banner:item.member.logo)" resize="cover"></image>
                 </div>
            </cell>
+           <wxc-loading
+                :show="isShow"
+                loading-text="加载中...">
+           </wxc-loading>
            <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
@@ -149,8 +153,11 @@ const animation = weex.requireModule('animation');
 const modal = weex.requireModule('modal');
 var apis = require('../../common/action.js');
 var deviceHeight = weex.config.env.deviceHeight;
+import { WxcLoading } from 'weex-ui';
 
 export default {
+    components: { WxcLoading },
+
     data () {
       return {
           page : 1,
@@ -161,6 +168,7 @@ export default {
           loadingText:'加载更多',
           itemsList:[],
           wipx:{top: 276},
+          isShow:true,
       }
     },
 
@@ -168,13 +176,14 @@ export default {
         var self = this;
         var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
         self.wipx = {top : (188+fringeHeight)+'px'};
-        
+        self.isShow=true;
         self.page = 1;
         apis.requireNewsList({
 	        "category" : "research_report",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
 	        "page" : self.page, 
 	        "size" : self.size
         },function(res){
+            self.isShow=false;
             if(res.respond.ok){
                 //modal.toast({message:(res.list[0].title),duration:1});
                 self.itemsList = res.list;
@@ -253,7 +262,7 @@ export default {
                     modal.toast({message:'网络请求失败',duration:1});
                 }
 
-                if (self.page >=res.lastPage) {
+                if (self.page > res.lastPage) {
                     modal.toast({message:'没有更多',duration:1});
 				}
             });

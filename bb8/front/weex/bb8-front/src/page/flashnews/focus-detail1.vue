@@ -22,6 +22,10 @@
                     </div>
                 </div>
            </cell>
+           <wxc-loading
+                :show="isShow"
+                loading-text="加载中...">
+           </wxc-loading>
            <loading @loading="loadingData" :display="loadingDisplay">
                 <div class="loadingOut">
                     <loading-indicator class="load_indicator"></loading-indicator>
@@ -163,8 +167,11 @@
 var modal = weex.requireModule('modal');
 var apis = require('../../common/action.js');
 var deviceHeight = weex.config.env.deviceHeight;
+import { WxcLoading } from 'weex-ui';
 
 export default{
+    components: { WxcLoading },
+
     data () {
       return {
           page: 1,
@@ -185,6 +192,7 @@ export default{
           translateClick:0,
           translateList:[],
           wipx:{},
+          isShow:true,
       }
     },
 
@@ -195,13 +203,15 @@ export default{
         //modal.toast({message:"传值"+self.memberId,duration:1});
         var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
         self.wipx = {top : (521+fringeHeight)+'px'};
-        
+        self.isShow=true;
+        self.page = 1;
         apis.requireAlertFocusList({
 	        "memberId" : self.memberId,
             "page" : self.page,
             "size" : self.size,
             "category" : self.category
         },function(res){
+            self.isShow=false;
             if(res.respond.ok){
                 self.itemsList = res.list;
                 //modal.toast({message:(self.itemsList[0].title),duration:1});

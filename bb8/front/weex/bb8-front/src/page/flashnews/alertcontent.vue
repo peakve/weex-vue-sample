@@ -120,6 +120,8 @@ export default{
             self.title = "新币时讯";
         }else if(self.category=='research_report'){
             self.title = "监管政策";
+        }else if(self.category=='candy'){
+            self.title = "糖果";
         }
 
         apis.requireArticalContent({
