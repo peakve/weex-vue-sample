@@ -7,7 +7,7 @@
            
            <cell v-for="(item,index) in itemsList"
                       append="tree"
-                      :key="item.id" 
+                      :key="item.id"
                       :index="index">
                 <div class="information_content">
                     <div class="title_sourece_time">

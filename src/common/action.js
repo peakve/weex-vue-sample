@@ -249,6 +249,16 @@ exports.requireSearchNews = function(data, callback) {
     postData(apiURL.baseurl + 'api/news/q', data, callback);
 };
 
+//关注
+exports.requireFollow = function(data, callback) {
+    postData(apiURL.baseurl + 'api/subscribe/subscribeMember', data, callback);
+};
+
+//关注列表
+exports.requireFollowList = function(data, callback) {
+    postData(apiURL.baseurl + 'api/subscribe/subscribeMemberList', data, callback);
+};
+
 //登录
 exports.requireLogin = function(data, callback) {
     postData(apiURL.baseurl + 'api/user/login', data, callback);
