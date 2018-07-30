@@ -12,7 +12,7 @@
                         <div class="source_time_match">
                             <div class="time_ago">
                                 <!--<image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>-->
-                                <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
+                                <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime?item.ctime:'')}}</text>
                             </div>
                             <div class="time_ago">
                                 <!--<image class="clock_image" :src="get_img_path('click.png')"></image>-->
@@ -184,13 +184,6 @@ export default{
           category:'',
           memberId:'',
           source:'',
-          translates:[{
-                "key": "zh",
-                "label": ""
-          }],
-          translateShow:false,
-          translateClick:0,
-          translateList:[],
           wipx:{},
           isShow:true,
       }
