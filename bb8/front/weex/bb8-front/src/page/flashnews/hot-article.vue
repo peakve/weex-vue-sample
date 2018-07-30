@@ -7,7 +7,7 @@
            
            <cell v-for="(item,index) in itemsList"
                       append="tree"
-                      :key="item.id" 
+                      :key="item.id"
                       :index="index">
                 <div class="information_content">
                     <div class="title_sourece_time">
@@ -15,7 +15,7 @@
                         <div class="source_time">
                             <div class="time_ago">
                                 <!--<image class="clock_image" :src="get_img_path('Time.png')" resize="cover"></image>src="/assets/images/Time.png"--><!--:src="get_img_path('Time.png')"-->
-                                <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
+                                <text class="text_time_ago">{{timeAgo(item.publishTime?item.publishTime:item.ctime?item.ctime:'')}}</text>
                             </div>
                             <div class="time_ago">
                                 <!--<image class="clock_image" :src="get_img_path('click.png')"></image>src="/assets/images/click.png"--><!--:src="get_img_path('click.png')"-->

@@ -6,7 +6,7 @@
                 <div class="j-ulinea" v-if="navIndex==0"></div>
             </div>
             <div class="tab-ia">
-                <text  @click="chooseChannel(1)" :class="['i-c',navIndex==1?'c-act':'']" ref=t1>快讯</text>
+                <text  @click="chooseChannel(1)" :class="['i-c',navIndex==1?'c-act':'']" ref=t1>资讯</text>
                 <div class="j-ulinea" v-if="navIndex==1"></div>
             </div>
             <div class="tab-i">
