@@ -290,51 +290,11 @@ export default{
                     modal.toast({message:'网络请求失败',duration:1});
                 }
 
-                if (self.page >=res.lastPage) {
+                if (self.page > res.lastPage) {
                     modal.toast({message:'没有更多',duration:1});
 				}
             });
         },
-
-        getTranslation(id,index){
-            var self=this;
-            apis.requireTranslate({"id" : id},function(res){
-                if(!res.respond.ok){
-                    //console.log(res);
-                    return false;
-                }
-
-                if(!res.data.translates){
-                    // return false;
-                    res.data.translates=self.translates;
-                }
-
-                self.itemsList[index].translates=res.data.translates;
-                self.translateShow=true;
-                //console.log("翻译"+res.data.translates[0].label+"index:"+index);
-                //console.log("translates:::"+JSON.stringify(self.list[index].translates));
-
-                self.translateList.push(id);
-                self.translateClick=self.translateClick+1;
-                //modal.toast({message:res.data.translates[0].label,duration:1});
-
-            });
-      },
-      
-      isExistsTranlate(id){
-        var self = this;
-        //console.log(JSON.stringify(self.translateList));
-
-        for(let i=0;i<this.translateList.length;i++){
-          let item =this.translateList[i];
-              if(item==id){
-                //console.log("显示标签"+item);
-                return true;
-              }
-        }
-       
-        return false;
-      },
 
     }
 }
