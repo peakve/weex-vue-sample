@@ -3,83 +3,37 @@
      <scroller show-scrollbar="false">
       <pcenterHeader></pcenterHeader> 
       <div class="personal_out">
-        <div class="personal_header bg_white" v-if="isLogin">
-             <image class="user_logo" resize="cover" :src="get_img_path('icon_user_img.png')"></image>
-              <text class="color1 user_name">{{resData.phone}}</text>
-               <div class="exit_btn_out"  @click="valedateExit()">  
-                    <text class="exit_btn color1">退出登录</text>  
-                </div>  
-        </div>
-        <div class="my_module_out" v-if="isLogin">
-        <div class="line_gary"></div>
-        <div class="my_module_content" >
-            <div class="module_item">
-                <image class="module_image" :src="get_img_path('wx_optional.png')"></image>
-                <text class="exit_btn color1">自选</text>
+             <div class="personal_info">
+                <wxc-cell 
+                    label="邮箱"
+                    :title="resData.email"
+                    :has-top-border="false">
+                </wxc-cell>
+                <wxc-cell 
+                    label="用户名"
+                    :title="resData.account"
+                    @wxcCellClicked="modifyInfo()"
+                    :has-arrow="true"
+                    :has-top-border="false">
+                </wxc-cell>
+                <wxc-cell 
+                    label="注册时间"
+                    :title="resData.registTime"
+                    :has-top-border="false">
+                </wxc-cell>
+                <wxc-cell 
+                    label="最后登录时间"
+                    :title="resData.lastLoginTime"
+                    :has-top-border="false">
+                </wxc-cell>
+                <wxc-cell 
+                    label="密码"
+                    :title="resData.pwd"
+                    @wxcCellClicked="modifyPassword()"
+                    :has-arrow="true"
+                    :has-top-border="false">
+                </wxc-cell>
             </div>
-              <div class="module_item">
-                <image class="module_image" :src="get_img_path('wx_attention.png')"></image>
-                <text class="exit_btn color1">关注</text>
-            </div>
-              <div class="module_item">
-                <image class="module_image" :src="get_img_path('wx_asset.png')"></image>
-                <text class="exit_btn color1">资产</text>
-            </div>
-              <div class="module_item">
-                <image class="module_image" :src="get_img_path('wx_mailbox.png')"></image>
-                <text class="exit_btn color1">信箱</text>
-            </div>
-         </div>
-       </div>
-        <div class="personal_center">
-            <wxc-cell 
-                v-if="!isLogin"
-                :has-arrow="true"
-                @wxcCellClicked="goLogin()"
-                :has-top-border="false"
-                :cell-style="cellStyle">
-                <text  slot="title" style="font-size: 35px">登录</text>
-                <image class="default_image"
-                 slot="label"
-                 :src="get_img_path('user_logo.png')"
-                 ></image>
-            </wxc-cell>
-            <wxc-cell 
-                v-if="isLogin"
-                title="我的信息"
-                :has-arrow="true"
-                :cell-style="cellStyle"
-                 @wxcCellClicked="goUserInfo"
-                :has-top-border="false">
-                <image class="phone_image"
-                slot="label"
-                :src="get_img_path('pinfo.png')"></image>
-            </wxc-cell>
-            <wxc-cell 
-                title="联系我们"
-                :has-arrow="true"
-                :cell-style="cellStyle"
-                @wxcCellClicked="wxcCellClicked"
-                :has-top-border="false">
-                <image class="phone_image"
-                 slot="label"
-                 :src="get_img_path('contact.png')"
-                 ></image>
-            </wxc-cell>
-            <wxc-cell 
-                title="设置"
-                :has-arrow="true"
-                  :cell-style="cellStyle"
-                @wxcCellClicked="goUserInfo"
-                :has-top-border="false">
-                <image class="phone_image"
-                 slot="label"
-                 :src="get_img_path('setup.png')"
-                 ></image>
-            </wxc-cell>
-           
-        </div>
-        
       </div>
     </scroller>
    <wxc-loading :show="isShowLoad"
@@ -111,7 +65,7 @@
         interval: 0,
         type: 'default',
         loadingText: '加载中',
-        isLogin:false,
+        isLogin:true,
         cellStyle: {
             height: "160px"
         }
@@ -121,26 +75,11 @@
     },
     created () {
         var self= this;
-         
-        if ( this.$getConfig().isLogin != undefined){
-            this.isLogin = this.$getConfig().isLogin
-        }
-        // if (apis.getParameterByName('isLogin', this.bundleUrl) != undefined){
-        //      modal.toast({message:"getParameterByName",duration:1});
-        //     this.isLogin = apis.getParameterByName('isLogin', this.bundleUrl);
-        // }
-       if(self.isLogin){
-           self.cellStyle.height= "120px"
-           self.userInfo();
-        }
+        self.userInfo();
         globalEvent.addEventListener("login", function (e) {
             self.isLogin = e.ok;
             if(self.isLogin){
-                 self.cellStyle.height= "120px"
                  self.userInfo();
-            }else{
-                 self.cellStyle.height= "160px"
-                //  self.resData = {account:"---",phone:"---",lastLoginTime:"---",email:"---",registTime:"---",pwd:"---"};
             }
         });
     },
@@ -194,9 +133,6 @@
             console.log(e)
             event.openURL(apis.apiURL.basepath+"index.js?#/contactUs","联系我们","push");
         },
-         goUserInfo (e) {
-            event.openURL(apis.apiURL.basepath+"index.js?#/personalInfo","我的信息","push");
-        },
         goLogin(){
             event.openURL(apis.apiURL.basepath+"index.js");
         },
@@ -230,36 +166,6 @@
 </script>
 
 <style scoped>
-.my_module_out{
-    width: 750px;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-}
-.my_module_content{
-    width: 600px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-.module_item{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center
-}
-.module_image{
-    width: 50px;
-    height: 50px;
-}
-.line_gary{
-    width: 500px;
-    height: 1px;
-    background-color: gray
-}
 .cell_login{
     font-size: 40px
 }
@@ -305,8 +211,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 80px;
-    padding-bottom: 50px;
+   padding-top: 80px;
+   padding-bottom: 80px;
 
 }
 .personal_out{
