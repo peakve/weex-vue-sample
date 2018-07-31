@@ -19,7 +19,7 @@ import flashnews from './page/flashnews/flash-news.vue'
 import login from './page/login/login.vue'
 import register from './page/login/register.vue'
 import pcenter from './page/pcenter/personal.vue'
-
+import personalInfo from './page/pcenter/personalInfo.vue'
 import favorite from './page/flashnews/favorite.vue'
 import hotArticle from './page/flashnews/hot-article.vue'
 import information from './page/flashnews/information.vue'
@@ -140,6 +140,7 @@ export default new Router({
         { path: '/contactUs', component: contactUs },
         { path: '/disclaimer', component: disclaimer },
         { path: '/modifyInfo', component: modifyInfo },
+        { path: '/personalInfo', component: personalInfo },
 
         { path: '/serinformation', component: serInformation },
         { path: '/serexchangeNotice', component: serExchangeNotice },
