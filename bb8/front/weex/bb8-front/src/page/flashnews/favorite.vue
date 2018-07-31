@@ -1,5 +1,15 @@
 <template>
-        <list class="wrapper" :style="isIpx()?'wipx':''">
+    <div class="wrapper" :style="isIpx()?'wipx':''">
+        <div class="wxc-demo" v-if="!isExistList">
+            <wxc-result 
+                :type="type"
+                padding-top="232"
+                :custom-set="customSet"
+                :show="isWxcResultShow"
+                @wxcResultButtonClicked="wxcResultButtonClicked">
+            </wxc-result>
+        </div>
+        <list v-if="isExistList">
            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
                 <loading-indicator class="indicator"></loading-indicator>
                 <text class="text_refresh">{{refreshText}}</text>
@@ -47,6 +57,7 @@
                 </div>
            </loading>
         </list>
+    </div>
 </template>
 
 <style scoped>
@@ -189,18 +200,33 @@
     color: #454545;
     margin-right: 10px;
 }
+.login_botton{
+    position: absolute;
+    top:500px;
+    left: 250px;
+}
+ .wxc-demo{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
 </style>
 
 <script>
 const dom = weex.requireModule('dom');
 const animation = weex.requireModule('animation');
 const modal = weex.requireModule('modal');
+const event = weex.requireModule('event');
+const globalEvent = weex.requireModule('globalEvent');
 var apis = require('../../common/action.js');
 var deviceHeight = weex.config.env.deviceHeight;
 import { WxcLoading } from 'weex-ui';
+import { WxcResult } from 'weex-ui';
 
 export default {
-    components: { WxcLoading },
+    components: { WxcLoading,WxcResult },
 
     data () {
       return {
@@ -221,11 +247,17 @@ export default {
           translateList:[],
           wipx:{top: 276},
           isShow:true,
+          isWxcResultShow:false,
+          type: 'noGoods',
+          customSet:{},
+          isExistList:false,
+          isLogin:false,
       }
     },
 
     created(){
         var self = this;
+        this.customSet={noGoods: { button: '点击登录', desc: null, content: '只有登录了，才能看到关注的内容哦' }};
         var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
         self.wipx = {top : (188+fringeHeight)+'px'};
         self.isShow=true;
@@ -236,20 +268,40 @@ export default {
         },function(res){
             self.isShow=false;
             if(res.respond.msg=='未登录'){
-                modal.toast({message:'请先登录',duration:2});
+                self.isWxcResultShow = true;
+                self.isExistList = false;
                 return;
             }
 
             if(res.respond.ok){
                 //modal.toast({message:(res.list[0].title),duration:1});
+                self.isWxcResultShow = false;
+                self.isExistList = true;
                 self.itemsList = res.list;
             }else{
+                self.isWxcResultShow = false;
+                self.isExistList = true;
                 modal.toast({message:'网络请求失败',duration:1});
             }
         });
+
+        globalEvent.addEventListener("login", function (e) {
+            self.isLogin = e.ok;
+            if(self.isLogin){
+                 self.refreshLoginState();
+            }else{
+                //  self.resData = {account:"---",phone:"---",lastLoginTime:"---",email:"---",registTime:"---",pwd:"---"};
+            }
+        });
+
     },
 
     methods: {
+        wxcResultButtonClicked(e){
+            //modal.toast({message:'点击了登录',duration:1});
+            event.openURL(apis.apiURL.basepath+"index.js");
+        },
+
         goAlertFocus:function(category,memberId,source){
             let params = this.getParamsByJson({
                 Category : category,
@@ -272,17 +324,24 @@ export default {
                 "size" : self.size
             },function(res){
                 if(res.respond.msg=='未登录'){
-                    modal.toast({message:'请先登录',duration:2});
+                    self.isWxcResultShow = true;
+                    self.isExistList = false;
+                    self.refreshDisplay = 'hide';
+                    self.refreshText=' ↓ 下拉刷新 ';
                     return;
                 }
 
                 if(res.respond.ok){
                     //modal.toast({message:(res.list[0].title),duration:1});
+                    self.isWxcResultShow = false;
+                    self.isExistList = true;
                     self.itemsList = res.list;
                     self.refreshDisplay = 'hide';
                     self.refreshText=' ↓ 下拉刷新 ';
                     modal.toast({message:'刷新成功',duration:1});
                 }else{
+                    self.isWxcResultShow = false;
+                    self.isExistList = true;
                     self.refreshDisplay = 'hide';
                     self.refreshText=' ↓ 下拉刷新 ';
                     modal.toast({message:'网络请求失败',duration:1});
@@ -297,21 +356,28 @@ export default {
             self.loadingText = '加载中...';
 
             apis.requireFollowList({
-                "page" : self.page, 
+                "page" : self.page,
                 "size" : self.size
             },function(res){
                 if(res.respond.msg=='未登录'){
-                    modal.toast({message:'请先登录',duration:2});
+                    self.isWxcResultShow = true;
+                    self.isExistList = false;
+                    self.loadingDisplay = 'hide';
+                    self.loadingText='加载更多';
                     return;
                 }
 
                 if(res.respond.ok){
+                    self.isWxcResultShow = false;
+                    self.isExistList = true;
                     //modal.toast({message:(res.list[0].title),duration:1});
                     self.itemsList=self.itemsList.concat(res.list);
                     self.loadingDisplay = 'hide';
                     self.loadingText='加载更多';
                     modal.toast({message:'加载成功',duration:1});
                 }else{
+                    self.isWxcResultShow = false;
+                    self.isExistList = true;
                     self.refreshDisplay = 'hide';
                     self.refreshText='加载更多';
                     modal.toast({message:'网络请求失败',duration:1});
@@ -361,6 +427,33 @@ export default {
         }
        
         return false;
+      },
+
+      refreshLoginState:function(){
+        self.isShow=true;
+        self.page = 1;
+        apis.requireFollowList({
+	        "page" : self.page, 
+	        "size" : self.size
+        },function(res){
+            self.isShow=false;
+            if(res.respond.msg=='未登录'){
+                self.isWxcResultShow = true;
+                self.isExistList = false;
+                return;
+            }
+
+            if(res.respond.ok){
+                //modal.toast({message:(res.list[0].title),duration:1});
+                self.isWxcResultShow = false;
+                self.isExistList = true;
+                self.itemsList = res.list;
+            }else{
+                self.isWxcResultShow = false;
+                self.isExistList = true;
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
       },
 
     }

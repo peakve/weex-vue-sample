@@ -111,8 +111,10 @@ export default{
                 });
 
                 this.jumpUrl("/sernewcoin" ,params);
-            }else{
-                modal.toast({message:'不支持搜索',duration:2});
+            }else if(self.message=='article'){
+                modal.toast({message:'热点不支持搜索',duration:2});
+            }else if(self.message=='favorite'){
+                modal.toast({message:'关注不支持搜索',duration:2});
             }
             
             // let params = this.getParamsByJson({

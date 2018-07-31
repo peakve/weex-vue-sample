@@ -20,6 +20,7 @@ import login from './page/login/login.vue'
 import register from './page/login/register.vue'
 import pcenter from './page/pcenter/personal.vue'
 
+import favorite from './page/flashnews/favorite.vue'
 import hotArticle from './page/flashnews/hot-article.vue'
 import information from './page/flashnews/information.vue'
 import globalMedia from './page/flashnews/global-media.vue'
@@ -101,6 +102,7 @@ export default new Router({
             path: '/flashnews',
             component: flashnews,
             children: [
+                { path: '/favorite', component: favorite },
                 { path: '/hotArticle', component: hotArticle },
                 { path: '/information', component: information },
                 { path: '/globalmedia', name: "globalmedia", component: globalMedia },
@@ -110,7 +112,7 @@ export default new Router({
                 { path: '/newcoin', name: "newcoin", component: newcoin },
                 { path: '/voice', name: "voice", component: voice },
             ],
-            redirect: '/hotArticle'
+            redirect: '/information'
         },
         {
             path: '/alertfocus',
