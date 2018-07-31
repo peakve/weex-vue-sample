@@ -170,7 +170,7 @@
                 }else if(idx == 6){
                     this.$emit("listenToChildEvent","newcoin");
                     this.$router.push('/newcoin');
-                }else if(idx == 6){
+                }else if(idx == 7){
                     this.$emit("listenToChildEvent","research_report");
                     this.$router.push('/policy');
                 }
