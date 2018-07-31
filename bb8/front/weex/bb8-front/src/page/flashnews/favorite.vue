@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper" :style="isIpx()?'wipx':''">
         <div class="wxc-demo" v-if="!isExistList">
-            <wxc-result 
+            <wxc-result
                 :type="type"
                 padding-top="232"
                 :custom-set="customSet"
