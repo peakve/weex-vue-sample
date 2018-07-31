@@ -37,12 +37,13 @@
 .follow_text{
     font-size: 14wx;
     border-width: 1px;
-    border-color: #787878;
+    border-color: white;
     padding-top:5px;
     padding-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 5px;
+    color: white;
 }
 .back_img{
     position: absolute;
