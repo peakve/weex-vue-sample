@@ -70,7 +70,7 @@
                 title="设置"
                 :has-arrow="true"
                   :cell-style="cellStyle"
-                @wxcCellClicked="goUserInfo"
+                @wxcCellClicked="goSettingPage"
                 :has-top-border="false">
                 <image class="phone_image"
                  slot="label"
@@ -196,6 +196,9 @@
         },
          goUserInfo (e) {
             event.openURL(apis.apiURL.basepath+"index.js?#/personalInfo","我的信息","push");
+        },
+         goSettingPage (e) {
+            event.openConrtoller("SettingViewController")
         },
         goLogin(){
             event.openURL(apis.apiURL.basepath+"index.js");
