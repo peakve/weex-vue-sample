@@ -30,9 +30,9 @@
      
         <!--<wxc-button text="登录" class="btn_login" :text-style="textStyle"></wxc-button>-->
         <div :class="[isIPhoneX?'login_footer':'login_footer_default']">
-            <div class="footer_out">
+            <div class="footer_out" @click="openProtocol()">
                 <text class="color2 small_text">登录及同意</text>
-                <text class="color1 small_text">《51BB8财经用户协议》</text>
+                <text class="color1 small_text">《51BB8财经免责声明》</text>
             </div>
          </div>
       </div>
@@ -103,6 +103,9 @@
         /*找回密码*/  
         findPassword:function () {  
             this.$router.push({path:"/modifySendCode",query:{"title":"忘记密码"}})
+        },  
+        openProtocol:function () {  
+             this.$router.push({path:"/loginDisclaimer",query:{"title":"免责申明"}})
         },  
         /*注册*/  
         register:function () {  
