@@ -4,7 +4,7 @@
         <div class="null_div"></div>
         <text class="flash_text">糖果</text>
         <div class="div_search_image" @click="searchImageClick">
-            <image class="search_img" :src="get_img_path('search.png')"></image><!--src="/assets/images/search.png"--><!--:src="get_img_path('search.png')"-->
+            <!--<image class="search_img" :src="get_img_path('search.png')"></image>src="/assets/images/search.png":src="get_img_path('search.png')"-->
         </div>
       </div>
   </div>
