@@ -82,7 +82,7 @@ export default{
                     Message : self.message
                 });
 
-                this.jumpUrl("/serinformation" ,params);
+                this.jumpUrl("/candy" ,params);
             }else if(self.message=='ex_notice'){
                 //modal.toast({message:'搜索按钮被点击了',duration:2});
                 let params = this.getParamsByJson({
