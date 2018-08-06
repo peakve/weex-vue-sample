@@ -1,42 +1,42 @@
 <template>
-  <list class="wrapper" :style="isIpx()?'wipx':''">
-        <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay">
-            <loading-indicator class="indicator"></loading-indicator>
-            <text class="text_refresh">{{refreshText}}</text>
-        </refresh>
+  <div class="wrapper" :style="isIpx()?'wipx':''">
+        <list>
+            <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay" v-if="isShowLoading">
+                <loading-indicator class="indicator"></loading-indicator>
+                <text class="text_refresh">{{refreshText}}</text>
+            </refresh>
 
-        <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
-            <div class="candy_layout" @click="goAlertContent(item.id,item.category)">
-                <image class="candy_img" :src="gethref(item.banner?item.banner:item.member?item.member.logo:'')" resize="cover"></image>
-                <text class="candy_title">{{item.title}}</text>
-                <div class="candy_time_read">
-                    <div class="candy_time_read_layout">
-                        <text class="candy_time">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
-                        <text class="candy_read">{{item.hits}}阅读</text>
+            <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
+                <div class="candy_layout" @click="goAlertContent(item.id,item.category)">
+                    <image class="candy_img" :src="gethref(item.banner?item.banner:item.member?item.member.logo:'')" resize="cover"></image>
+                    <text class="candy_title">{{item.title}}</text>
+                    <div class="candy_time_read">
+                        <div class="candy_time_read_layout">
+                            <text class="candy_time">{{timeAgo(item.publishTime?item.publishTime:item.ctime)}}</text>
+                            <text class="candy_read">{{item.hits}}阅读</text>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </cell>
+            </cell>
 
+            <loading @loading="loadingData" :display="loadingDisplay" v-if="isShowLoading">
+                <div class="loadingOut">
+                    <loading-indicator class="load_indicator"></loading-indicator>
+                    <text class="text_laoding">{{loadingText}}</text>
+                </div>
+            </loading>
+        </list>
         <wxc-loading
             :show="isShow"
             loading-text="加载中...">
         </wxc-loading>
-
-        <loading @loading="loadingData" :display="loadingDisplay">
-            <div class="loadingOut">
-                <loading-indicator class="load_indicator"></loading-indicator>
-                <text class="text_laoding">{{loadingText}}</text>
-            </div>
-        </loading>
-
-    </list>
+  </div>
 </template>
 
 <style>
 .wrapper{
     position: fixed;
-    top:0px;
+    top:114px;
     left: 0;right: 0;
     bottom: 0;
 }
@@ -142,6 +142,7 @@ export default{
             itemsList:[],
             wipx:{top: 276},
             isShow:true,
+            isShowLoading:false,
         }
     },
 
@@ -160,6 +161,7 @@ export default{
                 //modal.toast({message:(res.list[0].title),duration:1});
                 self.isShow=false;
                 self.itemsList = res.list;
+                self.isShowLoading = true;
             }else{
                 self.isShow=false;
                 modal.toast({message:'网络请求失败',duration:1});
