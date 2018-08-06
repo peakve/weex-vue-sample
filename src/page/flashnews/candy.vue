@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <candy-header></candy-header>
+    <!--<candy-header></candy-header>-->
     <candy-content></candy-content>
   </div>
 </template>
