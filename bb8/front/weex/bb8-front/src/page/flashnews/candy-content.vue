@@ -4,9 +4,9 @@
             <loading-indicator class="indicator"></loading-indicator>
             <text class="text_refresh">{{refreshText}}</text>
         </refresh>
-           
+
         <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
-            <div class="cnady_layout" @click="goAlertContent(item.id,item.category)">
+            <div class="candy_layout" @click="goAlertContent(item.id,item.category)">
                 <image class="candy_img" :src="gethref(item.banner?item.banner:item.member?item.member.logo:'')" resize="cover"></image>
                 <text class="candy_title">{{item.title}}</text>
                 <div class="candy_time_read">
@@ -36,7 +36,7 @@
 <style>
 .wrapper{
     position: fixed;
-    top:114px;
+    top:0px;
     left: 0;right: 0;
     bottom: 0;
 }
@@ -71,7 +71,7 @@
     color: #454545;
     margin-right: 10px;
 }
-.cnady_layout{
+.candy_layout{
     width: 750px;
     height: 330px;
     padding-top: 20px;
