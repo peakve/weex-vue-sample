@@ -44,10 +44,6 @@
     height: 35px;
     margin-right: 30px;
 }
-.w-ipx{
-    height: 154px;
-    padding-top: 84px;
-}
 .container{
     justify-content: space-between;
     flex-direction: row;
