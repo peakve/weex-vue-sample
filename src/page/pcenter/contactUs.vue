@@ -17,7 +17,7 @@
                 </div>
             </wxc-cell>
              <wxc-cell 
-                desc="3046951607"
+                desc="1143758324"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
                 <div class="label_out"  slot="label">
@@ -28,7 +28,7 @@
                 </div>
             </wxc-cell>
             <wxc-cell 
-                desc="3046951607"
+                desc="2818392801"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
                  <div class="label_out"  slot="label">
@@ -39,7 +39,7 @@
                 </div>
             </wxc-cell>
                  <wxc-cell 
-                desc="3046951607"
+                desc="2026927046"
                 @wxcCellClicked="wxcCellClicked"
                 :has-top-border="false">
                 <div class="label_out"  slot="label">
@@ -83,7 +83,7 @@
                     ></image>
                 </wxc-cell>
                 <wxc-cell 
-                    title="免责申明"
+                    title="免责声明"
                     :has-arrow="true"
                     @wxcCellClicked="goDisclaimer()"
                     :has-top-border="false">
@@ -127,7 +127,7 @@
            
         },
         goDisclaimer(){
-            event.openURL(apis.apiURL.basepath+"index.js?#/disclaimer","免责申明","push");
+            event.openURL(apis.apiURL.basepath+"index.js?#/disclaimer","免责声明","push");
         },
         goAboutUs () {
             event.openURL(apis.apiURL.basepath+"index.js?#/aboutUs","关于我们","push");
