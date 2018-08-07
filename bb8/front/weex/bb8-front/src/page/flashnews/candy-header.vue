@@ -57,6 +57,7 @@
 <script>
 const modal = weex.requireModule('modal');
 var deviceHeight = weex.config.env.deviceHeight;
+var navigator = weex.requireModule('navigator');
 
 export default {
     data(){
