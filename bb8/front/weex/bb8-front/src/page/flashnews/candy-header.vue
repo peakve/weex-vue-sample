@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper" :style=" isIpx()?'wipx':'' ">
       <div class="container">
-        <div class="null_div"></div>
+        <div class="back_click" @click="backImageClick">
+            <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
+        </div>
         <text class="flash_text">糖果</text>
         <div class="div_search_image" @click="searchImageClick">
             <!--<image class="search_img" :src="get_img_path('search.png')"></image>src="/assets/images/search.png":src="get_img_path('search.png')"-->
@@ -26,10 +28,14 @@
     width: 750px;
     height: 114px;
 }
-.null_div{
-    width:80px;
+.back_img{
+    width:35px;
+    height: 35px;
+    margin-left:30px;
+}
+.back_click{
+    width: 80px;
     height: 114px;
-    margin-left: 30px;
 }
 .flash_text{
     font-size: 18wx;
@@ -67,7 +73,12 @@ export default {
     },
 
     methods: {
-
+        backImageClick:function (params) {
+            //modal.toast({message:"返回",duration:1});
+            navigator.pop({
+                animated: "true"
+            }); 
+        },
     }
 }
 </script>
