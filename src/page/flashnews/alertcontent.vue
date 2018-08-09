@@ -148,7 +148,7 @@ export default{
 
         shareImageClick:function(){
             var self = this;
-            var banner = self.data.banner ? self.data.banner : self.data.member.logo;
+            var banner = self.data.banner ? self.data.banner : self.data.member ? self.data.member.logo:'';
             event.share(self.url+self.articalId,self.data.title,banner);
         },
 
