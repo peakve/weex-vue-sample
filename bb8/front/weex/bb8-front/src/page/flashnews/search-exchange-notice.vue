@@ -7,7 +7,7 @@
             <input
                 :value="searchHolder"
                 class="input"
-                @input="onChange" 
+                @input="onChange"
                 placeholder="请输入关键字">
             </input>
             <div class="div_search_image" @click="searchImageClick">
