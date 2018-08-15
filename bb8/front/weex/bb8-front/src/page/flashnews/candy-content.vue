@@ -9,6 +9,9 @@
             <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
                 <div class="candy_layout" @click="goAlertContent(item.id,item.category)">
                     <image class="candy_img" :src="gethref(item.banner?item.banner:item.member?item.member.logo:'')" resize="cover"></image>
+                    <image class="category_img" src="/assets/images/candy.png" v-if="item.category=='candy'"></image><!--src="/assets/images/candy.png"--><!--:src="get_img_path('candy.png')"-->
+                    <image class="category_img" src="/assets/images/Airdrop.png" v-if="item.category=='airdrop'"></image><!--src="/assets/images/Airdrop.png"--><!--:src="get_img_path('Airdrop.png')"-->
+                    <image class="category_img" src="/assets/images/Registration_invitation.png" v-if="item.category=='invitation'"></image><!--src="/assets/images/Registration_invitation.png"--><!--:src="get_img_path('Registration_invitation.png')"-->
                     <text class="candy_title">{{item.title}}</text>
                     <div class="candy_time_read">
                         <div class="candy_time_read_layout">
@@ -88,6 +91,13 @@
     width:710px;
     height: 240px;
 }
+.category_img{
+    position: absolute;
+    top:40px;
+    left: 20px;
+    width: 123px;
+    height: 40px;
+}
 .candy_title{
     position: absolute;
     width:710px;
@@ -152,10 +162,12 @@ export default{
         var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
         self.wipx = {top : (114+fringeHeight)+'px'};
         self.page = 1;
-        apis.requireNewsList({
-	        "category" : "candy",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
-	        "page" : self.page, 
-	        "size" : self.size
+        apis.requireActivityList({
+            "page" : self.page, 
+	        "size" : self.size,
+	        "category" : "", // airdrop:空投，candy：糖果 invitation:注册邀请,不写表示三种都有
+	        "sort" : "publishTime" ,// 排序字段
+	        "order" : -1 ,// -1：倒序，1：正序
         },function(res){
             if(res.respond.ok){
                 //modal.toast({message:(res.list[0].title),duration:1});
@@ -186,10 +198,12 @@ export default{
             self.refreshText='正在刷新';
             self.page = 1;
 
-            apis.requireNewsList({
-                "category" : "candy",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
+            apis.requireActivityList({
                 "page" : self.page, 
-                "size" : self.size
+	            "size" : self.size,
+	            "category" : "", // airdrop:空投，candy：糖果 invitation:注册邀请,不写表示三种都有
+	            "sort" : "publishTime" ,// 排序字段
+	            "order" : -1 ,// -1：倒序，1：正序
             },function(res){
                 if(res.respond.ok){
                     //modal.toast({message:(res.list[0].title),duration:1});
@@ -211,10 +225,12 @@ export default{
             self.loadingDisplay = 'show';
             self.loadingText = '加载中...';
 
-            apis.requireNewsList({
-                "category" : "candy",//这个是在字典接口里查询得到了的结果，因为是固定的所以直接写了
+            apis.requireActivityList({
                 "page" : self.page, 
-                "size" : self.size
+	            "size" : self.size,
+	            "category" : "", // airdrop:空投，candy：糖果 invitation:注册邀请,不写表示三种都有
+	            "sort" : "publishTime" ,// 排序字段
+	            "order" : -1 ,// -1：倒序，1：正序
             },function(res){
                 if(res.respond.ok){
                     //modal.toast({message:(res.list[0].title),duration:1});

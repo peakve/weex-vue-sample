@@ -300,3 +300,8 @@ exports.requireTranslate = function(data, callback) {
 exports.requireModifyInfo = function(data, callback) {
     postData(apiURL.baseurl + 'api/user/modifyInfo', data, callback);
 };
+
+//糖果 空投 注册邀请
+exports.requireActivityList = function(data, callback) {
+    postData(apiURL.baseurl + 'api/activity/list', data, callback);
+};
