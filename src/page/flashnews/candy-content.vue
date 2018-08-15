@@ -9,9 +9,9 @@
             <cell v-for="(item,index) in itemsList" append="tree" :key="item.id" :index="index">
                 <div class="candy_layout" @click="goAlertContent(item.id,item.category)">
                     <image class="candy_img" :src="gethref(item.banner?item.banner:item.member?item.member.logo:'')" resize="cover"></image>
-                    <image class="category_img" src="/assets/images/candy.png" v-if="item.category=='candy'"></image><!--src="/assets/images/candy.png"--><!--:src="get_img_path('candy.png')"-->
-                    <image class="category_img" src="/assets/images/Airdrop.png" v-if="item.category=='airdrop'"></image><!--src="/assets/images/Airdrop.png"--><!--:src="get_img_path('Airdrop.png')"-->
-                    <image class="category_img" src="/assets/images/Registration_invitation.png" v-if="item.category=='invitation'"></image><!--src="/assets/images/Registration_invitation.png"--><!--:src="get_img_path('Registration_invitation.png')"-->
+                    <image class="category_img" :src="get_img_path('candy.png')" v-if="item.category=='candy'"></image><!--src="/assets/images/candy.png"--><!--:src="get_img_path('candy.png')"-->
+                    <image class="category_img" :src="get_img_path('Airdrop.png')" v-if="item.category=='airdrop'"></image><!--src="/assets/images/Airdrop.png"--><!--:src="get_img_path('Airdrop.png')"-->
+                    <image class="category_img" :src="get_img_path('Registration_invitation.png')" v-if="item.category=='invitation'"></image><!--src="/assets/images/Registration_invitation.png"--><!--:src="get_img_path('Registration_invitation.png')"-->
                     <text class="candy_title">{{item.title}}</text>
                     <div class="candy_time_read">
                         <div class="candy_time_read_layout">
