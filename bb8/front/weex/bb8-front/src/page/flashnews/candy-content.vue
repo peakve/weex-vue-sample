@@ -188,7 +188,7 @@ export default{
                 Category : category
             });
 
-            this.jumpUrl("/alertcontent" ,params);
+            this.jumpUrl("/candyDetail" ,params);
         },
 
         refreshData:function(event){
