@@ -122,6 +122,10 @@ export default{
             self.title = "监管政策";
         }else if(self.category=='candy'){
             self.title = "糖果";
+        }else if(self.category=='airdrop'){
+            self.title = "空投";
+        }else if(self.category=='invitation'){
+            self.title = "注册邀请";
         }
 
         apis.requireArticalContent({

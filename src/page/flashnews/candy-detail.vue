@@ -4,7 +4,7 @@
             <div class="back_click" @click="backImageClick">
                 <image class="back_img" src="/assets/images/Return.png"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
             </div>
-            <text class="flash_text">糖果</text>
+            <text class="flash_text">{{title}}</text>
             <div class="div_share_image" @click="shareImageClick">
                 <image class="share_img" src="/assets/images/share.png"></image><!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
             </div>
@@ -80,7 +80,7 @@ export default{
             category:'',
             title:'',
             data:{},
-            url: apis.apiURL.baseurl+'page/news/view?id=',
+            url: apis.apiURL.baseurl+'page/activity/view?id=',
             getHeight: 1248,
             webview_style:{width:'750px',height:'1248px'},
             isShow:true,
@@ -102,21 +102,27 @@ export default{
         var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
         self.wipx = {top : fringeHeight+'px'};
         //modal.toast({message:self.webview_style,duration:2});
-        // if(self.category=='default'){
-        //     self.title = "快讯";
-        // }else if(self.category=='default_en'){
-        //     self.title = "全球媒体";
-        // }else if(self.category=='ex_notice'){
-        //     self.title = "交易所公告";
-        // }else if(self.category=='ex_twitter'){
-        //     self.title = "交易所推特";
-        // }else if(self.category=='bv'){
-        //     self.title = "大V声音";
-        // }else if(self.category=='newcoin'){
-        //     self.title = "新币时讯";
-        // }else if(self.category=='research_report'){
-        //     self.title = "监管政策";
-        // }
+        if(self.category=='default'){
+            self.title = "快讯";
+        }else if(self.category=='default_en'){
+            self.title = "全球媒体";
+        }else if(self.category=='ex_notice'){
+            self.title = "交易所公告";
+        }else if(self.category=='ex_twitter'){
+            self.title = "交易所推特";
+        }else if(self.category=='bv'){
+            self.title = "大V声音";
+        }else if(self.category=='newcoin'){
+            self.title = "新币时讯";
+        }else if(self.category=='research_report'){
+            self.title = "监管政策";
+        }else if(self.category=='candy'){
+            self.title = "糖果";
+        }else if(self.category=='airdrop'){
+            self.title = "空投";
+        }else if(self.category=='invitation'){
+            self.title = "注册邀请";
+        }
 
         // apis.requireArticalContent({
         //     "id":self.articalId
