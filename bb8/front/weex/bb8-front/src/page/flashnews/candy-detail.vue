@@ -2,11 +2,11 @@
     <div class="wrapper" :style=" isIpx() ? 'wipx' : '' ">
         <div class="container">
             <div class="back_click" @click="backImageClick">
-                <image class="back_img" src="/assets/images/Return.png"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
+                <image class="back_img" :src="get_img_path('Return.png')"></image> <!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
             </div>
             <text class="flash_text">{{title}}</text>
             <div class="div_share_image" @click="shareImageClick">
-                <image class="share_img" src="/assets/images/share.png"></image><!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
+                <image class="share_img" :src="get_img_path('share.png')"></image> <!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
             </div>
         </div>
         <div class='content'>
