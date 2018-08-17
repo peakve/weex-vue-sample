@@ -124,18 +124,19 @@ export default{
             self.title = "注册邀请";
         }
 
-        // apis.requireArticalContent({
-        //     "id":self.articalId
-        // },function(res){
-        //     if(res.respond.ok){
-        //         if((res.data != null) || (res.data != "")){
-        //             self.data = res.data;
-        //             //modal.toast({message:(res.data.title),duration:1});
-        //         }
-        //     }else{
-        //         modal.toast({message:'网络请求失败',duration:1});
-        //     }
-        // });
+        apis.requireCandyContent({
+            "data":self.articalId
+        },function(res){
+            if(res.respond.ok){
+                if((res.data != null) || (res.data != "")){
+                    self.data = res.data;
+                    //modal.toast({message:(res.data.title),duration:1});
+                }
+            }else{
+                modal.toast({message:'网络请求失败',duration:1});
+            }
+        });
+
     },
 
     methods:{

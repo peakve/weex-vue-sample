@@ -292,6 +292,10 @@ exports.requireModifyPwd = function(data, callback) {
 exports.requireArticalContent = function(data, callback) {
     postData(apiURL.baseurl + 'api/news/viewNews', data, callback);
 };
+//文章内容界面
+exports.requireCandyContent = function(data, callback) {
+    postData(apiURL.baseurl + 'api/activity/view', data, callback);
+};
 //翻译
 exports.requireTranslate = function(data, callback) {
     postData(apiURL.baseurl + 'api/news/translate', data, callback);
