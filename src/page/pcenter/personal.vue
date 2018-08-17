@@ -37,8 +37,8 @@
                 :has-arrow="true"
                 @wxcCellClicked="goLogin()"
                 :has-top-border="false"
-                :cell-style="cellStyle">
-                <text  slot="title" style="font-size: 35px">登录</text>
+                :cell-style="loginStyle">
+                <text  slot="title" class="login_text">登录</text>
                 <image class="default_image"
                  slot="label"
                  :src="get_img_path('user_logo.png')"
@@ -55,7 +55,7 @@
                 slot="label"
                 :src="get_img_path('pinfo.png')"></image>
             </wxc-cell>
-            <wxc-cell 
+            <!-- <wxc-cell 
                 title="联系我们"
                 :has-arrow="true"
                 :cell-style="cellStyle"
@@ -65,22 +65,120 @@
                  slot="label"
                  :src="get_img_path('contact.png')"
                  ></image>
+            </wxc-cell> -->
+            
+        <div class="contact_us">
+          <wxc-cell 
+                :has-top-border="false">
+                 <div class="label_out"  slot="label">
+                <image class="phone_image"
+                 :src="get_img_path('qq.png')">
+                 </image>
+                 <text class="label_out_text">交易所/新币对接</text>
+                     <text class="desc_text">3046951607</text>
+                </div>
+             
+            </wxc-cell>
+             <wxc-cell 
+                :has-top-border="false">
+                <div class="label_out"  slot="label">
+                <image class="phone_image"
+                 :src="get_img_path('qq.png')">
+                 </image>
+                  <text class="label_out_text">广告合作</text>
+                    <text class="desc_text">1143758324</text>
+                </div>
             </wxc-cell>
             <wxc-cell 
-                title="设置"
+                :has-top-border="false">
+                 <div class="label_out"  slot="label">
+                <image class="phone_image"
+                 :src="get_img_path('qq.png')">
+                 </image>
+                  <text class="label_out_text">商务合作</text>
+                   <text class="desc_text">2818392801</text>
+                </div>
+            </wxc-cell>
+            <wxc-cell 
+                :has-top-border="false">
+                <div class="label_out"  slot="label">
+                    <image class="phone_image"
+                    :src="get_img_path('qq.png')">
+                    </image>
+                   <text class="label_out_text">51BB8客服</text>
+                       <text class="desc_text">2026927046</text>
+                </div>
+            </wxc-cell>
+                 <wxc-cell 
+                :has-top-border="false">
+                <div class="label_out"  slot="label">
+                    <image class="phone_image"
+                    :src="get_img_path('mailbox.png')">
+                    </image>
+                    <text class="label_out_text">联系邮箱</text>
+                     <text class="desc_text">service@51bb8.com</text>
+                </div>
+            </wxc-cell>
+             <wxc-cell 
+                :has-top-border="false">
+                <div class="label_out"  slot="label">
+                    <image class="phone_image"
+                      :src="get_img_path('network.png')">
+                    </image>
+                    <text class="label_out_text">官方网址</text>
+                     <text class="desc_text">http://www.51bb8.com</text>
+                </div>
+            </wxc-cell>
+            <div class="personal_info">
+               <wxc-cell 
+  
+                    :has-arrow="true"
+                    :cell-style="cellStyle"
+                    @wxcCellClicked="goAboutUs()"
+                    :has-top-border="false">
+                       <div class="label_out_more"  slot="label">
+                    <image class="phone_image"
+                      :src="get_img_path('about_us.png')">
+                    </image>
+                    <text class="label_out_text">关于我们</text>
+                </div>
+ 
+                </wxc-cell>
+                <wxc-cell 
+
+                    :has-arrow="true"
+                       :cell-style="cellStyle"
+                    @wxcCellClicked="goDisclaimer()"
+                    :has-top-border="false">
+
+                 <div class="label_out_more"  slot="label">
+                    <image class="phone_image"
+                      :src="get_img_path('declare.png')">
+                    </image>
+                    <text class="label_out_text">免责声明</text>
+                </div>
+ 
+                </wxc-cell>
+                <wxc-cell 
                 :has-arrow="true"
-                  :cell-style="cellStyle"
+                :cell-style="cellStyle"
                 @wxcCellClicked="goSettingPage"
                 :has-top-border="false">
-                <image class="phone_image"
-                 slot="label"
-                 :src="get_img_path('setup.png')"
-                 ></image>
+                 <div class="label_out_more"  slot="label">
+                    <image class="phone_image"
+                      :src="get_img_path('setup.png')">
+                    </image>
+                    <text class="label_out_text">设置</text>
+                </div>
             </wxc-cell>
+            </div>
+        </div>
+            
            
         </div>
         
       </div>
+      <div class="footer_null"></div>
     </scroller>
    <wxc-loading :show="isShowLoad"
                  :type="type"
@@ -113,6 +211,9 @@
         loadingText: '加载中',
         isLogin:false,
         cellStyle: {
+            height: "110px"
+        },
+        loginStyle: {
             height: "160px"
         }
     }),
@@ -130,16 +231,13 @@
         //     this.isLogin = apis.getParameterByName('isLogin', this.bundleUrl);
         // }
        if(self.isLogin){
-           self.cellStyle.height= "120px"
            self.userInfo();
         }
         globalEvent.addEventListener("login", function (e) {
             self.isLogin = e.ok;
             if(self.isLogin){
-                 self.cellStyle.height= "120px"
                  self.userInfo();
             }else{
-                 self.cellStyle.height= "160px"
                 //  self.resData = {account:"---",phone:"---",lastLoginTime:"---",email:"---",registTime:"---",pwd:"---"};
             }
         });
@@ -190,6 +288,12 @@
                  modal.toast({message:"未登录",duration:0.5});
             }
         },
+       goDisclaimer(){
+            event.openURL(apis.apiURL.basepath+"index.js?#/disclaimer","免责声明","push");
+        },
+        goAboutUs () {
+            event.openURL(apis.apiURL.basepath+"index.js?#/aboutUs","关于我们","push");
+        },
         wxcCellClicked (e) {
             console.log(e)
             event.openURL(apis.apiURL.basepath+"index.js?#/contactUs","联系我们","push");
@@ -198,7 +302,7 @@
             event.openURL(apis.apiURL.basepath+"index.js?#/personalInfo","我的信息","push");
         },
          goSettingPage (e) {
-            event.openConrtoller("SettingViewController")
+            event.openController("SettingViewController")
         },
         goLogin(){
             event.openURL(apis.apiURL.basepath+"index.js");
@@ -233,6 +337,27 @@
 </script>
 
 <style scoped>
+.login_text{
+    font-size: 35px
+}
+.footer_null{
+    height: 60px;
+}
+.label_out{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 750px;
+}
+.label_out_more{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.label_out_text{
+    width: 220px;
+    font-size: 27px
+}
 .my_module_out{
     width: 750px;
     background-color: white;
@@ -272,8 +397,8 @@
     margin-bottom: 200px
 }
 .phone_image{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-right: 20px;
 }
 .default_image{
@@ -285,6 +410,12 @@
     width: 750px;
     border-top-color:#E2E2E2;
     border-top-width: 1px;
+}
+.contact_us{
+    width: 750px;
+    border-top-color:#E2E2E2;
+    border-top-width: 1px;
+    margin-top: 20px
 }
 .exit_btn_out{
     padding-top: 10px;
@@ -321,5 +452,12 @@
     width:120px;
     height: 120px;
 }
+.desc_text{
+   flex: 1;
+   color: gray;
+   font-size: 24px;
+   text-align: right;
+   padding-right: 50px
 
+}
 </style>
