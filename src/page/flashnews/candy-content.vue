@@ -101,11 +101,11 @@
 .candy_title{
     position: absolute;
     width:690px;
-    height: 45px;
-    top:215px;
+    height: 55px;
+    top:205px;
     left: 30px;
     background-color: rgba(0,0,0,0.6);
-    padding-top: 5px;
+    padding-top: 10px;
     padding-left: 10px;
     color: white;
     font-size: 12wx;
