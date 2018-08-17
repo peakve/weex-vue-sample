@@ -149,7 +149,7 @@ export default{
         shareImageClick:function(){
             var self = this;
             var banner = self.data.banner ? self.data.banner : self.data.member ? self.data.member.logo:'';
-            event.shareNativeActivity(self.url+self.articalId,self.data.title,banner);
+            event.share(self.url+self.articalId,self.data.title,banner);
         },
 
         onPageStart:function(){
