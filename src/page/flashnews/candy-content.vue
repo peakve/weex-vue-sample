@@ -79,43 +79,43 @@
     height: 330px;
     padding-top: 20px;
     padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding-right: 30px;
+    padding-bottom: 30px;
     border-bottom-width: 1px; 
     border-bottom-color: #e8eaef;
 }
 .candy_img{
     position: absolute;
     top:20px;
-    left: 20px;
-    width:710px;
+    left: 30px;
+    width:690px;
     height: 240px;
 }
 .category_img{
     position: absolute;
     top:40px;
-    left: 20px;
+    left: 30px;
     width: 123px;
     height: 40px;
 }
 .candy_title{
     position: absolute;
-    width:710px;
-    height: 40px;
-    top:220px;
-    left: 20px;
-    background-color: rgba(144,144,144,0.5);
+    width:690px;
+    height: 45px;
+    top:215px;
+    left: 30px;
+    background-color: rgba(0,0,0,0.6);
     padding-top: 5px;
-    padding-left: 5px;
+    padding-left: 10px;
     color: white;
     font-size: 12wx;
 }
 .candy_time_read{
     position: absolute;
-    width: 710px;
+    width: 690px;
     height: 30px;
     top: 280px;
-    left: 20px;
+    left: 30px;
 }
 .candy_time_read_layout{
     align-items: center;
