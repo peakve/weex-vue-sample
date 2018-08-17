@@ -4,7 +4,7 @@
       <loginHeader  :data="data" v-show="isshow"></loginHeader> 
       <div class="login_out bg_white">
     
-        <image :class="[isIPhoneX?'bb8_logo':'default_bb8_logo']" resize="cover" :src="get_img_path('bb8_logo.png')"></image>
+        <image :class="[isIPhoneX?'bb8_logo':'default_bb8_logo']" resize="cover" :src="get_img_path('login_biwei.png')"></image>
           <div class="input_wrapper">  
                 <input onchange="onchangeUserNumber" class="input bg_gray" type="text" placeholder="请输入用户名/手机号/邮箱" value="" v-model="userNumber"/>  
                 <image class="input_img" :src="get_img_path('mobile.png')"></image>  
@@ -22,14 +22,20 @@
                   </div>
                </div>
             </div>  
+
+
             <div class="input_wrapper">  
                 <div class="input_login bg" @click="login()">  
                     <text class="input_login_text color1">登录</text>  
                 </div>  
             </div>  
-     
+    
+       
         <!--<wxc-button text="登录" class="btn_login" :text-style="textStyle"></wxc-button>-->
         <div :class="[isIPhoneX?'login_footer':'login_footer_default']">
+             <div class="login_bb8_out">
+             <image class="login_bb8" resize="cover" :src="get_img_path('login_bb8.png')"></image>
+             </div>
             <div class="footer_out" @click="openProtocol()">
                 <text class="color2 small_text">登录及同意</text>
                 <text class="color1 small_text">《51BB8财经免责声明》</text>
@@ -201,16 +207,20 @@
     margin-top: 50px;
 }
 .bb8_logo{
-    width:450px;
-    height: 102px;
+    width:120px;
+    height: 58px;
     margin-top:120px;
     margin-bottom: 160px;
 }
 .default_bb8_logo{
-    width:450px;
-    height: 102px;
+    width:120px;
+    height: 58px;
     margin-top:100px;
     margin-bottom: 130px;
+}
+.login_bb8{
+   width: 240px;
+   height: 50px;
 }
 .login_title{
     padding-top: 30px
@@ -276,5 +286,10 @@
 .footer_out{
    flex-direction:row;
    justify-content:center;
+}
+.login_bb8_out{
+   flex-direction:row;
+   justify-content:center;
+   margin-bottom: 50px;
 }
 </style>
