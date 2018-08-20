@@ -7,7 +7,7 @@
                 <image class="input_img" :src="get_img_path('icon_head.png')"></image>  
             </div>  
             <div class="input_wrapper">  
-                <input class="input bg_gray" type="nubmer" placeholder="请输入手机号" value="" v-model="mobileNo"/>  
+                <input class="input bg_gray" type="nubmer" placeholder="请输入手机号/邮箱" value="" v-model="mobileNo"/>  
                 <image class="input_img" :src="get_img_path('mobile.png')"></image>  
             </div>
             <div class="input_wrapper">  
@@ -112,12 +112,25 @@
                 return;  
             }
             if(this.mobileNo.length < 1){  
-                modal.toast({ message:'请输入手机号'});
+                modal.toast({ message:'请输入手机号或邮箱'});
                 return;  
             }
             var validationPhone = /^((\+?[0-9]{1,4})|(\(\+86\)))?(13|14|15|17|18)\d{9}$/;
-            if(!(validationPhone.test(this.mobileNo))){ 
-                modal.toast({ message: '手机号格式有误'})
+            var validationMail = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
+            if(!(validationPhone.test(this.mobileNo)) && !(validationMail.test(this.mobileNo))){ 
+                modal.toast({ message: '手机号或邮箱格式有误'})
+                return false; 
+            }
+            var validationName = /^(?!_)(?!.*?_$)^(?!(\d+)$)[\u4e00-\u9fff\w]{3,12}$/;
+            if(!(validationName.test(this.userName))){ 
+
+                modal.alert({
+                    message: "用户名：3-12个字符 ，可使用汉字、字母、数字、下划线，不能为纯数字，且首末字符不能为下划线",
+                    duration:  0.3,
+                    okTitle:"确定"
+                    }, function(e) {                    
+
+                })
                 return false; 
             }
            
@@ -160,21 +173,43 @@
                 modal.toast({ message:'请输入用户名'});
                 return;  
             }if(this.mobileNo.length < 1){  
-                modal.toast({ message:'请输入手机号'});
+                modal.toast({ message:'请输入手机号或邮箱'});
                 return;  
             }
             var validationPhone = /^((\+?[0-9]{1,4})|(\(\+86\)))?(13|14|15|17|18)\d{9}$/;
-            if(!(validationPhone.test(this.mobileNo))){ 
-                modal.toast({ message: '手机号格式有误'})
+            var validationMail = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
+            if(!(validationPhone.test(this.mobileNo)) && !(validationMail.test(this.mobileNo))){ 
+                modal.toast({ message: '手机号或邮箱格式有误'})
+                return false; 
+            }
+            var validationName = /^(?!_)(?!.*?_$)^(?!(\d+)$)[\u4e00-\u9fff\w]{3,12}$/;
+            if(!(validationName.test(this.userName))){ 
+
+                modal.alert({
+                    message: "用户名：3-12个字符 ，可使用汉字、字母、数字、下划线，不能为纯数字，且首末字符不能为下划线",
+                    duration:  0.3,
+                    okTitle:"确定"
+                    }, function(e) {                    
+
+                })
                 return false; 
             }
             if(this.userPwd.length < 1){  
                 modal.toast({ message:'请输入密码'});
                 return;  
             }
-            var validationPwd = /^(?!^\d+$)[\@A-Za-z\d\!\#\$\%\^\&\*\.\~]{6,16}$/;
+
+            // var validationPwd = /^(?!^\d+$)[\@A-Za-z\d\!\#\$\%\^\&\*\.\~]{6,16}$/;
+             var validationPwd = /^.{6,16}$/;
             if(!(validationPwd.test(this.userPwd))){ 
-                modal.toast({ message: '密码格式有误'})
+                // modal.toast({ message: '密码格式有误'})
+                modal.alert({
+                    message: "密码：6~16个字符，区分大小写",
+                    duration:  0.3,
+                    okTitle:"确定"
+                    }, function(e) {                    
+
+                })
                 return false; 
              }
             if(this.nextUserPwd != this.userPwd){  

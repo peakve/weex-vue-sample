@@ -80,12 +80,13 @@
         sendCode:function () {  
             var self = this;
             if(this.mobileNo.length < 1){  
-                modal.toast({ message:'请输入手机号'});
+                modal.toast({ message:'请输入手机号或邮箱'});
                 return;  
             }
             var validationPhone = /^((\+?[0-9]{1,4})|(\(\+86\)))?(13|14|15|17|18)\d{9}$/;
-            if(!(validationPhone.test(this.mobileNo))){ 
-                modal.toast({ message: '手机号格式有误'})
+            var validationMail = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
+            if(!(validationPhone.test(this.mobileNo)) && !(validationMail.test(this.mobileNo))){ 
+                modal.toast({ message: '手机号或邮箱格式有误'})
                 return false; 
             }
            
@@ -127,8 +128,9 @@
                 return;  
             }
             var validationPhone = /^((\+?[0-9]{1,4})|(\(\+86\)))?(13|14|15|17|18)\d{9}$/;
-            if(!(validationPhone.test(this.mobileNo))){ 
-                modal.toast({ message: '手机号格式有误'})
+            var validationMail = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
+            if(!(validationPhone.test(this.mobileNo)) && !(validationMail.test(this.mobileNo))){ 
+                modal.toast({ message: '手机号或邮箱格式有误'})
                 return false; 
             }
             if(this.vCode.length < 1){  
