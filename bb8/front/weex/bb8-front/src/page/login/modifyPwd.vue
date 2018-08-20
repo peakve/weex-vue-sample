@@ -74,9 +74,15 @@
                 modal.toast({ message:'请输入密码'});
                 return;  
             }
-            var validationPwd = /^(?!^\d+$)[\@A-Za-z\d\!\#\$\%\^\&\*\.\~]{6,16}$/;
+            var validationPwd = /^.{6,16}$/;
             if(!(validationPwd.test(this.userPwd))){ 
-                modal.toast({ message: '密码格式有误'})
+                 modal.alert({
+                    message: "密码：6~16个字符，区分大小写",
+                    duration:  0.3,
+                    okTitle:"确定"
+                    }, function(e) {                    
+
+                })
                 return false; 
              }
             if(this.nextUserPwd != this.userPwd){  
