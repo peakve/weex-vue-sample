@@ -80,7 +80,7 @@ export default{
             category:'',
             title:'',
             data:{},
-            url: apis.apiURL.baseurl+'page/activity/view?id=',
+            url: apis.apiURL.baseurl+'page/share/activity?id=',
             getHeight: 1248,
             webview_style:{width:'750px',height:'1248px'},
             isShow:true,
