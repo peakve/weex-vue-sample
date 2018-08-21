@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :style=" isIpx()?'wipx':'' ">
+  <div class="wrapper" :style=" isIPhoneX()?'wipx':'' ">
       <div class="container">
         <div class="back_click" @click="backImageClick">
             <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
@@ -58,6 +58,7 @@
 const modal = weex.requireModule('modal');
 var deviceHeight = weex.config.env.deviceHeight;
 var navigator = weex.requireModule('navigator');
+import util from '../../common/util'
 
 export default {
     data(){
@@ -71,6 +72,12 @@ export default {
         var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
         self.wipx = {top : fringeHeight+'px'};
         //modal.toast({message:'刘海高度'+fringeHeight,duration:2});
+    },
+
+    computed:{
+        isIPhoneX() {
+            return util.env.isIPhoneX()
+        },
     },
 
     methods: {
