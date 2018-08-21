@@ -64,7 +64,7 @@
     padding-top:115px;
     background-color: #ffe45f;
     width: 750px;
-    height: 114px;
+    height: 174px;
 }
 .flash_text{
     font-size: 18wx;
