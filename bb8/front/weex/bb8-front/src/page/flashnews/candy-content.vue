@@ -45,7 +45,7 @@
 }
 .wrapperipx{
     position: fixed;
-    top:246px;
+    top:174px;
     left: 0;right: 0;
     bottom: 0;
 }

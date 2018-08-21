@@ -1,6 +1,6 @@
 <template>
   <div :class="[isIPhoneX?'wrapperipx':'wrapper']"> <!--:style="isIPhoneX?'wipx':''"-->
-      <div class="container">
+      <div :class="[isIPhoneX?'containeripx':'container']">
         <div class="back_click" @click="backImageClick">
             <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
         </div>
@@ -22,15 +22,23 @@
 }
 .wrapperipx{
     position: fixed;
-    top: 132px;
+    top: 0px;
     left: 0;right: 0;
-    height: 114px;
+    height: 174px;
     z-index: 10;
 }
 .container{
     justify-content: space-between;
     flex-direction: row;
     padding-top:55px;
+    background-color: #ffe45f;
+    width: 750px;
+    height: 114px;
+}
+.containeripx{
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top:115px;
     background-color: #ffe45f;
     width: 750px;
     height: 114px;
@@ -76,7 +84,7 @@ export default {
 
     created(){
         var self = this;
-        //iPhoneX刘海高度132px,不需要再计算
+        //iPhoneX刘海高度60px,不需要再计算
         // var fringeHeight = parseInt(self.getiPhonexFringeHeight(deviceHeight));
         // self.wipx = {top : fringeHeight+'px'};
         // modal.toast({message:'刘海高度'+fringeHeight,duration:2});
