@@ -37,7 +37,7 @@
              <image class="login_bb8" resize="cover" :src="get_img_path('login_bb8.png')"></image>
              </div>
             <div class="footer_out" @click="openProtocol()">
-                <text class="color2 small_text">登录及同意</text>
+                <text class="color2 small_text">登录即同意</text>
                 <text class="color1 small_text">《51BB8财经免责声明》</text>
             </div>
          </div>
