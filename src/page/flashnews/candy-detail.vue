@@ -1,6 +1,6 @@
 <template>
     <div :class="[isIPhoneX?'wrapperipx':'wrapper']">
-        <div class="container">
+        <div :class="[isIPhoneX?'containeripx':'container']">
             <div class="back_click" @click="backImageClick">
                 <image class="back_img" :src="get_img_path('Return.png')"></image> <!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
             </div>
@@ -54,6 +54,14 @@
     justify-content: space-between;
     flex-direction: row;
     padding-top:55px;
+    background-color: #ffe45f;
+    width: 750px;
+    height: 114px;
+}
+.containeripx{
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top:115px;
     background-color: #ffe45f;
     width: 750px;
     height: 114px;
