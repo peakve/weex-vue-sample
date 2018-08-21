@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" :style=" isIpx() ? 'wipx' : '' ">
+    <div :class="[isIPhoneX?'wrapperipx':'wrapper']">
         <div class="container">
             <div class="back_click" @click="backImageClick">
                 <image class="back_img" :src="get_img_path('Return.png')"></image> <!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
@@ -23,6 +23,12 @@
 .wrapper{
     position: fixed;
     top: 0;
+    left: 0;right: 0;
+    z-index: 101;
+}
+.wrapperipx{
+    position: fixed;
+    top: 132px;
     left: 0;right: 0;
     z-index: 101;
 }
@@ -70,6 +76,7 @@ var deviceWidth = weex.config.env.deviceWidth;
 var deviceHeight = weex.config.env.deviceHeight;
 var event = weex.requireModule('event');
 import { WxcLoading } from 'weex-ui';
+import util from '../../common/util';
 
 export default{
     components: { WxcLoading },
@@ -138,6 +145,12 @@ export default{
             }
         });
 
+    },
+
+    computed:{
+        isIPhoneX() {
+            return util.env.isIPhoneX()
+        },
     },
 
     methods:{
