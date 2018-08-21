@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" > <!--:style="isIPhoneX?'':'wipx'"-->
+  <div :class="[isIPhoneX?'wrapperipx':'wrapper']" > <!--:style="isIPhoneX?'':'wipx'"-->
         <list>
             <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay" v-if="isShowLoading">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -39,7 +39,13 @@
 <style>
 .wrapper{
     position: fixed;
-    top:224px;
+    top:114px;
+    left: 0;right: 0;
+    bottom: 0;
+}
+.wrapperipx{
+    position: fixed;
+    top:246px;
     left: 0;right: 0;
     bottom: 0;
 }
