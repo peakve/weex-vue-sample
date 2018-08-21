@@ -80,7 +80,8 @@ export default{
             category:'',
             title:'',
             data:{},
-            url: apis.apiURL.baseurl+'page/share/activity?id=',
+            url: apis.apiURL.baseurl+'page/activity/view?id=',
+            shareUrl: apis.apiURL.baseurl+'page/share/activity?id=',
             getHeight: 1248,
             webview_style:{width:'750px',height:'1248px'},
             isShow:true,
@@ -150,7 +151,7 @@ export default{
         shareImageClick:function(){
             var self = this;
             var banner = self.data.banner ? self.data.banner : self.data.member ? self.data.member.logo:'';
-            event.share(self.url+self.articalId,self.data.title,banner);
+            event.share(self.shareUrl+self.articalId,self.data.title,banner);
         },
 
         onPageStart:function(){
