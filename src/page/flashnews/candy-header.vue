@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :style=" isIPhoneX ? 'wipx' : '' ">
+  <div class="wrapper" > <!--:style="isIPhoneX?'wipx':''"-->
       <div class="container">
         <div class="back_click" @click="backImageClick">
             <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->

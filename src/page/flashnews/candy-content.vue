@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :style="isIpx()?'wipx':''">
+  <div class="wrapper" > <!--:style="isIPhoneX?'':'wipx'"-->
         <list>
             <refresh class="refreshOut" @refresh="refreshData" :display="refreshDisplay" v-if="isShowLoading">
                 <loading-indicator class="indicator"></loading-indicator>
@@ -39,7 +39,7 @@
 <style>
 .wrapper{
     position: fixed;
-    top:114px;
+    top:224px;
     left: 0;right: 0;
     bottom: 0;
 }
@@ -137,6 +137,7 @@ var apis = require('../../common/action.js');
 var modal = weex.requireModule('modal');
 var deviceHeight = weex.config.env.deviceHeight;
 import { WxcLoading } from 'weex-ui';
+import util from '../../common/util';
 
 export default{
     components: { WxcLoading },
@@ -179,6 +180,12 @@ export default{
                 modal.toast({message:'网络请求失败',duration:1});
             }
         });
+    },
+
+    computed:{
+        isIPhoneX() {
+            return util.env.isIPhoneX()
+        },
     },
 
     methods:{
