@@ -1,11 +1,11 @@
 <template>
     <div :class="[isIPhoneX?'wrapperipx':'wrapper']">
         <div :class="[isIPhoneX?'containeripx':'container']">
-            <div class="back_click" @click="backImageClick">
+            <div :class="[isIPhoneX?'back_clickipx':'back_click']" @click="backImageClick">
                 <image class="back_img" :src="get_img_path('Return.png')"></image> <!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
             </div>
             <text class="flash_text">{{title}}</text>
-            <div class="div_share_image" @click="shareImageClick">
+            <div :class="[isIPhoneX?'div_share_imageipx':'div_share_image']" @click="shareImageClick">
                 <image class="share_img" :src="get_img_path('share.png')"></image> <!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
             </div>
         </div>
@@ -38,12 +38,20 @@
     margin-left:30px;
 }
 .back_click{
-    width: 80px;
+    width: 100px;
     height: 114px;
 }
+.back_clickipx{
+    width: 100px;
+    height: 174px;
+}
 .div_share_image{
-    width:80px;
+    width:100px;
     height: 114px;
+}
+.div_share_imageipx{
+    width:100px;
+    height: 174px;
 }
 .share_img{
     width:35px;

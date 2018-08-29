@@ -1,11 +1,11 @@
 <template>
   <div :class="[isIPhoneX?'wrapperipx':'wrapper']"> <!--:style="isIPhoneX?'wipx':''"-->
       <div :class="[isIPhoneX?'containeripx':'container']">
-        <div class="back_click" @click="backImageClick">
+        <div :class="[isIPhoneX?'back_clickipx':'back_click']" @click="backImageClick">
             <image class="back_img" :src="get_img_path('Return.png')"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
         </div>
         <text class="flash_text">糖果</text>
-        <div class="div_search_image">
+        <div :class="[isIPhoneX?'div_search_imageipx':'div_search_image']">
             <!--<image class="search_img" :src="get_img_path('search.png')"></image>  src="/assets/images/search.png":src="get_img_path('search.png')"-->
         </div>
       </div>
@@ -49,8 +49,12 @@
     margin-left:30px;
 }
 .back_click{
-    width: 80px;
+    width: 100px;
     height: 114px;
+}
+.back_clickipx{
+    width: 100px;
+    height: 174px;
 }
 .flash_text{
     font-size: 18wx;
@@ -58,9 +62,12 @@
     text-align: center;
 }
 .div_search_image{
-    width:80px;
+    width:100px;
     height: 114px;
-    margin-right: 30px;
+}
+.div_search_imageipx{
+    width:100px;
+    height: 174px;
 }
 .search_img{
     width:35px;
