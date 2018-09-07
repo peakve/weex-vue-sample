@@ -203,29 +203,33 @@
 .input {  
     height: 85px;  
     width: 650px;  
-    padding-left: 90px;  
+    padding-left: 70px;  
     padding-top: 15px;  
     padding-bottom: 15px;  
     border-color: #eeeeef;  
     border-radius:10px;  
     outline: none;  
+    font-size: 28px;
+    placeholder-color:#c2c2c2
 }  
 .input_code {  
     height: 85px;  
     width: 450px;  
-    padding-left: 90px;  
+    padding-left: 70px;  
     padding-top: 15px;  
     padding-bottom: 15px;  
     border-color: #eeeeef;  
     border-radius:10px;  
     outline: none;  
+    font-size: 28px;
+    placeholder-color:#c2c2c2
 }  
 .input_img{  
     position: absolute;  
-    top:19px;  
+    top:21px;  
     left: 18px;  
-    width:45px;  
-    height: 45px;  
+    width:40px;  
+    height: 40px;  
 }  
 .input_register{  
     height: 85px;  
@@ -250,7 +254,7 @@
     width: 170px ;
     text-align: center;
     padding: 0 10px;
-    font-size: 30px
+    font-size: 28px
 }
 .input_forget{  
     position: absolute;  
