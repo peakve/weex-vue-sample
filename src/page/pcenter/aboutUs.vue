@@ -7,8 +7,8 @@
          <image class="bb8_logo" resize="cover" :src="get_img_path('bb8_logo.png')"></image>
          <div class='main_centent'>
             <text class='text_one'>{{textone}}</text>
-            <!-- <text class='text_one'>{{texttwo}}</text>
-            <text class='text_one'>{{textthree}}</text>
+            <text class='text_one'>{{texttwo}}</text>
+              <!--<text class='text_one'>{{textthree}}</text>
             <text class='text_one'>{{textfour}}</text> -->
         </div>
       </div>
@@ -26,8 +26,8 @@
   export default {
     components: {WxcLoading,pcenterHeader,WxcCell},
     data: () => ({
-        textone:'51BB8财经（币唯app），领先的数字货币行情及资讯智能服务平台。 对接全球300+交易所，实时监控3000多种数字货币行情变化，基于大数据处理建立海量行情的智投模型；聚合全球区块链领域24h最新资讯，提供新闻舆情AI分析及智选推送服务，帮助用户挖掘数据价值、甄别权威信息，辅助投资决策。',
-        // texttwo:'对接全球各大交易所，上千种数字货币全天候行情监控，实时数据更新，并提供多时间维度及全网/交易所数据切换，满足不同用户的个性化需求。',
+        textone:'51BB8财经（币唯app），领先的数字货币行情及资讯智能服务平台。',
+        texttwo:'对接全球300+交易所，实时监控3000多种数字货币行情变化，基于大数据处理建立海量行情的智投模型；聚合全球区块链领域24h最新资讯，提供新闻舆情AI分析及智选推送服务，帮助用户挖掘数据价值、甄别权威信息，辅助投资决策。',
         // textthree:'基于分布式存储和网格计算等大数据处理，对海量数字货币行情进行实时分析，帮助用户快速把握重大行情、紧抓市场热点。',
         // textfour:'汇聚全球区块链领域24小时即时要闻、行业动态、监管政策，为行业机构及用户提供海量资讯信息聚合服务。',
     }),
