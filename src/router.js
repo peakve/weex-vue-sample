@@ -53,6 +53,7 @@ import contactUs from './page/pcenter/contactUs.vue'
 import disclaimer from './page/pcenter/disclaimer.vue'
 import loginDisclaimer from './page/pcenter/loginDisclaimer.vue'
 import modifyInfo from './page/login/modifyInfo.vue'
+import fastLogin from './page/login/fastLogin.vue'
 // const ViewHome = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewHome')
 // const ViewMy = r => require.ensure([], () => r(require('./page/home/home.vue')), 'ViewMy')
 // const bbtop = r => require.ensure([], () => r(require('./page/home/bbtop.vue')), 'bbtop')
@@ -78,7 +79,7 @@ Vue.use(Router)
 export default new Router({
     // mode: 'abstract',
     routes: [
-        { path: '/', redirect: '/login' },
+        { path: '/', redirect: '/fastLogin' },
         { path: '/tmp', name: "tmp", component: tmp },
         {
             path: '/home',
@@ -150,5 +151,6 @@ export default new Router({
         { path: '/serexchangeTwitter', component: serExchangeTwitter },
         { path: '/servoice', component: serVoice },
         { path: '/sernewcoin', component: serNewcoin },
+        { path: '/fastLogin', component: fastLogin },
     ]
 })
