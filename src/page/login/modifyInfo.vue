@@ -163,12 +163,14 @@
 .input_code {  
     height: 85px;  
     width: 450px;  
-    padding-left: 90px;  
+    padding-left: 70px;  
     padding-top: 15px;  
     padding-bottom: 15px;  
     border-color: #eeeeef;  
     border-radius:10px;  
     outline: none;  
+    font-size: 28px;
+    placeholder-color:#c2c2c2
 }  
 .input_img{  
     position: absolute;  

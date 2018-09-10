@@ -51,7 +51,7 @@ export default {
     methods: {
         closeBack(){
           //  modal.toast({ message:this.data.title});
-            if(this.data.title=='登录' || this.data.title=='修改用户名' || this.data.title=='修改密码'){
+            if(this.data.title=='登录' || this.data.title=='修改用户名' || this.data.title=='修改密码'  || this.data.title=='快速登录'){
                 if(event.dismissViewController("") != undefined){
                         event.dismissViewController("");
                 }
