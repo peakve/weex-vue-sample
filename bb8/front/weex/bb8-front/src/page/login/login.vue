@@ -15,6 +15,11 @@
             </div>  
              <div class="input_wrapper">  
                 <!--<text class="input-forget" >注册</text>  -->
+                <div  class="input_fastlogin_out">
+                  <div class="register_out">
+                    <text class="input_register color1"  @click="jump('/fastLogin')">快速登录</text>
+                  </div>
+               </div>
                <div  class="input_register_out">
                   <div class="register_out">
                     <text class="input_register color1"  @click="jump('/register')">注册 /</text>
@@ -272,6 +277,12 @@
     left: 30px;  
 }  
 .input_register_out{
+    position: absolute;  
+    left: 10px;  
+    height:40px;
+    font-size: 24px;
+}
+.input_fastlogin_out{
     position: absolute;  
     right: 10px;  
     height:40px;
