@@ -4,7 +4,7 @@ var modal = weex.requireModole('modal');*/
 var apiURL = {
 
     //测试本机地址
-    //baseurl: 'http://192.168.3.118:8888/web/',
+    // baseurl: 'http://192.168.3.118:8888/web/',
     //开发地址
     baseurl: 'https://www.51bb8.com/web/',
 
@@ -308,4 +308,12 @@ exports.requireModifyInfo = function(data, callback) {
 //糖果 空投 注册邀请
 exports.requireActivityList = function(data, callback) {
     postData(apiURL.baseurl + 'api/activity/list', data, callback);
+};
+//快速登录发送验证码
+exports.requireFastLoginValidate = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/sendSms', data, callback);
+};
+//快速登录发送验证码
+exports.requireFastLogin = function(data, callback) {
+    postData(apiURL.baseurl + 'api/user/phoneLogin', data, callback);
 };
