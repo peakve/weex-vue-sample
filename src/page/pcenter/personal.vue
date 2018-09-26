@@ -69,7 +69,8 @@
             
         <div class="contact_us">
           <wxc-cell 
-                :has-top-border="false">
+                :has-top-border="false"
+                @wxcCellClicked="openWebView('http://wpa.qq.com/msgrd?v=3&uin=3046951607&site=qq&menu=yes')">
                  <div class="label_out"  slot="label">
                 <image class="phone_image"
                  :src="get_img_path('qq.png')">
@@ -80,7 +81,8 @@
              
             </wxc-cell>
              <wxc-cell 
-                :has-top-border="false">
+                :has-top-border="false"
+                @wxcCellClicked="openWebView('http://wpa.qq.com/msgrd?v=3&uin=1143758324&site=qq&menu=yes')">
                 <div class="label_out"  slot="label">
                 <image class="phone_image"
                  :src="get_img_path('qq.png')">
@@ -89,8 +91,10 @@
                     <text class="desc_text">1143758324</text>
                 </div>
             </wxc-cell>
+            <!--  @wxcCellClicked="wxcButtonClicked('wxc-popover2')"  @wxcCellClicked="setClipBoard('2026927046')"> -->
             <wxc-cell 
-                :has-top-border="false">
+                :has-top-border="false"
+                @wxcCellClicked="openWebView('http://wpa.qq.com/msgrd?v=3&uin=2818392801&site=qq&menu=yes')">
                  <div class="label_out"  slot="label">
                 <image class="phone_image"
                  :src="get_img_path('qq.png')">
@@ -100,7 +104,8 @@
                 </div>
             </wxc-cell>
             <wxc-cell 
-                :has-top-border="false">
+                :has-top-border="false"
+                @wxcCellClicked="openWebView('http://wpa.qq.com/msgrd?v=3&uin=2026927046&site=qq&menu=yes')">
                 <div class="label_out"  slot="label">
                     <image class="phone_image"
                     :src="get_img_path('qq.png')">
@@ -110,7 +115,8 @@
                 </div>
             </wxc-cell>
                  <wxc-cell 
-                :has-top-border="false">
+                :has-top-border="false"
+                @wxcCellClicked="openWebView('mailto:service@51bb8.com')">
                 <div class="label_out"  slot="label">
                     <image class="phone_image"
                     :src="get_img_path('mailbox.png')">
@@ -120,13 +126,14 @@
                 </div>
             </wxc-cell>
              <wxc-cell 
-                :has-top-border="false">
+                :has-top-border="false"
+                @wxcCellClicked="openWebView('http://www.51bb8.com')">
                 <div class="label_out"  slot="label">
                     <image class="phone_image"
                       :src="get_img_path('network.png')">
                     </image>
                     <text class="label_out_text">官方网址</text>
-                     <text class="desc_text">http://www.51bb8.com</text>
+                    <text class="desc_text">http://www.51bb8.com</text>
                 </div>
             </wxc-cell>
             <div class="personal_info">
@@ -173,7 +180,14 @@
             </wxc-cell>
             </div>
         </div>
-            
+             <!-- demo 2 pop -->
+        <wxc-popover ref="wxc-popover2"
+                     :buttons="btns2"
+                     :position="popoverPosition2"
+                     :arrowPosition="popoverArrowPosition2"
+                     @wxcPopoverButtonClicked="popoverButtonClicked"
+                     :textStyle="popoverStyle"
+        ></wxc-popover>
            
         </div>
         
@@ -189,15 +203,16 @@
 <style src="../../assets/style/app.css"></style>
 <script>
   import pcenterHeader from './pcenterHeader.vue'
-  import { WxcLoading,WxcCell } from 'weex-ui';
+  import { WxcLoading,WxcCell, WxcMinibar, WxcButton, WxcPopover } from 'weex-ui';
   import util from '../../common/util'
   var apis = require('../../common/action.js');
   var common = require('../../common/common.js');
   const modal = weex.requireModule('modal');
   const event = weex.requireModule('event');
   const globalEvent = weex.requireModule('globalEvent');
+  const clipboard = weex.requireModule('clipboard')
   export default {
-    components: {WxcLoading,pcenterHeader,WxcCell},
+    components: {WxcLoading,pcenterHeader,WxcCell, WxcMinibar, WxcButton, WxcPopover},
     data: () => ({
         fontSize: '15px',
         color: '#292b32',
@@ -215,7 +230,19 @@
         },
         loginStyle: {
             height: "160px"
+        },
+        popoverStyle:{
+            color:'#ffffff',
+            background: "#000000"
+        },
+         btns2: [
+        {
+          text: '复制',
+          key: 's1'
         }
+      ],
+      popoverPosition2: { x: 590, y: 310 },
+      popoverArrowPosition2: { pos: 'bottom', x: 52 },
     }),
     computed: {
      
@@ -243,6 +270,12 @@
         });
     },
     methods:{  
+        popoverButtonClicked (obj) {
+        modal.toast({ 'message': `key:${obj.key}, index:${obj.index}`, 'duration': 1 });
+      },
+      wxcButtonClicked (ref='wxc-popover2') {
+        this.$refs[ref].wxcPopoverShow();
+      },
        userInfo(){
          var self=this;
          self.isShowLoad = true;
@@ -306,6 +339,12 @@
         },
         goLogin(){
             event.openURL(apis.apiURL.basepath+"index.js");
+        },
+        openWebView(url){
+            event.openWebView(url,"");
+        },
+        setClipBoard(res){
+            clipboard.setString(res)
         },
         valedateExit(){
             var self=this;
