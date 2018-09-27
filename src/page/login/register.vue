@@ -115,12 +115,6 @@
                 modal.toast({ message:'请输入手机号或邮箱'});
                 return;  
             }
-            var validationPhone = /^((\+?[0-9]{1,4})|(\(\+86\)))?(13|14|15|17|18)\d{9}$/;
-            var validationMail = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
-            if(!(validationPhone.test(this.mobileNo)) && !(validationMail.test(this.mobileNo))){ 
-                modal.toast({ message: '手机号或邮箱格式有误'})
-                return false; 
-            }
             var validationName = /^(?!_)(?!.*?_$)^(?!(\d+)$)[\u4e00-\u9fff\w]{3,12}$/;
             if(!(validationName.test(this.userName))){ 
 
@@ -133,12 +127,39 @@
                 })
                 return false; 
             }
+            var validationPhone = /^((\+?[0-9]{1,4})|(\(\+86\)))?(13|14|15|17|18)\d{9}$/;
+            var validationMail = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
+            if(!(validationPhone.test(this.mobileNo)) && !(validationMail.test(this.mobileNo))){ 
+                modal.toast({ message: '手机号或邮箱格式有误'})
+                return false; 
+            }
+             if(this.userPwd.length < 1){  
+                modal.toast({ message:'请输入密码'});
+                return;  
+            }
+            var validationPwd = /^.{6,16}$/;
+            if(!(validationPwd.test(this.userPwd))){ 
+                modal.alert({
+                    message: "密码：6~16个字符，区分大小写",
+                    duration:  0.3,
+                    okTitle:"确定"
+                    }, function(e) {                    
+
+                })
+                return false; 
+             }
+            if(this.nextUserPwd != this.userPwd){  
+                modal.toast({ message:'输入的2次密码不同'});
+                return;  
+            }
            
             if(self.datatime.judgetime){
                 self.isShowLoad = true;
                 apis.requireSignUpValidate({
                     "account" : self.userName,
                     "emailOrPhone" : self.mobileNo,
+                    "password" : self.userPwd,
+                    "confirmPassword" : self.nextUserPwd,
                 },function(res){
                     self.isShowLoad = false;
                     if(res.respond.ok){
