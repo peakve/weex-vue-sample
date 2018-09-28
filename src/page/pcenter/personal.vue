@@ -13,11 +13,11 @@
         <div class="my_module_out" v-if="isLogin">
         <div class="line_gary"></div>
         <div class="my_module_content" >
-            <div class="module_item">
+            <div class="module_item" @click="openController('MyOptionalViewController')">
                 <image class="module_image" :src="get_img_path('wx_optional.png')"></image>
                 <text class="exit_btn color1">自选</text>
             </div>
-              <div class="module_item">
+              <div class="module_item" @click="openController('MySubscribeViewController')">
                 <image class="module_image" :src="get_img_path('wx_attention.png')"></image>
                 <text class="exit_btn color1">关注</text>
             </div>
@@ -270,6 +270,12 @@
         });
     },
     methods:{  
+
+        openController(controllerName){
+
+            event.openController(controllerName);
+        },
+
         popoverButtonClicked (obj) {
         modal.toast({ 'message': `key:${obj.key}, index:${obj.index}`, 'duration': 1 });
       },
