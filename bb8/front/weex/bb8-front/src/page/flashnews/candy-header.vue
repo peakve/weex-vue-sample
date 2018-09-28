@@ -2,7 +2,7 @@
   <div :class="[isIPhoneX?'wrapperipx':'wrapper']"> <!--:style="isIPhoneX?'wipx':''"-->
       <div :class="[isIPhoneX?'containeripx':'container']">
         <div :class="[isIPhoneX?'back_clickipx':'back_click']" @click="backImageClick">
-            <image class="back_img" src="/assets/images/Return.png"></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
+            <image class="back_img" :src="get_img_path('Return.png')" ></image><!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
         </div>
         <text class="flash_text">糖果</text>
         <div :class="[isIPhoneX?'div_search_imageipx':'div_search_image']">

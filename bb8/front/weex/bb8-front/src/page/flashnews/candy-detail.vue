@@ -2,11 +2,11 @@
     <div :class="[isIPhoneX?'wrapperipx':'wrapper']">
         <div :class="[isIPhoneX?'containeripx':'container']">
             <div :class="[isIPhoneX?'back_clickipx':'back_click']" @click="backImageClick">
-                <image class="back_img" src="/assets/images/Return.png"></image> <!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
+                <image class="back_img" :src="get_img_path('Return.png')"></image> <!--src="/assets/images/Return.png"--><!--:src="get_img_path('Return.png')"-->
             </div>
             <text class="flash_text">{{title}}</text>
             <div :class="[isIPhoneX?'div_share_imageipx':'div_share_image']" @click="shareImageClick">
-                <image class="share_img" src="/assets/images/share.png"></image> <!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
+                <image class="share_img"  :src="get_img_path('share.png')" ></image> <!--src="/assets/images/share.png"--><!--:src="get_img_path('share.png')"-->
             </div>
         </div>
         <div class='content'>
@@ -28,7 +28,7 @@
 }
 .wrapperipx{
     position: fixed;
-    top: 132px;
+    /* top: 132px; */
     left: 0;right: 0;
     z-index: 101;
 }
