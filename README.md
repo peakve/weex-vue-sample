@@ -5,7 +5,7 @@ English | [简体中文](README.zh-CN.md)
 ![](https://github.com/zwwill/yanxuan-weex-demo/raw/master/banner.png)
 
 > The following is a brief step to run the demo
-> further introduction，you can read this [网易严选App感受WEEX开发](https://github.com/zwwill/blog/issues/3)
+> further introduction
 
 
 # Try
