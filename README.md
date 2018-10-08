@@ -1,6 +1,6 @@
 English | [简体中文](README.zh-CN.md)
 
-# :art: High quality Weex Demo
+# High quality Weex Demo
 weex2 + vue2
 
 ![](https://github.com/zwwill/yanxuan-weex-demo/raw/master/banner.png)
